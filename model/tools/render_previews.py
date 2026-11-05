@@ -16,7 +16,7 @@ def render(which,angle,label):
    if np.any(hi<lo): continue
    X,Y=np.meshgrid(np.arange(lo[0],hi[0]+1)+.5,np.arange(lo[1],hi[1]+1)+.5); x0,y0=tri[0,:2]; x1,y1=tri[1,:2]; x2,y2=tri[2,:2]; den=(y1-y2)*(x0-x2)+(x2-x1)*(y0-y2)
    if abs(den)<1e-10: continue
-   u=((y1-y2)*(X-x2)+(x2-x1)*(Y-y2))/den; v0=((y2-y0)*(X-x2)+(x0-x2)*(Y-y2))/den; w=1-u-v0; z=u*tri[0,2]+v0*tri[1,2]+w*tri[2,2]; sl=np.s_[lo[1]:hi[1]+1,lo[0]:hi[0]+1]; mask=(u>=0)&(v0>=0)&(w>=0)&(z>depth[sl]); n=u[:,:,None]*ns[f[0]]+v0[:,:,None]*ns[f[1]]+w[:,:,None]*ns[f[2]]; n/=np.maximum(np.linalg.norm(n,axis=2,keepdims=True),1e-9); shade=.38+.62*np.maximum(0,n@light); colors=np.clip(shade[:,:,None]*base,0,255).astype(np.uint8); img[sl][mask]=colors[mask]; depth[sl][mask]=z[mask]
+   u=((y1-y2)*(X-x2)+(x2-x1)*(Y-y2))/den; v0=((y2-y0)*(X-x2)+(x0-x2)*(Y-y2))/den; w=1-u-v0; z=u*tri[0,2]+v0*tri[1,2]+w*tri[2,2]; sl=np.s_[lo[1]:hi[1]+1,lo[0]:hi[0]+1]; mask=(u>=0)&(v0>=0)&(w>=0)&(z>depth[sl]); n=np.cross(v[f[1]]-v[f[0]],v[f[2]]-v[f[0]]); n/=max(np.linalg.norm(n),1e-15); shade=np.full(X.shape,.38+.62*max(0,float(n@light))); colors=np.clip(shade[:,:,None]*base,0,255).astype(np.uint8); img[sl][mask]=colors[mask]; depth[sl][mask]=z[mask]
  png(ROOT/'previews'/f'{which}_{label}.png',img)
 for which in ['male','female']:
  for angle,label in [(0,'front'),(90,'side'),(35,'three_quarter')]: render(which,angle,label)

@@ -1,0 +1,56 @@
+{
+  "proportions": {
+    "H": 1.757485537319809,
+    "head_height": 0.2302260398864746,
+    "head_width": 0.1535518765449524,
+    "head_depth": 0.19312240183353424,
+    "heads_tall": 7.633739164285814,
+    "shoulder_width": 0.40349307656288147,
+    "hip_width": 0.3330208957195282,
+    "thigh_outer_width": 0.4380897581577301,
+    "shoulder_hip_ratio": 1.211614891885659,
+    "shoulder_hip_ratio_thigh": 0.9210283259295178,
+    "upper_arm_len": 0.26463812660895186,
+    "forearm_len": 0.2557881191099355,
+    "hand_len": 0.19216908596770874,
+    "thigh_len": 0.3369878289137304,
+    "shin_len": 0.3520437613737292,
+    "hip_joint_height": 0.8246533125638962,
+    "knee_height": 0.489443052560091,
+    "shoulder_height": 1.3600656936566036,
+    "chin_height": 1.5272594690322876,
+    "chest_top": 1.5001600980758667,
+    "neck_exposed": 0.0270993709564209,
+    "foot_length": 0.28853583335876465
+  },
+  "torso": {
+    "waist": [
+      0.6584744072840814,
+      0.5875000000000001,
+      0.24646989645349396,
+      0.15494134330990106
+    ],
+    "hip": [
+      0.8887015477522535,
+      0.5125000000000001,
+      0.32200321746834853,
+      0.2001554567241916
+    ],
+    "bust": [
+      0.992430497600698,
+      0.7225,
+      0.31512136226512905,
+      0.2812595042544536
+    ],
+    "whr": 0.7409398677762251,
+    "waist_bust": 0.6634967475062591
+  },
+  "new_intersections": 7,
+  "resolved_intersections": 3,
+  "intersection_breakdown": {
+    "body:chest x joint:shoulder_L": 3,
+    "body:chest x joint:shoulder_R": 3,
+    "body:thigh_L x joint:knee_L": 1
+  },
+  "chest_groove_m": 0.0
+}

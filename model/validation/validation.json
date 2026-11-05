@@ -7,7 +7,6 @@
       "name": "Male_v2_Body",
       "vertices": 2858,
       "triangles": 1456,
-      "min_sampled_jacobian_determinant": 0.3933752124243211,
       "degenerate_triangles": 0,
       "face_normal_reversals": 0
     },
@@ -15,7 +14,6 @@
       "name": "Male_v2_Joints",
       "vertices": 1248,
       "triangles": 632,
-      "min_sampled_jacobian_determinant": 0.42080088792535003,
       "degenerate_triangles": 0,
       "face_normal_reversals": 0
     }
@@ -35,14 +33,14 @@
   "male_height": 1.899984359741211,
   "female_bbox": [
     [
-      -0.6175813198700988,
+      -0.5978001665771008,
       -2.840104658119458e-08,
-      -0.16478109086315412
+      -0.1649277495958049
     ],
     [
-      0.6175823224778696,
+      0.5978014622330665,
       1.7574855327606203,
-      0.17087709635270584
+      0.1534080371260643
     ]
   ],
   "female_height": 1.7574855611616669,

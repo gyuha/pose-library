@@ -1,8 +1,8 @@
 {
   "exact_indices_and_vertex_order": true,
   "source_strict_intersection_pairs": 1369,
-  "female_strict_intersection_pairs": 1386,
-  "new_strict_intersection_pairs": 67,
-  "resolved_strict_intersection_pairs": 50,
+  "female_strict_intersection_pairs": 1373,
+  "new_strict_intersection_pairs": 7,
+  "resolved_strict_intersection_pairs": 3,
   "note": "Non-coplanar strict interior intersections; shared edges/endpoints and coplanar contacts excluded. Source mannequin has overlapping shell/joint pieces."
 }

@@ -15,34 +15,65 @@
 
 ## Generation and rendering
 
-Tools: Blender 3.5.1 bundled Python 3.10 / NumPy, plus a deterministic NumPy orthographic triangle rasterizer (z-buffer, interpolated normals, diffuse light, no OpenGL). The installed Blender application crashes during startup even with `--factory-startup`, so its standalone bundled interpreter is used instead. Any Python 3 with NumPy can run these scripts.
+Tools: Python 3 + NumPy, a deterministic NumPy orthographic triangle rasterizer (z-buffer and geometric face normals), and official Node glTF validator. Blender's GUI/headless executable crashed on the original machine; Blender is not required. The QA NumPy environment is used for the revised build.
 
 From the repository root:
 
 ```sh
-/Applications/Blender.app/Contents/Resources/3.5/python/bin/python3.10 model/tools/make_female.py
-/Applications/Blender.app/Contents/Resources/3.5/python/bin/python3.10 model/tools/render_previews.py
-/Applications/Blender.app/Contents/Resources/3.5/python/bin/python3.10 model/tools/verify.py
-npm install --prefix /private/tmp/pose-model-validator --cache /private/tmp/pose-model-npm-cache gltf-validator
+PYTHONDONTWRITEBYTECODE=1 /tmp/pose-qa-venv/bin/python model/tools/make_female.py
+PYTHONDONTWRITEBYTECODE=1 /tmp/pose-qa-venv/bin/python model/tools/render_previews.py
+PYTHONDONTWRITEBYTECODE=1 /tmp/pose-qa-venv/bin/python model/tools/verify.py
+PYTHONDONTWRITEBYTECODE=1 /tmp/pose-qa-venv/bin/python model/tools/qa_summary.py
 NODE_PATH=/private/tmp/pose-model-validator/node_modules node model/tools/validate_glb.cjs
+PYTHONDONTWRITEBYTECODE=1 /tmp/pose-qa-venv/bin/python -m pytest tests -q -p no:cacheprovider
 ```
 
-The deformation narrows shoulders, waist, neck and arms; tapers the head/jaw; adds paired anterior chest volumes, broader hips, posterior gluteal volume and fuller upper thighs. Overall scale is 0.925 about the floor origin. Normals use the inverse transpose of the deformation Jacobian. No manual editing, mesh subdivision, export round-trip or remeshing is involved.
+`make_female.py` uses `deformation.py`. Components are computed from source-position-welded triangle connectivity, then classified by their source centroids; this does not import QA code. Only the chest component receives the breast field. Abdomen and pelvis receive none. Joint attributes, UVs and index buffers are untouched. `qa_summary.py` reads QA metrics to write a reviewable summary under `model/validation/`; generation is independent of tests.
 
-Female has two identity mesh nodes, Y-up, the same origin and materials. Its old male skin/skeleton is intentionally removed: this is an **unskinned base for the rigger**, not an animation-ready rig. Original JOINTS_0 / WEIGHTS_0 data and unused inverse-bind accessor are retained for reference; they do not constitute an active female binding. The rigger must fit joint positions and bind matrices for the new proportions; exact vertex/index correspondence supports weight transfer.
+Revised coefficients compared with the first female:
 
-## Validation
+- Shoulder reduction 0.22 → 0.07; waist reduction 0.32 → 0.12; broad hip term 0.38 → 0.27. These are Gaussian field amplitudes, not final measured widths.
+- Arm inward translation 37 mm → **0**. Arms and their connectors share x scale 0.94, with unchanged depth, avoiding articulation drift.
+- Breast amplitude 85 mm → **28 mm**; lateral Gaussian width 71 → **150 mm**, vertical width 85 → **190 mm**. A broad lateral falloff and upper/lower chest-only fade prevent isolated peaks and interference at the shell ends.
+- Removed the localized 48 mm posterior gluteal bump and 18 mm thigh offset. Pelvis, hip joints and upper thighs share the same affine plateau (x ×1.23, z ×1.10 in source y 0.78–0.99 m), preventing differential motion at hip contacts.
+- Neck taper fades in above source y 1.62 m; head/neck x/z narrowing is 6% / up to 10%.
+- Height remains ×0.925 around the floor origin.
 
-- Official `gltf-validator` 2.0.0-dev.3.10: female **0 errors, 2 warnings, 3 informational messages**. Warnings are `NODE_SKINNED_MESH_WITHOUT_SKIN` on the two deliberately static meshes with retained source joint attributes. Informational messages are unused UVs (no textures) and unused original inverse-bind accessor. Male: 0 errors, 2 warnings, 3 infos. Full reports are included.
-- Index arrays and source UV/joint/weight arrays compare exactly. Direct in-place POSITION/NORMAL buffer writes preserve vertex correspondence. Both models: **4,106 vertices / 2,088 triangles**.
-- Female bbox min `[-0.61758132, -0.0000000284, -0.16478109]`, max `[0.61758232, 1.75748553, 0.17087710]` m.
-- Height: male **1.89998436 m**, female **1.75748556 m**, ratio **0.925000015**, reduction **7.5%**.
-- No nonfinite position/normal values, **0 degenerate triangles**, **0 triangle-normal reversals** relative to source. Minimum sampled deformation Jacobian determinant: Body **0.393375**, Joints **0.420801**, both positive.
-- Strict noncoplanar triangle intersection check: male **1,369 pairs**, female **1,386 pairs**, **67 new / 50 resolved**. This includes intersecting disconnected mannequin shells and joint components. Endpoints, shared edges and coplanar contacts are excluded. This is a diagnostic, not proof of an intersection-free or watertight mesh. Existing and newly shifted overlaps remain; inspect articulations when rigging.
-- `previews/{male,female}_{front,side,three_quarter}.png`: same orthographic scale and camera setup. Female front, side and 3/4 images were opened and inspected. Chest projection, waist/hip contrast, narrower shoulders and fuller thighs are visible; no large inverted patches or grossly broken surfaces were observed.
+Normals are recalculated by accumulating final triangle cross products, preserving authored hard-edge groups identified by source position and source normal. No inverse-Jacobian normal transformation remains. Preview shading uses **geometric face normals**, not stored NORMAL attributes. No remeshing, subdivision or manual editing occurs.
+
+Female has two identity mesh nodes, Y-up, the same origin and materials. Its male skin/skeleton is removed: this is an **unskinned base for the rigger**. Original JOINTS_0 / WEIGHTS_0 data and the unused inverse-bind accessor remain for reference. The rigger must fit female joint positions and bind matrices.
+
+## Validation after revision
+
+**72 passed, 0 failed** using the pytest command above. Tests and scripts were read/executed without edits. Full latest generation/validator/intersection reports and QA metric summary live in `model/validation/`.
+
+| Metric | Previous female (QA report) | Revised female |
+|---|---:|---:|
+| Shoulder width | 0.325 m | 0.403493 m |
+| Hip width (pelvis/joints) | 0.381 m | 0.333021 m |
+| Shoulder / hip width | 0.85 | **1.211615** |
+| Waist / hip girth | 0.55 | **0.740940** |
+| Waist / bust girth | 0.53 | **0.663497** |
+| Waist girth | ~0.55 m | 0.658474 m |
+| Hip girth | ~1.00 m | 0.888702 m |
+| Chest central groove | ~58 mm | **0 mm** |
+| New strict intersection pairs | 67 | **7** |
+| New Body–Body intersections | ≥32 | **0** |
+
+The 7 remaining new pairs are chest–shoulder connector (3 per side) and left thigh–knee connector (1). There are **0** new chest–abdomen, chest–upper-arm, pelvis–thigh, pelvis–waist-band and abdomen–waist-band pairs. Absolute intersections are male 1,369 / female 1,373, with 3 original pairs resolved. This diagnostic excludes shared-edge/end-point and coplanar contacts; the source has intentional intersecting components.
+
+Both models retain **4,106 attribute vertices / 2,088 triangles**, exact indices, UVs, joints and weights. Female height is **1.75748554 m**, 7.5% below male **1.89998439 m**. No nonfinite values, degenerate triangles or face-normal reversals. All QA symmetry, local smoothness, stored-normal, seam and proportion checks pass.
+
+Official gltf-validator: female **0 errors, 2 warnings, 3 infos**. Warnings concern retained JOINTS/WEIGHTS on the unskinned static meshes; infos concern unused UVs and inverse-bind accessor. Source male also has 0 errors / 2 warnings / 3 infos.
+
+`previews/{male,female}_{front,side,three_quarter}.png` were rerendered with geometric face shading. The three female images were opened and inspected: the lower chest dent and pointed peaks are gone, the waist band is visible, and the pelvis is less inflated. Shape remains faceted with a restrained bust, rather than a smooth anatomical breast surface. Numerical targets were met without reverting to male waist/hip proportions.
+
+### Waist-band constraint that remains unresolved
+
+The requested strict rule “band outer radius always exceeds the pelvis top ring” is **not established by this revision**. The source band is an internal connector, not an external belt: its oblique ring axis is approximately `(0, 0.91477, 0.40398)`. At the shared lower interface, revised band x span is about **0.209 m**, while the pelvis upper ring is about **0.268 m**. Their original spans are also nested (about 0.220 / 0.282 m). A simple top-ring recess to enforce the requested ordering created a visible dent, 29 new band/pelvis intersections and 8.5 mm seam-distance growth; it was discarded. The final version retains the source's recessed connector construction, passes all 28 seam checks and has zero new band/pelvis crossings. This is a remaining design constraint, not a claim that the QA thresholds are wrong.
 
 ## Limits and attribution
 
-This retains the source's faceted, segmented low-poly mannequin aesthetic. The very sparse chest and head topology limits round breasts, subtle facial detail and muscle smoothing; the face is featureless and the chest profile remains angular. Topology preservation precludes adding anatomical detail. The result is a stylized female base, not a realistic anatomical scan or clean continuous skin. Mesh overlaps remain as quantified above.
+This retains the source's faceted, segmented low-poly mannequin aesthetic. The very sparse chest and head topology limits round breasts, subtle facial detail and muscle smoothing; the face is featureless and the chest profile remains angular. Topology preservation precludes adding anatomical detail. The result is a stylized female base, not a realistic anatomical scan or clean continuous skin. Connector overlaps remain as quantified above. The strict external-belt radius rule remains unresolved as described above.
 
 Source author: **RD3D Game Design**. Source: [UE Mannequin Demake](https://sketchfab.com/3d-models/ue-mannequin-demake-929c983369ec435196a215d29dd6d907). License: **CC BY 4.0**, as recorded in `male.glb` metadata. Female modification: procedural feminine proportions and 7.5% height reduction. Original author/license metadata is preserved in `female.glb`.
