@@ -1,0 +1,50 @@
+{
+  "source_nodes": 63,
+  "source_skins": 1,
+  "source_joints": 55,
+  "meshes": [
+    {
+      "name": "Male_v2_Body",
+      "vertices": 2858,
+      "triangles": 1456,
+      "min_sampled_jacobian_determinant": 0.3933752124243211,
+      "degenerate_triangles": 0,
+      "face_normal_reversals": 0
+    },
+    {
+      "name": "Male_v2_Joints",
+      "vertices": 1248,
+      "triangles": 632,
+      "min_sampled_jacobian_determinant": 0.42080088792535003,
+      "degenerate_triangles": 0,
+      "face_normal_reversals": 0
+    }
+  ],
+  "male_bbox": [
+    [
+      -0.687521755695343,
+      -3.0703834141831976e-08,
+      -0.1783313751220703
+    ],
+    [
+      0.6875232458114624,
+      1.899984359741211,
+      0.16584652662277222
+    ]
+  ],
+  "male_height": 1.899984359741211,
+  "female_bbox": [
+    [
+      -0.6175813198700988,
+      -2.840104658119458e-08,
+      -0.16478109086315412
+    ],
+    [
+      0.6175823224778696,
+      1.7574855327606203,
+      0.17087709635270584
+    ]
+  ],
+  "female_height": 1.7574855611616669,
+  "height_ratio": 0.9250000149480424
+}
