@@ -13,8 +13,10 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-from qa_metrics import (SCALE, girth_profile, intersection_sets, label_of_welded, models, parts, proportions,
-                        torso_measures, umbrella_delta, welded_edges, chest_groove)
+from qa_metrics import (SCALE, TRI_NEW, chest_partner_sets, chest_topology_changed, female_tri_ids, full_female,
+                        girth_profile, intersection_sets, label_of_welded, models, parts, proportions, tri_label,
+                        torso_measures, umbrella_delta, welded_edges)
+import bust_eval as be
 
 OUT = Path(__file__).resolve().parents[1] / "tests" / "artifacts"
 OUT.mkdir(parents=True, exist_ok=True)
@@ -83,42 +85,50 @@ def diverging(v, rng):
 
 def main():
     m, f = models(); L = parts(); inv, _ = welded_edges()
+    ff = full_female(); replaced = chest_topology_changed()  # 렌더는 세분화된 실제 female(ff), 지표는 원본 정점 뷰(f)
     # ---------------------------------------------------------------- 1) 가슴: 돌출/함몰 히트맵 + male 비교
     dn, _, _ = umbrella_delta()
     vcol = diverging(dn[inv], 0.03)
     box = (-0.28, 0.28, 1.0, 1.52)
     ims = [label(render(m, 0, box, 700, scale=SCALE), "male x0.925 (reference), front"),
-           label(render(f, 0, box, 700), "female front (flat shading from geometry)"),
-           label(render(f, 0, box, 700, vcolor=vcol), "female: red=bump, blue=dent (umbrella delta, +-30mm)")]
+           label(render(ff, 0, box, 700), "female front (flat shading from geometry)")]
+    if not replaced:  # 정점 단위 히트맵은 원본 정점만의 메시일 때만 의미가 있다
+        ims.append(label(render(f, 0, box, 700, vcolor=vcol), "female: red=bump, blue=dent (umbrella delta, +-30mm)"))
     side_by_side(ims, OUT / "01_chest_front_heatmap.png")
     box = (-0.30, 0.30, 1.0, 1.52)
     ims = [label(render(m, 90, box, 700, scale=SCALE), "male x0.925, side (+Z -> right)"),
-           label(render(f, 90, box, 700), "female side"),
-           label(render(f, 35, (-0.30, 0.30, 1.0, 1.52), 700), "female 3/4 view (35 deg)")]
+           label(render(ff, 90, box, 700), "female side"),
+           label(render(ff, 35, (-0.30, 0.30, 1.0, 1.52), 700), "female 3/4 view (35 deg)")]
     side_by_side(ims, OUT / "02_chest_side_and_three_quarter.png")
 
     # ---------------------------------------------------------------- 2) 교차: 신규 교차 삼각형 강조
     a, b = intersection_sets(); new = b - a
+    ids = female_tri_ids(); where = {int(t): k for k, t in enumerate(ids) if t < TRI_NEW}
     tc = {}
     for i, j in new:
+        if replaced and "body:chest" in (tri_label(i), tri_label(j)):
+            continue  # 세분화된 가슴 삼각형이 낀 쌍은 개수가 해상도에 따라 부풀므로 강조하지 않는다 (test_08 이 상대 쪽 면 집합으로 본다)
         for t in (i, j):
-            tc[t] = (235, 40, 40)
+            tc[t - TRI_NEW if t >= TRI_NEW else where[t]] = (235, 40, 40)
+    for sets in chest_partner_sets().values():  # 가슴과 새로 교차하는 상대 쪽 면
+        for t in sets[1] - sets[0]:
+            tc[where[t]] = (235, 40, 40)
     for deg, name, box in ((0, "front", (-0.35, 0.35, 0.7, 1.7)), (180, "back", (-0.35, 0.35, 0.7, 1.7)), (90, "side", (-0.3, 0.3, 0.7, 1.7))):
-        ims = [label(render(f, deg, box, 520), f"female {name} plain"), label(render(f, deg, box, 520, tcolor=tc), f"female {name}: red = new intersections")]
+        ims = [label(render(ff, deg, box, 520), f"female {name} plain"), label(render(ff, deg, box, 520, tcolor=tc), f"female {name}: red = new intersections (non-chest / chest partners)")]
         side_by_side(ims, OUT / f"03_new_intersections_{name}.png")
     # 허리/골반 확대 (파트색: Body=회색, Joints=남색)
     joint_col = np.array([[60, 80, 140] if l.startswith("joint:") else [190, 186, 182] for l in L], float)
     box = (-0.22, 0.22, 0.78, 1.22)
     ims = [label(render(m, 0, box, 900, vcolor=joint_col, scale=SCALE), "male x0.925: waist/pelvis (navy = Joints)"),
-           label(render(f, 0, box, 900, vcolor=joint_col), "female: waist/pelvis (navy = Joints)"),
-           label(render(f, 0, box, 900, tcolor=tc), "female: red = new intersections")]
+           label(render(ff, 0, box, 900, tcolor={k: (60, 80, 140) for k in range(len(ff.tri)) if ff.tri_mat[k] == 1}), "female: waist/pelvis (navy = Joints)"),
+           label(render(ff, 0, box, 900, tcolor=tc), "female: red = new intersections")]
     side_by_side(ims, OUT / "04_waist_pelvis_closeup.png")
 
     # ---------------------------------------------------------------- 3) 실루엣 비교 + 기준 폭 (정면)
     Hm, Hf = m.pos[:, 1].max(), f.pos[:, 1].max()
     box = (-0.75, 0.75, 0.0, 1.95)
     a_img = np.array(render(m, 0, box, 380, scale=SCALE, base=(120, 150, 220)))
-    b_img = np.array(render(f, 0, box, 380, base=(230, 140, 90)))
+    b_img = np.array(render(ff, 0, box, 380, base=(230, 140, 90)))
     bgm = (a_img.sum(2) < 3 * 236); bgf = (b_img.sum(2) < 3 * 236)
     out = np.full(a_img.shape, 255, np.uint8)
     out[bgm] = (140, 170, 235); out[bgf] = (240, 160, 100); out[bgm & bgf] = (170, 150, 150)
@@ -158,6 +168,42 @@ def main():
     ax.barh([k for k, _ in vals], [v for _, v in vals], color=["tab:red" if abs(v - 1) > .15 else "tab:gray" for _, v in vals])
     ax.axvline(1, color="k", lw=.8); ax.set_xlabel("(female / H) / (male / H)   1.0 = unchanged relative to height"); ax.invert_yaxis()
     ax.set_title("What the morph changed, normalised by body height"); fig.tight_layout(); fig.savefig(OUT / "07_ratio_change.png", dpi=110); plt.close(fig); print("saved 07")
+    bust_images(ff, m)
+
+
+def bust_images(ff, m):
+    """08: 가슴 측면/정면/3/4 클로즈업(female vs male). 09: 시상 윤곽 + 초과 높이 지도 + 수평 윤곽 그래프."""
+    ims = [label(render(m, 90, (-0.06, 0.20, 1.05, 1.50), 1100, scale=SCALE), "male x0.925, side (+Z -> right)"),
+           label(render(ff, 90, (-0.06, 0.20, 1.05, 1.50), 1100), "female side"),
+           label(render(ff, 0, (-0.20, 0.20, 1.05, 1.50), 1100), "female front"),
+           label(render(ff, 35, (-0.22, 0.22, 1.05, 1.50), 1100), "female 3/4 (35 deg)")]
+    side_by_side(ims, OUT / "08_bust_closeups.png")
+    F = be.evaluate("female"); M = be.evaluate("male")
+    fig, ax = plt.subplots(1, 3, figsize=(15, 5))
+    for who, R, col in (("male", M, "tab:blue"), ("female", F, "tab:orange")):
+        xs, ys, Z, E = R["analysis"]["_grid"]
+        side = R["analysis"]["right"]
+        cx = side["apex"][0] if side else 0.09; ya = side["apex"][1] if side else 1.3
+        i = int(np.argmin(np.abs(xs - cx)))
+        ax[0].plot(Z[:, i], ys, color=col, label=f"{who}: z at x={cx:.3f}")
+        j = int(np.argmin(np.abs(ys - ya)))
+        ax[1].plot(xs, Z[j, :], color=col, label=f"{who}: z at y={ya:.3f}")
+    # 오른쪽 유방 평면/곡면 흉벽 윤곽 (female)
+    a = F["analysis"]
+    if a["right"]:
+        xs, ys, Z, E = a["_grid"]
+        cx, cy = a["plane_coef"]["right"]["center"]; c = np.array(a["plane_coef"]["right"]["coef"])
+        i = int(np.argmin(np.abs(xs - a["right"]["apex"][0])))
+        yy = ys; dx = xs[i] - cx; dy = yy - cy
+        wall = c[0] + c[1] * dx + c[2] * dy + c[3] * dx * dx + c[4] * dy * dy + c[5] * dx * dy
+        ax[0].plot(wall, yy, "k--", lw=1, label="female: fitted chest wall")
+        Em = a.get("_Emid", E)
+        im = ax[2].imshow(Em * 1000, extent=[xs[0], xs[-1], ys[0], ys[-1]], origin="lower", cmap="RdBu_r", vmin=-30, vmax=70, aspect="equal")
+        fig.colorbar(im, ax=ax[2], label="excess height over chest wall [mm]")
+        ax[2].set_title("female: excess over chest wall (incl. x=0); band across = uniboob")
+    ax[0].set_title("sagittal profile through apex (z vs height)"); ax[0].set_xlabel("z [m] (front +)"); ax[0].set_ylabel("y [m]"); ax[0].legend(fontsize=7); ax[0].grid(alpha=.3)
+    ax[1].set_title("horizontal profile at apex height (cleavage at x=0)"); ax[1].set_xlabel("x [m]"); ax[1].set_ylabel("z [m]"); ax[1].legend(fontsize=7); ax[1].grid(alpha=.3)
+    fig.tight_layout(); fig.savefig(OUT / "09_bust_profiles.png", dpi=110); plt.close(fig); print("saved 09")
 
 
 if __name__ == "__main__":

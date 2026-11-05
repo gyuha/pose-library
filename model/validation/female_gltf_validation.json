@@ -2,11 +2,11 @@
   "uri": "female.glb",
   "mimeType": "model/gltf-binary",
   "validatorVersion": "2.0.0-dev.3.10",
-  "validatedAt": "2026-11-05T05:41:29.942Z",
+  "validatedAt": "2026-11-05T08:02:11.734Z",
   "issues": {
     "numErrors": 0,
-    "numWarnings": 2,
-    "numInfos": 3,
+    "numWarnings": 1,
+    "numInfos": 2,
     "numHints": 0,
     "messages": [
       {
@@ -19,38 +19,26 @@
         "code": "UNUSED_OBJECT",
         "message": "This object may be unused.",
         "severity": 2,
-        "pointer": "/meshes/1/primitives/0/attributes/TEXCOORD_0"
+        "pointer": "/meshes/0/primitives/1/attributes/TEXCOORD_0"
       },
       {
         "code": "NODE_SKINNED_MESH_WITHOUT_SKIN",
         "message": "Node uses skinned mesh, but has no skin defined.",
         "severity": 1,
         "pointer": "/nodes/0"
-      },
-      {
-        "code": "NODE_SKINNED_MESH_WITHOUT_SKIN",
-        "message": "Node uses skinned mesh, but has no skin defined.",
-        "severity": 1,
-        "pointer": "/nodes/1"
-      },
-      {
-        "code": "UNUSED_OBJECT",
-        "message": "This object may be unused.",
-        "severity": 2,
-        "pointer": "/accessors/12"
       }
     ],
     "truncated": false
   },
   "info": {
     "version": "2.0",
-    "generator": "make_female.py; exact topology morph",
+    "generator": "make_female.py + refine_chest.py",
     "resources": [
       {
         "pointer": "/buffers/0",
         "mimeType": "application/gltf-buffer",
         "storage": "glb",
-        "byteLength": 258512
+        "byteLength": 770296
       }
     ],
     "animationCount": 0,
@@ -60,8 +48,8 @@
     "hasTextures": false,
     "hasDefaultScene": true,
     "drawCallCount": 2,
-    "totalVertexCount": 4106,
-    "totalTriangleCount": 2088,
+    "totalVertexCount": 21694,
+    "totalTriangleCount": 13572,
     "maxUVs": 1,
     "maxInfluences": 4,
     "maxAttributes": 5

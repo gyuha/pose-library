@@ -1,59 +1,21 @@
-.............FFFFF............................FF.FF.FFF................. [100%]
+..................................s..................s.s.s.............. [ 63%]
+s..................................FFF...                                [100%]
 =================================== FAILURES ===================================
-E   AssertionError: 신축비 [0.65,1.50] 밖 모서리 18개 (thigh:6, hip_joint:4, upper_arm:2, chest:2, abdomen:2, pelvis:2). 최악: body:upper_arm_L ratio=0.59 male(0.204,1.421,-0.158); body:upper_arm_R ratio=0.59 male(-0.276,1.412,-0.171); body:thigh_L ratio=1.55 male(0.137,0.920,-0.056); body:thigh_R ratio=1.55 male(-0.147,0.907,0.025)
-    assert 18 == 0
-     +  where 18 = len(array([ 744,  976, 1065, 1092, 1099, 1169, 1285, 1334, 1350, 1748, 1783,\n       1890, 1899, 2075, 2098, 2163, 2166, 2341]))
-/Users/gyuha/workspace/pose-library/tests/test_03_deformation_smoothness.py:28: AssertionError: 신축비 [0.65,1.50] 밖 모서리 18개 (thigh:6, hip_joint:4, upper_arm:2, chest:2, abdomen:2, pelvis:2). 최악: body:upper_arm_L ratio=0.59 male(0.204,1.421,-0.158); body:upper_arm_R ratio=0.59 male(-0.276,1.412,-0.171); body:thigh_L ratio=1.55 male(0.137,0.920,-0.056); body:thigh_R ratio=1.55 male(-0.147,0.907,0.025)
-E   AssertionError: |돌출변화|>15mm 정점 18개 (chest:6, hip_joint:6, pelvis:5, abdomen:1). 상위: +62mm body:chest v379 body:chest male(-0.095,1.371,0.100)->fem(-0.077,1.268,0.171); +62mm body:chest v313 body:chest male(0.095,1.371,0.100)->fem(0.077,1.268,0.171); +24mm body:pelvis v1665 body:pelvis male(-0.136,0.949,-0.063)->fem(-0.167,0.877,-0.097); +24mm body:pelvis v1615 body:pelvis male(0.136,0.949,-0.063)->fem(0.167,0.877,-0.097); +22mm joint:hip_joint_R v2946 joint:hip_joint_R male(-0.146,0.886,-0.047)->fem(-0.190,0.819,-0.078); +22mm joint:hip_joint_L v2887 joint:hip_joint_L male(0.146,0.886,-0.047)->fem(0.190,0.819,-0.078); -20mm body:chest v317 body:chest male(0.000,1.372,0.108)->fem(0.000,1.269,0.112); +20mm body:pelvis v1668 body:pelvis male(-0.132,0.903,0.024)->fem(-0.172,0.835,0.023)
-    assert 18 == 0
-     +  where 18 = len(array([352, 387, 388, 416, 426, 480, 482, 488, 507, 576, 578, 670, 679,\n       733, 743, 771, 772, 807]))
-/Users/gyuha/workspace/pose-library/tests/test_03_deformation_smoothness.py:37: AssertionError: |돌출변화|>15mm 정점 18개 (chest:6, hip_joint:6, pelvis:5, abdomen:1). 상위: +62mm body:chest v379 body:chest male(-0.095,1.371,0.100)->fem(-0.077,1.268,0.171); +62mm body:chest v313 body:chest male(0.095,1.371,0.100)->fem(0.077,1.268,0.171); +24mm body:pelvis v1665 body:pelvis male(-0.136,0.949,-0.063)->fem(-0.167,0.877,-0.097); +24mm body:pelvis v1615 body:pelvis male(0.136,0.949,-0.063)->fem(0.167,0.877,-0.097); +22mm joint:hip_joint_R v2946 joint:hip_joint_R male(-0.146,0.886,-0.047)->fem(-0.190,0.819,-0.078); +22mm joint:hip_joint_L v2887 joint:hip_joint_L male(0.146,0.886,-0.047)->fem(0.190,0.819,-0.078); -20mm body:chest v317 body:chest male(0.000,1.372,0.108)->fem(0.000,1.269,0.112); +20mm body:pelvis v1668 body:pelvis male(-0.132,0.903,0.024)->fem(-0.172,0.835,0.023)
-E   AssertionError: 가슴 중앙 홈 깊이 58 mm (male 0 mm), male 높이 y=1.371, 돌출 정점 v313 body:chest male(0.095,1.371,0.100)->fem(0.077,1.268,0.171)
-    assert 0.05844099074602127 <= 0.02
-/Users/gyuha/workspace/pose-library/tests/test_03_deformation_smoothness.py:43: AssertionError: 가슴 중앙 홈 깊이 58 mm (male 0 mm), male 높이 y=1.371, 돌출 정점 v313 body:chest male(0.095,1.371,0.100)->fem(0.077,1.268,0.171)
-E   AssertionError: male 에서 정합(<5°)이던 삼각형 41개가 female 에서 >15° 어긋남 (abdomen:17, chest:12, thigh:6, pelvis:4, hip_joint:2). 상위: 45° body:chest v314 body:chest male(0.000,1.245,0.120)->fem(0.000,1.152,0.108); 45° body:chest v382 body:chest male(0.000,1.245,0.120)->fem(0.000,1.152,0.108); 41° body:chest v314 body:chest male(0.000,1.245,0.120)->fem(0.000,1.152,0.108); 41° body:chest v382 body:chest male(0.000,1.245,0.120)->fem(0.000,1.152,0.108); 41° body:chest v390 body:chest male(0.000,1.372,0.108)->fem(0.000,1.269,0.112)
-    assert 41 == 0
-     +  where 41 = len(array([ 146,  147,  148,  149,  150,  152,  180,  181,  182,  183,  185,\n        187,  654,  661,  662,  663,  664,  6...97,  702,  703,  706,  707,  726,  727,  814,  815,  838,  839,\n       1046, 1047, 1063, 1110, 1111, 1126, 1473, 1493]))
-/Users/gyuha/workspace/pose-library/tests/test_03_deformation_smoothness.py:53: AssertionError: male 에서 정합(<5°)이던 삼각형 41개가 female 에서 >15° 어긋남 (abdomen:17, chest:12, thigh:6, pelvis:4, hip_joint:2). 상위: 45° body:chest v314 body:chest male(0.000,1.245,0.120)->fem(0.000,1.152,0.108); 45° body:chest v382 body:chest male(0.000,1.245,0.120)->fem(0.000,1.152,0.108); 41° body:chest v314 body:chest male(0.000,1.245,0.120)->fem(0.000,1.152,0.108); 41° body:chest v382 body:chest male(0.000,1.245,0.120)->fem(0.000,1.152,0.108); 41° body:chest v390 body:chest male(0.000,1.372,0.108)->fem(0.000,1.269,0.112)
-E   AssertionError: 면 법선이 male 대비 30° 초과 회전한 삼각형 14개 (pelvis:8, chest:6). 상위: 42° v314 body:chest male(0.000,1.245,0.120)->fem(0.000,1.152,0.108); 42° v382 body:chest male(0.000,1.245,0.120)->fem(0.000,1.152,0.108); 39° v322 body:chest male(0.000,1.372,0.108)->fem(0.000,1.269,0.112); 39° v390 body:chest male(0.000,1.372,0.108)->fem(0.000,1.269,0.112); 36° v1614 body:pelvis male(0.148,1.019,-0.057)->fem(0.144,0.943,-0.064); 36° v1662 body:pelvis male(-0.148,1.019,-0.057)->fem(-0.144,0.943,-0.064)
-    assert 14 == 0
-     +  where 14 = len(array([148, 149, 152, 182, 183, 187, 801, 804, 805, 824, 828, 829, 833,\n       850]))
-/Users/gyuha/workspace/pose-library/tests/test_03_deformation_smoothness.py:62: AssertionError: 면 법선이 male 대비 30° 초과 회전한 삼각형 14개 (pelvis:8, chest:6). 상위: 42° v314 body:chest male(0.000,1.245,0.120)->fem(0.000,1.152,0.108); 42° v382 body:chest male(0.000,1.245,0.120)->fem(0.000,1.152,0.108); 39° v322 body:chest male(0.000,1.372,0.108)->fem(0.000,1.269,0.112); 39° v390 body:chest male(0.000,1.372,0.108)->fem(0.000,1.269,0.112); 36° v1614 body:pelvis male(0.148,1.019,-0.057)->fem(0.144,0.943,-0.064); 36° v1662 body:pelvis male(-0.148,1.019,-0.057)->fem(-0.144,0.943,-0.064)
-E   AssertionError: 신규 67 (해소 50, male 1369 -> female 1386); body:pelvis x joint:waist_band:22, body:abdomen x body:chest:14, body:pelvis x body:thigh_L:5, body:pelvis x body:thigh_R:5, body:chest x body:upper_arm_L:4, body:chest x body:upper_arm_R:4, body:pelvis x joint:hip_joint_R:3, body:pelvis x joint:hip_joint_L:2
-    assert 67 <= 10
-/Users/gyuha/workspace/pose-library/tests/test_05_intersections.py:16: AssertionError: 신규 67 (해소 50, male 1369 -> female 1386); body:pelvis x joint:waist_band:22, body:abdomen x body:chest:14, body:pelvis x body:thigh_L:5, body:pelvis x body:thigh_R:5, body:chest x body:upper_arm_L:4, body:chest x body:upper_arm_R:4, body:pelvis x joint:hip_joint_R:3, body:pelvis x joint:hip_joint_L:2
-E   AssertionError: Body 쉘끼리 신규 교차: body:abdomen x body:chest:14, body:pelvis x body:thigh_L:5, body:pelvis x body:thigh_R:5, body:chest x body:upper_arm_L:4, body:chest x body:upper_arm_R:4
-    assert 32 <= 4
-     +  where 32 = sum(dict_values([4, 4, 5, 14, 5]))
-     +    where dict_values([4, 4, 5, 14, 5]) = <built-in method values of dict object at 0x107159b00>()
-     +      where <built-in method values of dict object at 0x107159b00> = {'body:chest x body:upper_arm_L': 4, 'body:chest x body:upper_arm_R': 4, 'body:pelvis x body:thigh_L': 5, 'body:abdomen x body:chest': 14, ...}.values
-/Users/gyuha/workspace/pose-library/tests/test_05_intersections.py:22: AssertionError: Body 쉘끼리 신규 교차: body:abdomen x body:chest:14, body:pelvis x body:thigh_L:5, body:pelvis x body:thigh_R:5, body:chest x body:upper_arm_L:4, body:chest x body:upper_arm_R:4
-E   AssertionError: 어깨 링 바깥폭/키 = 0.185 (female 32.5 cm / 1.757 m). 기준 0.22~0.27 (Winter 0.259, 여성 ANSUR≈0.25). male 대조 0.244
-    assert 0.22 <= 0.18509989826943507
-/Users/gyuha/workspace/pose-library/tests/test_06_proportions.py:34: AssertionError: 어깨 링 바깥폭/키 = 0.185 (female 32.5 cm / 1.757 m). 기준 0.22~0.27 (Winter 0.259, 여성 ANSUR≈0.25). male 대조 0.244
-E   AssertionError: 어깨폭/엉덩이폭 = 0.85 (shoulder 32.5 cm, hip 38.1 cm). 기준 1.0~1.4. male 대조 1.56
-    assert 1.0 <= 0.8540723297714664
-/Users/gyuha/workspace/pose-library/tests/test_06_proportions.py:40: AssertionError: 어깨폭/엉덩이폭 = 0.85 (shoulder 32.5 cm, hip 38.1 cm). 기준 1.0~1.4. male 대조 1.56
-E   AssertionError: 허리/엉덩이 둘레비 0.55 (허리 55 cm @0.588H, 엉덩이 100 cm @0.468H). 기준 0.65~0.80. male 대조 0.86
-    assert 0.65 <= 0.5539803667067067
-/Users/gyuha/workspace/pose-library/tests/test_06_proportions.py:51: AssertionError: 허리/엉덩이 둘레비 0.55 (허리 55 cm @0.588H, 엉덩이 100 cm @0.468H). 기준 0.65~0.80. male 대조 0.86
-E   AssertionError: 허리/가슴 둘레비 0.53, 기준 0.65~0.85. male 대조 0.70
-    assert 0.65 <= 0.5256753919222062
-/Users/gyuha/workspace/pose-library/tests/test_06_proportions.py:57: AssertionError: 허리/가슴 둘레비 0.53, 기준 0.65~0.85. male 대조 0.70
-E   AssertionError: female 0.315 vs male 0.393 (비 0.80); 허용 0.85~1.05
-    assert (0.85 * 0.39348041321529975) <= 0.3146513288184839
-/Users/gyuha/workspace/pose-library/tests/test_06_proportions.py:63: AssertionError: female 0.315 vs male 0.393 (비 0.80); 허용 0.85~1.05
+E   AssertionError: x=0 의 흉벽 대비 초과 높이 36.2 mm = 돌출 60.6 mm 의 60% (기준 <= 15.0 mm). 골이 메워짐
+    assert 36.15008333489242 <= 15.0
+     +  where 15.0 = min(15.0, (0.3 * 60.62280831770187))
+/Users/gyuha/workspace/pose-library/tests/test_08_bust.py:117: AssertionError: x=0 의 흉벽 대비 초과 높이 36.2 mm = 돌출 60.6 mm 의 60% (기준 <= 15.0 mm). 골이 메워짐
+E   AssertionError: 좌우 유방을 잇는 가로 띠 높이 98 mm (기준 <= 4 mm). 09_bust_profiles.png 오른쪽 히트맵 참조
+    assert 98.0 <= 4.0
+/Users/gyuha/workspace/pose-library/tests/test_08_bust.py:124: AssertionError: 좌우 유방을 잇는 가로 띠 높이 98 mm (기준 <= 4 mm). 09_bust_profiles.png 오른쪽 히트맵 참조
+E   AssertionError: 하단 날카로운 모서리 96개 / 0.70 m (male 4개 / 0.28 m, 기준 <= 20개, <= 0.52 m). 08_bust_closeups.png 하단 사각형 노치
+    assert (96 <= 20)
+/Users/gyuha/workspace/pose-library/tests/test_08_bust.py:130: AssertionError: 하단 날카로운 모서리 96개 / 0.70 m (male 4개 / 0.28 m, 기준 <= 20개, <= 0.52 m). 08_bust_closeups.png 하단 사각형 노치
 =========================== short test summary info ============================
-FAILED tests/test_03_deformation_smoothness.py::test_edge_stretch_is_bounded
-FAILED tests/test_03_deformation_smoothness.py::test_no_new_spike_or_dent - A...
-FAILED tests/test_03_deformation_smoothness.py::test_chest_has_no_central_groove
-FAILED tests/test_03_deformation_smoothness.py::test_stored_normals_stay_consistent_with_geometry
-FAILED tests/test_03_deformation_smoothness.py::test_face_orientation_change_is_moderate
-FAILED tests/test_05_intersections.py::test_total_new_intersections_small - A...
-FAILED tests/test_05_intersections.py::test_no_new_shell_to_shell_penetration
-FAILED tests/test_06_proportions.py::test_shoulder_width_vs_height - Assertio...
-FAILED tests/test_06_proportions.py::test_shoulders_at_least_as_wide_as_hips
-FAILED tests/test_06_proportions.py::test_waist_to_hip_girth - AssertionError...
-FAILED tests/test_06_proportions.py::test_waist_to_bust_girth - AssertionErro...
-FAILED tests/test_06_proportions.py::test_waist_girth_vs_height - AssertionEr...
-12 failed, 60 passed in 2.09s
+FAILED tests/test_08_bust.py::test_breasts_are_separated_at_midline - Asserti...
+FAILED tests/test_08_bust.py::test_no_horizontal_band_joining_breasts - Asser...
+FAILED tests/test_08_bust.py::test_no_steps_or_notches_at_lower_chest_edge - ...
+SKIPPED [1] tests/test_03_deformation_smoothness.py:49: 가슴 쉘이 교체됨: 중앙 홈/V홈은 test_08_bust.py 의 곡률 검사가 본다
+SKIPPED [3] tests/test_04_seams.py:15: 가슴 쉘 교체됨: 가슴-관절 이음매는 test_08_bust.py 의 교차 검사가 본다
+SKIPPED [1] tests/test_06_proportions.py:65: 폐기(오케스트레이터 결정): 가슴이 없던 때의 휴리스틱이라 가슴 추가 후 가슴둘레에 유방이 포함되어 의미가 없다. test_08_bust.py 의 가슴-밑가슴 둘레 차이 검사가 대체한다.
+3 failed, 105 passed, 5 skipped in 18.51s

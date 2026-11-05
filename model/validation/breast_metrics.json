@@ -1,0 +1,21 @@
+{
+  "per_breast_volume_cm3": [
+    447.21154401564047,
+    447.222969515769
+  ],
+  "max_projection_m": 0.061640777498951416,
+  "chest_peak_y_m": 1.295,
+  "breast_top_y_m": 1.4749999999999999,
+  "breast_bottom_y_m": 1.2,
+  "upper_lower_volume_fraction": [
+    0.3730948440719669,
+    0.6269051559280331
+  ],
+  "bust_girth_m": 1.0432412797359107,
+  "bust_measure_y_m": 1.268,
+  "underbust_girth_m": 0.8924257791428789,
+  "underbust_measure_y_m": 1.2,
+  "bust_minus_underbust_m": 0.15081550059303184,
+  "vertices": 10847,
+  "triangles": 13572
+}

@@ -9,9 +9,15 @@
 import collections
 
 import numpy as np
+import pytest
 
-from qa_metrics import (chest_groove, edge_strain, face_normal_rotation, group_of, label_of_welded, members, models,
+from qa_metrics import (chest_topology_changed, chest_groove, edge_strain, face_normal_rotation, group_of, label_of_welded, members, models,
                         parts, tri_dev_from_normals, umbrella_delta, vdesc)
+
+
+# 가슴 쉘이 세분화/교체됐으면 원본 정점으로 이뤄진 '성긴 가슴 그래프'는 더 이상 실제 표면이 아니다.
+# 이 파일은 가슴을 제외하고 (신규 정점 포함 가슴은 test_08_bust.py 가 측정한다).
+CHEST_REPLACED = chest_topology_changed()
 
 
 def _summary(items):
@@ -22,6 +28,8 @@ def _summary(items):
 def test_edge_stretch_is_bounded():
     E, ratio, M, F = edge_strain()
     lab = label_of_welded()
+    skip = (lab[E[:, 0]] == "body:chest") | (lab[E[:, 1]] == "body:chest") if CHEST_REPLACED else np.zeros(len(E), bool)
+    ratio = np.where(skip, 1.0, ratio)
     bad = np.where((ratio < 0.65) | (ratio > 1.50))[0]
     worst = np.argsort(np.abs(np.log(ratio)))[::-1][:4]
     detail = "; ".join(f"{lab[E[k, 0]]} ratio={ratio[k]:.2f} male({M[E[k, 0]][0]:.3f},{M[E[k, 0]][1]:.3f},{M[E[k, 0]][2]:.3f})" for k in worst)
@@ -31,12 +39,14 @@ def test_edge_stretch_is_bounded():
 def test_no_new_spike_or_dent():
     dn, M, F = umbrella_delta()
     lab = label_of_welded()
+    dn = np.where((lab == "body:chest") & CHEST_REPLACED, 0.0, dn)
     bad = np.where(np.abs(dn) > 0.015)[0]
     top = bad[np.argsort(-np.abs(dn[bad]))][:8]
     detail = "; ".join(f"{dn[i] * 1000:+.0f}mm {lab[i]} {vdesc(members(i)[0])}" for i in top)
     assert len(bad) == 0, f"|돌출변화|>15mm 정점 {len(bad)}개 ({_summary(lab[bad])}). 상위: {detail}"
 
 
+@pytest.mark.skipif(CHEST_REPLACED, reason="가슴 쉘이 교체됨: 중앙 홈/V홈은 test_08_bust.py 의 곡률 검사가 본다")
 def test_chest_has_no_central_groove():
     depth, y, k = chest_groove(models()[1])
     mdepth, _, _ = chest_groove(models()[0])
@@ -47,7 +57,8 @@ def test_chest_has_no_central_groove():
 def test_stored_normals_stay_consistent_with_geometry():
     m, f = models()
     dm, df = tri_dev_from_normals(m), tri_dev_from_normals(f)
-    bad = np.where((dm < 5) & (df > 15))[0]
+    nonchest = parts()[m.tri[:, 0]] != "body:chest" if CHEST_REPLACED else np.ones(len(m.tri), bool)
+    bad = np.where((dm < 5) & (df > 15) & nonchest)[0]
     top = bad[np.argsort(-df[bad])][:5]
     detail = "; ".join(f"{df[t]:.0f}° {parts()[f.tri[t, 0]]} {vdesc(f.tri[t, 0])}" for t in top)
     assert len(bad) == 0, f"male 에서 정합(<5°)이던 삼각형 {len(bad)}개가 female 에서 >15° 어긋남 ({_summary(parts()[f.tri[bad, 0]])}). 상위: {detail}"
@@ -56,7 +67,8 @@ def test_stored_normals_stay_consistent_with_geometry():
 def test_face_orientation_change_is_moderate():
     m, f = models()
     rot = face_normal_rotation(m, f)
-    bad = np.where(rot > 30)[0]
+    nonchest = parts()[m.tri[:, 0]] != "body:chest" if CHEST_REPLACED else np.ones(len(m.tri), bool)
+    bad = np.where((rot > 30) & nonchest)[0]
     top = bad[np.argsort(-rot[bad])][:6]
     detail = "; ".join(f"{rot[t]:.0f}° {vdesc(f.tri[t, 0])}" for t in top)
     assert len(bad) == 0, f"면 법선이 male 대비 30° 초과 회전한 삼각형 {len(bad)}개 ({_summary(parts()[f.tri[bad, 0]])}). 상위: {detail}"

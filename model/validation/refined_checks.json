@@ -1,0 +1,42 @@
+{
+  "degenerate_triangles": 0,
+  "indices_valid": true,
+  "original_attribute_prefix_preserved": true,
+  "non_chest_positions_identical": true,
+  "vertices": 10847,
+  "triangles": 13572,
+  "append_range": [
+    4106,
+    10846
+  ],
+  "active_displaced_breast_triangle_collisions": 14,
+  "new_static_source_pairs_due_to_breast_field": 0,
+  "new_chest_collision_source_pairs_vs_previous": 6,
+  "new_chest_collision_by_other_part": {
+    "abdomen": 6
+  },
+  "lowered_arm_proxy": [
+    {
+      "inward_rotation_deg": 30,
+      "expanded_breast_surface_arm_contacts": 0,
+      "chest_arm_source_pairs": 52,
+      "new_pairs_due_to_breast_volume": 0,
+      "baseline_chest_arm_source_pairs": 52
+    },
+    {
+      "inward_rotation_deg": 40,
+      "expanded_breast_surface_arm_contacts": 0,
+      "chest_arm_source_pairs": 56,
+      "new_pairs_due_to_breast_volume": 0,
+      "baseline_chest_arm_source_pairs": 56
+    },
+    {
+      "inward_rotation_deg": 45,
+      "expanded_breast_surface_arm_contacts": 0,
+      "chest_arm_source_pairs": 64,
+      "new_pairs_due_to_breast_volume": 0,
+      "baseline_chest_arm_source_pairs": 64
+    }
+  ],
+  "note": "The unexpanded control retains current wall/IMF/ribcage corrections and removes only the breast field. Source-face-pair changes and QA opposite-partner-face changes are different metrics. Collision counts collapse refined triangles to source-face pairs. The source already has connector and shell overlaps. Arm lowering is a rigid kinematic proxy, not a skinned animation."
+}

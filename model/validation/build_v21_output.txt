@@ -1,0 +1,71 @@
+{
+  "source_nodes": 63,
+  "source_skins": 1,
+  "source_joints": 55,
+  "meshes": [
+    {
+      "name": "Male_v2_Body",
+      "vertices": 2858,
+      "triangles": 1456,
+      "degenerate_triangles": 0,
+      "face_normal_reversals": 0
+    },
+    {
+      "name": "Male_v2_Joints",
+      "vertices": 1248,
+      "triangles": 632,
+      "degenerate_triangles": 0,
+      "face_normal_reversals": 0
+    }
+  ],
+  "male_bbox": [
+    [
+      -0.687521755695343,
+      -3.0703834141831976e-08,
+      -0.1783313751220703
+    ],
+    [
+      0.6875232458114624,
+      1.899984359741211,
+      0.16584652662277222
+    ]
+  ],
+  "male_height": 1.899984359741211,
+  "female_bbox": [
+    [
+      -0.5978001665771008,
+      -2.840104658119458e-08,
+      -0.1649277495958049
+    ],
+    [
+      0.5978014622330665,
+      1.7574855327606203,
+      0.1534080371260643
+    ]
+  ],
+  "female_height": 1.7574855611616669,
+  "height_ratio": 0.9250000149480424
+}
+{'per_breast_volume_cm3': [447.21154401564047, 447.222969515769], 'max_projection_m': 0.061640777498951416, 'chest_peak_y_m': 1.295, 'breast_top_y_m': 1.4749999999999999, 'breast_bottom_y_m': 1.2, 'upper_lower_volume_fraction': [np.float64(0.3730948440719669), np.float64(0.6269051559280331)]}
+{'method': 'uniform barycentric subdivision of connected chest shell', 'subdivision': 10, 'original_vertices': 4106, 'vertices': 10847, 'triangles': 13572, 'original_triangles': 2088, 'append_range': [4106, 10846], 'refined_chest_triangles': 11600}
+{
+  "per_breast_volume_cm3": [
+    447.21154401564047,
+    447.222969515769
+  ],
+  "max_projection_m": 0.061640777498951416,
+  "chest_peak_y_m": 1.295,
+  "breast_top_y_m": 1.4749999999999999,
+  "breast_bottom_y_m": 1.2,
+  "upper_lower_volume_fraction": [
+    0.3730948440719669,
+    0.6269051559280331
+  ],
+  "bust_girth_m": 1.0432412797359107,
+  "bust_measure_y_m": 1.268,
+  "underbust_girth_m": 0.8924257791428789,
+  "underbust_measure_y_m": 1.2,
+  "bust_minus_underbust_m": 0.15081550059303184,
+  "vertices": 10847,
+  "triangles": 13572
+}

@@ -19,6 +19,11 @@ def intersections(t):
     o=aa[:,k]; d=aa[:,(k+1)%3]-o; h=np.cross(d,e2); det=np.sum(e1*h,1); good=abs(det)>1e-10; inv=np.zeros(len(ids)); inv[good]=1/det[good]; s=o-bb[:,0]; u=inv*np.sum(s*h,1); q=np.cross(s,e1); v=inv*np.sum(d*q,1); r=inv*np.sum(e2*q,1); hit|=good&(u>1e-6)&(v>1e-6)&(u+v<1-1e-6)&(r>1e-6)&(r<1-1e-6)
   pairs.update((i,int(ids[k])) for k in np.where(hit)[0])
  return pairs
+current,_=read(ROOT/'female.glb')
+if len(current['meshes'])==1 and len(current['meshes'][0]['primitives'])==2:
+ from check_refined import main
+ main()
+ raise SystemExit(0)
 j,b=read(ROOT/'male.glb'); k,c=read(ROOT/'female.glb')
 for m,n in zip(j['meshes'],k['meshes']):
  p=m['primitives'][0]; q=n['primitives'][0]

@@ -1,5 +1,6 @@
 """GLB 읽기/부위 분류 공용 모듈 (읽기 전용: model/ 에셋은 수정하지 않는다)."""
 import json
+import os
 import re
 import struct
 from pathlib import Path
@@ -9,7 +10,8 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 MODEL = ROOT / "model"
 MALE = MODEL / "male.glb"
-FEMALE = MODEL / "female.glb"
+# FEMALE_GLB 환경변수로 다른 파일(예: git 이전 버전)을 검사할 수 있다.
+FEMALE = Path(os.environ["FEMALE_GLB"]) if os.environ.get("FEMALE_GLB") else MODEL / "female.glb"
 
 _SIZES = {"SCALAR": 1, "VEC2": 2, "VEC3": 3, "VEC4": 4, "MAT4": 16}
 _DTYPES = {5120: "i1", 5121: "u1", 5122: "<i2", 5123: "<u2", 5125: "<u4", 5126: "<f4"}
@@ -40,31 +42,46 @@ def accessor(gltf, buf, idx):
 
 
 class Model:
-    """두 프리미티브(Body, Joints)를 하나의 정점 배열로 이어 붙인 뷰."""
+    """glTF 의 모든 프리미티브를 하나의 정점 배열/삼각형 배열로 합친 뷰.
 
-    def __init__(self, path, joint_names=None):
+    - 프리미티브마다 정점 배열이 따로면(원본 male) 정점 풀을 순서대로 이어 붙인다.
+    - 여러 프리미티브가 같은 POSITION accessor(공유 정점 풀)를 쓰면(modeler 의 refined female) 풀은 한 번만 읽는다.
+    - tri_mat: 삼각형별 material 번호 (0=Body, 1=Joints). prim_id: 정점별 소속(Joints 삼각형에만 쓰이면 1).
+    - pools: [(base, end)] 정점 풀 범위.
+    """
+
+    def __init__(self, path):
         self.gltf, self.buf = read_glb(path)
-        self.prims = []
-        pos, nrm, tri, jnt, wgt, src = [], [], [], [], [], []
+        pos, nrm, uv, jnt, wgt, tri, tri_mat = [], [], [], [], [], [], []
+        base_of, self.pools = {}, []
         base = 0
-        for mi, m in enumerate(self.gltf["meshes"]):
-            p = m["primitives"][0]
-            at = p["attributes"]
-            P = accessor(self.gltf, self.buf, at["POSITION"]).astype(np.float64)
-            pos.append(P)
-            nrm.append(accessor(self.gltf, self.buf, at["NORMAL"]).astype(np.float64))
-            tri.append(accessor(self.gltf, self.buf, p["indices"]).reshape(-1, 3).astype(np.int64) + base)
-            jnt.append(accessor(self.gltf, self.buf, at["JOINTS_0"]).astype(np.int64))
-            wgt.append(accessor(self.gltf, self.buf, at["WEIGHTS_0"]).astype(np.float64))
-            src.append(np.full(len(P), mi))
-            self.prims.append((m["name"], base, base + len(P)))
-            base += len(P)
+        for m in self.gltf["meshes"]:
+            for p in m["primitives"]:
+                at = p["attributes"]
+                key = at["POSITION"]
+                if key not in base_of:
+                    base_of[key] = base
+                    P = accessor(self.gltf, self.buf, key).astype(np.float64)
+                    pos.append(P)
+                    nrm.append(accessor(self.gltf, self.buf, at["NORMAL"]).astype(np.float64))
+                    uv.append(accessor(self.gltf, self.buf, at["TEXCOORD_0"]).astype(np.float64))
+                    jnt.append(accessor(self.gltf, self.buf, at["JOINTS_0"]).astype(np.int64))
+                    wgt.append(accessor(self.gltf, self.buf, at["WEIGHTS_0"]).astype(np.float64))
+                    self.pools.append((base, base + len(P)))
+                    base += len(P)
+                t = accessor(self.gltf, self.buf, p["indices"]).reshape(-1, 3).astype(np.int64) + base_of[key]
+                tri.append(t)
+                tri_mat.append(np.full(len(t), p.get("material", 0)))
         self.pos = np.vstack(pos)
         self.nrm = np.vstack(nrm)
-        self.tri = np.vstack(tri)
+        self.uv = np.vstack(uv)
         self.joints = np.vstack(jnt)
         self.weights = np.vstack(wgt)
-        self.prim_id = np.concatenate(src)  # 0=Body, 1=Joints
+        self.tri = np.vstack(tri)
+        self.tri_mat = np.concatenate(tri_mat)
+        self.prim_id = np.zeros(len(self.pos), int)
+        self.prim_id[np.unique(self.tri[self.tri_mat == 1])] = 1
+        self.prims = [("pool", a, b) for a, b in self.pools]  # 하위 호환
 
     @property
     def n_verts(self):

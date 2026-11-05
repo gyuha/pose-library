@@ -8,7 +8,9 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tests"))
-from qa_metrics import (chest_groove, edge_strain, face_normal_rotation, group_of, intersection_sets, label_of_welded,
+import bust_eval as be
+from qa_metrics import (chest_partner_sets, chest_topology_changed, correspondence, full_female, hip_breadth, preserved_triangles,
+                        abdomen_poke, shoulder_breadth, chest_groove, edge_strain, face_normal_rotation, group_of, intersection_sets, label_of_welded,
                         members, mirror_map, asymmetry, models, pair_key, parts, proportions, seam_drift, seam_pairs,
                         torso_measures, tri_dev_from_normals, umbrella_delta, vdesc)
 
@@ -45,6 +47,27 @@ def main():
     # 대칭
     mm, md = mirror_map(m)
     out["symmetry_mm"] = {"male_max": float(asymmetry(m, mm).max() * 1000), "female_max": float(asymmetry(f, mm).max() * 1000)}
+    # [v2] 토폴로지 / 비율 / 가슴
+    f = full_female(); f2m, _ = correspondence()
+    miss, ex, extra = preserved_triangles()
+    out["topology"] = {"male_vertices": 4106, "female_vertices": int(f.n_verts), "added_vertices": int((f2m < 0).sum()),
+                       "male_triangles": 2088, "female_triangles": int(len(f.tri)), "chest_replaced": bool(chest_topology_changed()),
+                       "non_chest_triangles_missing": miss}
+    fm, mm_ = models()[1], models()[0]
+    out["v2_proportions"] = {w: {"shoulder_m": shoulder_breadth(x), "hip_breadth_m": hip_breadth(x)[0], "hip_breadth_zone_0.44_0.56": hip_breadth(x)[0],
+                                 "hip_breadth_trochanter_0.50_0.56": hip_breadth(x, (0.50, 0.56))[0], "H": proportions(x)["H"],
+                                 "shoulder_over_hip": shoulder_breadth(x) / hip_breadth(x)[0], "whr": torso_measures(x)["whr"]}
+                             for w, x in (("male", mm_), ("female", fm))}
+    bust = {}
+    for w in ("male", "female"):
+        r = be.evaluate(w)
+        a = {k: v for k, v in r["analysis"].items() if not k.startswith("_") and k != "plane_coef"}
+        bust[w] = {**{k: v for k, v in r.items() if k != "analysis"}, **a}
+    bust["partner_new_faces"] = {c: len(s[1] - s[0]) for c, s in chest_partner_sets().items()}
+    pk, mk, vi = abdomen_poke(); bust["abdomen_poke_mm"] = {"female": pk * 1000, "male": mk * 1000, "vertex": vi}
+    bust["lower_rim_sharp_edges"] = {w: list(be.lower_rim_sharp_edges(w)) for w in ("male", "female")}
+    bust["front_asymmetry_mm"] = {w: be.front_asymmetry(w)[0] * 1000 for w in ("male", "female")}
+    out["bust"] = bust
     p = ROOT / "tests" / "reports" / "female_qa_metrics.json"
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(json.dumps(out, indent=1, default=lambda o: o.tolist() if hasattr(o, "tolist") else str(o), ensure_ascii=False))

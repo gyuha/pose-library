@@ -1,112 +1,51 @@
 {
  "intersections": {
   "male": 1369,
-  "female": 1386,
-  "new": 67,
-  "resolved": 50,
+  "female": 1919,
+  "new": 683,
+  "resolved": 133,
   "new_by_pair": [
    [
-    "body:pelvis x joint:waist_band",
-    22
-   ],
-   [
     "body:abdomen x body:chest",
-    14
-   ],
-   [
-    "body:pelvis x body:thigh_L",
-    5
-   ],
-   [
-    "body:pelvis x body:thigh_R",
-    5
-   ],
-   [
-    "body:chest x body:upper_arm_L",
-    4
-   ],
-   [
-    "body:chest x body:upper_arm_R",
-    4
-   ],
-   [
-    "body:pelvis x joint:hip_joint_R",
-    3
-   ],
-   [
-    "body:pelvis x joint:hip_joint_L",
-    2
-   ],
-   [
-    "body:abdomen x joint:waist_band",
-    1
-   ],
-   [
-    "body:thigh_R x joint:hip_joint_R",
-    1
-   ],
-   [
-    "body:thigh_L x joint:knee_L",
-    1
-   ],
-   [
-    "body:forearm_L x joint:elbow_L",
-    1
-   ],
-   [
-    "body:shin_L x joint:knee_L",
-    1
-   ],
-   [
-    "body:forearm_R x joint:elbow_R",
-    1
+    310
    ],
    [
     "body:chest x joint:neck",
-    1
+    114
    ],
    [
-    "body:thigh_L x joint:hip_joint_L",
+    "body:chest x joint:shoulder_L",
+    102
+   ],
+   [
+    "body:chest x joint:shoulder_R",
+    102
+   ],
+   [
+    "body:chest x body:upper_arm_L",
+    27
+   ],
+   [
+    "body:chest x body:upper_arm_R",
+    27
+   ],
+   [
+    "body:thigh_L x joint:knee_L",
     1
    ]
   ]
  },
  "edge_strain": {
-  "min": 0.5930494502175511,
-  "max": 1.5496921653739837,
-  "p1": 0.7682362380496307,
-  "p99": 1.4019043308714298,
-  "n_outside_0.65_1.50": 18,
-  "by_part": [
-   [
-    "thigh",
-    6
-   ],
-   [
-    "hip_joint",
-    4
-   ],
-   [
-    "upper_arm",
-    2
-   ],
-   [
-    "chest",
-    2
-   ],
-   [
-    "abdomen",
-    2
-   ],
-   [
-    "pelvis",
-    2
-   ]
-  ]
+  "min": 0.8877378130324624,
+  "max": 1.3047066069105828,
+  "p1": 0.9185886524307638,
+  "p99": 1.169657722084526,
+  "n_outside_0.65_1.50": 0,
+  "by_part": []
  },
  "umbrella_top": [
   {
-   "delta_mm": 61.5,
+   "delta_mm": 29.5,
    "part": "body:chest",
    "vertex_indices": [
     379,
@@ -120,13 +59,13 @@
     0.1
    ],
    "female": [
-    -0.077,
+    -0.083,
     1.268,
-    0.171
+    0.137
    ]
   },
   {
-   "delta_mm": 61.5,
+   "delta_mm": 29.5,
    "part": "body:chest",
    "vertex_indices": [
     313,
@@ -140,95 +79,13 @@
     0.1
    ],
    "female": [
-    0.077,
+    0.083,
     1.268,
-    0.171
+    0.137
    ]
   },
   {
-   "delta_mm": 23.8,
-   "part": "body:pelvis",
-   "vertex_indices": [
-    1615,
-    1629,
-    1636,
-    1706
-   ],
-   "male": [
-    0.136,
-    0.949,
-    -0.063
-   ],
-   "female": [
-    0.167,
-    0.877,
-    -0.097
-   ]
-  },
-  {
-   "delta_mm": 23.8,
-   "part": "body:pelvis",
-   "vertex_indices": [
-    1665,
-    1670,
-    1675,
-    1684
-   ],
-   "male": [
-    -0.136,
-    0.949,
-    -0.063
-   ],
-   "female": [
-    -0.167,
-    0.877,
-    -0.097
-   ]
-  },
-  {
-   "delta_mm": 22.3,
-   "part": "joint:hip_joint_R",
-   "vertex_indices": [
-    2946,
-    2955,
-    2959,
-    2969,
-    2984
-   ],
-   "male": [
-    -0.146,
-    0.886,
-    -0.047
-   ],
-   "female": [
-    -0.19,
-    0.819,
-    -0.078
-   ]
-  },
-  {
-   "delta_mm": 22.3,
-   "part": "joint:hip_joint_L",
-   "vertex_indices": [
-    2887,
-    2896,
-    2898,
-    2909,
-    2924
-   ],
-   "male": [
-    0.146,
-    0.886,
-    -0.047
-   ],
-   "female": [
-    0.19,
-    0.819,
-    -0.078
-   ]
-  },
-  {
-   "delta_mm": -20.2,
+   "delta_mm": 16.5,
    "part": "body:chest",
    "vertex_indices": [
     317,
@@ -244,222 +101,263 @@
    "female": [
     0.0,
     1.269,
-    0.112
+    0.138
    ]
   },
   {
-   "delta_mm": 19.6,
+   "delta_mm": 14.4,
+   "part": "body:thigh_L",
+   "vertex_indices": [
+    2025,
+    2040,
+    2087,
+    2098
+   ],
+   "male": [
+    0.193,
+    0.791,
+    0.037
+   ],
+   "female": [
+    0.219,
+    0.732,
+    0.038
+   ]
+  },
+  {
+   "delta_mm": 14.4,
+   "part": "body:thigh_R",
+   "vertex_indices": [
+    2151,
+    2168,
+    2217,
+    2226
+   ],
+   "male": [
+    -0.193,
+    0.791,
+    0.037
+   ],
+   "female": [
+    -0.219,
+    0.732,
+    0.038
+   ]
+  },
+  {
+   "delta_mm": 13.0,
    "part": "body:pelvis",
    "vertex_indices": [
-    1668,
-    1671,
-    1680,
-    1683
+    1609,
+    1621,
+    1692,
+    1708
    ],
    "male": [
-    -0.132,
-    0.903,
-    0.024
+    0.142,
+    0.978,
+    0.03
    ],
    "female": [
-    -0.172,
-    0.835,
-    0.023
+    0.162,
+    0.905,
+    0.03
    ]
   },
   {
-   "delta_mm": 19.6,
+   "delta_mm": 13.0,
    "part": "body:pelvis",
    "vertex_indices": [
-    1620,
-    1632,
-    1637,
-    1709
+    1652,
+    1655,
+    1667,
+    1672
    ],
    "male": [
-    0.132,
-    0.903,
-    0.024
+    -0.142,
+    0.978,
+    0.03
    ],
    "female": [
-    0.172,
-    0.835,
-    0.023
+    -0.162,
+    0.905,
+    0.03
    ]
   },
   {
-   "delta_mm": 19.5,
-   "part": "joint:hip_joint_R",
+   "delta_mm": 12.8,
+   "part": "body:thigh_R",
    "vertex_indices": [
-    2944,
-    2945,
-    2957,
-    2962,
-    2972
+    2152,
+    2189,
+    2218,
+    2229
    ],
    "male": [
-    -0.146,
-    0.886,
-    0.026
+    -0.192,
+    0.801,
+    -0.053
    ],
    "female": [
-    -0.19,
-    0.819,
-    0.025
+    -0.218,
+    0.741,
+    -0.054
    ]
   },
   {
-   "delta_mm": 19.5,
-   "part": "joint:hip_joint_L",
+   "delta_mm": 12.8,
+   "part": "body:thigh_L",
    "vertex_indices": [
-    2883,
-    2885,
-    2897,
-    2901,
-    2912
+    2024,
+    2059,
+    2090,
+    2099
    ],
    "male": [
-    0.146,
-    0.886,
-    0.026
+    0.192,
+    0.801,
+    -0.053
    ],
    "female": [
-    0.19,
-    0.819,
-    0.025
+    0.218,
+    0.741,
+    -0.054
    ]
   },
   {
-   "delta_mm": -17.6,
-   "part": "body:abdomen",
-   "vertex_indices": [
-    1313,
-    1327,
-    1330,
-    1352
-   ],
-   "male": [
-    -0.078,
-    1.202,
-    0.107
-   ],
-   "female": [
-    -0.058,
-    1.112,
-    0.093
-   ]
-  },
-  {
-   "delta_mm": 16.8,
+   "delta_mm": 10.4,
    "part": "body:pelvis",
    "vertex_indices": [
-    1612,
-    1674,
-    1685
+    1616,
+    1628,
+    1644,
+    1658
    ],
    "male": [
-    -0.092,
-    0.872,
-    -0.068
+    0.083,
+    0.972,
+    -0.115
    ],
    "female": [
-    -0.121,
-    0.806,
-    -0.106
+    0.094,
+    0.899,
+    -0.117
    ]
   },
   {
-   "delta_mm": 16.7,
-   "part": "joint:hip_joint_R",
+   "delta_mm": 10.3,
+   "part": "body:pelvis",
    "vertex_indices": [
-    2970,
-    2982,
-    2986,
-    2996,
-    3001
+    1643,
+    1659,
+    1664,
+    1676
    ],
    "male": [
-    -0.09,
-    0.937,
-    -0.068
+    -0.083,
+    0.972,
+    -0.115
    ],
    "female": [
-    -0.114,
-    0.867,
-    -0.105
+    -0.094,
+    0.899,
+    -0.117
+   ]
+  },
+  {
+   "delta_mm": 9.7,
+   "part": "body:pelvis",
+   "vertex_indices": [
+    1665,
+    1670,
+    1675,
+    1684
+   ],
+   "male": [
+    -0.136,
+    0.949,
+    -0.063
+   ],
+   "female": [
+    -0.154,
+    0.877,
+    -0.064
+   ]
+  },
+  {
+   "delta_mm": 9.7,
+   "part": "body:pelvis",
+   "vertex_indices": [
+    1615,
+    1629,
+    1636,
+    1706
+   ],
+   "male": [
+    0.136,
+    0.949,
+    -0.063
+   ],
+   "female": [
+    0.154,
+    0.877,
+    -0.064
+   ]
+  },
+  {
+   "delta_mm": -9.1,
+   "part": "body:chest",
+   "vertex_indices": [
+    314,
+    382,
+    501,
+    520
+   ],
+   "male": [
+    0.0,
+    1.245,
+    0.12
+   ],
+   "female": [
+    0.0,
+    1.152,
+    0.108
    ]
   }
  ],
  "umbrella_over_15mm_by_part": [
   [
    "chest",
-   6
-  ],
-  [
-   "hip_joint",
-   6
-  ],
-  [
-   "pelvis",
-   5
-  ],
-  [
-   "abdomen",
-   1
+   3
   ]
  ],
  "chest_groove": {
-  "female_mm": 58.4,
+  "female_mm": 0.0,
   "male_mm": 0.0,
-  "male_row_y": 1.371,
-  "bump_vertex": 313
+  "male_row_y": null,
+  "bump_vertex": null
  },
  "normal_mismatch": {
-  "n_triangles": 41,
+  "n_triangles": 32,
   "by_part": [
    [
-    "abdomen",
-    17
-   ],
-   [
     "chest",
-    12
-   ],
-   [
-    "thigh",
-    6
-   ],
-   [
-    "pelvis",
-    4
-   ],
-   [
-    "hip_joint",
-    2
+    32
    ]
   ],
-  "max_deg": 44.926811792147355
+  "max_deg": 68.91918604389302
  },
  "face_rotation_over_30": {
-  "n": 14,
-  "max_deg": 42.230901927434786,
-  "by_part": [
-   [
-    "pelvis",
-    8
-   ],
-   [
-    "chest",
-    6
-   ]
-  ]
+  "n": 0,
+  "max_deg": 23.06336679534388,
+  "by_part": []
  },
  "seams": [
   {
    "seam": "joint:ankle_L|body:foot_L",
    "n": 30,
    "max_gap_growth": 0.0,
-   "max_closing": 0.001005614450576531,
+   "max_closing": 0.001004785849796493,
    "gap_vertex": 3026,
    "closing_vertex": 3032
   },
@@ -467,7 +365,7 @@
    "seam": "joint:ankle_L|body:shin_L",
    "n": 30,
    "max_gap_growth": 0.0,
-   "max_closing": 0.0017283153087942794,
+   "max_closing": 0.00172833136918258,
    "gap_vertex": 3053,
    "closing_vertex": 3026
   },
@@ -475,7 +373,7 @@
    "seam": "joint:ankle_R|body:foot_R",
    "n": 30,
    "max_gap_growth": 0.0,
-   "max_closing": 0.0010056144424923624,
+   "max_closing": 0.0010047858480927742,
    "gap_vertex": 3282,
    "closing_vertex": 3288
   },
@@ -483,151 +381,151 @@
    "seam": "joint:ankle_R|body:shin_R",
    "n": 30,
    "max_gap_growth": 0.0,
-   "max_closing": 0.001728314747399453,
+   "max_closing": 0.001728332754430361,
    "gap_vertex": 3307,
    "closing_vertex": 3282
   },
   {
    "seam": "joint:elbow_L|body:forearm_L",
    "n": 88,
-   "max_gap_growth": 6.640821001872442e-05,
-   "max_closing": 0.002453964343609165,
-   "gap_vertex": 3236,
-   "closing_vertex": 3128
+   "max_gap_growth": 0.0,
+   "max_closing": 0.0015488113000129422,
+   "gap_vertex": 3160,
+   "closing_vertex": 3137
   },
   {
    "seam": "joint:elbow_L|body:upper_arm_L",
    "n": 124,
-   "max_gap_growth": 0.00010200809510812342,
-   "max_closing": 0.00548022458993723,
-   "gap_vertex": 3228,
-   "closing_vertex": 3145
+   "max_gap_growth": 0.0,
+   "max_closing": 0.0023582216644072243,
+   "gap_vertex": 3123,
+   "closing_vertex": 3183
   },
   {
    "seam": "joint:elbow_R|body:forearm_R",
    "n": 88,
-   "max_gap_growth": 6.638755077496692e-05,
-   "max_closing": 0.0024539371361862843,
-   "gap_vertex": 3916,
-   "closing_vertex": 3808
+   "max_gap_growth": 0.0,
+   "max_closing": 0.0015488209967087236,
+   "gap_vertex": 3840,
+   "closing_vertex": 3815
   },
   {
    "seam": "joint:elbow_R|body:upper_arm_R",
    "n": 124,
-   "max_gap_growth": 0.0001020465110262471,
-   "max_closing": 0.0054802663146685734,
-   "gap_vertex": 3923,
-   "closing_vertex": 3823
+   "max_gap_growth": 0.0,
+   "max_closing": 0.0023582068773419576,
+   "gap_vertex": 3805,
+   "closing_vertex": 3849
   },
   {
    "seam": "joint:hip_joint_L|body:pelvis",
    "n": 30,
-   "max_gap_growth": 0.002093753631452727,
-   "max_closing": 0.006226620458327498,
-   "gap_vertex": 2883,
-   "closing_vertex": 2911
+   "max_gap_growth": 0.0018017783071563338,
+   "max_closing": 0.0013852348678681063,
+   "gap_vertex": 2899,
+   "closing_vertex": 2893
   },
   {
    "seam": "joint:hip_joint_L|body:thigh_L",
    "n": 25,
-   "max_gap_growth": 0.0008371029567017501,
-   "max_closing": 0.003923336094958301,
-   "gap_vertex": 2893,
-   "closing_vertex": 2887
+   "max_gap_growth": 0.0014618404811040254,
+   "max_closing": 0.0,
+   "gap_vertex": 2887,
+   "closing_vertex": 2884
   },
   {
    "seam": "joint:hip_joint_R|body:pelvis",
    "n": 30,
-   "max_gap_growth": 0.002093753631452727,
-   "max_closing": 0.006226620458327498,
-   "gap_vertex": 2944,
-   "closing_vertex": 2970
+   "max_gap_growth": 0.0018017783071563338,
+   "max_closing": 0.0014456656910414416,
+   "gap_vertex": 2958,
+   "closing_vertex": 2952
   },
   {
    "seam": "joint:hip_joint_R|body:thigh_R",
    "n": 25,
-   "max_gap_growth": 0.0008371012253885757,
-   "max_closing": 0.0039233360989999674,
-   "gap_vertex": 2952,
-   "closing_vertex": 2946
+   "max_gap_growth": 0.0014618404801110159,
+   "max_closing": 0.0,
+   "gap_vertex": 2946,
+   "closing_vertex": 2943
   },
   {
    "seam": "joint:knee_L|body:shin_L",
    "n": 24,
    "max_gap_growth": 0.0,
-   "max_closing": 0.0016484270324505675,
-   "gap_vertex": 3069,
+   "max_closing": 0.0010421282034951997,
+   "gap_vertex": 3068,
    "closing_vertex": 3065
   },
   {
    "seam": "joint:knee_L|body:thigh_L",
    "n": 24,
-   "max_gap_growth": 0.0004559343580771251,
-   "max_closing": 0.0017141623316560568,
-   "gap_vertex": 3081,
+   "max_gap_growth": 0.00018102910958086096,
+   "max_closing": 0.0013197937027486523,
+   "gap_vertex": 3076,
    "closing_vertex": 3072
   },
   {
    "seam": "joint:knee_R|body:shin_R",
    "n": 24,
    "max_gap_growth": 0.0,
-   "max_closing": 0.0016484301509069564,
-   "gap_vertex": 3099,
+   "max_closing": 0.0010421282266067818,
+   "gap_vertex": 3100,
    "closing_vertex": 3095
   },
   {
    "seam": "joint:knee_R|body:thigh_R",
    "n": 24,
-   "max_gap_growth": 0.00045593323856292847,
-   "max_closing": 0.0017141626456314476,
-   "gap_vertex": 3111,
+   "max_gap_growth": 0.0001810291113385305,
+   "max_closing": 0.0013197936507011194,
+   "gap_vertex": 3108,
    "closing_vertex": 3104
   },
   {
    "seam": "joint:neck|body:chest",
    "n": 32,
    "max_gap_growth": 0.0,
-   "max_closing": 0.0018961319411866379,
-   "gap_vertex": 3322,
-   "closing_vertex": 3326
+   "max_closing": 0.0009204052399618672,
+   "gap_vertex": 3326,
+   "closing_vertex": 3325
   },
   {
    "seam": "joint:neck|body:head",
    "n": 12,
    "max_gap_growth": 0.0,
-   "max_closing": 0.005167348259273428,
+   "max_closing": 0.0013442930651303524,
    "gap_vertex": 3319,
    "closing_vertex": 3323
   },
   {
    "seam": "joint:shoulder_L|body:chest",
    "n": 44,
-   "max_gap_growth": 0.0021189417014552295,
-   "max_closing": 0.008470059572261516,
-   "gap_vertex": 2878,
-   "closing_vertex": 2860
+   "max_gap_growth": 0.00016152509168045753,
+   "max_closing": 0.003137962441030935,
+   "gap_vertex": 2861,
+   "closing_vertex": 2858
   },
   {
    "seam": "joint:shoulder_L|body:upper_arm_L",
    "n": 68,
-   "max_gap_growth": 0.0018287784214318522,
-   "max_closing": 0.005869995073432506,
+   "max_gap_growth": 0.0,
+   "max_closing": 0.0026639240425297382,
    "gap_vertex": 2860,
    "closing_vertex": 2871
   },
   {
    "seam": "joint:shoulder_R|body:chest",
    "n": 44,
-   "max_gap_growth": 0.002118938846580037,
-   "max_closing": 0.008469955654482435,
-   "gap_vertex": 3006,
-   "closing_vertex": 3024
+   "max_gap_growth": 0.00016149270949931613,
+   "max_closing": 0.0031379084672674556,
+   "gap_vertex": 3020,
+   "closing_vertex": 3023
   },
   {
    "seam": "joint:shoulder_R|body:upper_arm_R",
    "n": 68,
-   "max_gap_growth": 0.0018287863439014722,
-   "max_closing": 0.005869886625264144,
+   "max_gap_growth": 0.0,
+   "max_closing": 0.002663871398000499,
    "gap_vertex": 3024,
    "closing_vertex": 3013
   },
@@ -635,74 +533,74 @@
    "seam": "joint:waist_band|body:abdomen",
    "n": 56,
    "max_gap_growth": 0.0,
-   "max_closing": 0.0029412562256478907,
+   "max_closing": 0.0016694579688718639,
    "gap_vertex": 3423,
-   "closing_vertex": 3426
+   "closing_vertex": 3413
   },
   {
    "seam": "joint:waist_band|body:pelvis",
    "n": 28,
-   "max_gap_growth": 0.0010717597166016231,
-   "max_closing": 0.0006254430570642346,
+   "max_gap_growth": 8.113679798522291e-05,
+   "max_closing": 0.00021292474832035915,
    "gap_vertex": 3411,
-   "closing_vertex": 3413
+   "closing_vertex": 3417
   },
   {
    "seam": "joint:wrist_L|body:forearm_L",
    "n": 112,
    "max_gap_growth": 0.0,
-   "max_closing": 0.002076968148909954,
+   "max_closing": 0.0022704161454463086,
    "gap_vertex": 3538,
-   "closing_vertex": 3610
+   "closing_vertex": 3575
   },
   {
    "seam": "joint:wrist_L|body:hand_L",
    "n": 112,
    "max_gap_growth": 0.0,
-   "max_closing": 0.002212538577636595,
+   "max_closing": 0.0017574711884577893,
    "gap_vertex": 3554,
-   "closing_vertex": 3541
+   "closing_vertex": 3566
   },
   {
    "seam": "joint:wrist_R|body:forearm_R",
    "n": 112,
    "max_gap_growth": 0.0,
-   "max_closing": 0.002076794936254697,
+   "max_closing": 0.0022703653438946106,
    "gap_vertex": 3634,
-   "closing_vertex": 3706
+   "closing_vertex": 3673
   },
   {
    "seam": "joint:wrist_R|body:hand_R",
    "n": 112,
    "max_gap_growth": 0.0,
-   "max_closing": 0.0022124700949988987,
+   "max_closing": 0.0017572247221073548,
    "gap_vertex": 3650,
-   "closing_vertex": 3635
+   "closing_vertex": 3662
   }
  ],
  "proportions_female": {
   "H": 1.757485537319809,
   "head_height": 0.2302260398864746,
-  "head_width": 0.14997000992298126,
-  "head_depth": 0.1935218796133995,
+  "head_width": 0.1535518765449524,
+  "head_depth": 0.19312240183353424,
   "heads_tall": 7.633739164285814,
-  "shoulder_width": 0.3253103941679001,
-  "hip_width": 0.3808932602405548,
-  "thigh_outer_width": 0.43680113554000854,
-  "shoulder_hip_ratio": 0.8540723297714664,
-  "shoulder_hip_ratio_thigh": 0.7447562922786941,
-  "upper_arm_len": 0.2634008086130604,
-  "forearm_len": 0.2668066013037904,
-  "hand_len": 0.1993839026655106,
-  "thigh_len": 0.33619055207689397,
-  "shin_len": 0.35169321675500403,
+  "shoulder_width": 0.40349307656288147,
+  "hip_width": 0.3330208957195282,
+  "thigh_outer_width": 0.4380897581577301,
+  "shoulder_hip_ratio": 1.211614891885659,
+  "shoulder_hip_ratio_thigh": 0.9210283259295178,
+  "upper_arm_len": 0.26463812660895186,
+  "forearm_len": 0.2557881191099355,
+  "hand_len": 0.19216908596770874,
+  "thigh_len": 0.3369878289137304,
+  "shin_len": 0.3520437613737292,
   "hip_joint_height": 0.8246533125638962,
   "knee_height": 0.489443052560091,
   "shoulder_height": 1.3600656936566036,
   "chin_height": 1.5272594690322876,
   "chest_top": 1.5001600980758667,
   "neck_exposed": 0.0270993709564209,
-  "foot_length": 0.28853580355644226
+  "foot_length": 0.28853583335876465
  },
  "proportions_male": {
   "H": 1.899984390445045,
@@ -730,25 +628,25 @@
  },
  "torso_female": {
   "waist": [
-   0.5529951596969451,
+   0.6584744072840814,
    0.5875000000000001,
-   0.19294665231583646,
-   0.1449377798959108
+   0.24646989645349396,
+   0.15494134330990106
   ],
   "hip": [
-   0.9982215849712899,
-   0.4675,
-   0.3783390761663336,
-   0.19110491997545484
+   0.8887015477522535,
+   0.5125000000000001,
+   0.32200321746834853,
+   0.2001554567241916
   ],
   "bust": [
-   1.0519707945141588,
-   0.72,
-   0.29569540418157814,
-   0.3300793009492252
+   1.0373491568763376,
+   0.7225,
+   0.31512135989707496,
+   0.3084735333344112
   ],
-  "whr": 0.5539803667067067,
-  "waist_bust": 0.5256753919222062
+  "whr": 0.7409398677762251,
+  "waist_bust": 0.6347664168030728
  },
  "torso_male": {
   "waist": [
@@ -774,6 +672,178 @@
  },
  "symmetry_mm": {
   "male_max": 1.4696195721629233,
-  "female_max": 1.1442253816666292
+  "female_max": 1.27366211766715
+ },
+ "topology": {
+  "male_vertices": 4106,
+  "female_vertices": 10847,
+  "added_vertices": 6741,
+  "male_triangles": 2088,
+  "female_triangles": 13572,
+  "chest_replaced": true,
+  "non_chest_triangles_missing": 0
+ },
+ "v2_proportions": {
+  "male": {
+   "shoulder_m": 0.46405184268951416,
+   "hip_breadth_m": 0.35811784424429466,
+   "hip_breadth_zone_0.44_0.56": 0.35811784424429466,
+   "hip_breadth_trochanter_0.50_0.56": 0.29671721861843353,
+   "H": 1.899984390445045,
+   "shoulder_over_hip": 1.2958076514415608,
+   "whr": 0.8632333701787356
+  },
+  "female": {
+   "shoulder_m": 0.40349307656288147,
+   "hip_breadth_m": 0.4074485846950786,
+   "hip_breadth_zone_0.44_0.56": 0.4074485846950786,
+   "hip_breadth_trochanter_0.50_0.56": 0.3229378814893263,
+   "H": 1.757485537319809,
+   "shoulder_over_hip": 0.990292006695379,
+   "whr": 0.7409398677762251
+  }
+ },
+ "bust": {
+  "male": {
+   "H": 1.899984390445045,
+   "bust_girth": 0.9461708784588742,
+   "underbust_girth": 0.8489923432355966,
+   "bust_girth_y": 1.2474886830726577,
+   "underbust_girth_y": 1.2294886830726577,
+   "left": {
+    "volume_cm3": 23.482775590502037,
+    "projection_m": 0.010700615126402038,
+    "apex": [
+     -0.08999999999999986,
+     1.2474886830726577
+    ],
+    "y_top": 1.3554886830726578,
+    "y_bottom": 1.2394886830726577,
+    "height_m": 0.1160000000000001,
+    "apex_rel_height": 0.06896551724137931,
+    "upper_volume_fraction": 0.9404880461308516,
+    "upper_contour_dev": 0.03139570823932873,
+    "lower_contour_dev": 0.09161195764354416,
+    "angle_upper_deg": 70.99986603824257,
+    "angle_lower_deg": 57.85103757675529,
+    "roundness": -0.053561865317047715,
+    "width_m": 0.044
+   },
+   "right": {
+    "volume_cm3": 24.943366852748486,
+    "projection_m": 0.011122288744257025,
+    "apex": [
+     0.0900000000000003,
+     1.2474886830726577
+    ],
+    "y_top": 1.3554886830726578,
+    "y_bottom": 1.2394886830726577,
+    "height_m": 0.1160000000000001,
+    "apex_rel_height": 0.06896551724137931,
+    "upper_volume_fraction": 0.9370348267058886,
+    "upper_contour_dev": 0.02662942629174057,
+    "lower_contour_dev": 0.08806582592151732,
+    "angle_upper_deg": 71.25041419120856,
+    "angle_lower_deg": 57.73783956962772,
+    "roundness": -0.04878956236236375,
+    "width_m": 0.044
+   },
+   "midline_curvature": 15.710157874021782,
+   "cleavage_excess": -0.012751718567575374,
+   "cleavage_ratio": -1.168654606477013,
+   "bridge_height": 0.0,
+   "sternum_ridge": 0.0035188277368064357
+  },
+  "female": {
+   "H": 1.757485537319809,
+   "bust_girth": 1.0315068032056938,
+   "underbust_girth": 0.8809615053375532,
+   "bust_girth_y": 1.2881770145568618,
+   "underbust_girth_y": 1.1921770145568618,
+   "smoothness": {
+    "max_dihedral": 45.70673716077159,
+    "p95_dihedral": 21.820372936494877,
+    "n_edges": 2104,
+    "frac_over_25": 0.03897338403041825,
+    "max_spike": 0.004896613060398789,
+    "spike_xyz": [
+     0.081512950360775,
+     1.2445632219314575,
+     0.13836617767810822
+    ],
+    "worst_edge_xyz": [
+     0.07452243193984032,
+     1.2731073498725891,
+     0.14575481414794922
+    ]
+   },
+   "left": {
+    "volume_cm3": 449.0311172637954,
+    "projection_m": 0.060813616032215134,
+    "apex": [
+     -0.07399999999999984,
+     1.2881770145568618
+    ],
+    "y_top": 1.392177014556862,
+    "y_bottom": 1.2021770145568618,
+    "height_m": 0.19000000000000017,
+    "apex_rel_height": 0.45263157894736844,
+    "upper_volume_fraction": 0.45245601549532,
+    "upper_contour_dev": -0.03656596723976778,
+    "lower_contour_dev": 0.1682696957344741,
+    "angle_upper_deg": 25.820372122720766,
+    "angle_lower_deg": 51.164802048357465,
+    "roundness": 0.7689977678444514,
+    "width_m": 0.10200000000000001
+   },
+   "right": {
+    "volume_cm3": 448.1765804315579,
+    "projection_m": 0.060432000603188596,
+    "apex": [
+     0.07400000000000029,
+     1.2881770145568618
+    ],
+    "y_top": 1.392177014556862,
+    "y_bottom": 1.2021770145568618,
+    "height_m": 0.19000000000000017,
+    "apex_rel_height": 0.45263157894736844,
+    "upper_volume_fraction": 0.45114469848163363,
+    "upper_contour_dev": -0.03740369228834731,
+    "lower_contour_dev": 0.16855141800222392,
+    "angle_upper_deg": 25.670357553527058,
+    "angle_lower_deg": 51.04446586509677,
+    "roundness": 0.7673734790176332,
+    "width_m": 0.10400000000000001
+   },
+   "midline_curvature": 9.719102531321504,
+   "cleavage_excess": 0.03615008333489242,
+   "cleavage_ratio": 0.5963115919249916,
+   "bridge_height": 0.098,
+   "sternum_ridge": 0.00033613030622249297
+  },
+  "partner_new_faces": {
+   "body:upper_arm": 0,
+   "joint:waist_band": 0,
+   "body:abdomen": 0
+  },
+  "abdomen_poke_mm": {
+   "female": -0.34787156320922885,
+   "male": -4.781379034187308,
+   "vertex": 1332
+  },
+  "lower_rim_sharp_edges": {
+   "male": [
+    4,
+    0.2793498965658224
+   ],
+   "female": [
+    96,
+    0.7047484750362777
+   ]
+  },
+  "front_asymmetry_mm": {
+   "male": 3.2808194764293863,
+   "female": 3.077857772134443
+  }
  }
 }

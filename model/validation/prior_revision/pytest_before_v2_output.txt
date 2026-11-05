@@ -1,0 +1,89 @@
+..........F...F.F.............................FF.....F.................. [ 94%]
+....                                                                     [100%]
+=================================== FAILURES ===================================
+__________________ test_vertex_order_preserved_via_attributes __________________
+
+    def test_vertex_order_preserved_via_attributes():
+        """UV/JOINTS/WEIGHTS 가 인덱스별로 동일 = 정점 순서가 그대로이므로 가중치 전이가 가능하다."""
+        gm, bm = read_glb(MALE); gf, bf = read_glb(FEMALE)
+        for pm, pf in zip(gm["meshes"], gf["meshes"]):
+            for attr in ("TEXCOORD_0", "JOINTS_0", "WEIGHTS_0"):
+                a = accessor(gm, bm, pm["primitives"][0]["attributes"][attr])
+                b = accessor(gf, bf, pf["primitives"][0]["attributes"][attr])
+>               assert np.array_equal(a, b), f"{attr} 불일치"
+E               AssertionError: TEXCOORD_0 불일치
+E               assert False
+E                +  where False = <function array_equal at 0x109201230>(array([[0.3310547 , 0.00878912],\n       [0.3310547 , 0.00878912],\n       [0.3310547 , 0.00878912],\n       ...,\n       ...89756 , 0.00538269],\n       [0.3289756 , 0.00538269],\n       [0.3289756 , 0.00538269]], shape=(2858, 2), dtype=float32), array([[0.3310547 , 0.00878912],\n       [0.3310547 , 0.00878912],\n       [0.3310547 , 0.00878912],\n       ...,\n       ...19176, 0.00620078],\n       [0.33019176, 0.00620078],\n       [0.33019176, 0.00620078]], shape=(10847, 2), dtype=float32))
+E                +    where <function array_equal at 0x109201230> = np.array_equal
+
+tests/test_02_topology.py:27: AssertionError
+__________________________ test_no_new_spike_or_dent ___________________________
+
+    def test_no_new_spike_or_dent():
+        dn, M, F = umbrella_delta()
+        lab = label_of_welded()
+        bad = np.where(np.abs(dn) > 0.015)[0]
+        top = bad[np.argsort(-np.abs(dn[bad]))][:8]
+        detail = "; ".join(f"{dn[i] * 1000:+.0f}mm {lab[i]} {vdesc(members(i)[0])}" for i in top)
+>       assert len(bad) == 0, f"|돌출변화|>15mm 정점 {len(bad)}개 ({_summary(lab[bad])}). 상위: {detail}"
+E       AssertionError: |돌출변화|>15mm 정점 2개 (chest:2). 상위: +33mm body:chest v379 body:chest male(-0.095,1.371,0.100)->fem(-0.083,1.268,0.140); +33mm body:chest v313 body:chest male(0.095,1.371,0.100)->fem(0.083,1.268,0.140)
+E       assert 2 == 0
+E        +  where 2 = len(array([480, 679]))
+
+tests/test_03_deformation_smoothness.py:37: AssertionError
+______________ test_stored_normals_stay_consistent_with_geometry _______________
+
+    def test_stored_normals_stay_consistent_with_geometry():
+        m, f = models()
+        dm, df = tri_dev_from_normals(m), tri_dev_from_normals(f)
+        bad = np.where((dm < 5) & (df > 15))[0]
+        top = bad[np.argsort(-df[bad])][:5]
+        detail = "; ".join(f"{df[t]:.0f}° {parts()[f.tri[t, 0]]} {vdesc(f.tri[t, 0])}" for t in top)
+>       assert len(bad) == 0, f"male 에서 정합(<5°)이던 삼각형 {len(bad)}개가 female 에서 >15° 어긋남 ({_summary(parts()[f.tri[bad, 0]])}). 상위: {detail}"
+E       AssertionError: male 에서 정합(<5°)이던 삼각형 34개가 female 에서 >15° 어긋남 (chest:34). 상위: 71° body:chest v322 body:chest male(0.000,1.372,0.108)->fem(0.000,1.269,0.121); 71° body:chest v390 body:chest male(0.000,1.372,0.108)->fem(0.000,1.269,0.121); 52° body:chest v382 body:chest male(0.000,1.245,0.120)->fem(0.000,1.152,0.108); 52° body:chest v314 body:chest male(0.000,1.245,0.120)->fem(0.000,1.152,0.108); 42° body:chest v518 body:chest male(-0.067,1.203,0.073)->fem(-0.057,1.113,0.065)
+E       assert 34 == 0
+E        +  where 34 = len(array([142, 143, 146, 147, 148, 149, 150, 152, 153, 172, 176, 177, 180,\n       181, 182, 183, 185, 186, 187, 207, 210, 211, 212, 240, 241, 243,\n       244, 245, 250, 251, 252, 253, 254, 255]))
+
+tests/test_03_deformation_smoothness.py:53: AssertionError
+______________________ test_total_new_intersections_small ______________________
+
+    def test_total_new_intersections_small():
+        c, n_new, n_res, n_m, n_f = _new()
+>       assert n_new <= 10, f"신규 {n_new} (해소 {n_res}, male {n_m} -> female {n_f}); " + ", ".join(f"{k}:{v}" for k, v in c.most_common(8))
+E       AssertionError: 신규 629 (해소 133, male 1369 -> female 1865); body:abdomen x body:chest:256, body:chest x joint:neck:114, body:chest x joint:shoulder_L:102, body:chest x joint:shoulder_R:102, body:chest x body:upper_arm_L:27, body:chest x body:upper_arm_R:27, body:thigh_L x joint:knee_L:1
+E       assert 629 <= 10
+
+tests/test_05_intersections.py:16: AssertionError
+____________________ test_no_new_shell_to_shell_penetration ____________________
+
+    def test_no_new_shell_to_shell_penetration():
+        c, *_ = _new()
+        shell = {k: v for k, v in c.items() if k.count("joint:") == 0}
+>       assert sum(shell.values()) <= 4, "Body 쉘끼리 신규 교차: " + ", ".join(f"{k}:{v}" for k, v in sorted(shell.items(), key=lambda x: -x[1]))
+E       AssertionError: Body 쉘끼리 신규 교차: body:abdomen x body:chest:256, body:chest x body:upper_arm_L:27, body:chest x body:upper_arm_R:27
+E       assert 310 <= 4
+E        +  where 310 = sum(dict_values([256, 27, 27]))
+E        +    where dict_values([256, 27, 27]) = <built-in method values of dict object at 0x1099cd8c0>()
+E        +      where <built-in method values of dict object at 0x1099cd8c0> = {'body:abdomen x body:chest': 256, 'body:chest x body:upper_arm_L': 27, 'body:chest x body:upper_arm_R': 27}.values
+
+tests/test_05_intersections.py:22: AssertionError
+___________________________ test_waist_to_bust_girth ___________________________
+
+pf = ({'H': 1.757485537319809, 'head_height': 0.2302260398864746, 'head_width': 0.1535518765449524, 'head_depth': 0.1931224...st': (1.0347004381306182, 0.7275000000000001, 0.314102528099941, 0.30537514474918737), 'whr': 0.7409398677762251, ...})
+pm = ({'H': 1.899984390445045, 'head_height': 0.24889302253723145, 'head_width': 0.17709700763225555, 'head_depth': 0.22210...st': (1.0699310829085928, 0.7225000000000001, 0.36154477551278724, 0.282839673510625), 'whr': 0.8632333701787356, ...})
+
+    def test_waist_to_bust_girth(pf, pm):
+        r = pf[1]["waist_bust"]
+>       assert 0.65 <= r <= 0.85, f"허리/가슴 둘레비 {r:.2f}, 기준 0.65~0.85. male 대조 {pm[1]['waist_bust']:.2f}"
+E       AssertionError: 허리/가슴 둘레비 0.64, 기준 0.65~0.85. male 대조 0.70
+E       assert 0.65 <= 0.6363913486629422
+
+tests/test_06_proportions.py:67: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_02_topology.py::test_vertex_order_preserved_via_attributes
+FAILED tests/test_03_deformation_smoothness.py::test_no_new_spike_or_dent - A...
+FAILED tests/test_03_deformation_smoothness.py::test_stored_normals_stay_consistent_with_geometry
+FAILED tests/test_05_intersections.py::test_total_new_intersections_small - A...
+FAILED tests/test_05_intersections.py::test_no_new_shell_to_shell_penetration
+FAILED tests/test_06_proportions.py::test_waist_to_bust_girth - AssertionErro...
+6 failed, 70 passed in 18.20s

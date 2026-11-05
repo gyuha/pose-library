@@ -1,79 +1,91 @@
-# Male / female mannequin bases
+# Female / male mannequin bases — QA v2 revision
 
-`female.glb` is a reproducible, static feminine base derived from `male.glb` by a symmetric continuous position deformation. No vertices, triangles or vertex indices were added, removed or reordered. UVs, original joint indices and weights, materials, and source attribution remain in the file. The source GLB is unchanged.
+`female.glb` is the reproducible female base. This revision changes the chest shell only; shoulder, waist, pelvis, abdomen and limbs retain the preceding geometry. Original canonical vertices **0–4105**, UVs and joint/weight attributes remain in order. No commit was made.
 
-## Source analysis
+## Source and coordinates
 
-- glTF 2.0 binary, 63 nodes, two triangle meshes / two primitives.
-- `Male_v2_Body`: 2,858 attribute vertices, 1,456 triangles.
-- `Male_v2_Joints`: 1,248 attribute vertices, 632 triangles.
-- Total: **4,106 vertices, 2,088 triangles** (includes duplicated vertices at shading/UV seams; not welded counts).
-- One skin, 55 joints, JOINTS_0 / WEIGHTS_0 attributes and inverse bind matrices; no animations.
-- Meters (glTF convention; human-scale coordinates), Y-up, front +Z. Vertex coordinates have height 1.89998436 m. Source scene contains cancelling axis rotations and a skin hierarchy; source accessor coordinates provide the canonical rest shape.
-- Source bbox: min `[-0.68752176, -0.0000000307, -0.17833138]`, max `[0.68752325, 1.89998436, 0.16584653]` m. Origin is centered between feet at the floor, within floating point tolerance. Feet extend in +Z.
-- Materials: Body, gray `(0.8,0.8,0.8)`, roughness 0.821115; Joints, dark gray `(0.0338957,0.0338957,0.0338957)`, roughness 0.992421. Both nonmetallic, double-sided; no textures.
+`male.glb`: glTF 2.0; 63 nodes, two triangle meshes/primitives. Body: 2,858 attribute vertices / 1,456 triangles. Joints: 1,248 / 632. Total **4,106 vertices / 2,088 triangles**, including shading/UV duplicates. One skin, 55 joints and inverse bind matrices; no animations.
 
-## Generation and rendering
+Meters, Y-up, front +Z. Male height **1.89998439 m**, female **1.75748554 m** (7.5% shorter). Origin is between feet on the floor within float tolerance. Male bbox min `[-0.68752176, -3.07e-8, -0.17833138]`, max `[0.68752325, 1.89998436, 0.16584653]`. Source scene contains axis rotations and a skin hierarchy; accessor positions define the canonical rest shape.
 
-Tools: Python 3 + NumPy, a deterministic NumPy orthographic triangle rasterizer (z-buffer and geometric face normals), and official Node glTF validator. Blender's GUI/headless executable crashed on the original machine; Blender is not required. The QA NumPy environment is used for the revised build.
+Unchanged materials: gray Body `(0.8,0.8,0.8)`, roughness 0.821115; dark Joints `(0.0338957,0.0338957,0.0338957)`, roughness 0.992421. Both double-sided, nonmetallic and untextured.
 
-From the repository root:
+## Reproduce
+
+Python 3 + NumPy, with the existing read-only QA utilities for measurements. No GUI, Blender or network is required for geometry generation. From the repository root:
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 /tmp/pose-qa-venv/bin/python model/tools/make_female.py
+PYTHONDONTWRITEBYTECODE=1 /tmp/pose-qa-venv/bin/python model/tools/build_female.py
+PYTHONDONTWRITEBYTECODE=1 /tmp/pose-qa-venv/bin/python model/tools/qa_bust_summary.py
 PYTHONDONTWRITEBYTECODE=1 /tmp/pose-qa-venv/bin/python model/tools/render_previews.py
 PYTHONDONTWRITEBYTECODE=1 /tmp/pose-qa-venv/bin/python model/tools/verify.py
-PYTHONDONTWRITEBYTECODE=1 /tmp/pose-qa-venv/bin/python model/tools/qa_summary.py
 NODE_PATH=/private/tmp/pose-model-validator/node_modules node model/tools/validate_glb.cjs
 PYTHONDONTWRITEBYTECODE=1 /tmp/pose-qa-venv/bin/python -m pytest tests -q -p no:cacheprovider
 ```
 
-`make_female.py` uses `deformation.py`. Components are computed from source-position-welded triangle connectivity, then classified by their source centroids; this does not import QA code. Only the chest component receives the breast field. Abdomen and pelvis receive none. Joint attributes, UVs and index buffers are untouched. `qa_summary.py` reads QA metrics to write a reviewable summary under `model/validation/`; generation is independent of tests.
+`build_female.py` runs the fixed-topology base deformation, saves `validation/female_before_breast_refinement.glb`, refines the chest and writes generation diagnostics. `qa_bust_summary.py` reads `tests/bust_eval.py` / `qa_metrics.py` without modifying them and writes the authoritative **QA v2** measurements to `validation/qa_bust_v2.json`. Geometry generation is deterministic. Current GLB SHA-256: `8c02e2a8dbc501419998e710d101204656447121a7f6d183ce473bb527ffd768`.
 
-Revised coefficients compared with the first female:
+## Construction and correspondence
 
-- Shoulder reduction 0.22 → 0.07; waist reduction 0.32 → 0.12; broad hip term 0.38 → 0.27. These are Gaussian field amplitudes, not final measured widths.
-- Arm inward translation 37 mm → **0**. Arms and their connectors share x scale 0.94, with unchanged depth, avoiding articulation drift.
-- Breast amplitude 85 mm → **28 mm**; lateral Gaussian width 71 → **150 mm**, vertical width 85 → **190 mm**. A broad lateral falloff and upper/lower chest-only fade prevent isolated peaks and interference at the shell ends.
-- Removed the localized 48 mm posterior gluteal bump and 18 mm thigh offset. Pelvis, hip joints and upper thighs share the same affine plateau (x ×1.23, z ×1.10 in source y 0.78–0.99 m), preventing differential motion at hip contacts.
-- Neck taper fades in above source y 1.62 m; head/neck x/z narrowing is 6% / up to 10%.
-- Height remains ×0.925 around the floor origin.
+Method: **local subdivision of the existing connected chest shell**, chosen to avoid a separate breast patch and weld seam. Connectivity on source-position-welded geometry identifies the chest, excluding abdomen and pelvis. Its 116 triangles become 11,600 triangles (10 subdivisions per edge). The whole connected shell is refined, including side/back faces, to avoid T-junctions. Other components' triangles are unchanged.
 
-Normals are recalculated by accumulating final triangle cross products, preserving authored hard-edge groups identified by source position and source normal. No inverse-Jacobian normal transformation remains. Preview shading uses **geometric face normals**, not stored NORMAL attributes. No remeshing, subdivision or manual editing occurs.
+Final GLB: one mesh, two material primitives sharing a canonical vertex pool. A reader must deduplicate shared accessors when counting vertices.
 
-Female has two identity mesh nodes, Y-up, the same origin and materials. Its male skin/skeleton is removed: this is an **unskinned base for the rigger**. Original JOINTS_0 / WEIGHTS_0 data and the unused inverse-bind accessor remain for reference. The rigger must fit female joint positions and bind matrices.
+| Canonical indices, inclusive | Source correspondence |
+|---|---|
+| 0–2857 | Male Body local 0–2857 |
+| 2858–4105 | Male Joints local 0–1247, plus 2858 |
+| **4106–10846** | **6,741 appended chest vertices** |
 
-## Validation after revision
+Total **10,847 vertices / 13,572 triangles**, unchanged from the preceding refined female. Original chest vertices can change position/normal. Every original non-chest position remains unchanged. Original UV / JOINTS_0 / WEIGHTS_0 values compare exactly. New attributes are barycentrically interpolated; joint influences are accumulated by joint ID, strongest four retained and renormalized. Final normals are recalculated from actual final triangles, with source hard-edge groups retained on back/top and smooth area-weighted normals on the rounded front.
 
-**72 passed, 0 failed** using the pytest command above. Tests and scripts were read/executed without edits. Full latest generation/validator/intersection reports and QA metric summary live in `model/validation/`.
+`validation/chest_vertex_mapping.json` contains each appended index, three original canonical parent indices and barycentric weights. `triangle_source` maps every final triangle back to the original male triangle domain (Body 0–1455, Joints 1456–2087). Corner indices are reused and original UV/hard-edge duplicate positions stay coincident.
 
-| Metric | Previous female (QA report) | Revised female |
+## Changes for QA v2
+
+- Removed the separate central Gaussian ridge. Two asymmetric Gaussian lobes now overlap through their long inner tails, making **one broad U-shaped hollow**, rather than a central peak with two side grooves. Centers remain x ±75 mm; inner / outer widths are **70 / 21 mm**.
+- Displacement amplitude is **61.8 mm**. The field center is y **1.295 m**. Upper support is **180 mm** with a softened concave power profile: `q'=1.1q²/(q+0.1)`, then `(1−q')^3.7`. The low-amplitude upper tail fades into the existing upper chest. Lower support is **95 mm**, with `1−3q⁴+2q⁶`, giving a fuller lower contour and smooth return at the fold.
+- A small **8 mm** localized correction centered at y 1.268 m smooths the inherited coarse front-wall ridge that otherwise pulled the measured apex downward. A **9 mm** local fold return centered at y 1.185 m (17 mm vertical width) makes the IMF clearer without pulling the chest through the abdomen. These terms operate on the chest shell only.
+- Lower ribcage depth is supported by a **7.5 mm posterior chest-shell return** centered at y 1.19 m (50 mm width). This adjusts underbust girth while keeping abdomen, waist and pelvis unchanged. It is explicitly part of the chest remodeling, not a change to hip/waist coefficients.
+- The original anterior bottom-rim return is softened by a conservative **0.5 mm** local correction. Larger retreats caused abdomen contact or changed the inferred QA wall enough to reintroduce false low-volume tails; those trials were discarded. **The source's segmented bottom rim is still partly visible.** It is not claimed to be a seamless anatomical torso.
+- Shoulder / waist / hip base coefficients, upper-hip affine plateau, limb proportions and overall height are unchanged. No QA thresholds were changed.
+
+## Final QA v2 measurements
+
+These use the requested **QA measurement method**, not the generator's known pre-displacement wall. Girths are horizontal convex-hull perimeters. Volume and projection use the QA 2 mm heightfield and extrapolated quadratic chest wall.
+
+| Metric | Previous QA v2 report | Revised |
 |---|---:|---:|
-| Shoulder width | 0.325 m | 0.403493 m |
-| Hip width (pelvis/joints) | 0.381 m | 0.333021 m |
-| Shoulder / hip width | 0.85 | **1.211615** |
-| Waist / hip girth | 0.55 | **0.740940** |
-| Waist / bust girth | 0.53 | **0.663497** |
-| Waist girth | ~0.55 m | 0.658474 m |
-| Hip girth | ~1.00 m | 0.888702 m |
-| Chest central groove | ~58 mm | **0 mm** |
-| New strict intersection pairs | 67 | **7** |
-| New Body–Body intersections | ≥32 | **0** |
+| Bust − underbust | 16.2 cm | **15.055 cm** |
+| One breast volume | ~453 cm³ | **449.03 / 448.18 cm³** |
+| Wall-relative projection | ~64 mm | **60.81 / 60.43 mm** |
+| Upper pole volume fraction | ~0.518 | **0.45246 / 0.45114** |
+| Apex relative height, bottom=0 / top=1 | ~0.505 | **0.45263** |
+| Lower contour convexity | ~0.012 | **0.1683 / 0.1686** |
+| Upper contour convexity | ~0.051 | **−0.0366 / −0.0374** |
+| IMF angle | ~41.6° | **51.16 / 51.04°** |
+| Upper return angle | ~38.8° | **25.82 / 25.67°** |
+| Sternum ridge | ~12.8 mm | **0.336 mm** |
+| Midline curvature | ~78 /m | **9.72 /m** |
+| Maximum dihedral | ~50° | **45.80°** |
+| Vertex deviation | ~4.5 mm | **4.90 mm** |
 
-The 7 remaining new pairs are chest–shoulder connector (3 per side) and left thigh–knee connector (1). There are **0** new chest–abdomen, chest–upper-arm, pelvis–thigh, pelvis–waist-band and abdomen–waist-band pairs. Absolute intersections are male 1,369 / female 1,373, with 3 original pairs resolved. This diagnostic excludes shared-edge/end-point and coplanar contacts; the source has intentional intersecting components.
+The apex is below half-height. Its 0.4526 relative height is about 0.003 above the preferred 0.42–0.45 interval, within one 2 mm grid step; the strict `<0.5` requirement passes. The upper-pole fraction and volume lie inside the requested preferred ranges.
 
-Both models retain **4,106 attribute vertices / 2,088 triangles**, exact indices, UVs, joints and weights. Female height is **1.75748554 m**, 7.5% below male **1.89998439 m**. No nonfinite values, degenerate triangles or face-normal reversals. All QA symmetry, local smoothness, stored-normal, seam and proportion checks pass.
+Bust **103.151 cm** at y **1.288177 m**; underbust **88.096 cm** at y **1.192177 m**. The generator's `breast_metrics.json` uses a different known-wall integration and a fixed underbust height; its volume (~536 cm³) is not interchangeable with QA's annulus-fit / bounded-disc estimate. QA v2 values above are the requested acceptance measurements. This difference is a remaining measurement-method uncertainty, not a bra-fit guarantee.
 
-Official gltf-validator: female **0 errors, 2 warnings, 3 infos**. Warnings concern retained JOINTS/WEIGHTS on the unskinned static meshes; infos concern unused UVs and inverse-bind accessor. Source male also has 0 errors / 2 warnings / 3 infos.
+New chest-partner faces versus male: **upper arm 0, abdomen 0, waist band 0**. Abdomen poke is **−0.348 mm**, so the abdomen is behind the chest surface at the worst sampled location. Existing source contacts remain. The independent source-face-pair diagnostic records **6 changed chest–abdomen pairings on already-contacted abdomen faces**, and 14 contact triangles with any nonzero breast displacement; this is a different metric from QA v2's new opposite-partner faces. The asset is not claimed to be intersection-free. Shoulder/hip breadth ratio is **0.99029** using QA v2's 0.44H–0.56H zone; WHR is **0.74094**, both unchanged and passing. The older pelvis-ring-only width ratio is a different definition and is not used here.
 
-`previews/{male,female}_{front,side,three_quarter}.png` were rerendered with geometric face shading. The three female images were opened and inspected: the lower chest dent and pointed peaks are gone, the waist band is visible, and the pelvis is less inflated. Shape remains faceted with a restrained bust, rather than a smooth anatomical breast surface. Numerical targets were met without reverting to male waist/hip proportions.
+## Test results
 
-### Waist-band constraint that remains unresolved
+Latest full requested command: **103 passed, 4 skipped, 1 failed** (`validation/pytest_v2_output.txt`). **All 15 `test_08_bust` tests pass.** The single failure is `test_06_proportions.py::test_waist_to_bust_girth`, explicitly permitted to remain by the current instruction because that old criterion is being retired. The four skips are coarse-chest checks superseded by the refined-surface tests. Tests and scripts were read/executed without edits.
 
-The requested strict rule “band outer radius always exceeds the pelvis top ring” is **not established by this revision**. The source band is an internal connector, not an external belt: its oblique ring axis is approximately `(0, 0.91477, 0.40398)`. At the shared lower interface, revised band x span is about **0.209 m**, while the pelvis upper ring is about **0.268 m**. Their original spans are also nested (about 0.220 / 0.282 m). A simple top-ring recess to enforce the requested ordering created a visible dent, 29 new band/pelvis intersections and 8.5 mm seam-distance growth; it was discarded. The final version retains the source's recessed connector construction, passes all 28 seam checks and has zero new band/pelvis crossings. This is a remaining design constraint, not a claim that the QA thresholds are wrong.
+Official glTF validator: **0 errors, 1 warning, 2 infos**. Warning: retained JOINTS/WEIGHTS on an intentionally unskinned static base. Infos: unused UVs on untextured primitives. Full reports remain under `model/validation/`. QA topology, attribute, finite-value, seam, symmetry and non-chest preservation checks pass.
 
-## Limits and attribution
+`previews/female_front.png`, `female_side.png`, `female_three_quarter.png`, `female_chest_side.png` use **geometric face normals**. They were rerendered and opened for visual inspection: the W-shaped vertical double groove is gone, the lower pole is fuller, and the lower fold is clearer. Facet bands remain visible under deliberately flat face shading. The small inherited bottom rim remains as noted above.
 
-This retains the source's faceted, segmented low-poly mannequin aesthetic. The very sparse chest and head topology limits round breasts, subtle facial detail and muscle smoothing; the face is featureless and the chest profile remains angular. Topology preservation precludes adding anatomical detail. The result is a stylized female base, not a realistic anatomical scan or clean continuous skin. Connector overlaps remain as quantified above. The strict external-belt radius rule remains unresolved as described above.
+## Remaining limitations and attribution
 
-Source author: **RD3D Game Design**. Source: [UE Mannequin Demake](https://sketchfab.com/3d-models/ue-mannequin-demake-929c983369ec435196a215d29dd6d907). License: **CC BY 4.0**, as recorded in `male.glb` metadata. Female modification: procedural feminine proportions and 7.5% height reduction. Original author/license metadata is preserved in `female.glb`.
+This is an unskinned base. Existing source connector/shell overlaps and the recessed waist connector design remain. The current rigid lowered-arm proxy found 0 contacts on expanded breast triangles at 30°, 40° and 45° inward arm rotation, and 0 new pairs due to breast volume. Inherited chest-wall/arm source pairs are 52 / 56 / 64 and actual fitted-skeleton poses still require rigger validation. No new rig or pose changes were made.
+
+Source author: **RD3D Game Design**. Source: [UE Mannequin Demake](https://sketchfab.com/3d-models/ue-mannequin-demake-929c983369ec435196a215d29dd6d907). License: **CC BY 4.0**, as recorded in `male.glb`. Female modifications: feminine proportions, 7.5% height reduction, chest subdivision and breast/ribcage shaping. Original attribution/license metadata is preserved.

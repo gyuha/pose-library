@@ -8,8 +8,43 @@ from glb_io import FEMALE, MALE, Model
 
 # --------------------------------------------------------------------------- 로딩/용접
 @functools.lru_cache(None)
+def full_female():
+    return Model(FEMALE)
+
+
+@functools.lru_cache(None)
+def correspondence():
+    """(f2m, m2f): female 정점 -> male 정점 번호(없으면 -1), male 정점 -> female 정점 번호.
+    female 이 공유 정점 풀 1개면 앞쪽 N_male 개가 male 과 같은 번호, 풀이 male 처럼 여러 개면 풀마다 앞쪽이 대응한다."""
+    m = Model(MALE); f = full_female()
+    f2m = np.full(f.n_verts, -1)
+    if len(f.pools) == 1:
+        f2m[:m.n_verts] = np.arange(m.n_verts)
+    elif len(f.pools) == len(m.pools):
+        for (mb, me), (fb, fe) in zip(m.pools, f.pools):
+            f2m[fb:fb + (me - mb)] = np.arange(mb, me)
+    else:
+        raise AssertionError("female 정점 풀 구성을 male 과 대응시킬 수 없음")
+    m2f = np.full(m.n_verts, -1)
+    ok = f2m >= 0
+    m2f[f2m[ok]] = np.where(ok)[0]
+    assert (m2f >= 0).all(), "male 정점 중 female 에 대응이 없는 것이 있음 (정점이 삭제됨)"
+    return f2m, m2f
+
+
+@functools.lru_cache(None)
 def models():
-    return Model(MALE), Model(FEMALE)
+    """(male, female_core). female_core = female 의 앞쪽 4106 정점을 male 순서로 정렬한 뷰(삼각형은 male 의 것을 사용).
+    modeler 가 정점/삼각형을 추가해도 '원본 정점의 변형'을 기존 방식으로 측정할 수 있게 한다.
+    추가 정점/세분화 삼각형을 포함한 실제 female 은 full_female() 로 얻는다."""
+    m = Model(MALE)
+    f = full_female()
+    _, m2f = correspondence()
+    c = object.__new__(Model)
+    c.gltf, c.buf = f.gltf, f.buf
+    c.pos, c.nrm, c.uv, c.joints, c.weights = f.pos[m2f], f.nrm[m2f], f.uv[m2f], f.joints[m2f], f.weights[m2f]
+    c.tri, c.tri_mat, c.prim_id, c.pools, c.prims = m.tri, m.tri_mat, m.prim_id, m.pools, m.prims
+    return m, c
 
 
 def weld(pos, tol=1e-5):
@@ -311,6 +346,9 @@ def chest_groove(model):
 
 
 # --------------------------------------------------------------------------- 메시 교차
+TRI_NEW = 100000  # female 에서 새로 생긴/바뀐 삼각형 식별자 오프셋
+
+
 def strict_intersections(T):
     """정확한 삼각형 쌍 교차(엣지-삼각형 내부 교차, 공유 정점/엣지/동일 평면 제외). verify.py 와 동일 판정 기준을 독립 구현."""
     mins = T.min(1); maxs = T.max(1)
@@ -339,13 +377,38 @@ def strict_intersections(T):
 
 
 @functools.lru_cache(None)
+def female_tri_ids():
+    """female 삼각형별 식별자: male 과 정점 구성이 같으면 male 삼각형 번호, 아니면 TRI_NEW + female 삼각형 번호."""
+    m = models()[0]; f = full_female()
+    f2m, _ = correspondence()
+    mset = {tuple(sorted(t)): i for i, t in enumerate(m.tri.tolist())}
+    ids = np.empty(len(f.tri), int)
+    for k, t in enumerate(f.tri.tolist()):
+        g = f2m[t]
+        ids[k] = mset.get(tuple(sorted(g.tolist())), -1) if (g >= 0).all() else -1
+        if ids[k] < 0:
+            ids[k] = TRI_NEW + k
+    return ids
+
+
+@functools.lru_cache(None)
 def intersection_sets():
-    m, f = models()
-    return strict_intersections(m.pos[m.tri]), strict_intersections(f.pos[f.tri])
+    """(male 교차쌍, female 교차쌍). female 은 세분화된 실제 메시(full_female)로 계산한다.
+    삼각형 식별자: male 삼각형과 정점 구성이 같으면 male 삼각형 번호, 아니면 TRI_NEW+female 삼각형 번호.
+    (가슴 세분화로 삼각형이 바뀌어도 가슴 밖 쌍은 male 과 1:1 비교된다.)"""
+    m = models()[0]; f = full_female()
+    ids = female_tri_ids()
+    a = strict_intersections(m.pos[m.tri])
+    b = {tuple(sorted((int(ids[i]), int(ids[j])))) for i, j in strict_intersections(f.pos[f.tri])}
+    return a, b
 
 
-def tri_label(tri_index):
-    return parts()[models()[0].tri[tri_index, 0]]
+
+def tri_label(tri_id):
+    """삼각형 식별자 -> 부위 라벨 (male 번호 또는 TRI_NEW+female 번호)."""
+    if tri_id >= TRI_NEW:
+        return tri_labels_full()[tri_id - TRI_NEW]
+    return parts()[models()[0].tri[tri_id, 0]]
 
 
 def pair_key(p):
@@ -358,12 +421,21 @@ def height(model):
     return float(np.ptp(model.pos[:, 1]))
 
 
+def _source(model):
+    """측정용 (pos, tri, 정점라벨). core female 이면 세분화된 실제 메시(full_female)를 쓴다."""
+    m, c = models()
+    if model is c:
+        f = full_female()
+        return f.pos, f.tri, parts_full()
+    return model.pos, model.tri, parts()
+
+
 def torso_triangles(model):
-    """몸통 둘레 측정용: 가슴/복부/골반 쉘 + 허리 밴드 + 고관절 링 (팔·다리·머리·목 제외)."""
-    L = parts()
+    """몸통 둘레 측정용: 가슴/복부/골반 쉘 + 허리 밴드 + 고관절 링 (팔·다리·머리·목 제외). 가슴 추가 폴리곤 포함."""
+    pos, tri, L = _source(model)
     keep = np.array([n in ("body:chest", "body:abdomen", "body:pelvis", "joint:waist_band")
                      or n.startswith("joint:hip_joint") for n in L])
-    return model.pos[model.tri[keep[model.tri[:, 0]]]]
+    return pos[tri[keep[tri[:, 0]]]]
 
 
 def girth_profile(model, ys):
@@ -481,3 +553,128 @@ def face_normal_rotation(m, f):
     n1 = np.cross(f.pos[f.tri[:, 1]] - f.pos[f.tri[:, 0]], f.pos[f.tri[:, 2]] - f.pos[f.tri[:, 0]])
     c = (n0 * n1).sum(1) / (np.linalg.norm(n0, axis=1) * np.linalg.norm(n1, axis=1))
     return np.degrees(np.arccos(np.clip(c, -1, 1)))
+
+
+# --------------------------------------------------------------------------- 실제(세분화된) female 라벨
+@functools.lru_cache(None)
+def parts_full():
+    """full_female 정점별 부위 라벨. 원본 정점은 male 라벨을 따르고, 추가 정점은 'body:chest' 로 둔다(위치 검사는 test_02)."""
+    f2m, _ = correspondence()
+    lab = np.empty(len(f2m), dtype=object)
+    old = f2m >= 0
+    lab[old] = parts()[f2m[old]]
+    lab[~old] = "body:chest"
+    return lab
+
+
+@functools.lru_cache(None)
+def tri_labels_full():
+    f = full_female(); L = parts_full()
+    lab = L[f.tri[:, 0]].copy()
+    chest_any = (L[f.tri] == "body:chest").any(axis=1)
+    lab[chest_any] = "body:chest"
+    return lab
+
+
+def male_tri_keys(mask=None):
+    m = models()[0]
+    t = m.tri if mask is None else m.tri[mask]
+    return {tuple(sorted(x)) for x in t.tolist()}
+
+
+def preserved_triangles():
+    """male 의 '가슴 쉘이 아닌' 삼각형이 female 에 (male 정점 번호 기준으로) 그대로 있는지.
+    반환: (missing 개수, missing 예시, female 에서 원본 정점만으로 이뤄졌지만 male 에 없는 삼각형 수)."""
+    m = models()[0]; f = full_female(); f2m, _ = correspondence(); L = parts()
+    nonchest = L[m.tri[:, 0]] != "body:chest"
+    want = male_tri_keys(nonchest)
+    have = set()
+    extra = 0
+    allm = male_tri_keys()
+    for t in f.tri.tolist():
+        g = f2m[t]
+        if (g >= 0).all():
+            k = tuple(sorted(g.tolist()))
+            have.add(k)
+            if k not in allm:
+                extra += 1
+    miss = sorted(want - have)
+    return len(miss), miss[:5], extra
+
+
+def chest_topology_changed():
+    """가슴 쉘 삼각형이 male 과 달라졌는가 (세분화/추가)."""
+    m = models()[0]; L = parts()
+    chest = L[m.tri[:, 0]] == "body:chest"
+    have = set()
+    f = full_female(); f2m, _ = correspondence()
+    for t in f.tri.tolist():
+        g = f2m[t]
+        if (g >= 0).all():
+            have.add(tuple(sorted(g.tolist())))
+    return not male_tri_keys(chest) <= have or full_female().n_verts != m.n_verts
+
+
+# --------------------------------------------------------------------------- 가슴과 이웃 쉘의 새 교차 (해상도 무관)
+def chest_partner_sets(classes=("body:upper_arm", "joint:waist_band", "body:abdomen")):
+    """가슴 쉘과 교차하는 '가슴이 아닌 쪽' 삼각형 집합. 가슴 삼각형은 세분화로 개수가 달라지지만
+    상대 쪽(upper_arm/abdomen/waist_band)은 male 과 1:1 이므로 집합 차이로 '새로 교차하는 면'을 센다.
+    반환 {클래스: (male 집합, female 집합)}"""
+    a, b = intersection_sets()
+    out = {c: (set(), set()) for c in classes}
+    for k, pairs in enumerate((a, b)):
+        for p in pairs:
+            la, lb = tri_label(p[0]), tri_label(p[1])
+            for me, other, tid in ((la, lb, p[1]), (lb, la, p[0])):
+                if me == "body:chest":
+                    for c in classes:
+                        if other.startswith(c):
+                            out[c][k].add(tid)
+    return out
+
+
+def abdomen_poke():
+    """배 쉘 정점이 가슴 쉘 앞면 높이장보다 얼마나 앞(+z)으로 튀어나왔는가 [m] (male 은 음수 = 가슴 속에 있음).
+    가슴 높이장이 덮는 (x,y) 안의 배 쉘 정점만 본다. 반환 (female 최대, male 최대, female 최악 정점 인덱스(full))."""
+    import bust_metrics as bm
+    res = []
+    for which in ("male", "female"):
+        if which == "male":
+            m = models()[0]; pos, tri, L = m.pos, m.tri, parts(); tl = L[tri[:, 0]]
+        else:
+            f = full_female(); pos, tri, L = f.pos, f.tri, parts_full(); tl = tri_labels_full()
+        Tc = pos[tri[tl == "body:chest"]]
+        xs = np.arange(-0.22, 0.2201, bm.STEP); ys = np.arange(0.55 * height(models()[0]) * SCALE, 1.62 * SCALE, bm.STEP)
+        Z = bm.heightfield(Tc, xs, ys)
+        idx = np.where(L == "body:abdomen")[0]
+        worst, wi = -1.0, -1
+        for i in idx:
+            z = bm.sample(Z, xs, ys, pos[i, 0], pos[i, 1])
+            if np.isfinite(z) and pos[i, 2] - z > worst:
+                worst, wi = pos[i, 2] - z, int(i)
+        res.append((worst, wi))
+    return res[1][0], res[0][0], res[1][1]
+
+
+# --------------------------------------------------------------------------- 비율 v2: 엉덩이 폭 (줄자/캘리퍼 정의에 가깝게)
+def hip_breadth(model, zone=(0.44, 0.56)):
+    """서 있는 자세의 엉덩이 폭 근사: zone(키 비율, 기본 0.44H~0.56H: 둔부 최대 돌출~대전자 0.530H) 수평 단면에서
+    골반 쉘+고관절 링+허벅지 쉘이 차지하는 x 폭의 최대값 [m]. 반환 (폭, 그 높이/H).
+    zone 선택에 따라 값이 달라진다: 대전자 높이만(0.50~0.56H) 보면 female 폭이 더 좁게 나온다(보고서 참조)."""
+    pos, tri, L = _source(model)
+    keep = np.array([n == "body:pelvis" or n.startswith("joint:hip_joint") or n.startswith("body:thigh") for n in L])
+    T = pos[tri[keep[tri[:, 0]]]]
+    H = height(model)
+    best = (0.0, None)
+    for y in np.linspace(zone[0] * H, zone[1] * H, 49):
+        P = section_points(T, np.array([0, 1.0, 0]), y)
+        if len(P):
+            w = float(np.ptp(P[:, 0]))
+            if w > best[0]:
+                best = (w, float(y / H))
+    return best
+
+
+def shoulder_breadth(model):
+    """어깨 링(Joints) 바깥-바깥 x 폭 [m]. 이 마네킹에서 삼각근 폭과 견봉 폭 사이의 근사."""
+    return proportions(model)["shoulder_width"]
