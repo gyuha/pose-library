@@ -1,0 +1,721 @@
+{
+  "$schema": "./schema.json",
+  "formatVersion": 1,
+  "skeleton": "pose-library-humanoid-v1",
+  "meta": {
+    "id": "pose_11_squat_hands_on_knees",
+    "name": "Deep squat, hands on knees",
+    "description": "Deep squat with both feet flat on the floor and the hips below knee height, knees pointing forward and slightly apart, trunk leaning forward a little. Both hands rest on top of the knees with the fingers hanging over the kneecaps; the head is raised to look forward. Left/right are the character's own.",
+    "targetModels": [
+      "female",
+      "male"
+    ],
+    "assumptions": [
+      "Reference: user-supplied image (ai-pose-gallery.pages.dev full_single_P061, viewed only; not stored in the repository).",
+      "Front view only: the depth layout (hips about 0.18 hips-height behind the ankles, trunk flexed ~29 deg through spine_01-03, head extended back to face forward) is assumed for balance with flat feet.",
+      "Feet flat: ankle dorsiflexion is capped at 25 deg by the rig limits, so the shins lean ~21 deg and the hips sit slightly behind rather than straight above the heels; buttocks stay off the floor.",
+      "Knees forward and slightly apart (thighs abducted ~10 deg, externally rotated ~12 deg); feet toed out 6 deg.",
+      "Hands placed palm-down on the knees with the fingers draped forward over the kneecaps; thumbs extended (thumb_01 x = -20) so the male thumb tip does not sink into the inner knee.",
+      "Authored on rig/female.glb; the male uses the same rotations and the hips-height-relative root offset."
+    ],
+    "generator": "scripts/pose_author/poses/pose_11_squat_hands_on_knees.py"
+  },
+  "root": {
+    "translation": [
+      0.0,
+      -0.591494,
+      -0.18
+    ],
+    "unit": "hipsHeight"
+  },
+  "bones": {
+    "spine_01": {
+      "quaternion": [
+        0.0958458,
+        0.0,
+        0.0,
+        0.9953962
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          11.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "spine_02": {
+      "quaternion": [
+        0.0958458,
+        0.0,
+        0.0,
+        0.9953962
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          11.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "spine_03": {
+      "quaternion": [
+        0.0610485,
+        0.0,
+        0.0,
+        0.9981348
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          7.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "neck_01": {
+      "quaternion": [
+        -0.190809,
+        0.0,
+        0.0,
+        0.9816272
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          -22.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "head": {
+      "quaternion": [
+        -0.1045285,
+        0.0,
+        0.0,
+        0.9945219
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          -12.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "upperarm_l": {
+      "quaternion": [
+        0.2102889,
+        0.283457,
+        -0.1754133,
+        0.9190543
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          32.912,
+          26.567,
+          -29.59
+        ]
+      }
+    },
+    "lowerarm_l": {
+      "quaternion": [
+        0.4769578,
+        0.2250652,
+        0.1278005,
+        0.8399547
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          59.179,
+          30.0,
+          0.0
+        ]
+      }
+    },
+    "hand_l": {
+      "quaternion": [
+        0.2055184,
+        0.0280168,
+        -0.2395064,
+        0.9484798
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          23.809,
+          -2.596,
+          -27.796
+        ]
+      }
+    },
+    "thumb_01_l": {
+      "quaternion": [
+        -0.1734829,
+        0.0075744,
+        0.0429567,
+        0.9838704
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          -20.0,
+          0.0,
+          5.0
+        ]
+      }
+    },
+    "index_01_l": {
+      "quaternion": [
+        0.0697565,
+        0.0,
+        0.0,
+        0.9975641
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          8.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "index_02_l": {
+      "quaternion": [
+        0.0871557,
+        0.0,
+        0.0,
+        0.9961947
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          10.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "index_03_l": {
+      "quaternion": [
+        0.052336,
+        0.0,
+        0.0,
+        0.9986295
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          6.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "middle_01_l": {
+      "quaternion": [
+        0.0697565,
+        0.0,
+        0.0,
+        0.9975641
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          8.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "middle_02_l": {
+      "quaternion": [
+        0.0871557,
+        0.0,
+        0.0,
+        0.9961947
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          10.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "middle_03_l": {
+      "quaternion": [
+        0.052336,
+        0.0,
+        0.0,
+        0.9986295
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          6.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "ring_01_l": {
+      "quaternion": [
+        0.0697565,
+        0.0,
+        0.0,
+        0.9975641
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          8.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "ring_02_l": {
+      "quaternion": [
+        0.0871557,
+        0.0,
+        0.0,
+        0.9961947
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          10.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "ring_03_l": {
+      "quaternion": [
+        0.052336,
+        0.0,
+        0.0,
+        0.9986295
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          6.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "pinky_01_l": {
+      "quaternion": [
+        0.0697565,
+        0.0,
+        0.0,
+        0.9975641
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          8.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "pinky_02_l": {
+      "quaternion": [
+        0.0871557,
+        0.0,
+        0.0,
+        0.9961947
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          10.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "pinky_03_l": {
+      "quaternion": [
+        0.052336,
+        0.0,
+        0.0,
+        0.9986295
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          6.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "thigh_l": {
+      "quaternion": [
+        -0.8042048,
+        -0.130486,
+        0.0379059,
+        0.5786114
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          -109.582,
+          -12.238,
+          -9.78
+        ]
+      }
+    },
+    "calf_l": {
+      "quaternion": [
+        0.9041541,
+        0.0,
+        0.0,
+        0.4272065
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          129.419,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "foot_l": {
+      "quaternion": [
+        -0.1882001,
+        0.0771121,
+        -0.085393,
+        0.9753679
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          -21.101,
+          10.519,
+          -8.042
+        ]
+      }
+    },
+    "upperarm_r": {
+      "quaternion": [
+        0.2102889,
+        -0.283457,
+        0.1754133,
+        0.9190543
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          32.912,
+          -26.567,
+          29.59
+        ]
+      }
+    },
+    "lowerarm_r": {
+      "quaternion": [
+        0.4769578,
+        -0.2250652,
+        -0.1278005,
+        0.8399547
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          59.179,
+          -30.0,
+          0.0
+        ]
+      }
+    },
+    "hand_r": {
+      "quaternion": [
+        0.2055184,
+        -0.0280168,
+        0.2395064,
+        0.9484798
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          23.809,
+          2.596,
+          27.796
+        ]
+      }
+    },
+    "thumb_01_r": {
+      "quaternion": [
+        -0.1734829,
+        -0.0075744,
+        -0.0429567,
+        0.9838704
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          -20.0,
+          0.0,
+          -5.0
+        ]
+      }
+    },
+    "index_01_r": {
+      "quaternion": [
+        0.0697565,
+        0.0,
+        0.0,
+        0.9975641
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          8.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "index_02_r": {
+      "quaternion": [
+        0.0871557,
+        0.0,
+        0.0,
+        0.9961947
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          10.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "index_03_r": {
+      "quaternion": [
+        0.052336,
+        0.0,
+        0.0,
+        0.9986295
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          6.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "middle_01_r": {
+      "quaternion": [
+        0.0697565,
+        0.0,
+        0.0,
+        0.9975641
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          8.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "middle_02_r": {
+      "quaternion": [
+        0.0871557,
+        0.0,
+        0.0,
+        0.9961947
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          10.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "middle_03_r": {
+      "quaternion": [
+        0.052336,
+        0.0,
+        0.0,
+        0.9986295
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          6.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "ring_01_r": {
+      "quaternion": [
+        0.0697565,
+        0.0,
+        0.0,
+        0.9975641
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          8.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "ring_02_r": {
+      "quaternion": [
+        0.0871557,
+        0.0,
+        0.0,
+        0.9961947
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          10.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "ring_03_r": {
+      "quaternion": [
+        0.052336,
+        0.0,
+        0.0,
+        0.9986295
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          6.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "pinky_01_r": {
+      "quaternion": [
+        0.0697565,
+        0.0,
+        0.0,
+        0.9975641
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          8.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "pinky_02_r": {
+      "quaternion": [
+        0.0871557,
+        0.0,
+        0.0,
+        0.9961947
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          10.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "pinky_03_r": {
+      "quaternion": [
+        0.052336,
+        0.0,
+        0.0,
+        0.9986295
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          6.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "thigh_r": {
+      "quaternion": [
+        -0.8042048,
+        0.130486,
+        -0.0379059,
+        0.5786114
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          -109.582,
+          12.238,
+          9.78
+        ]
+      }
+    },
+    "calf_r": {
+      "quaternion": [
+        0.9041541,
+        0.0,
+        0.0,
+        0.4272065
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          129.419,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "foot_r": {
+      "quaternion": [
+        -0.1882001,
+        -0.0771121,
+        0.085393,
+        0.9753679
+      ],
+      "euler": {
+        "order": "XYZ",
+        "degrees": [
+          -21.101,
+          -10.519,
+          8.042
+        ]
+      }
+    }
+  }
+}

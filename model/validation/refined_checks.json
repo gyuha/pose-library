@@ -3,25 +3,27 @@
   "indices_valid": true,
   "original_attribute_prefix_preserved": true,
   "non_chest_positions_identical": true,
-  "vertices": 10847,
-  "triangles": 13572,
+  "vertices": 5212,
+  "triangles": 2566,
   "append_range": [
     4106,
-    10846
+    5211
   ],
-  "active_displaced_breast_triangle_collisions": 14,
+  "active_displaced_breast_triangle_collisions": 0,
   "new_static_source_pairs_due_to_breast_field": 0,
   "new_chest_collision_source_pairs_vs_previous": 6,
   "new_chest_collision_by_other_part": {
-    "abdomen": 6
+    "neck": 3,
+    "abdomen": 1,
+    "shoulder": 2
   },
   "lowered_arm_proxy": [
     {
       "inward_rotation_deg": 30,
       "expanded_breast_surface_arm_contacts": 0,
-      "chest_arm_source_pairs": 52,
+      "chest_arm_source_pairs": 48,
       "new_pairs_due_to_breast_volume": 0,
-      "baseline_chest_arm_source_pairs": 52
+      "baseline_chest_arm_source_pairs": 48
     },
     {
       "inward_rotation_deg": 40,
@@ -38,5 +40,5 @@
       "baseline_chest_arm_source_pairs": 64
     }
   ],
-  "note": "The unexpanded control retains current wall/IMF/ribcage corrections and removes only the breast field. Source-face-pair changes and QA opposite-partner-face changes are different metrics. Collision counts collapse refined triangles to source-face pairs. The source already has connector and shell overlaps. Arm lowering is a rigid kinematic proxy, not a skinned animation."
+  "note": "The unexpanded control is the same remesh with zero breast displacement (wall, IMF fold and rim retreat kept). Source-face-pair changes and QA opposite-partner-face changes are different metrics. Collision counts collapse refined triangles to source-face pairs. The source already has connector and shell overlaps. Arm lowering is a rigid kinematic proxy, not a skinned animation."
 }

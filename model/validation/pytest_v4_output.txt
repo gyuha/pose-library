@@ -1,0 +1,26 @@
+..................................s..................s.s.s.............. [ 63%]
+s.......................F...F.F..F.......                                [100%]
+=================================== FAILURES ===================================
+E   AssertionError: 가슴둘레 102.7 cm (y=1.266) - 밑가슴둘레 79.4 cm (y=1.148) = 23.3 cm, 기준 14~16 cm
+    assert np.float64(23.25911494029941) <= 16
+/Users/gyuha/workspace/pose-library/tests/test_08_bust.py:44: AssertionError: 가슴둘레 102.7 cm (y=1.266) - 밑가슴둘레 79.4 cm (y=1.148) = 23.3 cm, 기준 14~16 cm
+E   AssertionError: 최대 돌출점의 상대 높이(밑=0, 위=1) {'left': 0.5, 'right': 0.5}, 기준 < 0.5. 유방 높이 {'left': 21.6, 'right': 21.6} cm
+    assert False
+     +  where False = all(<generator object test_apex_is_below_breast_mid_height.<locals>.<genexpr> at 0x10affda40>)
+/Users/gyuha/workspace/pose-library/tests/test_08_bust.py:70: AssertionError: 최대 돌출점의 상대 높이(밑=0, 위=1) {'left': 0.5, 'right': 0.5}, 기준 < 0.5. 유방 높이 {'left': 21.6, 'right': 21.6} cm
+E   AssertionError: 아래 윤곽 볼록도 {'left': -0.099, 'right': -0.099} (기준 >= 0.10), 위쪽과의 차 {'left': -0.008, 'right': -0.008} (기준 >= 0.05)
+    assert False
+     +  where False = all(<generator object test_lower_contour_is_convex_and_fuller_than_upper.<locals>.<genexpr> at 0x10b6322f0>)
+/Users/gyuha/workspace/pose-library/tests/test_08_bust.py:83: AssertionError: 아래 윤곽 볼록도 {'left': -0.099, 'right': -0.099} (기준 >= 0.10), 위쪽과의 차 {'left': -0.008, 'right': -0.008} (기준 >= 0.05)
+E   AssertionError: 이웃 평균 대비 법선 방향 정점 편차 17.8 mm 위치 [0.07626300305128098, 1.1519999504089355, 0.09738478809595108], 기준 <= 8 mm
+    assert 0.017806157326589925 <= 0.008
+/Users/gyuha/workspace/pose-library/tests/test_08_bust.py:103: AssertionError: 이웃 평균 대비 법선 방향 정점 편차 17.8 mm 위치 [0.07626300305128098, 1.1519999504089355, 0.09738478809595108], 기준 <= 8 mm
+=========================== short test summary info ============================
+FAILED tests/test_08_bust.py::test_cup_girth_difference_14_to_16_cm - Asserti...
+FAILED tests/test_08_bust.py::test_apex_is_below_breast_mid_height - Assertio...
+FAILED tests/test_08_bust.py::test_lower_contour_is_convex_and_fuller_than_upper
+FAILED tests/test_08_bust.py::test_no_single_vertex_cone_spike - AssertionErr...
+SKIPPED [1] tests/test_03_deformation_smoothness.py:49: 가슴 쉘이 교체됨: 중앙 홈/V홈은 test_08_bust.py 의 곡률 검사가 본다
+SKIPPED [3] tests/test_04_seams.py:15: 가슴 쉘 교체됨: 가슴-관절 이음매는 test_08_bust.py 의 교차 검사가 본다
+SKIPPED [1] tests/test_06_proportions.py:65: 폐기(오케스트레이터 결정): 가슴이 없던 때의 휴리스틱이라 가슴 추가 후 가슴둘레에 유방이 포함되어 의미가 없다. test_08_bust.py 의 가슴-밑가슴 둘레 차이 검사가 대체한다.
+4 failed, 104 passed, 5 skipped in 6.62s

@@ -1,0 +1,655 @@
+{
+ "pose": "poses/pose_01_contrapposto_hand_on_head.json",
+ "models": {
+  "female": {
+   "shoulder_filler_l~torso": {
+    "kind": "hidden",
+    "pose": {
+     "inside_vertices": 12,
+     "max_depth_mm": 12.95,
+     "crossing_edges": 25,
+     "min_gap_mm": 0.0
+    },
+    "rest": {
+     "inside_vertices": 52,
+     "max_depth_mm": 53.33,
+     "crossing_edges": 46,
+     "min_gap_mm": 0.0
+    },
+    "new_inside_vertices": -40,
+    "new_crossing_edges": -21
+   },
+   "shoulder_filler_r~torso": {
+    "kind": "hidden",
+    "pose": {
+     "inside_vertices": 32,
+     "max_depth_mm": 61.7,
+     "crossing_edges": 43,
+     "min_gap_mm": 0.0
+    },
+    "rest": {
+     "inside_vertices": 52,
+     "max_depth_mm": 53.33,
+     "crossing_edges": 46,
+     "min_gap_mm": 0.0
+    },
+    "new_inside_vertices": -20,
+    "new_crossing_edges": -3
+   },
+   "upperarm_l~head": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 34.28
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 89.32
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "lowerarm_l~head": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 16.18
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 401.32
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "hand_l~head": {
+    "kind": "contact",
+    "pose": {
+     "inside_vertices": 3,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 10,
+     "min_gap_mm": 0.0
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 617.53
+    },
+    "new_inside_vertices": 3,
+    "new_crossing_edges": 10
+   },
+   "upperarm_r~head": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 71.52
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 89.32
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "lowerarm_r~head": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 364.69
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 401.32
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "hand_r~head": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 439.7
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 617.53
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "upperarm_l~torso": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 10,
+     "max_depth_mm": 23.46,
+     "crossing_edges": 20,
+     "min_gap_mm": 0.0
+    },
+    "rest": {
+     "inside_vertices": 9,
+     "max_depth_mm": 15.41,
+     "crossing_edges": 12,
+     "min_gap_mm": 0.0
+    },
+    "new_inside_vertices": 1,
+    "new_crossing_edges": 8
+   },
+   "lowerarm_l~torso": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 214.97
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 194.66
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "hand_l~torso": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 215.3
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 354.31
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "upperarm_r~torso": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 20,
+     "max_depth_mm": 64.79,
+     "crossing_edges": 27,
+     "min_gap_mm": 0.0
+    },
+    "rest": {
+     "inside_vertices": 9,
+     "max_depth_mm": 15.41,
+     "crossing_edges": 12,
+     "min_gap_mm": 0.0
+    },
+    "new_inside_vertices": 11,
+    "new_crossing_edges": 15
+   },
+   "lowerarm_r~torso": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 51.9
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 194.66
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "hand_r~torso": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 29.23
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 354.31
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "lowerarm_r~pelvis": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 19.21
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 239.85
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "hand_r~pelvis": {
+    "kind": "contact",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 5,
+     "min_gap_mm": 0.0
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 330.31
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 5
+   },
+   "upperarm_r~pelvis": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 197.97
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 218.02
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "leg_l~leg_r": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 108.85
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 91.31
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "hand_r~leg_r": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 53.84
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 333.85
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   }
+  },
+  "male": {
+   "shoulder_filler_l~torso": {
+    "kind": "hidden",
+    "pose": {
+     "inside_vertices": 12,
+     "max_depth_mm": 12.54,
+     "crossing_edges": 25,
+     "min_gap_mm": 0.0
+    },
+    "rest": {
+     "inside_vertices": 52,
+     "max_depth_mm": 61.78,
+     "crossing_edges": 37,
+     "min_gap_mm": 0.0
+    },
+    "new_inside_vertices": -40,
+    "new_crossing_edges": -12
+   },
+   "shoulder_filler_r~torso": {
+    "kind": "hidden",
+    "pose": {
+     "inside_vertices": 32,
+     "max_depth_mm": 64.53,
+     "crossing_edges": 40,
+     "min_gap_mm": 0.0
+    },
+    "rest": {
+     "inside_vertices": 52,
+     "max_depth_mm": 61.79,
+     "crossing_edges": 37,
+     "min_gap_mm": 0.0
+    },
+    "new_inside_vertices": -20,
+    "new_crossing_edges": 3
+   },
+   "upperarm_l~head": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 41.18
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 102.7
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "lowerarm_l~head": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 17.31
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 450.72
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "hand_l~head": {
+    "kind": "contact",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 1.43
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 691.06
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "upperarm_r~head": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 84.29
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 102.7
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "lowerarm_r~head": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 410.75
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 450.72
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "hand_r~head": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 497.08
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 691.06
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "upperarm_l~torso": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 10,
+     "max_depth_mm": 23.47,
+     "crossing_edges": 19,
+     "min_gap_mm": 0.0
+    },
+    "rest": {
+     "inside_vertices": 5,
+     "max_depth_mm": 17.79,
+     "crossing_edges": 11,
+     "min_gap_mm": 0.0
+    },
+    "new_inside_vertices": 5,
+    "new_crossing_edges": 8
+   },
+   "lowerarm_l~torso": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 241.49
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 222.03
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "hand_l~torso": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 239.87
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 410.24
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "upperarm_r~torso": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 20,
+     "max_depth_mm": 68.97,
+     "crossing_edges": 24,
+     "min_gap_mm": 0.0
+    },
+    "rest": {
+     "inside_vertices": 5,
+     "max_depth_mm": 17.79,
+     "crossing_edges": 11,
+     "min_gap_mm": 0.0
+    },
+    "new_inside_vertices": 15,
+    "new_crossing_edges": 13
+   },
+   "lowerarm_r~torso": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 78.01
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 222.03
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "hand_r~torso": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 61.01
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 410.23
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "lowerarm_r~pelvis": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 54.89
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 277.31
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "hand_r~pelvis": {
+    "kind": "contact",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 29.14
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 410.59
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "upperarm_r~pelvis": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 220.8
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 244.82
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "leg_l~leg_r": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 100.36
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 83.62
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   },
+   "hand_r~leg_r": {
+    "kind": "avoid",
+    "pose": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 78.05
+    },
+    "rest": {
+     "inside_vertices": 0,
+     "max_depth_mm": 0.0,
+     "crossing_edges": 0,
+     "min_gap_mm": 429.12
+    },
+    "new_inside_vertices": 0,
+    "new_crossing_edges": 0
+   }
+  }
+ }
+}

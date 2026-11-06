@@ -1,12 +1,19 @@
-# Female / male mannequin bases — QA v2 revision
+# Female / male mannequin bases — v4 faceted chest revision
 
-`female.glb` is the reproducible female base. This revision changes the chest shell only; shoulder, waist, pelvis, abdomen and limbs retain the preceding geometry. Original canonical vertices **0–4105**, UVs and joint/weight attributes remain in order. No commit was made.
+`female.glb` is the reproducible female base. Only the chest shell changes: a **low-poly faceted remesh (594 triangles)** whose edge flow follows the breast form. Shoulder, waist, pelvis, abdomen, limbs and height are unchanged. Original canonical vertices **0–4105**, their order, UVs and joint/weight attributes are unchanged. No commit was made.
+
+v4 changes relative to v3:
+- **Apex.** The 16-spoke apex pole is replaced by a flat 8-sided cap, an 8-sided loop and 16-sided rings, and the profiles are rounder.
+- **Size and girth.** The breast is a little smaller (true bust − underbust 15.8 cm instead of 18.4 cm).
+- **Bottom ledge.** The plate's bottom ledge is rounded back over its last 3 cm (centre overhang 3.5 mm instead of 7.8 mm).
+- **Axis yaw.** The breast axis yaw goes from 10° to 12°.
+- **Symmetry.** Quad splits are now mirrored exactly.
 
 ## Source and coordinates
 
 `male.glb`: glTF 2.0; 63 nodes, two triangle meshes/primitives. Body: 2,858 attribute vertices / 1,456 triangles. Joints: 1,248 / 632. Total **4,106 vertices / 2,088 triangles**, including shading/UV duplicates. One skin, 55 joints and inverse bind matrices; no animations.
 
-Meters, Y-up, front +Z. Male height **1.89998439 m**, female **1.75748554 m** (7.5% shorter). Origin is between feet on the floor within float tolerance. Male bbox min `[-0.68752176, -3.07e-8, -0.17833138]`, max `[0.68752325, 1.89998436, 0.16584653]`. Source scene contains axis rotations and a skin hierarchy; accessor positions define the canonical rest shape.
+Meters, Y-up, front +Z. Male height **1.89998439 m**, female **1.75748551 m** (7.5% shorter). Origin is between feet on the floor within float tolerance. Male bbox min `[-0.68752176, -3.07e-8, -0.17833138]`, max `[0.68752325, 1.89998436, 0.16584653]`. Source scene contains axis rotations and a skin hierarchy; accessor positions define the canonical rest shape.
 
 Unchanged materials: gray Body `(0.8,0.8,0.8)`, roughness 0.821115; dark Joints `(0.0338957,0.0338957,0.0338957)`, roughness 0.992421. Both double-sided, nonmetallic and untextured.
 
@@ -19,73 +26,150 @@ PYTHONDONTWRITEBYTECODE=1 /tmp/pose-qa-venv/bin/python model/tools/build_female.
 PYTHONDONTWRITEBYTECODE=1 /tmp/pose-qa-venv/bin/python model/tools/qa_bust_summary.py
 PYTHONDONTWRITEBYTECODE=1 /tmp/pose-qa-venv/bin/python model/tools/render_previews.py
 PYTHONDONTWRITEBYTECODE=1 /tmp/pose-qa-venv/bin/python model/tools/verify.py
+PYTHONDONTWRITEBYTECODE=1 /tmp/pose-qa-venv/bin/python model/tools/check_weights.py
 NODE_PATH=/private/tmp/pose-model-validator/node_modules node model/tools/validate_glb.cjs
-PYTHONDONTWRITEBYTECODE=1 /tmp/pose-qa-venv/bin/python -m pytest tests -q -p no:cacheprovider
+GLTF_VALIDATOR_NODE_PATH=/private/tmp/pose-model-validator/node_modules PYTHONDONTWRITEBYTECODE=1 /tmp/pose-qa-venv/bin/python -m pytest tests -q -p no:cacheprovider
 ```
 
-`build_female.py` runs the fixed-topology base deformation, saves `validation/female_before_breast_refinement.glb`, refines the chest and writes generation diagnostics. `qa_bust_summary.py` reads `tests/bust_eval.py` / `qa_metrics.py` without modifying them and writes the authoritative **QA v2** measurements to `validation/qa_bust_v2.json`. Geometry generation is deterministic. Current GLB SHA-256: `8c02e2a8dbc501419998e710d101204656447121a7f6d183ce473bb527ffd768`.
+The venv is created by `scripts/run_female_qa.sh` (`tests/requirements.txt`); the validator is `npm i gltf-validator` in `/private/tmp/pose-model-validator`.
 
-## Construction and correspondence
+`build_female.py` runs the fixed-topology base morph (`make_female.py`), saves `validation/female_before_breast_refinement.glb`, remeshes the chest (`refine_chest.py`) and writes generation diagnostics. Generation is deterministic: two consecutive builds give the same file, SHA-256 `3063067122b2b17a8bc10de0010429e755e275969de8a91c6ce55a9715f54da5`.
 
-Method: **local subdivision of the existing connected chest shell**, chosen to avoid a separate breast patch and weld seam. Connectivity on source-position-welded geometry identifies the chest, excluding abdomen and pelvis. Its 116 triangles become 11,600 triangles (10 subdivisions per edge). The whole connected shell is refined, including side/back faces, to avoid T-junctions. Other components' triangles are unchanged.
+Pipeline:
 
-Final GLB: one mesh, two material primitives sharing a canonical vertex pool. A reader must deduplicate shared accessors when counting vertices.
+```
+male.glb → make_female.py (proportions, 0.925 scale) → female_before_breast_refinement.glb
+        → refine_chest.py (chest-front remesh, side fans, normals, mapping) → female.glb + chest_vertex_mapping.json + breast_metrics.json
+        → measure_refined.py (hull girths) → validation.json
+```
+
+## Construction (`model/tools/refine_chest.py`)
+
+The connected chest shell is a closed box of 60 welded positions / 116 triangles. Its **front patch** (both halves, 40 source triangles, including the old bottom rim) is replaced. The patch boundary is made of original shell edges, so the sides, back and top of the shell keep their original faces.
+
+1. **Chest wall.** Smoothing thin-plate spline (λ = 2e-6) through dense samples of the original front faces. This removes the coarse-face creases without the overshoot of a pure interpolating spline.
+   - Only the last 3 cm of the plate (y 1.185 → 1.152) is rounded back towards the abdomen shell, removing 80% of the old overhang. The retreat is bounded by the abdomen front within ±3 cm + 0.8 mm.
+   - The under-bust girth above that zone is kept.
+2. **Breast displacement.** Teardrop footprint `R(θ)` around (±0.079, 1.274): lateral 62, upper-lateral 86, up 94, upper-medial 84, medial 62, lower-medial 84, down 78, lower-lateral 82 mm. There are three profiles:
+   - Upper pole: `(1-ρ)^3.2 (1+3.2ρ+3.5ρ²)`, a round top, then a straight-to-concave slope that fades into the upper chest with zero slope.
+   - Medial/lateral sides: `(1-ρ^2.2)^1.4`, a broad round top fading with zero slope, so there is no ball-on-wall edge.
+   - Lower pole: `1-ρ^2.2`, full and convex. It meets the wall at the IMF with a finite slope, which makes a readable but soft fold (dihedral ≤ 50°).
+
+   The upper and lower profiles take over beyond |sin θ| = 0.2. Peak displacement is 41 mm along the breast axis, which leans 12° laterally.
+3. **Apex and rings.**
+   - The apex is the most projecting point along the breast axis, not the displacement centre (the source upper chest leans back).
+   - It is finished by a **flat 8-sided cap**: eight points at the same axial height 2.5 mm below the apex, so exactly planar, about 1.8–2.7 cm across.
+   - An 8-sided loop follows, then five 16-sided loops (levels .81/.64/.46/.28/.12/0 of the apex height, normalised per direction to the footprint edge). Loops near the apex therefore keep 8 sides, and 16 spokes no longer converge on one point.
+   - Equal loops are joined by quads, and the single 8→16 step by three triangles per inner edge.
+4. **Outer flow.** A plain wall ring sits halfway out, then each footprint vertex runs to its closest point on the shell boundary: sternum, upper chest/axilla, side and under-bust edge. Runs are smoothed along the loop, so edges meet the boundary roughly at right angles and fan gradually round corners. Original boundary vertices are kept.
+5. **Rim strip.** It joins the new under-bust edge (points above the original bottom-edge vertices and the old plate corner) to the original bottom edge, and tucks under like the source plate.
+6. **Abdomen clearance.** The top of the abdomen shell sits inside the chest bottom. Every new front face is sampled over the abdomen's flat front (|x| < 0.08). Free vertices are lifted by a capped least-norm amount until each sampled face point clears the actual abdomen triangles by ≥ 0.8 mm. v4 has no separate IMF fold: the IMF comes from the lower profile, and the old 4.7 mm fold reduced the under-bust girth.
+7. **Seams.** Side and top faces sharing a boundary edge that received new points are fanned through those points. The points lie on the original straight edge, so the fans stay in the original plane and no T-junction is created.
+8. **Shading, symmetry, attributes.**
+   - Every new polygon has its own vertices with its flat face normal, like the faceted source. The cap is one flat face.
+   - Quad diagonals are chosen on the right half and mirrored, so the left half is the exact mirror image.
+   - UV, JOINTS_0 and WEIGHTS_0 of new vertices are barycentrically interpolated from the source front triangle under them, on the correct side (per joint ID, top four renormalised).
+   - Kept and fanned original chest faces get flat normals recomputed per source smoothing group.
+
+Final GLB: one mesh, two material primitives sharing one canonical vertex pool (a reader must deduplicate shared accessors when counting vertices).
 
 | Canonical indices, inclusive | Source correspondence |
 |---|---|
 | 0–2857 | Male Body local 0–2857 |
 | 2858–4105 | Male Joints local 0–1247, plus 2858 |
-| **4106–10846** | **6,741 appended chest vertices** |
+| **4106–5211** | **1,106 appended chest vertices** (per-face flat-shading copies) |
 
-Total **10,847 vertices / 13,572 triangles**, unchanged from the preceding refined female. Original chest vertices can change position/normal. Every original non-chest position remains unchanged. Original UV / JOINTS_0 / WEIGHTS_0 values compare exactly. New attributes are barycentrically interpolated; joint influences are accumulated by joint ID, strongest four retained and renormalized. Final normals are recalculated from actual final triangles, with source hard-edge groups retained on back/top and smooth area-weighted normals on the rounded front.
+Total **5,212 vertices / 2,566 triangles** (v3: 5,338 / 2,632; v2: 10,847 / 13,572).
 
-`validation/chest_vertex_mapping.json` contains each appended index, three original canonical parent indices and barycentric weights. `triangle_source` maps every final triangle back to the original male triangle domain (Body 0–1455, Joints 1456–2087). Corner indices are reused and original UV/hard-edge duplicate positions stay coincident.
+The chest shell has **594 triangles** (source 116, v2 11,600, v3 660). Per half there are 252 patch triangles:
+- 174 inside each breast footprint: cap 6, cap→8-loop 16, 8→16 step 24, four 16-loop bands 128.
+- 32 in the wall-ring band.
+- 46 in the outer runs and rim strip.
 
-## Changes for QA v2
+The remaining 90 chest triangles are the 76 kept back/side/top originals plus the side/top fans. Every original non-chest position, UV, joint and weight is unchanged. The 80 original chest attribute vertices of the old front interior are no longer referenced by triangles; they stay in the pool at their original indices, placed on the new surface. `validation/chest_vertex_mapping.json` lists each appended index with three original canonical parents and barycentric weights, `triangle_source` (final triangle → original male triangle) and the unreferenced original indices.
 
-- Removed the separate central Gaussian ridge. Two asymmetric Gaussian lobes now overlap through their long inner tails, making **one broad U-shaped hollow**, rather than a central peak with two side grooves. Centers remain x ±75 mm; inner / outer widths are **70 / 21 mm**.
-- Displacement amplitude is **61.8 mm**. The field center is y **1.295 m**. Upper support is **180 mm** with a softened concave power profile: `q'=1.1q²/(q+0.1)`, then `(1−q')^3.7`. The low-amplitude upper tail fades into the existing upper chest. Lower support is **95 mm**, with `1−3q⁴+2q⁶`, giving a fuller lower contour and smooth return at the fold.
-- A small **8 mm** localized correction centered at y 1.268 m smooths the inherited coarse front-wall ridge that otherwise pulled the measured apex downward. A **9 mm** local fold return centered at y 1.185 m (17 mm vertical width) makes the IMF clearer without pulling the chest through the abdomen. These terms operate on the chest shell only.
-- Lower ribcage depth is supported by a **7.5 mm posterior chest-shell return** centered at y 1.19 m (50 mm width). This adjusts underbust girth while keeping abdomen, waist and pelvis unchanged. It is explicitly part of the chest remodeling, not a change to hip/waist coefficients.
-- The original anterior bottom-rim return is softened by a conservative **0.5 mm** local correction. Larger retreats caused abdomen contact or changed the inferred QA wall enough to reintroduce false low-volume tails; those trials were discarded. **The source's segmented bottom rim is still partly visible.** It is not claimed to be a seamless anatomical torso.
-- Shoulder / waist / hip base coefficients, upper-hip affine plateau, limb proportions and overall height are unchanged. No QA thresholds were changed.
+## Form measurements
 
-## Final QA v2 measurements
+Two methods are reported. The generator method (`validation/breast_metrics.json`) compares the final surface with the same mesh at zero breast displacement, i.e. against the real chest wall. The QA method (`validation/qa_bust_v2.json`, from `tests/bust_eval.py`) uses a 2 mm heightfield and a quadratic wall fitted 12–17 cm around the detected apex.
 
-These use the requested **QA measurement method**, not the generator's known pre-displacement wall. Girths are horizontal convex-hull perimeters. Volume and projection use the QA 2 mm heightfield and extrapolated quadratic chest wall.
-
-| Metric | Previous QA v2 report | Revised |
+| Metric | Generator (vs. real wall) | QA method (left / right) |
 |---|---:|---:|
-| Bust − underbust | 16.2 cm | **15.055 cm** |
-| One breast volume | ~453 cm³ | **449.03 / 448.18 cm³** |
-| Wall-relative projection | ~64 mm | **60.81 / 60.43 mm** |
-| Upper pole volume fraction | ~0.518 | **0.45246 / 0.45114** |
-| Apex relative height, bottom=0 / top=1 | ~0.505 | **0.45263** |
-| Lower contour convexity | ~0.012 | **0.1683 / 0.1686** |
-| Upper contour convexity | ~0.051 | **−0.0366 / −0.0374** |
-| IMF angle | ~41.6° | **51.16 / 51.04°** |
-| Upper return angle | ~38.8° | **25.82 / 25.67°** |
-| Sternum ridge | ~12.8 mm | **0.336 mm** |
-| Midline curvature | ~78 /m | **9.72 /m** |
-| Maximum dihedral | ~50° | **45.80°** |
-| Vertex deviation | ~4.5 mm | **4.90 mm** |
+| Apex (most projecting point, cap centre) | x ±0.0854, y 1.2635 m | x ±0.094, y 1.266 m |
+| Apex relative height (bottom 0, top 1) | **0.44** (excess > 3 mm: y 1.200–1.344) | 0.500 / 0.500 |
+| Projection | **43.8 mm** at the apex (max 49.1 mm) | 62.0 / 62.3 mm |
+| One breast volume | 336 cm³ | 450.5 / 456.6 cm³ |
+| Upper-pole volume fraction | 0.526 | 0.470 / 0.469 |
+| Outward facing (yaw from +Z) | apex (cap) normal **12.0°**, base-centroid→apex **5.8°** (v3 4.7°) | — |
+| Apex normal pitch | 0° (level) | — |
+| IMF | y 1.196 m; QA lower/upper wall angle 51.0° / 35.9° | — |
+| Bust − underbust | **15.8 cm** (102.5 at apex height − 86.7 at IMF − 1 cm) | 23.3 cm (102.7 @ 1.266 − 79.4 @ 1.148) |
 
-The apex is below half-height. Its 0.4526 relative height is about 0.003 above the preferred 0.42–0.45 interval, within one 2 mm grid step; the strict `<0.5` requirement passes. The upper-pole fraction and volume lie inside the requested preferred ranges.
-
-Bust **103.151 cm** at y **1.288177 m**; underbust **88.096 cm** at y **1.192177 m**. The generator's `breast_metrics.json` uses a different known-wall integration and a fixed underbust height; its volume (~536 cm³) is not interchangeable with QA's annulus-fit / bounded-disc estimate. QA v2 values above are the requested acceptance measurements. This difference is a remaining measurement-method uncertainty, not a bra-fit guarantee.
-
-New chest-partner faces versus male: **upper arm 0, abdomen 0, waist band 0**. Abdomen poke is **−0.348 mm**, so the abdomen is behind the chest surface at the worst sampled location. Existing source contacts remain. The independent source-face-pair diagnostic records **6 changed chest–abdomen pairings on already-contacted abdomen faces**, and 14 contact triangles with any nonzero breast displacement; this is a different metric from QA v2's new opposite-partner faces. The asset is not claimed to be intersection-free. Shoulder/hip breadth ratio is **0.99029** using QA v2's 0.44H–0.56H zone; WHR is **0.74094**, both unchanged and passing. The older pelvis-ring-only width ratio is a different definition and is not used here.
+Other QA values: roundness 0.82; max dihedral 50.2°; midline curvature 12.2 /m; cleavage excess 6.2 mm; bridge 0; sternum ridge 1.1 mm; abdomen poke −9.2 mm; new chest-partner faces with upper arm / waist band / abdomen 0 / 0 / 0. Shoulder/hip ratio 0.990 and WHR 0.741 are unchanged.
 
 ## Test results
 
-Latest full requested command: **103 passed, 4 skipped, 1 failed** (`validation/pytest_v2_output.txt`). **All 15 `test_08_bust` tests pass.** The single failure is `test_06_proportions.py::test_waist_to_bust_girth`, explicitly permitted to remain by the current instruction because that old criterion is being retired. The four skips are coarse-chest checks superseded by the refined-surface tests. Tests and scripts were read/executed without edits.
+Full command (`validation/pytest_v4_output.txt`): **104 passed, 5 skipped, 4 failed**, all failures in `test_08_bust.py`. Tests were run, not edited. The skips are the existing coarse-chest/seam skips and the retired waist/bust criterion.
 
-Official glTF validator: **0 errors, 1 warning, 2 infos**. Warning: retained JOINTS/WEIGHTS on an intentionally unskinned static base. Infos: unused UVs on untextured primitives. Full reports remain under `model/validation/`. QA topology, attribute, finite-value, seam, symmetry and non-chest preservation checks pass.
+| Failing test | Value | Classification |
+|---|---|---|
+| `test_apex_is_below_breast_mid_height` | 0.500 | **QA measurement artifact.** Every vertex below the IMF has zero breast displacement, but the QA quadratic wall leaves +6…+10 mm "excess" on the under-bust plate corner (x 0.06–0.08, y 1.16), which must stay in front of the abdomen shell. The detected breast spans the whole ±0.108 m disc, which gives 0.5 exactly. Against the real wall the apex is at 0.44. |
+| `test_lower_contour_is_convex_and_fuller_than_upper` | −0.10 | Same artifact: the lower chord starts at y 1.158, 4 cm below the IMF, on the flat plate. |
+| `test_cup_girth_difference_14_to_16_cm` | 23.3 cm | **QA measurement artifact.** The underbust is taken at y 1.148, inside the bottom tuck under the abdomen. At the real IMF − 1 cm the difference is **15.8 cm**, inside 14–16 (v3: 18.4). |
+| `test_no_single_vertex_cone_spike` | 17.8 mm at (±0.076, 1.152) | **Intended by the low-poly requirement.** It is the corner vertex where the under-bust edge meets the plate's bottom bevel, a faceted crease. It is in the QA box only because of the artifact above. |
 
-`previews/female_front.png`, `female_side.png`, `female_three_quarter.png`, `female_chest_side.png` use **geometric face normals**. They were rerendered and opened for visual inspection: the W-shaped vertical double groove is gone, the lower pole is fuller, and the lower fold is clearer. Facet bands remain visible under deliberately flat face shading. The small inherited bottom rim remains as noted above.
+These now pass:
+- `test_no_steps_or_notches_at_lower_chest_edge` (12 edges / 0.43 m ≤ 0.52 m; v3 failed at 0.54 m).
+- `test_left_right_symmetry`. Exact mirroring is now enforced; an intermediate v4 build had failed it at 4.0% volume.
+- Volume, projection, upper-pole fraction, upper contour, IMF angle, maximum dihedral, roundness, cleavage, bridge, midline ridge, no new intersections, topology, seams, attributes and non-chest preservation.
 
-## Remaining limitations and attribution
+Official glTF validator: **0 errors, 1 warning, 2 infos** (unchanged in kind): the retained JOINTS/WEIGHTS on an intentionally unskinned static base, and unused UVs on untextured primitives.
 
-This is an unskinned base. Existing source connector/shell overlaps and the recessed waist connector design remain. The current rigid lowered-arm proxy found 0 contacts on expanded breast triangles at 30°, 40° and 45° inward arm rotation, and 0 new pairs due to breast volume. Inherited chest-wall/arm source pairs are 52 / 56 / 64 and actual fitted-skeleton poses still require rigger validation. No new rig or pose changes were made.
+Independent checks (`verify.py` → `validation/refined_checks.json`):
+- 0 degenerate triangles; 0 displaced-breast collisions.
+- Lowered-arm proxy (30/40/45°): 0 breast contacts and 0 new pairs due to breast volume; chest–arm source pairs 48/56/64 equal the zero-displacement control.
+- The check reports 6 "new" chest source pairs (neck 3, shoulder 2, abdomen 1). These are a relabelling effect: the sets of neck, shoulder and abdomen faces intersected by the chest are identical, by vertex triple, to both the pre-refinement base and v2, and the upper-arm set equals v2's 4 faces.
 
-Source author: **RD3D Game Design**. Source: [UE Mannequin Demake](https://sketchfab.com/3d-models/ue-mannequin-demake-929c983369ec435196a215d29dd6d907). License: **CC BY 4.0**, as recorded in `male.glb`. Female modifications: feminine proportions, 7.5% height reduction, chest subdivision and breast/ribcage shaping. Original attribution/license metadata is preserved.
+## Skin weights (`model/tools/check_weights.py` → `validation/chest_weight_check.json`)
+
+The rigger owns the weights; they are reported here, not repainted.
+- **Source.** The source chest shell is rigidly weighted: each vertex has 100% on one of DEF-spine.002 / .003 / .004, by horizontal rows.
+- **Appended vertices.** All 1,106 interpolate those rows and have at most two influences.
+- **Shoulder/arm leakage.** Spine share is 100%; shoulder / upper-arm / forearm / hand share is exactly 0 everywhere, including the 616 vertices of the breast mounds (|x| 0.02–0.14, y 1.19–1.37, z > 0.06).
+- **By height in the mounds:**
+
+| Height y | Weights |
+|---|---|
+| 1.19–1.22 (lower pole) | spine.002 51% / spine.003 49% |
+| 1.22–1.25 | spine.002 28% / spine.003 72% |
+| ≥ 1.25 | spine.003 95–100% |
+
+- **Note for the rigger.** The lower pole is half on spine.002 (the abdomen bone), so bending the spine will shear it. For an arms-up pose, a pectoral/shoulder influence on the upper-lateral breast may also be wanted. Neither was changed here.
+
+## Previews
+
+`previews/female_front.png`, `female_side.png`, `female_three_quarter.png` and `female_chest_side.png` use geometric face normals. They were re-rendered and inspected next to the male previews:
+- **Apex.** In front and three-quarter views each breast reads as a rounded faceted mass. There is no 16-spoke star; the apex ends in a small flat 8-sided facet.
+- **Side.** The side view shows a straight-to-concave upper pole, a full lower pole and a soft IMF.
+- **Bottom edge.** It is a thin bevel, overhanging the abdomen front by 3.5 mm at the centre (v3 7.8 mm, source 12.5 mm).
+- **Facets.** Facet size matches the head/hands of the body.
+
+## Remaining limitations
+
+- **QA artifacts.** The QA quadratic wall cannot represent the mannequin's flat chest plate with its turned corner, so three QA shape tests fail although the real-wall measurements meet the intent.
+- **Upper-pole fraction.** Against the real wall it is 0.526, slightly above 0.5. QA reads 0.47. The upper chest leans back under the upper pole.
+- **Apex look.** Under the top-left preview light, the three-quarter view still shows the apex cap as a small light facet with darker lower facets beneath. That is ordinary dome shading at this facet density, not a pinch.
+- **Base-centroid axis.** The base-centroid→apex yaw is only 5.8°: the lateral footprint lies far back on the turning wall. More lean would widen the bust girth again.
+- **Slivers.** A few long, thin triangles remain in the outer runs near the upper sternum and the axilla corners (flat wall).
+- **No real skinning check.** This is an unskinned base: arm-lowering is a rigid proxy, and fitted-skeleton poses need rigger validation.
+
+## History
+
+Earlier generators, outputs and logs are kept in `validation/prior_revision/`:
+- `v2/`: smooth subdivided chest.
+- `v3/`: first faceted remesh with the 16-spoke apex, `refine_chest_v3.py` and logs.
+
+`qa_bust_v2.json` in `validation/` is the current file; the name comes from `qa_bust_summary.py`.
+
+## Attribution
+
+Source author: **RD3D Game Design**. Source: [UE Mannequin Demake](https://sketchfab.com/3d-models/ue-mannequin-demake-929c983369ec435196a215d29dd6d907). License: **CC BY 4.0**, as recorded in `male.glb`. Female modifications: feminine proportions, 7.5% height reduction, chest remesh and breast/ribcage shaping. Original attribution/license metadata is preserved.

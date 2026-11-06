@@ -1,0 +1,223 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pose-library.local/poses/schema.json",
+  "title": "Pose file for the pose-library humanoid skeleton",
+  "description": "One static pose. Rotations are rest-relative local rotations per bone (see poses/README.md and rig/README.md). Bones that are not listed stay at rest. The same file applies to rig/female.glb and rig/male.glb.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "formatVersion",
+    "skeleton",
+    "meta",
+    "root",
+    "bones"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "formatVersion": {
+      "const": 1
+    },
+    "skeleton": {
+      "const": "pose-library-humanoid-v1",
+      "description": "Bone naming/axis convention of rig/README.md."
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "description",
+        "targetModels"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$",
+          "description": "Stable identifier; equals the file name without .json."
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "sourceImage": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path"
+          ],
+          "properties": {
+            "path": {
+              "type": "string",
+              "description": "Repository-relative path of the reference image."
+            },
+            "originalPath": {
+              "type": "string"
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "targetModels": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "female",
+              "male"
+            ]
+          },
+          "description": "Models the pose was authored and checked for (first = the model it was fitted on)."
+        },
+        "assumptions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Interpretation choices, e.g. depth read from a single image."
+        },
+        "generator": {
+          "type": "string"
+        }
+      }
+    },
+    "root": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "translation",
+        "unit"
+      ],
+      "properties": {
+        "translation": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Offset of the pelvis (root bone) from its rest position, in model space (Y-up, +Z front, +X = character's left)."
+        },
+        "unit": {
+          "const": "hipsHeight",
+          "description": "translation is multiplied by the target model's rest pelvis height (female 0.8666 m, male 0.9369 m), so taller/shorter models get the same pose."
+        }
+      }
+    },
+    "bones": {
+      "type": "object",
+      "propertyNames": {
+        "enum": [
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "spine_04",
+          "neck_01",
+          "head",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r"
+        ]
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/rotation"
+      }
+    }
+  },
+  "$defs": {
+    "rotation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "quaternion"
+      ],
+      "properties": {
+        "quaternion": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "minimum": -1,
+            "maximum": 1
+          },
+          "minItems": 4,
+          "maxItems": 4,
+          "description": "Normative. Unit quaternion [x, y, z, w] in the bone's rest frame: local rotation = restLocalRotation * quaternion."
+        },
+        "euler": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "order",
+            "degrees"
+          ],
+          "description": "Informative copy of the same rotation (must agree with the quaternion within 0.05 deg).",
+          "properties": {
+            "order": {
+              "const": "XYZ",
+              "description": "three.js Euler order: R = Rx * Ry * Rz."
+            },
+            "degrees": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 3,
+              "maxItems": 3
+            }
+          }
+        }
+      }
+    }
+  }
+}

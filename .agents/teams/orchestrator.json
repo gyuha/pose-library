@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "goal": "캐릭터 포즈를 프롬프트로 설명해 주는 앱",
+  "orchestrator": {
+    "workspace": "orchestrator",
+    "provider": "claude",
+    "model": "claude-opus-5-5"
+  },
+  "roles": [
+    {
+      "name": "modeler",
+      "provider": "claude",
+      "model": "claude-opus-5-5",
+      "folders": [
+        "model"
+      ],
+      "instructions": "Maintains male.glb and female.glb, their skins and the headless build scripts in model/tools, and keeps the 55-joint skeleton, units and deterministic builds unchanged so poses work on both bodies. Change meshes or weights only when the pose or QA roles report deformation problems."
+    },
+    {
+      "name": "poser",
+      "provider": "claude",
+      "model": "claude-opus-5-5",
+      "folders": [
+        "poses"
+      ],
+      "instructions": "Defines a documented pose schema (per-joint rotations on the existing GLB skeleton, with anatomical joint limits) and writes a starter pose library in poses/ with a name, tags and a short canonical description for each pose. Poses must load unchanged on both the male and the female model."
+    },
+    {
+      "name": "prompter",
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "folders": [
+        "prompt"
+      ],
+      "instructions": "Builds the engine in prompt/ that turns pose JSON into a structured natural-language prompt (body orientation, limbs, weight, gaze, camera hints) and, in the other direction, parses a text prompt into a schema-valid pose. Keep it a pure, testable module with a stable API that the app calls, and validate every output against the poses/ schema."
+    },
+    {
+      "name": "app",
+      "provider": "antigravity",
+      "model": "gemini-4-argon-high",
+      "folders": [
+        "app"
+      ],
+      "instructions": "Builds the lightweight web app (three.js) in app/ that loads the GLB models, lets users pick or adjust a pose, and shows and copies the generated prompt, or accepts a prompt and previews the resulting pose. Treat model/, poses/ and prompt/ as read-only dependencies."
+    },
+    {
+      "name": "qa",
+      "provider": "claude",
+      "model": "claude-sonnet-5-5",
+      "folders": [
+        "tests",
+        "scripts"
+      ],
+      "instructions": "Extends the existing pytest suite with checks for the pose schema, joint limits, interpenetration in posed meshes, prompt round-trips (pose → text → pose stays within tolerance) and app screenshot regressions. Report each failure to the orchestrator with the asset, pose or prompt involved, and do not fix files owned by other roles."
+    }
+  ]
+}

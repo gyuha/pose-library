@@ -1,0 +1,138 @@
+{
+ "female": {
+  "arms_overhead": {
+   "source": {
+    "shell23:upperarm_r": {
+     "edge_ratio_min": 0.806,
+     "edge_ratio_max": 5.432,
+     "edges_over_1.2x": 32,
+     "edges_under_0.8x": 0
+    },
+    "shell47:upperarm_l": {
+     "edge_ratio_min": 0.806,
+     "edge_ratio_max": 5.432,
+     "edges_over_1.2x": 32,
+     "edges_under_0.8x": 0
+    }
+   },
+   "rig": {
+    "shell28:spine_03+spine_02": {
+     "edge_ratio_min": 0.907,
+     "edge_ratio_max": 1.167,
+     "edges_over_1.2x": 0,
+     "edges_under_0.8x": 0
+    }
+   }
+  },
+  "pose_01_contrapposto_hand_on_head": {
+   "source": {
+    "shell23:upperarm_r": {
+     "edge_ratio_min": 0.246,
+     "edge_ratio_max": 2.232,
+     "edges_over_1.2x": 28,
+     "edges_under_0.8x": 10
+    },
+    "shell28:spine_03+spine_02": {
+     "edge_ratio_min": 0.915,
+     "edge_ratio_max": 1.139,
+     "edges_over_1.2x": 0,
+     "edges_under_0.8x": 0
+    },
+    "shell29:spine_01+spine_02": {
+     "edge_ratio_min": 0.93,
+     "edge_ratio_max": 1.08,
+     "edges_over_1.2x": 0,
+     "edges_under_0.8x": 0
+    },
+    "shell47:upperarm_l": {
+     "edge_ratio_min": 0.639,
+     "edge_ratio_max": 5.374,
+     "edges_over_1.2x": 32,
+     "edges_under_0.8x": 6
+    }
+   },
+   "rig": {
+    "shell28:spine_03+spine_02": {
+     "edge_ratio_min": 0.915,
+     "edge_ratio_max": 1.14,
+     "edges_over_1.2x": 0,
+     "edges_under_0.8x": 0
+    },
+    "shell29:spine_01+spine_02": {
+     "edge_ratio_min": 0.93,
+     "edge_ratio_max": 1.08,
+     "edges_over_1.2x": 0,
+     "edges_under_0.8x": 0
+    }
+   }
+  }
+ },
+ "male": {
+  "arms_overhead": {
+   "source": {
+    "shell21:upperarm_r": {
+     "edge_ratio_min": 0.803,
+     "edge_ratio_max": 5.12,
+     "edges_over_1.2x": 34,
+     "edges_under_0.8x": 0
+    },
+    "shell37:upperarm_l": {
+     "edge_ratio_min": 0.803,
+     "edge_ratio_max": 5.12,
+     "edges_over_1.2x": 34,
+     "edges_under_0.8x": 0
+    }
+   },
+   "rig": {
+    "shell26:spine_03+spine_02": {
+     "edge_ratio_min": 0.903,
+     "edge_ratio_max": 1.128,
+     "edges_over_1.2x": 0,
+     "edges_under_0.8x": 0
+    }
+   }
+  },
+  "pose_01_contrapposto_hand_on_head": {
+   "source": {
+    "shell21:upperarm_r": {
+     "edge_ratio_min": 0.237,
+     "edge_ratio_max": 2.105,
+     "edges_over_1.2x": 28,
+     "edges_under_0.8x": 10
+    },
+    "shell26:spine_03+spine_02": {
+     "edge_ratio_min": 0.942,
+     "edge_ratio_max": 1.06,
+     "edges_over_1.2x": 0,
+     "edges_under_0.8x": 0
+    },
+    "shell29:spine_01+spine_02": {
+     "edge_ratio_min": 0.925,
+     "edge_ratio_max": 1.087,
+     "edges_over_1.2x": 0,
+     "edges_under_0.8x": 0
+    },
+    "shell37:upperarm_l": {
+     "edge_ratio_min": 0.628,
+     "edge_ratio_max": 5.097,
+     "edges_over_1.2x": 32,
+     "edges_under_0.8x": 6
+    }
+   },
+   "rig": {
+    "shell26:spine_03+spine_02": {
+     "edge_ratio_min": 0.932,
+     "edge_ratio_max": 1.104,
+     "edges_over_1.2x": 0,
+     "edges_under_0.8x": 0
+    },
+    "shell29:spine_01+spine_02": {
+     "edge_ratio_min": 0.925,
+     "edge_ratio_max": 1.087,
+     "edges_over_1.2x": 0,
+     "edges_under_0.8x": 0
+    }
+   }
+  }
+ }
+}

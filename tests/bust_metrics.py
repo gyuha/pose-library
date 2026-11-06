@@ -78,6 +78,33 @@ def _crossing(prof_y, prof_e, level, start, step):
     return np.nan
 
 
+GRAD_MIN = 0.30  # 컵 경계: 정점 열에서 E 의 세로 기울기(|dE/dy|, 1 cm 이동평균)가 이 값 아래로 내려가는 곳 (약 17도)
+
+
+def cup_bounds(prof_y, prof_e, ia):
+    """정점 열 프로파일 E(y) 에서 컵의 아래/위 경계 y. [v4] IMF(아래 경계)를 형상에서 검출한다.
+    정점에서 위/아래로 걸어가며 |dE/dy| 가 GRAD_MIN 아래로 처음 내려가는 y 를 경계로 한다.
+    이 기울기는 흉벽 기준면이 수 mm 어긋나도 변하지 않는다: E>3 mm 임계값은 흉벽 기준이 낮게 잡히면
+    컵 아래의 평평한 선반(판)까지 유방으로 세지만, 기울기 기준은 선반(기울기 ~0.1)과 컵 벽(기울기 ~1)을 구별한다.
+    위/아래에 같은 규칙을 쓴다(한쪽만 바꾸면 apex 상대 높이가 한쪽으로 치우친다)."""
+    h = int(round(0.005 / STEP))
+    g = np.full(len(prof_e), np.nan)
+    for i in range(h, len(prof_e) - h):
+        g[i] = (prof_e[i + h] - prof_e[i - h]) / (2 * h * STEP)
+
+    def walk(step):
+        i, on_wall = ia, False   # 정점 부근은 기울기가 0 이므로 컵 벽에 한 번 들어선 뒤 다시 내려가는 곳을 찾는다
+        while 0 < i < len(prof_e) - 1:
+            if np.isfinite(g[i]):
+                if abs(g[i]) >= GRAD_MIN:
+                    on_wall = True
+                elif on_wall:
+                    return float(prof_y[i])
+            i += step
+        return float(prof_y[0] if step < 0 else prof_y[-1])
+    return walk(-1), walk(+1)
+
+
 def side_metrics(E, X, Y, Z, xs, ys, sign, thr=0.003):
     mask = (E > thr) & (sign * X > 0) & np.isfinite(E)
     if mask.sum() < 20:
@@ -98,6 +125,8 @@ def side_metrics(E, X, Y, Z, xs, ys, sign, thr=0.003):
     prof_e = E[(ys >= y_bot - 0.02) & (ys <= y_top + 0.02), col]
     prof_e = np.nan_to_num(prof_e, nan=0.0)
     ia = int(np.argmin(np.abs(prof_y - ya)))
+    imf_y, crown_y = cup_bounds(prof_y, prof_e, ia)
+    imf_y, crown_y = max(imf_y, y_bot), min(crown_y, y_top)
     def dev(lo, hi):
         sel = (prof_y >= lo) & (prof_y <= hi)
         yy, ee = prof_y[sel], prof_e[sel]
@@ -105,7 +134,7 @@ def side_metrics(E, X, Y, Z, xs, ys, sign, thr=0.003):
             return np.nan
         chord = np.interp(yy, [yy[0], yy[-1]], [ee[0], ee[-1]])
         return float(np.mean(ee - chord) / p)
-    dev_up, dev_low = dev(ya, y_top), dev(y_bot, ya)
+    dev_up, dev_low = dev(ya, crown_y), dev(imf_y, ya)
     # 아래/위 윤곽이 흉벽과 만나는 각도: E 가 0.15p -> 0.45p 로 오르는 구간의 기울기
     def angle(a, b):
         if not (np.isfinite(a) and np.isfinite(b)) or abs(a - b) < 1e-6:
@@ -120,7 +149,8 @@ def side_metrics(E, X, Y, Z, xs, ys, sign, thr=0.003):
         if np.isfinite(v):
             ring.append(v)
     return {"volume_cm3": vol * 1e6, "projection_m": p, "apex": (xa, ya), "y_top": y_top, "y_bottom": y_bot,
-            "height_m": y_top - y_bot, "apex_rel_height": (ya - y_bot) / max(y_top - y_bot, 1e-9),
+            "imf_y": imf_y, "crown_y": crown_y,
+            "height_m": crown_y - imf_y, "apex_rel_height": (ya - imf_y) / max(crown_y - imf_y, 1e-9),
             "upper_volume_fraction": v_up / vol, "upper_contour_dev": dev_up, "lower_contour_dev": dev_low,
             "angle_upper_deg": up, "angle_lower_deg": low,
             "roundness": float(np.mean(ring) / p) if ring else np.nan,

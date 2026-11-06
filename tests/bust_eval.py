@@ -29,6 +29,36 @@ def _weld(pos, tol=1e-5):
     return inv.ravel()
 
 
+SPIKE_D, SPIKE_R = 0.008, 0.5   # 스파이크 판정: 이웃 평균 대비 편차 d > 8 mm 이고 비율 r = d/이웃 평균 거리 > 0.5
+
+
+def spike_stats(inv, T, P, fn):
+    """[v4] 정점 스파이크. 정점 v 의 편차 d = |(v - 이웃 평균) . 법선|, 비율 r = d / (이웃까지 평균 거리).
+    d 만 보면 촘촘한 smooth 면에서는 수 mm 돌기를 잡지만, 변 길이 40 mm 인 로우폴리 면에서는 정상 모서리
+    정점이 10 mm 이상 나온다(예: 판 모서리 15 mm / 변 44 mm = r 0.35). r 은 '이웃 대비 얼마나 뾰족한가'(원뿔 기울기)라 해상도와 무관하다.
+    점수 = min(d/8 mm, r/0.5), 1 을 넘으면 스파이크(둘 다 넘어야 함). 반환: 점수가 가장 큰 정점의 (점수, d, r, 위치)."""
+    nb = {}
+    for t in inv[T]:
+        for a, b in ((t[0], t[1]), (t[1], t[2]), (t[2], t[0])):
+            if a != b:
+                nb.setdefault(a, set()).add(b); nb.setdefault(b, set()).add(a)
+    Wp = np.zeros((inv.max() + 1, 3)); Wp[inv] = P
+    vn = np.zeros_like(Wp)
+    for k in range(3):
+        np.add.at(vn, inv[T[:, k]], fn)
+    vn /= np.maximum(np.linalg.norm(vn, axis=1, keepdims=True), 1e-15)
+    best = (0.0, 0.0, 0.0, None)
+    for v, ns in nb.items():
+        if len(ns) >= 3:
+            ns = list(ns)
+            d = abs(float((Wp[v] - Wp[ns].mean(0)) @ vn[v]))
+            r = d / max(float(np.linalg.norm(Wp[ns] - Wp[v], axis=1).mean()), 1e-9)
+            sc = min(d / SPIKE_D, r / SPIKE_R)
+            if sc > best[0]:
+                best = (sc, d, r, Wp[v].tolist())
+    return best, Wp
+
+
 def mesh_smoothness(box):
     """full_female 의 가슴 쉘 중 box=(x0,x1,y0,y1) 안에 중심이 있는 삼각형의 인접 면 이면각(도)과 정점 스파이크[m].
     box 가 None 이면 가슴 앞면(z>0.03) 전체."""
@@ -53,25 +83,12 @@ def mesh_smoothness(box):
             c = float(np.clip(fn[ks[0]] @ fn[ks[1]], -1, 1))
             ang.append(np.degrees(np.arccos(c))); where.append(e)
     ang = np.array(ang) if ang else np.zeros(1)
-    # 정점 스파이크: 이웃 평균 대비 법선 방향 편차
-    nb = {}
-    for (a, b) in edge:
-        nb.setdefault(a, set()).add(b); nb.setdefault(b, set()).add(a)
-    Wp = np.zeros((inv.max() + 1, 3)); Wp[inv] = P
-    vn = np.zeros_like(Wp)
-    for k in range(3):
-        np.add.at(vn, inv[T[:, k]], fn)
-    vn /= np.maximum(np.linalg.norm(vn, axis=1, keepdims=True), 1e-15)
-    spike, sv = 0.0, None
-    for v, ns in nb.items():
-        if len(ns) >= 3:
-            d = abs(float((Wp[v] - Wp[list(ns)].mean(0)) @ vn[v]))
-            if d > spike:
-                spike, sv = d, v
+    # 정점 스파이크: 이웃 평균 대비 법선 방향 편차 (절대값 mm 와 변 길이로 정규화한 비율, spike_stats)
+    (sc, sd, sr, sv), Wp = spike_stats(inv, T, P, fn)
     worst_edge = where[int(np.argmax(ang))] if where else None
     return {"max_dihedral": float(ang.max()), "p95_dihedral": float(np.percentile(ang, 95)), "n_edges": len(ang),
             "frac_over_25": float((ang > 25).mean()),
-            "max_spike": spike, "spike_xyz": None if sv is None else Wp[sv].tolist(),
+            "spike_score": sc, "max_spike": sd, "max_spike_ratio": sr, "spike_xyz": sv,
             "worst_edge_xyz": None if worst_edge is None else Wp[list(worst_edge)].mean(0).tolist()}
 
 
@@ -86,8 +103,9 @@ def evaluate(which):
     sides = [s for s in (a["left"], a["right"]) if s]
     if sides:
         ya = float(np.mean([s["apex"][1] for s in sides])); yb = float(np.mean([s["y_bottom"] for s in sides]))
-        out["bust_girth"] = girth(model, ya); out["underbust_girth"] = girth(model, yb - 0.01)
-        out["bust_girth_y"], out["underbust_girth_y"] = ya, yb - 0.01
+        yimf = float(np.mean([s["imf_y"] for s in sides]))   # [v4] 밑가슴둘레는 E>3mm 하단(yb)이 아니라 형상에서 검출한 IMF 기준
+        out["bust_girth"] = girth(model, ya); out["underbust_girth"] = girth(model, yimf - 0.01)
+        out["bust_girth_y"], out["underbust_girth_y"] = ya, yimf - 0.01
         if which == "female":
             xs = [abs(s["apex"][0]) for s in sides]
             out["smoothness"] = mesh_smoothness((-(max(xs) + 0.07), max(xs) + 0.07, yb - 0.02, max(s["y_top"] for s in sides) + 0.02))

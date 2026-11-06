@@ -13,6 +13,10 @@
  - [v2.1] 좌우 분리: apex 높이에서 x=0 의 흉벽 대비 초과 높이 <= min(15 mm, 최대 돌출의 30%). 흉골 위는 흉벽에 가깝다는 해부학 근거의 휴리스틱. [Low]
  - [v2.1] 가로 띠 금지: 흉벽 대비 20 mm 넘게 솟은 영역이 x=-apex~+apex 전 구간을 한 행도 덮지 않음(uniboob). [Low]
  - [v2.1] 하단 계단/노치: 가슴 쉘 최하단+8 cm 앞면의 이면각>30° 모서리가 20개 이하이고 총길이 <= male*1.5+0.1 m. male 은 4개/0.28 m. 노치는 짧고 날카로운 모서리를 만든다는 가정의 휴리스틱. [Low]
+ - [v4] IMF/컵 경계: E>3 mm 임계값 대신 정점 열의 E 기울기(|dE/dy| < 0.3, 1 cm 이동평균)로 컵의 아래/위 경계를 검출한다
+   (bust_metrics.cup_bounds). 배 셸을 덮는 판의 선반(약 5 cm, 흉벽 이차 적합 대비 약 10 mm)이 유방으로 잡혀 측정 하단이 컵 시작점보다
+   4 cm 낮아지던 문제의 수정. apex 상대 높이, 위/아래 윤곽 볼록도, 밑가슴둘레 위치가 이 경계를 쓴다. 근거: tests/reports/bust_reassessment.md.
+ - [v4] 정점 스파이크: 변 길이로 정규화(spike_stats). 로우폴리 각진 표현 요구에 맞춘 재정의.
  - 좌우 대칭: 부피 차 3%, 정점/돌출 차 2 mm: 내 휴리스틱.
 """
 import pytest
@@ -97,10 +101,14 @@ def test_no_sharp_creases_in_bust_region():
 
 
 def test_no_single_vertex_cone_spike():
+    """[v4] 로우폴리용 재정의. 편차 d(이웃 평균 대비 법선 방향)가 8 mm 넘고 동시에 비율 r=d/이웃 평균 거리가 0.5 넘는 정점이 없어야 한다.
+    예전 기준(d <= 8 mm 단독)은 변 길이 40 mm 인 각진 면에서 정상 모서리 정점(판 모서리 17.8 mm)도 실패시켰다. 이유와 반례: bust_eval.spike_stats,
+    tests/test_09_bust_measurement_validity.py (단일 정점 돌기는 여전히 잡힘)."""
     _need_bust()
     S = F["smoothness"]
     r = _each("roundness")
-    assert S["max_spike"] <= 0.008, f"이웃 평균 대비 법선 방향 정점 편차 {S['max_spike'] * 1000:.1f} mm 위치 {S['spike_xyz']}, 기준 <= 8 mm"
+    assert S["spike_score"] <= 1.0, (f"스파이크 점수 {S['spike_score']:.2f} (> 1 이면 스파이크): 편차 {S['max_spike'] * 1000:.1f} mm, 비율 {S['max_spike_ratio']:.2f} "
+                                  f"(기준 d > 8 mm 이고 r > 0.5) 위치 {S['spike_xyz']}")
     assert all(x >= 0.75 for x in r.values()), f"원뿔도(r=20 mm 원 평균 E/돌출) {({k: round(x, 2) for k, x in r.items()})}, 기준 >= 0.75 (원뿔 약 0.65, 반구 약 0.87)"
 
 

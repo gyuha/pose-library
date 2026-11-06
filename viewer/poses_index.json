@@ -1,0 +1,17 @@
+{
+  "formatVersion": 1,
+  "skeleton": "pose-library-humanoid-v1",
+  "poses": [
+    {
+      "id": "pose_01_contrapposto_hand_on_head",
+      "name": "Contrapposto, hand on head",
+      "description": "Standing contrapposto. Weight on the straight right leg with the right hip raised; left leg out to the side with a bent knee, on the ball of the foot with the heel lifted. Spine bends back so the left shoulder is higher. Right hand rests on the right hip with the elbow out; left hand is raised and rests on the crown. Head tilted to the right, chin up. Left/right are the character's own.",
+      "file": "poses/pose_01_contrapposto_hand_on_head.json",
+      "targetModels": [
+        "female",
+        "male"
+      ],
+      "sourceImage": "poses/reference/pose_reference_01.png"
+    }
+  ]
+}

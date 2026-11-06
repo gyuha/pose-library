@@ -1,0 +1,89 @@
+{
+  "source_nodes": 63,
+  "source_skins": 1,
+  "source_joints": 55,
+  "meshes": [
+    {
+      "name": "Male_v2_Body",
+      "vertices": 2858,
+      "triangles": 1456,
+      "degenerate_triangles": 0,
+      "face_normal_reversals": 0
+    },
+    {
+      "name": "Male_v2_Joints",
+      "vertices": 1248,
+      "triangles": 632,
+      "degenerate_triangles": 0,
+      "face_normal_reversals": 0
+    }
+  ],
+  "male_bbox": [
+    [
+      -0.687521755695343,
+      -3.0703834141831976e-08,
+      -0.1783313751220703
+    ],
+    [
+      0.6875232458114624,
+      1.899984359741211,
+      0.16584652662277222
+    ]
+  ],
+  "male_height": 1.899984359741211,
+  "female_bbox": [
+    [
+      -0.5978001665771008,
+      -2.840104658119458e-08,
+      -0.1649277495958049
+    ],
+    [
+      0.5978014622330665,
+      1.7574855327606203,
+      0.1534080371260643
+    ]
+  ],
+  "female_height": 1.7574855611616669,
+  "height_ratio": 0.9250000149480424
+}
+{'source': 'refine_chest.py design surface vs. the same mesh with zero breast displacement (not the QA method)', 'per_breast_volume_cm3': 336.3205881758465, 'apex_m': [0.08542075281222404, 1.2635, 0.13469656029721838], 'apex_definition': 'most projecting surface point along the breast axis (centre of the flat cap)', 'most_forward_vertex_m': [0.07431154777284177, 1.259467708093389, 0.13450204323611378], 'apex_projection_from_wall_m': 0.04381271038176965, 'max_dz_over_wall_m': 0.049148960053055454, 'design_displacement_m': 0.041, 'excess_over_3mm_y_bottom_top_m': [1.2000000000000002, 1.3440000000000003], 'apex_relative_height': 0.44097222222222104, 'upper_volume_fraction': 0.5255808130118544, 'imf_y_m': 1.1959349091285085, 'outward_deg': {'apex_normal_yaw': 12.000000000000338, 'base_to_apex_axis_yaw': 5.812276360374929, 'wall_normal_yaw_at_centre': 17.40823527097471, 'design_lean': 12.000000000000002}, 'apex_normal_pitch_deg': 1.2232399558956092e-12}
+{'method': 'faceted chest-front remesh: flat 8-sided apex cap, 8- then 16-sided displacement-contour rings, wall ring, closest-point runs to the shell boundary, rim strip; side/top faces fanned at subdivided edges', 'segments': 16, 'ring_levels': [0.81, 0.64, 0.46, 0.28, 0.12, 0.0], 'wall_ring': 0.5, 'original_vertices': 4106, 'vertices': 5212, 'triangles': 2566, 'original_triangles': 2088, 'append_range': [4106, 5211], 'refined_chest_triangles': 594}
+{
+  "source": "refine_chest.py design surface vs. the same mesh with zero breast displacement (not the QA method)",
+  "per_breast_volume_cm3": 336.3205881758465,
+  "apex_m": [
+    0.08542075281222404,
+    1.2635,
+    0.13469656029721838
+  ],
+  "apex_definition": "most projecting surface point along the breast axis (centre of the flat cap)",
+  "most_forward_vertex_m": [
+    0.07431154777284177,
+    1.259467708093389,
+    0.13450204323611378
+  ],
+  "apex_projection_from_wall_m": 0.04381271038176965,
+  "max_dz_over_wall_m": 0.049148960053055454,
+  "design_displacement_m": 0.041,
+  "excess_over_3mm_y_bottom_top_m": [
+    1.2000000000000002,
+    1.3440000000000003
+  ],
+  "apex_relative_height": 0.44097222222222104,
+  "upper_volume_fraction": 0.5255808130118544,
+  "imf_y_m": 1.1959349091285085,
+  "outward_deg": {
+    "apex_normal_yaw": 12.000000000000338,
+    "base_to_apex_axis_yaw": 5.812276360374929,
+    "wall_normal_yaw_at_centre": 17.40823527097471,
+    "design_lean": 12.000000000000002
+  },
+  "apex_normal_pitch_deg": 1.2232399558956092e-12,
+  "bust_girth_m": 1.0280360399553659,
+  "bust_measure_y_m": 1.268,
+  "underbust_girth_m": 0.8898057243065903,
+  "underbust_measure_y_m": 1.2,
+  "bust_minus_underbust_m": 0.13823031564877553,
+  "vertices": 5212,
+  "triangles": 2566
+}

@@ -1,0 +1,13 @@
+{
+ "solver_cost": {
+  "legs": 0.2557,
+  "left_arm": 53.0224,
+  "right_arm": 108.1243
+ },
+ "right_sole_min_y_m": -0.0,
+ "left_toes_min_y_m": -2e-05,
+ "left_heel_height_m": 0.0939,
+ "right_heel_height_m": -0.0,
+ "left_palm_to_crown_target_mm": 4.97,
+ "right_palm_to_hip_target_mm": 17.28
+}

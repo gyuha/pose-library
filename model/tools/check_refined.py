@@ -2,8 +2,8 @@
 import json,sys,collections
 import numpy as np
 from make_female import ROOT,read,arr
-from deformation import shell_labels,morph
-from refine_chest import breast_height
+from deformation import shell_labels
+from refine_chest import main as remesh
 from measure_refined import load
 sys.path.insert(0,str(ROOT.parent/'tests'))
 from qa_metrics import strict_intersections
@@ -35,12 +35,9 @@ def main():
     if check_active and np.max(abs(P[ct[i],2]-unexpanded[ct[i],2]))>1e-6:active_hits.add((i,int(oi[ids[k]])))
   return pairs
  oldset=strict_intersections(baseline[oldtri]);oldchest={tuple(p if labels[oldtri[p[0],0]]=='chest' else p[::-1]) for p in oldset if 'chest' in [labels[oldtri[p[0],0]],labels[oldtri[p[1],0]]]}
- unexpanded=P.copy()
- for idx in np.where(labels[:4106]=='chest')[0]:unexpanded[idx]=morph(original[idx],'chest_wall')
- for row in mapping['mapping']:unexpanded[row['index']]=np.array(row['barycentric'])@unexpanded[row['source_triangle']]
- raw_front=np.clip((unexpanded[:,2]-.005)/.065,0,1)
- unexpanded=P.copy();chest_vertex_mask=labels=='chest'
- unexpanded[chest_vertex_mask,2]-=breast_height(P[chest_vertex_mask,0],P[chest_vertex_mask,1])*raw_front[chest_vertex_mask]
+ # Control: identical remesh (same topology/order) with zero breast displacement; wall, IMF fold and rim retreat kept.
+ unexpanded=remesh(projection=0.,write=False,source=ROOT/'validation'/'female_before_breast_refinement.glb')['P']
+ assert unexpanded.shape==P.shape
  hits=collisions(P,True);control_hits=collisions(unexpanded);breast_only_new=hits-control_hits;new=hits-oldchest
  labeltri=lambda t:labels[oldtri[t,0]]
  summary=collections.Counter(labeltri(q) for p,q in new)
@@ -55,5 +52,5 @@ def main():
  areas=np.linalg.norm(np.cross(P[T[:,1]]-P[T[:,0]],P[T[:,2]]-P[T[:,0]]),axis=1)
  assert (areas>1e-10).all(),'Degenerate triangles'
  assert (T>=0).all() and (T<len(P)).all(),'Invalid indices'
- result={'degenerate_triangles':int((areas<1e-10).sum()),'indices_valid':True,'original_attribute_prefix_preserved':True,'non_chest_positions_identical':True,'vertices':len(P),'triangles':len(T),'append_range':mapping['append_range'],'active_displaced_breast_triangle_collisions':static_active_count,'new_static_source_pairs_due_to_breast_field':len(breast_only_new),'new_chest_collision_source_pairs_vs_previous':len(new),'new_chest_collision_by_other_part':dict(summary),'lowered_arm_proxy':proxy,'note':'The unexpanded control retains current wall/IMF/ribcage corrections and removes only the breast field. Source-face-pair changes and QA opposite-partner-face changes are different metrics. Collision counts collapse refined triangles to source-face pairs. The source already has connector and shell overlaps. Arm lowering is a rigid kinematic proxy, not a skinned animation.'};print(json.dumps(result,indent=2));(ROOT/'validation'/'refined_checks.json').write_text(json.dumps(result,indent=2))
+ result={'degenerate_triangles':int((areas<1e-10).sum()),'indices_valid':True,'original_attribute_prefix_preserved':True,'non_chest_positions_identical':True,'vertices':len(P),'triangles':len(T),'append_range':mapping['append_range'],'active_displaced_breast_triangle_collisions':static_active_count,'new_static_source_pairs_due_to_breast_field':len(breast_only_new),'new_chest_collision_source_pairs_vs_previous':len(new),'new_chest_collision_by_other_part':dict(summary),'lowered_arm_proxy':proxy,'note':'The unexpanded control is the same remesh with zero breast displacement (wall, IMF fold and rim retreat kept). Source-face-pair changes and QA opposite-partner-face changes are different metrics. Collision counts collapse refined triangles to source-face pairs. The source already has connector and shell overlaps. Arm lowering is a rigid kinematic proxy, not a skinned animation.'};print(json.dumps(result,indent=2));(ROOT/'validation'/'refined_checks.json').write_text(json.dumps(result,indent=2))
 if __name__=='__main__':main()

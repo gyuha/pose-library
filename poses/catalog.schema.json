@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pose-library.local/poses/catalog.schema.json",
+  "title": "Korean pose catalog (sidecar of the pose files)",
+  "description": "One entry per pose file (poses/<id>.json): Korean name, tags and the canonical description (정식 설명) that starts the pose prompt. Left/right in the description are the character's own.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["formatVersion", "poses"],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "formatVersion": {
+      "const": 1
+    },
+    "poses": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/entry"
+      }
+    }
+  },
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "tags", "description"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$",
+          "description": "Pose id: equals meta.id of the pose file and its file name without .json."
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Korean display name."
+        },
+        "tags": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "contains": {
+            "enum": ["서기", "앉기", "동작"]
+          },
+          "minContains": 1,
+          "maxContains": 1,
+          "description": "Korean tags. Exactly one category tag (서기, 앉기 or 동작) plus optional extra tags."
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Korean canonical description (정식 설명), one or two sentences, describing the joint data; left/right are the character's own."
+        }
+      }
+    }
+  }
+}

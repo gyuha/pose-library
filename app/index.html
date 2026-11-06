@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D 포즈 라이브러리</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div class="app-layout">
+      <!-- 좌측 패널: 필터 / 성별 토글 / 포즈 썸네일 그리드 -->
+      <aside class="sidebar-panel" aria-label="포즈 갤러리">
+        <header class="sidebar-header">
+          <div class="brand-row">
+            <h1 class="app-title">포즈 라이브러리</h1>
+            <span id="pose-count-badge" class="pose-count-badge">0개 포즈</span>
+          </div>
+          <div class="controls-bar">
+            <div class="gender-toggle" role="group" aria-label="성별 선택">
+              <button
+                type="button"
+                class="gender-btn active"
+                data-gender="female"
+                aria-pressed="true"
+              >
+                여성
+              </button>
+              <button
+                type="button"
+                class="gender-btn"
+                data-gender="male"
+                aria-pressed="false"
+              >
+                남성
+              </button>
+            </div>
+            <label class="filter-wrap" for="tag-filter">
+              <span class="sr-only">태그 필터</span>
+              <select id="tag-filter" class="tag-filter" aria-label="태그 필터">
+                <option value="">전체 태그</option>
+              </select>
+            </label>
+          </div>
+        </header>
+
+        <div id="thumbnail-grid" class="thumbnail-grid" role="list"></div>
+      </aside>
+
+      <!-- 우측 패널: 항상 보이는 3D 뷰어 / 앵글 프리셋 / PNG 다운로드 / 프롬프트 -->
+      <main class="viewer-panel" aria-label="3D 포즈 뷰어 및 프롬프트">
+        <section class="stage-section">
+          <div class="stage-toolbar">
+            <div class="angle-presets" role="group" aria-label="앵글 프리셋">
+              <button type="button" class="angle-btn active" data-angle="front">정면</button>
+              <button type="button" class="angle-btn" data-angle="three_quarter">사선</button>
+              <button type="button" class="angle-btn" data-angle="side">옆</button>
+              <button type="button" class="angle-btn" data-angle="high">위</button>
+              <button type="button" class="angle-btn" data-angle="low">아래</button>
+            </div>
+            <div class="stage-actions">
+              <button type="button" id="download-png" class="action-btn primary-btn">
+                PNG 다운로드
+              </button>
+            </div>
+          </div>
+
+          <div id="viewport-container" class="viewport-container">
+            <canvas id="main-canvas" class="main-canvas"></canvas>
+            <div class="viewport-hud">
+              <span id="active-pose-title" class="hud-title">포즈 로딩 중…</span>
+              <span id="active-camera-info" class="hud-sub">정면 · 여성</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="prompt-section" aria-label="포즈 프롬프트">
+          <div class="prompt-header">
+            <div class="prompt-title-group">
+              <h2 class="prompt-heading">포즈 프롬프트</h2>
+              <span id="copy-feedback" class="copy-feedback" role="status" aria-live="polite" hidden>
+                복사됨
+              </span>
+            </div>
+            <button type="button" id="copy-prompt" class="action-btn copy-btn">
+              프롬프트 복사
+            </button>
+          </div>
+          <pre id="prompt-text" class="prompt-text"></pre>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

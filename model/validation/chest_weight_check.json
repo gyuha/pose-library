@@ -1,0 +1,297 @@
+{
+  "groups": {
+    "spine": [
+      "DEF-spine_02",
+      "DEF-spine.001_03",
+      "DEF-spine.002_04",
+      "DEF-spine.003_05",
+      "DEF-spine.004_00"
+    ],
+    "neck_head": [
+      "DEF-neck_06",
+      "DEF-head_07"
+    ],
+    "shoulder": [
+      "DEF-shoulder.L_08",
+      "DEF-shoulder.R_027"
+    ],
+    "upper_arm": [
+      "DEF-upper_arm.L_09",
+      "DEF-upper_arm.R_028"
+    ],
+    "lower_arm_hand": [
+      "DEF-forearm.L_010",
+      "DEF-hand.L_011",
+      "DEF-f_index.01.L_012",
+      "DEF-f_index.02.L_013",
+      "DEF-f_index.03.L_014",
+      "DEF-f_middle.01.L_015",
+      "DEF-f_middle.02.L_016",
+      "DEF-f_middle.03.L_017",
+      "DEF-f_pinky.01.L_018",
+      "DEF-f_pinky.02.L_019",
+      "DEF-f_pinky.03.L_020",
+      "DEF-f_ring.01.L_021",
+      "DEF-f_ring.02.L_022",
+      "DEF-f_ring.03.L_023",
+      "DEF-thumb.01.L_024",
+      "DEF-thumb.02.L_025",
+      "DEF-thumb.03.L_026",
+      "DEF-forearm.R_029",
+      "DEF-hand.R_030",
+      "DEF-f_index.01.R_031",
+      "DEF-f_index.02.R_032",
+      "DEF-f_index.03.R_033",
+      "DEF-f_middle.01.R_034",
+      "DEF-f_middle.02.R_035",
+      "DEF-f_middle.03.R_036",
+      "DEF-f_pinky.01.R_037",
+      "DEF-f_pinky.02.R_038",
+      "DEF-f_pinky.03.R_039",
+      "DEF-f_ring.01.R_040",
+      "DEF-f_ring.02.R_041",
+      "DEF-f_ring.03.R_042",
+      "DEF-thumb.01.R_043",
+      "DEF-thumb.02.R_044",
+      "DEF-thumb.03.R_045"
+    ],
+    "other": [
+      "_rootJoint",
+      "root_01",
+      "DEF-thigh.L_046",
+      "DEF-shin.L_047",
+      "DEF-foot.L_048",
+      "DEF-toe.L_049",
+      "DEF-thigh.R_050",
+      "DEF-shin.R_051",
+      "DEF-foot.R_052",
+      "DEF-toe.R_053"
+    ]
+  },
+  "all_chest_original": {
+    "vertices": 142,
+    "mean_share": {
+      "spine": 1.0,
+      "neck_head": 0.0,
+      "shoulder": 0.0,
+      "upper_arm": 0.0,
+      "lower_arm_hand": 0.0,
+      "other": 0.0
+    },
+    "max_shoulder_arm_share": 0.0,
+    "vertices_with_shoulder_arm_over_0.05": 0,
+    "dominant_joint_counts": {
+      "DEF-spine.002_04": 49,
+      "DEF-spine.003_05": 44,
+      "DEF-spine.004_00": 49
+    }
+  },
+  "all_chest_appended": {
+    "vertices": 1106,
+    "mean_share": {
+      "spine": 1.0,
+      "neck_head": 0.0,
+      "shoulder": 0.0,
+      "upper_arm": 0.0,
+      "lower_arm_hand": 0.0,
+      "other": 0.0
+    },
+    "max_shoulder_arm_share": 0.0,
+    "vertices_with_shoulder_arm_over_0.05": 0,
+    "dominant_joint_counts": {
+      "DEF-spine.002_04": 190,
+      "DEF-spine.003_05": 888,
+      "DEF-spine.004_00": 28
+    }
+  },
+  "breast_mound_appended": {
+    "vertices": 616,
+    "mean_share": {
+      "spine": 1.0,
+      "neck_head": 0.0,
+      "shoulder": 0.0,
+      "upper_arm": 0.0,
+      "lower_arm_hand": 0.0,
+      "other": 0.0
+    },
+    "max_shoulder_arm_share": 0.0,
+    "vertices_with_shoulder_arm_over_0.05": 0,
+    "dominant_joint_counts": {
+      "DEF-spine.002_04": 64,
+      "DEF-spine.003_05": 552
+    }
+  },
+  "breast_mound_original_reference": null,
+  "highest_shoulder_arm_share": [
+    {
+      "index": 302,
+      "xyz": [
+        0.1367,
+        1.1517,
+        0.0271
+      ],
+      "share": 0.0,
+      "joints": [
+        "DEF-spine.002_04",
+        "_rootJoint",
+        "_rootJoint",
+        "_rootJoint"
+      ],
+      "weights": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "index": 4799,
+      "xyz": [
+        -0.0536,
+        1.2363,
+        0.1247
+      ],
+      "share": 0.0,
+      "joints": [
+        "DEF-spine.003_05",
+        "DEF-spine.002_04",
+        "_rootJoint",
+        "_rootJoint"
+      ],
+      "weights": [
+        0.7194,
+        0.2806,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "index": 4798,
+      "xyz": [
+        -0.0435,
+        1.2285,
+        0.1184
+      ],
+      "share": 0.0,
+      "joints": [
+        "DEF-spine.003_05",
+        "DEF-spine.002_04",
+        "_rootJoint",
+        "_rootJoint"
+      ],
+      "weights": [
+        0.6526,
+        0.3474,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "index": 4797,
+      "xyz": [
+        -0.0374,
+        1.2472,
+        0.1181
+      ],
+      "share": 0.0,
+      "joints": [
+        "DEF-spine.003_05",
+        "DEF-spine.002_04",
+        "_rootJoint",
+        "_rootJoint"
+      ],
+      "weights": [
+        0.8122,
+        0.1878,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "index": 4796,
+      "xyz": [
+        -0.0481,
+        1.2506,
+        0.1247
+      ],
+      "share": 0.0,
+      "joints": [
+        "DEF-spine.003_05",
+        "DEF-spine.002_04",
+        "_rootJoint",
+        "_rootJoint"
+      ],
+      "weights": [
+        0.8409,
+        0.1591,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "index": 4795,
+      "xyz": [
+        -0.0481,
+        1.2506,
+        0.1247
+      ],
+      "share": 0.0,
+      "joints": [
+        "DEF-spine.003_05",
+        "DEF-spine.002_04",
+        "_rootJoint",
+        "_rootJoint"
+      ],
+      "weights": [
+        0.8409,
+        0.1591,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "index": 4794,
+      "xyz": [
+        -0.0374,
+        1.2472,
+        0.1181
+      ],
+      "share": 0.0,
+      "joints": [
+        "DEF-spine.003_05",
+        "DEF-spine.002_04",
+        "_rootJoint",
+        "_rootJoint"
+      ],
+      "weights": [
+        0.8122,
+        0.1878,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "index": 4793,
+      "xyz": [
+        -0.0412,
+        1.265,
+        0.1167
+      ],
+      "share": 0.0,
+      "joints": [
+        "DEF-spine.003_05",
+        "DEF-spine.002_04",
+        "_rootJoint",
+        "_rootJoint"
+      ],
+      "weights": [
+        0.9629,
+        0.0371,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "weights_sum_max_error": 5.8673322200775146e-08,
+  "note": "Appended vertices interpolate the source chest-shell triangle under them (barycentric, per joint id, top 4 renormalised). Breast mound = |x| 0.02-0.14, y 1.19-1.37, z>0.06."
+}

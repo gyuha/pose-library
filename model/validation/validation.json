@@ -1,13 +1,13 @@
 {
-  "vertices": 10847,
-  "triangles": 13572,
+  "vertices": 5212,
+  "triangles": 2566,
   "original_vertex_range": [
     0,
     4105
   ],
   "appended_vertex_range": [
     4106,
-    10846
+    5211
   ],
   "bbox": [
     [
@@ -23,24 +23,42 @@
   ],
   "height_m": 1.7574855089187622,
   "breast_metrics": {
-    "per_breast_volume_cm3": [
-      447.21154401564047,
-      447.222969515769
+    "source": "refine_chest.py design surface vs. the same mesh with zero breast displacement (not the QA method)",
+    "per_breast_volume_cm3": 336.3205881758465,
+    "apex_m": [
+      0.08542075281222404,
+      1.2635,
+      0.13469656029721838
     ],
-    "max_projection_m": 0.061640777498951416,
-    "chest_peak_y_m": 1.295,
-    "breast_top_y_m": 1.4749999999999999,
-    "breast_bottom_y_m": 1.2,
-    "upper_lower_volume_fraction": [
-      0.3730948440719669,
-      0.6269051559280331
+    "apex_definition": "most projecting surface point along the breast axis (centre of the flat cap)",
+    "most_forward_vertex_m": [
+      0.07431154777284177,
+      1.259467708093389,
+      0.13450204323611378
     ],
-    "bust_girth_m": 1.0432412797359107,
+    "apex_projection_from_wall_m": 0.04381271038176965,
+    "max_dz_over_wall_m": 0.049148960053055454,
+    "design_displacement_m": 0.041,
+    "excess_over_3mm_y_bottom_top_m": [
+      1.2000000000000002,
+      1.3440000000000003
+    ],
+    "apex_relative_height": 0.44097222222222104,
+    "upper_volume_fraction": 0.5255808130118544,
+    "imf_y_m": 1.1959349091285085,
+    "outward_deg": {
+      "apex_normal_yaw": 12.000000000000338,
+      "base_to_apex_axis_yaw": 5.812276360374929,
+      "wall_normal_yaw_at_centre": 17.40823527097471,
+      "design_lean": 12.000000000000002
+    },
+    "apex_normal_pitch_deg": 1.2232399558956092e-12,
+    "bust_girth_m": 1.0280360399553659,
     "bust_measure_y_m": 1.268,
-    "underbust_girth_m": 0.8924257791428789,
+    "underbust_girth_m": 0.8898057243065903,
     "underbust_measure_y_m": 1.2,
-    "bust_minus_underbust_m": 0.15081550059303184,
-    "vertices": 10847,
-    "triangles": 13572
+    "bust_minus_underbust_m": 0.13823031564877553,
+    "vertices": 5212,
+    "triangles": 2566
   }
 }
