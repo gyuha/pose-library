@@ -9,6 +9,8 @@
 //   angles           {front:{yawDeg,pitchDeg}, ...}  (prompt/ 의 ANGLE_PRESETS 에서 가져온 값)
 //   baselinePoses    [poseId, ...]  female·front 로 PNG 를 받을 포즈
 //   promptCases      [{poseId, gender, angle}, ...]  UI 클릭으로 맞춘 뒤 복사 버튼을 누를 상태
+//   framing          {poses:[poseId, ...], angles:[key, ...]}  female 로 포즈×앵글 PNG 를 받을 조합(프레이밍 검사)
+//   tolerance        {poseId, poses:[poseId, ...], gender, angle}  허용오차 측정용 PNG(같은 상태 반복 + 포즈별 1장)
 // 결과: 마지막에 `__UAT_RESULT__<json>` 한 줄을 출력한다. 섹션 하나가 실패해도 나머지는 계속 실행한다.
 if (typeof CONFIG === "undefined") throw new Error("CONFIG 가 없다: tests/test_20_app.py 가 앞에 붙여 준다");
 
@@ -127,7 +129,7 @@ try {
   });
 
   // 4. 프롬프트 복사: UI 클릭으로 상태를 맞추고 #copy-prompt
-  await section("copy", async () => {
+  if (Array.isArray(CONFIG.promptCases)) await section("copy", async () => {
     const rows = [];
     for (const c of CONFIG.promptCases) {
       await page.click(`[data-gender="${c.gender}"]`);
@@ -157,7 +159,7 @@ try {
   });
 
   // 3+7. PNG 다운로드: female·front 기준 이미지용 + 다른 상태(male·side) 한 장
-  await section("downloads", async () => {
+  if (Array.isArray(CONFIG.baselinePoses)) await section("downloads", async () => {
     const files = {};
     await evalApp(() => window.__poseApp.setGender("female"));
     await waitGender("female");
@@ -174,6 +176,88 @@ try {
     await waitAngle("side");
     files["male_side"] = { ...(await download("male_side.png")), state: await state() };
     return files;
+  });
+
+  // 7+8. 프레이밍용 PNG: 모든 포즈 × 앵글 5개 × female. 한 브라우저 세션에서 몰아 받는다(테스트가 bbox 여백을 잰다).
+  //      상태 변경은 디버그 훅으로 하고(클릭 수 절약), 카메라가 프리셋에 도달한 것만 확인한 뒤 다운로드한다.
+  await section("framing", async () => {
+    const cfg = CONFIG.framing || { poses: [], angles: [] };
+    const files = {};
+    await evalApp(() => window.__poseApp.setGender("female"));
+    await waitGender("female");
+    for (const id of cfg.poses) {
+      for (const key of cfg.angles) {
+        await evalApp(({ id, key }) => {
+          window.__poseApp.selectPose(id);
+          window.__poseApp.setAngle(key);
+        }, { id, key });
+        await waitAngle(key);
+        files[`${id}/${key}`] = { ...(await download(`framing_${id}_${key}.png`)), state: await state() };
+      }
+    }
+    return files;
+  });
+
+  // 9. 허용오차 보정: 같은 상태를 반복 렌더한 차이(노이즈)와 서로 다른 포즈의 차이(신호)를 재기 위한 PNG.
+  //    노이즈 4장 = 최초 / 성별 왕복(female→male→female) 뒤 / 뷰포트 크기 변경 뒤 / 크기 복원 뒤 반복.
+  if (CONFIG.tolerance) await section("tolerance", async () => {
+    const cfg = CONFIG.tolerance;
+    const gender = cfg.gender || "female";
+    const angle = cfg.angle || "front";
+    const setState = (id) => evalApp(({ id, gender, angle }) => {
+      window.__poseApp.setGender(gender);
+      window.__poseApp.selectPose(id);
+      window.__poseApp.setAngle(angle);
+    }, { id, gender, angle });
+    const settle = async (id) => {
+      await waitGender(gender);
+      await waitPose(id);
+      await waitAngle(angle);
+    };
+    const capture = async (file) => ({ ...(await download(file)), state: await state() });
+
+    const noise = [];
+    const shot = async (label, file) => noise.push({ label, ...(await capture(file)) });
+
+    await setState(cfg.poseId);
+    await settle(cfg.poseId);
+    await shot("initial", "tol_noise_a.png");
+
+    // 성별 왕복 뒤 같은 상태 (모델 교체·썸네일 재렌더가 PNG 에 영향을 주면 안 된다)
+    await evalApp((g) => window.__poseApp.setGender(g === "female" ? "male" : "female"), gender);
+    await setState(cfg.poseId);
+    await settle(cfg.poseId);
+    await shot("gender_roundtrip", "tol_noise_b.png");
+
+    // 뷰포트 크기 변경 뒤 같은 상태 (오프스크린 900×1200 은 창 크기와 무관해야 한다)
+    const viewport = await evalApp(() => ({ w: window.innerWidth, h: window.innerHeight }));
+    await page.cdp("Emulation.setDeviceMetricsOverride", {
+      width: Math.max(640, Math.round(viewport.w * 0.7)),
+      height: Math.max(480, Math.round(viewport.h * 0.7)),
+      deviceScaleFactor: 1,
+      mobile: false,
+    });
+    await page.waitForTimeout(300);
+    const resized = await evalApp(() => ({ w: window.innerWidth, h: window.innerHeight }));
+    await setState(cfg.poseId);
+    await settle(cfg.poseId);
+    await shot("viewport_resized", "tol_noise_c.png");
+    await page.cdp("Emulation.clearDeviceMetricsOverride");
+    await page.waitForTimeout(300);
+
+    // 크기 복원 뒤 순수 반복 렌더
+    await setState(cfg.poseId);
+    await settle(cfg.poseId);
+    await shot("repeat", "tol_noise_d.png");
+
+    // 신호: 모든 포즈를 같은 성별·앵글로 한 장씩
+    const poses = {};
+    for (const id of cfg.poses) {
+      await setState(id);
+      await settle(id);
+      poses[id] = await capture(`tol_pose_${id}.png`);
+    }
+    return { noise, poses, viewport, resized };
   });
 
   // 6. 네트워크: 이 문서가 지금까지 요청한 모든 리소스(fetch·img·xhr·script 포함, Resource Timing)

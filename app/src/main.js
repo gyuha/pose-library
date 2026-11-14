@@ -80,8 +80,11 @@ const EXPORT_HEIGHT = 1200;
 const THUMB_WIDTH = 240;
 const THUMB_HEIGHT = 320;
 const CAMERA_FOV = 26;
+// Fallback framing used only when no rig/bounding box is available yet.
 const CAMERA_DISTANCE = 5.3;
 const CAMERA_TARGET = new THREE.Vector3(0, 0.96, 0);
+// Fraction of each image edge kept empty around the posed figure.
+const FRAME_MARGIN = 0.05;
 const CATEGORY_ORDER = ['서기', '앉기', '동작'];
 
 // 3. State
@@ -145,7 +148,7 @@ controls.maxDistance = 18.0;
 controls.maxPolarAngle = Math.PI * 0.95;
 controls.minPolarAngle = Math.PI * 0.05;
 
-function syncLightsToCamera(refCam = camera) {
+function syncLightsToCamera(refCam = camera, target = controls.target) {
   refCam.updateMatrixWorld(true);
   const right = new THREE.Vector3();
   const up = new THREE.Vector3();
@@ -153,34 +156,76 @@ function syncLightsToCamera(refCam = camera) {
   refCam.matrixWorld.extractBasis(right, up, back);
 
   keyLight.position
-    .copy(CAMERA_TARGET)
+    .copy(target)
     .addScaledVector(right, -2.2)
     .addScaledVector(up, 3.4)
     .addScaledVector(back, 4.6);
 
   fillLight.position
-    .copy(CAMERA_TARGET)
+    .copy(target)
     .addScaledVector(right, 3.0)
     .addScaledVector(up, 1.2)
     .addScaledVector(back, 3.2);
 }
 
-function positionCameraForPreset(cam, targetVec, presetKey) {
+// Auto-framing helpers: only the orbit target and distance change; the preset
+// yaw/pitch handed to cameraAngles() stays exact.
+const WORLD_UP = new THREE.Vector3(0, 1, 0);
+const _frameCenter = new THREE.Vector3();
+const _frameForward = new THREE.Vector3();
+const _frameRight = new THREE.Vector3();
+const _frameUp = new THREE.Vector3();
+const _frameCorner = new THREE.Vector3();
+const _frameOffset = new THREE.Vector3();
+
+// Unit vector from the orbit target towards the camera for a preset.
+function presetCameraDirection(presetKey, out = new THREE.Vector3()) {
   const preset = ANGLE_PRESETS[presetKey];
   const yawRad = (preset.yawDeg * Math.PI) / 180;
   const pitchRad = (preset.pitchDeg * Math.PI) / 180;
-  const dist = CAMERA_DISTANCE;
-  const horiz = dist * Math.cos(pitchRad);
+  const horiz = Math.cos(pitchRad);
+  return out.set(-horiz * Math.sin(yawRad), Math.sin(pitchRad), horiz * Math.cos(yawRad));
+}
 
-  cam.position.set(
-    targetVec.x - horiz * Math.sin(yawRad),
-    targetVec.y + dist * Math.sin(pitchRad),
-    targetVec.z + horiz * Math.cos(yawRad)
-  );
-  cam.up.set(0, 1, 0);
-  cam.lookAt(targetVec);
+// Points `cam` at the centre of `box` from the preset yaw/pitch and picks the
+// smallest distance that keeps all eight box corners inside the frame with
+// FRAME_MARGIN on every edge. Returns the orbit target (a new vector).
+function fitCameraToBox(cam, presetKey, box, aspect) {
+  const hasBox = box && !box.isEmpty();
+  const center = hasBox ? box.getCenter(_frameCenter) : _frameCenter.copy(CAMERA_TARGET);
+  const forward = presetCameraDirection(presetKey, _frameForward);
+  const right = _frameRight.crossVectors(WORLD_UP, forward).normalize();
+  const up = _frameUp.crossVectors(forward, right).normalize();
+
+  const tanV = Math.tan((cam.fov * Math.PI) / 360);
+  const tanH = tanV * Math.max(aspect, 1e-6);
+  const usable = 1 - 2 * FRAME_MARGIN;
+
+  let distance = 0;
+  if (hasBox && tanH > 0 && tanV > 0) {
+    for (let i = 0; i < 8; i++) {
+      _frameCorner.set(
+        i & 1 ? box.max.x : box.min.x,
+        i & 2 ? box.max.y : box.min.y,
+        i & 4 ? box.max.z : box.min.z
+      );
+      _frameOffset.subVectors(_frameCorner, center);
+      const along = _frameOffset.dot(forward);
+      distance = Math.max(
+        distance,
+        along + Math.abs(_frameOffset.dot(right)) / (tanH * usable),
+        along + Math.abs(_frameOffset.dot(up)) / (tanV * usable)
+      );
+    }
+  }
+  if (!(distance > 0)) distance = CAMERA_DISTANCE;
+
+  cam.position.copy(center).addScaledVector(forward, distance);
+  cam.up.copy(WORLD_UP);
+  cam.lookAt(center);
   cam.updateProjectionMatrix();
   cam.updateMatrixWorld(true);
+  return center.clone();
 }
 
 function computeCameraAngles() {
@@ -228,6 +273,9 @@ function resizeViewport() {
   camera.aspect = w / h;
   camera.updateProjectionMatrix();
   mainRenderer.setSize(w, h, false);
+  if (rigs[state.gender]) {
+    frameMainCamera(state.angle);
+  }
   renderMain();
 }
 
@@ -343,6 +391,36 @@ function applyPoseToRig(rig, pose) {
   for (const sm of skinnedMeshes) {
     sm.skeleton.update();
   }
+  rig.currentPoseId = pose?.meta?.id || null;
+}
+
+// Bounding box of the *posed* skinned vertices (not the rest pose). Cached per
+// rig/pose: the box only depends on the applied pose of that gender.
+function getPosedBoundingBox(rig, poseId) {
+  if (!rig) return null;
+  if (!rig.boxCache) rig.boxCache = new Map();
+  const cached = rig.boxCache.get(poseId);
+  if (cached) return cached;
+
+  const box = new THREE.Box3();
+  for (const sm of rig.skinnedMeshes) {
+    // precise=true evaluates getVertexPosition → applies bone/skin transforms.
+    box.expandByObject(sm, true);
+  }
+  if (box.isEmpty()) return null;
+  // Only cache boxes measured while this exact pose was applied.
+  if (rig.currentPoseId === poseId) rig.boxCache.set(poseId, box);
+  return box;
+}
+
+// Frame the on-screen camera for the current pose/angle.
+function frameMainCamera(angleKey = state.angle) {
+  const rig = rigs[state.gender];
+  const box = rig ? getPosedBoundingBox(rig, state.poseId) : null;
+  const aspect = camera.aspect || 3 / 4;
+  const target = fitCameraToBox(camera, angleKey, box, aspect);
+  controls.target.copy(target);
+  controls.update();
 }
 
 function setActiveRigVisibility(gender) {
@@ -391,10 +469,13 @@ function renderThumbnailForPose(gender, poseId) {
   setActiveRigVisibility(gender);
   applyPoseToRig(rig, pose);
 
+  const aspect = THUMB_WIDTH / THUMB_HEIGHT;
   offscreenRenderer.setSize(THUMB_WIDTH, THUMB_HEIGHT, false);
-  offscreenCamera.aspect = THUMB_WIDTH / THUMB_HEIGHT;
-  positionCameraForPreset(offscreenCamera, CAMERA_TARGET, 'front');
-  syncLightsToCamera(offscreenCamera);
+  offscreenCamera.fov = CAMERA_FOV;
+  offscreenCamera.aspect = aspect;
+  const thumbBox = getPosedBoundingBox(rig, poseId);
+  const thumbTarget = fitCameraToBox(offscreenCamera, 'front', thumbBox, aspect);
+  syncLightsToCamera(offscreenCamera, thumbTarget);
   offscreenRenderer.render(scene, offscreenCamera);
 
   const cachedCanvas = document.createElement('canvas');
@@ -428,7 +509,8 @@ function renderAllThumbnailsForGender(gender) {
   if (currentPose && rigs[state.gender]) {
     applyPoseToRig(rigs[state.gender], currentPose);
   }
-  syncLightsToCamera(camera);
+  frameMainCamera(state.angle);
+  renderMain();
 }
 
 function renderExportPngDataUrl() {
@@ -439,20 +521,18 @@ function renderExportPngDataUrl() {
     applyPoseToRig(rig, pose);
   }
 
+  const aspect = EXPORT_WIDTH / EXPORT_HEIGHT;
   offscreenRenderer.setSize(EXPORT_WIDTH, EXPORT_HEIGHT, false);
-  offscreenCamera.fov = camera.fov;
-  offscreenCamera.aspect = EXPORT_WIDTH / EXPORT_HEIGHT;
-  offscreenCamera.position.copy(camera.position);
-  offscreenCamera.quaternion.copy(camera.quaternion);
-  offscreenCamera.up.copy(camera.up);
-  offscreenCamera.updateProjectionMatrix();
-  offscreenCamera.updateMatrixWorld(true);
+  offscreenCamera.fov = CAMERA_FOV;
+  offscreenCamera.aspect = aspect;
+  const exportBox = rig ? getPosedBoundingBox(rig, state.poseId) : null;
+  const exportTarget = fitCameraToBox(offscreenCamera, state.angle, exportBox, aspect);
 
-  syncLightsToCamera(offscreenCamera);
+  syncLightsToCamera(offscreenCamera, exportTarget);
   offscreenRenderer.render(scene, offscreenCamera);
 
   const dataUrl = offscreenRenderer.domElement.toDataURL('image/png');
-  syncLightsToCamera(camera);
+  syncLightsToCamera(camera, controls.target);
   return dataUrl;
 }
 
@@ -630,6 +710,7 @@ function selectPose(id) {
     setActiveRigVisibility(state.gender);
     applyPoseToRig(rig, pose);
   }
+  frameMainCamera(state.angle);
   updateUI();
   renderMain();
 }
@@ -652,6 +733,7 @@ function setGender(gender) {
     renderAllThumbnailsForGender(gender);
   }
 
+  frameMainCamera(state.angle);
   updateUI();
   renderMain();
 }
@@ -661,10 +743,7 @@ function setAngle(key) {
     throw new Error(`알 수 없는 앵글 프리셋입니다: ${key}`);
   }
   state.angle = key;
-  controls.target.copy(CAMERA_TARGET);
-  positionCameraForPreset(camera, controls.target, key);
-  controls.update();
-  state.angle = key;
+  frameMainCamera(key);
   updateUI();
   renderMain();
 }
@@ -738,33 +817,7 @@ if (copyPromptBtn) {
 window.addEventListener('resize', resizeViewport);
 
 // 11. Initialization & Debug Hook
-async function syncLivePosesIfAvailable() {
-  try {
-    const res = await fetch('/__pose_sync.json', { cache: 'no-store' });
-    if (!res.ok) return;
-    const payload = await res.json();
-    if (payload && payload.poses && typeof payload.poses === 'object') {
-      posesMap.clear();
-      for (const [id, raw] of Object.entries(payload.poses)) {
-        posesMap.set(id, sanitizePose(raw));
-      }
-    }
-    if (payload && payload.catalog && Array.isArray(payload.catalog.poses)) {
-      catalogMap.clear();
-      for (const entry of payload.catalog.poses) {
-        if (entry && entry.id) {
-          catalogMap.set(entry.id, entry);
-        }
-      }
-    }
-  } catch {
-    // Fallback to build-time import.meta.glob data
-  }
-}
-
 async function initApp() {
-  await syncLivePosesIfAvailable();
-
   const sortedIds = getPoseIdsSorted();
   if (!state.poseId || !posesMap.has(state.poseId)) {
     state.poseId = sortedIds[0] || '';

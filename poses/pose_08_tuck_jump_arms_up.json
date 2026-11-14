@@ -5,21 +5,21 @@
   "meta": {
     "id": "pose_08_tuck_jump_arms_up",
     "name": "Tuck jump, arms raised",
-    "description": "In the air with both feet about 16 cm off the floor. Both knees pulled up and bent with the feet pointed, arms raised in a wide V above the shoulders with open hands, chin slightly up. Left/right are the character's own.",
+    "description": "In the air with both feet about 31 cm (female) to 33 cm (male) off the floor. Both knees pulled up and bent with the feet pointed, arms raised in a wide V above the shoulders with open hands, chin slightly up. Left/right are the character's own.",
     "targetModels": [
       "female",
       "male"
     ],
     "assumptions": [
-      "Airborne: the lowest vertex is ~0.16 m above the floor (female 155 mm, male 165 mm). The jump height is kept low so the raised hands stay inside the standard preview frame.",
+      "Airborne: the lowest vertex is ~0.31 m above the floor on the female and ~0.33 m on the male (root height chosen so the mean of the two is 0.32 m). The raised hands rise above the standard preview frame; framing is handled by the camera, not by lowering the jump.",
       "Authored on rig/female.glb; the male uses the same rotations and the hips-height-relative root offset. The root height is the mean of the female and male heights that put the contact on y = 0, so both models land within a few millimetres of the floor."
     ],
-    "generator": "/tmp/pose-author/build_all.py + p0N.py (poser authoring scripts, kept outside the repository)"
+    "generator": "scripts/pose_author/poses/pose_08_tuck_jump_arms_up.py"
   },
   "root": {
     "translation": [
       0.0,
-      -0.061169,
+      0.116527,
       0.0
     ],
     "unit": "hipsHeight"

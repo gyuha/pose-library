@@ -17,7 +17,7 @@
       "Root shifted 8 cm backwards (model space) to centre the figure for previews.",
       "Authored on rig/female.glb; the male uses the same rotations and the hips-height-relative root offset. The root height is the mean of the female and male heights that put the contact on y = 0, so both models land within a few millimetres of the floor."
     ],
-    "generator": "/tmp/pose-author/build_all.py + p0N.py (poser authoring scripts, kept outside the repository)"
+    "generator": "scripts/pose_author/poses/pose_04_sitting_knees_up.py"
   },
   "root": {
     "translation": [
@@ -158,10 +158,10 @@
     },
     "upperarm_l": {
       "quaternion": [
-        0.3949745,
-        0.4095453,
-        -0.0445031,
-        0.82115
+        0.394973,
+        0.409543,
+        -0.0445049,
+        0.8211517
       ],
       "euler": {
         "order": "XYZ",
@@ -174,10 +174,10 @@
     },
     "lowerarm_l": {
       "quaternion": [
-        0.2951383,
-        -0.0,
-        -0.0,
-        0.9554545
+        0.2951411,
+        0.0,
+        0.0,
+        0.9554537
       ],
       "euler": {
         "order": "XYZ",
@@ -446,10 +446,10 @@
     },
     "thigh_l": {
       "quaternion": [
-        -0.8516192,
-        -0.1922329,
-        0.0005067,
-        0.4876382
+        -0.8516175,
+        -0.1922341,
+        0.0005043,
+        0.4876407
       ],
       "euler": {
         "order": "XYZ",
@@ -462,10 +462,10 @@
     },
     "calf_l": {
       "quaternion": [
-        0.8514235,
+        0.851425,
         0.0,
         0.0,
-        0.5244788
+        0.5244764
       ],
       "euler": {
         "order": "XYZ",
@@ -478,10 +478,10 @@
     },
     "foot_l": {
       "quaternion": [
-        0.2537449,
-        0.1598843,
-        -0.1332362,
-        0.9446156
+        0.253741,
+        0.159886,
+        -0.1332367,
+        0.9446163
       ],
       "euler": {
         "order": "XYZ",
@@ -510,10 +510,10 @@
     },
     "upperarm_r": {
       "quaternion": [
-        0.3949754,
-        -0.4095475,
-        0.0445,
-        0.8211486
+        0.3949768,
+        -0.4095497,
+        0.0444965,
+        0.821147
       ],
       "euler": {
         "order": "XYZ",
@@ -526,10 +526,10 @@
     },
     "lowerarm_r": {
       "quaternion": [
-        0.2951383,
-        -0.0,
-        -0.0,
-        0.9554545
+        0.2951411,
+        0.0,
+        0.0,
+        0.9554537
       ],
       "euler": {
         "order": "XYZ",
@@ -798,10 +798,10 @@
     },
     "thigh_r": {
       "quaternion": [
-        -0.8516192,
-        0.1922329,
-        -0.0005067,
-        0.4876382
+        -0.8516175,
+        0.1922341,
+        -0.0005043,
+        0.4876407
       ],
       "euler": {
         "order": "XYZ",
@@ -814,10 +814,10 @@
     },
     "calf_r": {
       "quaternion": [
-        0.8514235,
+        0.851425,
         0.0,
         0.0,
-        0.5244788
+        0.5244764
       ],
       "euler": {
         "order": "XYZ",
@@ -830,10 +830,10 @@
     },
     "foot_r": {
       "quaternion": [
-        0.2537449,
-        -0.1598843,
-        0.1332362,
-        0.9446156
+        0.253741,
+        -0.159886,
+        0.1332367,
+        0.9446163
       ],
       "euler": {
         "order": "XYZ",

@@ -10,7 +10,7 @@
     {
       "name": "modeler",
       "provider": "claude",
-      "model": "claude-opus-5-5",
+      "model": "claude-sonnet-5-5",
       "folders": [
         "model"
       ],
@@ -19,7 +19,7 @@
     {
       "name": "poser",
       "provider": "claude",
-      "model": "claude-opus-5-5",
+      "model": "claude-sonnet-5-5",
       "folders": [
         "poses"
       ],
@@ -27,8 +27,8 @@
     },
     {
       "name": "prompter",
-      "provider": "codex",
-      "model": "gpt-6.1-sol",
+      "provider": "claude",
+      "model": "claude-sonnet-5-5",
       "folders": [
         "prompt"
       ],
@@ -36,8 +36,8 @@
     },
     {
       "name": "app",
-      "provider": "antigravity",
-      "model": "gemini-4-argon-high",
+      "provider": "opencode",
+      "model": "opencode-go/deepseek-v4.1-flash",
       "folders": [
         "app"
       ],
@@ -45,8 +45,8 @@
     },
     {
       "name": "qa",
-      "provider": "claude",
-      "model": "claude-sonnet-5-5",
+      "provider": "opencode",
+      "model": "opencode-go/deepseek-v4.1-flash",
       "folders": [
         "tests",
         "scripts"

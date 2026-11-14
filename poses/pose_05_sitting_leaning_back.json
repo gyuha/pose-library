@@ -13,16 +13,15 @@
     "assumptions": [
       "Pelvis tilted back 38 deg; palms solved with a Levenberg-Marquardt fit (palm normal down, wrist extension within the 70 deg limit).",
       "The palms sit 7.5 mm above the floor on the female so that the male's longer arms reach about 9 mm into it; both stay inside the 10 mm floor tolerance.",
-      "Root shifted 20 cm backwards (model space) to centre the figure for previews.",
       "Authored on rig/female.glb; the male uses the same rotations and the hips-height-relative root offset. The root height is the mean of the female and male heights that put the contact on y = 0, so both models land within a few millimetres of the floor."
     ],
-    "generator": "/tmp/pose-author/build_all.py + p0N.py (poser authoring scripts, kept outside the repository)"
+    "generator": "scripts/pose_author/poses/pose_05_sitting_leaning_back.py"
   },
   "root": {
     "translation": [
       0.0,
       -0.837047,
-      -0.230774
+      0.0
     ],
     "unit": "hipsHeight"
   },
@@ -141,10 +140,10 @@
     },
     "upperarm_l": {
       "quaternion": [
-        -0.4285007,
-        -0.3208623,
-        0.023145,
-        0.8443334
+        -0.4285015,
+        -0.3208629,
+        0.023144,
+        0.8443328
       ],
       "euler": {
         "order": "XYZ",
@@ -157,10 +156,10 @@
     },
     "lowerarm_l": {
       "quaternion": [
-        0.1089246,
-        0.2394446,
-        0.0270441,
-        0.9644015
+        0.108925,
+        0.2394425,
+        0.027044,
+        0.964402
       ],
       "euler": {
         "order": "XYZ",
@@ -173,10 +172,10 @@
     },
     "hand_l": {
       "quaternion": [
-        -0.5244515,
-        -0.0280055,
-        -0.2736713,
-        0.8057731
+        -0.5244513,
+        -0.0280056,
+        -0.273671,
+        0.8057734
       ],
       "euler": {
         "order": "XYZ",
@@ -397,10 +396,10 @@
     },
     "thigh_l": {
       "quaternion": [
-        -0.4349707,
-        -0.0197725,
-        0.0206826,
-        0.8999899
+        -0.4349728,
+        -0.0197769,
+        0.0206828,
+        0.8999887
       ],
       "euler": {
         "order": "XYZ",
@@ -413,10 +412,10 @@
     },
     "calf_l": {
       "quaternion": [
-        -0.02598,
+        -0.0259763,
         0.0,
         0.0,
-        0.9996625
+        0.9996626
       ],
       "euler": {
         "order": "XYZ",
@@ -461,10 +460,10 @@
     },
     "upperarm_r": {
       "quaternion": [
-        -0.4288252,
-        0.3184369,
-        -0.0227998,
-        0.8450959
+        -0.4288241,
+        0.3184388,
+        -0.0227967,
+        0.8450958
       ],
       "euler": {
         "order": "XYZ",
@@ -477,10 +476,10 @@
     },
     "lowerarm_r": {
       "quaternion": [
-        0.1089573,
-        -0.2381806,
-        -0.0269007,
-        0.9647148
+        0.1089603,
+        -0.2381799,
+        -0.0269014,
+        0.9647146
       ],
       "euler": {
         "order": "XYZ",
@@ -493,10 +492,10 @@
     },
     "hand_r": {
       "quaternion": [
-        -0.5246867,
-        0.0280852,
-        0.2736634,
-        0.8056199
+        -0.5246833,
+        0.0280844,
+        0.2736629,
+        0.8056223
       ],
       "euler": {
         "order": "XYZ",
@@ -717,10 +716,10 @@
     },
     "thigh_r": {
       "quaternion": [
-        -0.802568,
-        0.0875343,
-        0.0278503,
-        0.5894461
+        -0.8025704,
+        0.0875324,
+        0.02785,
+        0.5894431
       ],
       "euler": {
         "order": "XYZ",
@@ -733,10 +732,10 @@
     },
     "calf_r": {
       "quaternion": [
-        0.7752372,
+        0.7752367,
         0.0,
         0.0,
-        0.6316703
+        0.6316708
       ],
       "euler": {
         "order": "XYZ",
@@ -749,10 +748,10 @@
     },
     "foot_r": {
       "quaternion": [
-        0.3668413,
-        -0.0849637,
-        0.0660294,
-        0.9240394
+        0.3668452,
+        -0.0849626,
+        0.0660299,
+        0.9240379
       ],
       "euler": {
         "order": "XYZ",

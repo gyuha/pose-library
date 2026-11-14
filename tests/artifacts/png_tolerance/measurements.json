@@ -1,0 +1,32 @@
+{
+  "tolerance": {
+    "mean_diff_max": 1.5,
+    "big_diff_fraction_max": 0.0075,
+    "big_diff_level": 40
+  },
+  "noise": {
+    "mean_diff": 0.0,
+    "big_diff_fraction": 0.0,
+    "renders": [
+      "initial",
+      "gender_roundtrip",
+      "viewport_resized",
+      "repeat"
+    ],
+    "pairs": 6
+  },
+  "signal": {
+    "mean_diff_min": 9.206625925925925,
+    "mean_diff_min_pair": [
+      "pose_02_standing_look_back",
+      "pose_06_walking"
+    ],
+    "big_diff_fraction_min": 0.08412222222222222,
+    "big_diff_fraction_min_pair": [
+      "pose_02_standing_look_back",
+      "pose_06_walking"
+    ],
+    "pairs": 78,
+    "poses": 13
+  }
+}

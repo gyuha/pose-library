@@ -34,6 +34,15 @@
 4. UAT: 사용자 통과(2026-11-06). 기준 이미지 3장도 승인했습니다.
 
 ## Follow-up candidates
-- 라이브 포즈 동기화 미들웨어를 제거하고, 포즈가 바뀌면 다시 빌드하도록 정리합니다. test_20이 빌드 결과물만으로 검증되게 합니다.
-- PNG 회귀 허용오차를 실제 기준 이미지로 다시 검토합니다(qa).
+
+<!-- followup: fu-ed43684f3e5e | source: pose-gallery-3d-2of2 | task: 2 | date: 2026-11-06 | status: open | taken: - -->
+- 라이브 포즈 동기화 미들웨어(`/__pose_sync.json`)를 제거하고, 포즈가 바뀌면 다시 빌드하도록 정리합니다. test_20이 빌드 결과물만으로 검증되게 합니다.
+  Evidence: app/vite.config.js·app/src/main.js:741. 계획에 없던 기능이고, test_20이 preview 서버의 라이브 경로로만 검증됐습니다.
+
+<!-- followup: fu-7e05c32b843a | source: pose-gallery-3d-2of2 | task: 2 | date: 2026-11-06 | status: open | taken: - -->
+- PNG 회귀 허용오차(평균 1.5/255, 0.75 %)를 실제 기준 이미지로 다시 검토합니다(qa).
+  Evidence: S5에서 qa가 데이터로 재검토하지 않았고, 기준 이미지는 테스트가 직접 생성했습니다.
+
+<!-- followup: fu-cc11d6bdb1ac | source: pose-gallery-3d-2of2 | task: 2 | date: 2026-11-06 | status: open | taken: - -->
 - 같은 저장소에서 여러 세션이 poses/를 동시에 쓰지 않도록 조율 규칙을 정합니다(image-to-pose 스킬 ↔ 갤러리 팀).
+  Evidence: 2/2 실행 중 다른 세션이 pose_09~13을 추가하고 카탈로그 등록이 늦어 1/2 테스트가 일시적으로 깨졌습니다(1 failed, 4 errors).

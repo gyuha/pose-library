@@ -59,6 +59,7 @@ npm ci → npm run build → vite preview(4173) → ego-browser 스크립트(app
 | 5 | 앵글 5개 | `[data-angle]` 클릭 | `getState().angle == key`, `cameraAngles()`가 프리셋 ±1°, `promptText()`가 해당 앵글의 프롬프트 |
 | 6 | 레퍼런스 네트워크 0건 | 문서가 요청한 모든 리소스(Resource Timing) | `/poses/reference/`를 포함하는 URL 0건. 추가로 `app/dist/` 안에 경로에 `reference`가 들어간 파일 0개 |
 | 7 | PNG 회귀 | pose_01·pose_04·pose_07 × female × front 다운로드 PNG를 `tests/baselines/<id>_female_front.png`와 비교 | 평균 절대 차이 ≤ 1.5/255, 채널 차이 > 40인 픽셀 비율 ≤ 0.75 %. 기준 파일이 없으면 만들고 "baseline created, needs review"로 **실패** |
+| 8 | 프레이밍 | 모든 포즈 × 앵글 5개 × female 다운로드 PNG의 배경과 다른 픽셀 bbox | 네 변 모두 ≥ 1 % 여백, bbox의 긴 변 ≥ 40 % (너무 멀리 줌아웃한 카메라 방지) |
 
 ## 4. 캡처 방식 (테스트가 하는 일)
 

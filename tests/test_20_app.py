@@ -21,6 +21,9 @@ ego-browser 스크립트(scripts/app_uat.js)를 한 번 실행해 JSON 결과를
   - PNG 회귀: 평균 절대 차이 ≤ 1.5/255 그리고 채널 차이 > 40 인 픽셀 비율 ≤ 0.75 %.
     근거: 같은 렌더러에서는 거의 0 이다. 안티앨리어싱·GPU 드라이버 차이는 실루엣 가장자리(전체의 약 0.4 %)에만 영향을 주지만,
     팔다리 하나가 다른 위치로 가면 수 % 가 바뀌므로 포즈 오류는 잡힌다. 실제 기준 이미지가 생기면(S5) 값을 데이터로 재검토한다.
+  - 프레이밍: 모든 포즈 × 앵글 5개 × female PNG 에서 배경과 다른 픽셀의 bbox 가 네 변 모두 ≥ 1 % 여백을 두고,
+    긴 변이 화면의 ≥ 40 % 여야 한다(카메라가 너무 멀어 통과하는 것 방지). 다운로드는 UAT 스크립트의 "framing"
+    섹션이 한 브라우저 세션에서 몰아 받는다.
 기준 이미지가 없으면 현재 다운로드를 tests/baselines/ 에 쓰고 "baseline created, needs review" 로 실패한다.
 """
 import json
@@ -52,6 +55,11 @@ BASELINE_POSES = ["pose_01_contrapposto_hand_on_head", "pose_04_sitting_knees_up
 PNG_MEAN_DIFF_MAX = 1.5
 PNG_BIG_DIFF_FRACTION_MAX = 0.0075
 PNG_BIG_DIFF_LEVEL = 40
+# 프레이밍: 인물(배경과 다른 픽셀)의 bbox 가 네 변 모두에서 1 % 이상 떨어져야 하고,
+# 카메라가 너무 멀어 통과하지 못하도록 bbox 의 긴 변이 화면의 40 % 이상이어야 한다.
+FRAMING_MARGIN_MIN = 0.01
+FRAMING_FIGURE_MIN = 0.40
+FRAMING_BG_DIFF = 16
 ANGLES = ["front", "side", "three_quarter", "high", "low"]
 PROMPT_CASES = [
     {"poseId": "pose_01_contrapposto_hand_on_head", "gender": "female", "angle": "front"},
@@ -94,6 +102,7 @@ def _run_uat(url):
         raise AssertionError("ego-browser 가 PATH 에 없다")
     angles = _node([])["angles"]
     cfg = {"url": url, "outDir": str(OUT_DIR), "baselinePoses": BASELINE_POSES, "promptCases": PROMPT_CASES,
+           "framing": {"poses": pose_ids(), "angles": ANGLES},
            "angles": {k: {"yawDeg": angles[k]["yawDeg"], "pitchDeg": angles[k]["pitchDeg"]} for k in ANGLES}}
     assert set(angles) == set(ANGLES), angles.keys()
     OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -216,6 +225,42 @@ def test_download_png_is_900x1200(uat):
         assert changed >= 0.01, f"{key}: 배경과 다른 픽셀 {changed:.2%} (빈 화면?)"
         assert np.abs(a[[0, 0, -1, -1], [0, -1, 0, -1]] - bg).max() <= 12, f"{key}: 모서리가 단색 배경이 아님"
         assert bg.mean() >= 200, f"{key}: 배경 {bg.tolist()} 가 밝은 단색이 아님"
+
+
+def _figure_box(img):
+    """배경(좌상단 색)과 다른 픽셀의 bbox (left, right, top, bottom). 픽셀 좌표는 0-based, 끝 포함."""
+    a = np.asarray(img.convert("RGB")).astype(int)
+    bg = a[0, 0]
+    ys, xs = np.nonzero(np.abs(a - bg).max(axis=2) > FRAMING_BG_DIFF)
+    assert xs.size, "배경과 다른 픽셀이 없음(빈 화면?)"
+    return int(xs.min()), int(xs.max()), int(ys.min()), int(ys.max())
+
+
+@pytest.mark.parametrize("angle", ANGLES)
+@pytest.mark.parametrize("pose_id", pose_ids())
+def test_png_framing(uat, pose_id, angle):
+    """포즈 × 앵글 프리셋마다 인물이 PNG 네 변에서 1 % 이상 떨어져 있고, 너무 작지도 않다."""
+    key = f"{pose_id}/{angle}"
+    row = uat.section("framing").get(key)
+    assert row, f"UAT 결과에 프레이밍 항목 {key} 없음"
+    assert row["state"] == {"poseId": pose_id, "gender": "female", "angle": angle}, row["state"]
+    img = _png(row["path"])
+    assert img.size == PNG_SIZE, f"{key}: {img.size} != {PNG_SIZE}"
+    left, right, top, bottom = _figure_box(img)
+    w, h = img.size
+    margins = {"left": left / w, "right": (w - 1 - right) / w,
+               "top": top / h, "bottom": (h - 1 - bottom) / h}
+    too_close = {k: v for k, v in margins.items() if v < FRAMING_MARGIN_MIN}
+    assert not too_close, (
+        f"{key}: 인물이 이미지 변에 닿음 — bbox=({left},{top})-({right},{bottom}) / {w}x{h}, "
+        + ", ".join(f"{k} 여백 {v:.2%}" for k, v in margins.items())
+        + f" (네 변 모두 ≥ {FRAMING_MARGIN_MIN:.0%} 필요)"
+    )
+    width_frac, height_frac = (right - left + 1) / w, (bottom - top + 1) / h
+    assert max(width_frac, height_frac) >= FRAMING_FIGURE_MIN, (
+        f"{key}: 인물이 너무 작음 — bbox {width_frac:.1%} x {height_frac:.1%} / {w}x{h} "
+        f"(긴 변 ≥ {FRAMING_FIGURE_MIN:.0%} 필요)"
+    )
 
 
 def test_copy_prompt_equals_build_prompt(uat):

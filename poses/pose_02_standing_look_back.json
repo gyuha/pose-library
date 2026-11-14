@@ -15,7 +15,7 @@
       "Feet placed with two-bone IK: left ankle under the left hip, right ankle 10 cm behind and turned out 20 deg; both soles flat.",
       "Authored on rig/female.glb; the male uses the same rotations and the hips-height-relative root offset. The root height is the mean of the female and male heights that put the contact on y = 0, so both models land within a few millimetres of the floor."
     ],
-    "generator": "/tmp/pose-author/build_all.py + p0N.py (poser authoring scripts, kept outside the repository)"
+    "generator": "scripts/pose_author/poses/pose_02_standing_look_back.py"
   },
   "root": {
     "translation": [
@@ -428,10 +428,10 @@
     },
     "thigh_l": {
       "quaternion": [
-        -0.1040304,
-        -0.1280577,
-        0.0409314,
-        0.9854459
+        -0.1040265,
+        -0.1280606,
+        0.0409287,
+        0.985446
       ],
       "euler": {
         "order": "XYZ",
@@ -444,10 +444,10 @@
     },
     "calf_l": {
       "quaternion": [
-        0.1415829,
+        0.1415837,
         0.0,
         0.0,
-        0.9899264
+        0.9899263
       ],
       "euler": {
         "order": "XYZ",
@@ -460,10 +460,10 @@
     },
     "foot_l": {
       "quaternion": [
-        -0.0332649,
-        0.0767697,
-        0.0018975,
-        0.996492
+        -0.0332694,
+        0.0767735,
+        0.0018938,
+        0.9964915
       ],
       "euler": {
         "order": "XYZ",
@@ -780,10 +780,10 @@
     },
     "thigh_r": {
       "quaternion": [
-        -0.0607414,
-        0.0220597,
-        0.0066804,
-        0.9978874
+        -0.0607376,
+        0.0220613,
+        0.0066774,
+        0.9978876
       ],
       "euler": {
         "order": "XYZ",
@@ -796,10 +796,10 @@
     },
     "calf_r": {
       "quaternion": [
-        0.1111434,
+        0.1111394,
         0.0,
         0.0,
-        0.9938044
+        0.9938048
       ],
       "euler": {
         "order": "XYZ",
@@ -812,10 +812,10 @@
     },
     "foot_r": {
       "quaternion": [
-        -0.0447665,
-        0.0259843,
-        0.0114098,
-        0.9985943
+        -0.0447637,
+        0.0259832,
+        0.0114104,
+        0.9985945
       ],
       "euler": {
         "order": "XYZ",

@@ -1,0 +1,68 @@
+version: '3'
+
+vars:
+  HOST: 0.0.0.0
+  PORT: 4173
+  DEV_PORT: 5173
+  VENV: /tmp/pose-qa-venv
+  PY: '{{.VENV}}/bin/python'
+
+env:
+  PYTHONDONTWRITEBYTECODE: '1'
+  GLTF_VALIDATOR_NODE_PATH: /private/tmp/pose-model-validator/node_modules
+
+tasks:
+  default:
+    desc: 웹앱을 빌드하고 0.0.0.0:4173 으로 띄웁니다 (task web)
+    cmds:
+      - task: web
+
+  install:
+    desc: 앱 의존성 설치 (npm ci)
+    dir: app
+    sources: [package.json, package-lock.json]
+    generates: [node_modules/.package-lock.json]
+    cmds:
+      - npm ci
+
+  build:
+    desc: 앱 빌드 (app/dist)
+    dir: app
+    deps: [install]
+    cmds:
+      - npm run build
+
+  web:
+    desc: 빌드 결과물을 0.0.0.0:4173 으로 서빙 (외부 접속 가능)
+    dir: app
+    deps: [build]
+    cmds:
+      - npx vite preview --host {{.HOST}} --port {{.PORT}} --strictPort
+
+  dev:
+    desc: 개발 서버를 0.0.0.0:5173 으로 실행 (HMR, 외부 접속 가능)
+    dir: app
+    deps: [install]
+    cmds:
+      - npx vite --host {{.HOST}} --port {{.DEV_PORT}} --strictPort
+
+  venv:
+    desc: QA용 Python venv 준비 (/tmp/pose-qa-venv)
+    status:
+      - test -x {{.PY}}
+    cmds:
+      - uv venv {{.VENV}} -q
+      - uv pip install -q --python {{.PY}} -r tests/requirements.txt
+
+  test:
+    desc: 포즈·카탈로그·프롬프트 테스트 (pytest test_10~13 + prompt node --test)
+    deps: [venv]
+    cmds:
+      - '{{.PY}} -m pytest tests/test_10_pose_files.py tests/test_11_pose_apply.py tests/test_12_pose_intersections.py tests/test_13_prompt.py -q -p no:cacheprovider'
+      - cd prompt && node --test
+
+  test:app:
+    desc: 웹앱 E2E 테스트 (ego-browser, 4173 포트를 비워 둔 상태에서 실행)
+    deps: [venv]
+    cmds:
+      - '{{.PY}} -m pytest tests/test_20_app.py -q -p no:cacheprovider'

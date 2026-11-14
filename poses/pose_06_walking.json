@@ -14,7 +14,7 @@
       "Stride ~50 cm (female); the lowest sole touches the floor.",
       "Authored on rig/female.glb; the male uses the same rotations and the hips-height-relative root offset. The root height is the mean of the female and male heights that put the contact on y = 0, so both models land within a few millimetres of the floor."
     ],
-    "generator": "/tmp/pose-author/build_all.py + p0N.py (poser authoring scripts, kept outside the repository)"
+    "generator": "scripts/pose_author/poses/pose_06_walking.py"
   },
   "root": {
     "translation": [
@@ -427,10 +427,10 @@
     },
     "thigh_l": {
       "quaternion": [
-        -0.2586473,
-        -0.0544569,
-        0.0173887,
-        0.9642788
+        -0.2586455,
+        -0.0544578,
+        0.0173852,
+        0.9642793
       ],
       "euler": {
         "order": "XYZ",
@@ -443,10 +443,10 @@
     },
     "calf_l": {
       "quaternion": [
-        -0.02598,
+        -0.0259763,
         0.0,
         0.0,
-        0.9996625
+        0.9996626
       ],
       "euler": {
         "order": "XYZ",
@@ -460,9 +460,9 @@
     "foot_l": {
       "quaternion": [
         0.1619015,
-        0.0302997,
-        -0.0643713,
-        0.9842389
+        0.0303029,
+        -0.0643731,
+        0.9842387
       ],
       "euler": {
         "order": "XYZ",
@@ -763,10 +763,10 @@
     },
     "thigh_r": {
       "quaternion": [
-        -0.0097975,
-        -0.049506,
-        -0.0910844,
-        0.9945636
+        -0.009795,
+        -0.0495098,
+        -0.0910853,
+        0.9945634
       ],
       "euler": {
         "order": "XYZ",
@@ -779,10 +779,10 @@
     },
     "calf_r": {
       "quaternion": [
-        0.235334,
+        0.2353372,
         0.0,
         0.0,
-        0.9719146
+        0.9719138
       ],
       "euler": {
         "order": "XYZ",
@@ -795,10 +795,10 @@
     },
     "foot_r": {
       "quaternion": [
-        0.0298299,
-        0.014188,
-        0.0666888,
-        0.9972269
+        0.0298309,
+        0.0141916,
+        0.0666847,
+        0.9972271
       ],
       "euler": {
         "order": "XYZ",

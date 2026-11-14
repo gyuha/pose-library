@@ -14,7 +14,7 @@
       "Shown in the support phase (right ball on the floor) rather than the flight phase, so the lowest point is on the floor.",
       "Authored on rig/female.glb; the male uses the same rotations and the hips-height-relative root offset. The root height is the mean of the female and male heights that put the contact on y = 0, so both models land within a few millimetres of the floor."
     ],
-    "generator": "/tmp/pose-author/build_all.py + p0N.py (poser authoring scripts, kept outside the repository)"
+    "generator": "scripts/pose_author/poses/pose_07_running.py"
   },
   "root": {
     "translation": [
@@ -795,10 +795,10 @@
     },
     "thigh_r": {
       "quaternion": [
-        -0.1492705,
-        -0.0307876,
-        -0.115747,
-        0.9815157
+        -0.1492737,
+        -0.030787,
+        -0.1157452,
+        0.9815154
       ],
       "euler": {
         "order": "XYZ",
@@ -811,10 +811,10 @@
     },
     "calf_r": {
       "quaternion": [
-        0.3419248,
+        0.3419217,
         0.0,
         0.0,
-        0.9397273
+        0.9397284
       ],
       "euler": {
         "order": "XYZ",
@@ -827,10 +827,10 @@
     },
     "foot_r": {
       "quaternion": [
-        -0.0094801,
-        -0.0236585,
-        0.0545599,
-        0.9981852
+        -0.0094835,
+        -0.023654,
+        0.0545634,
+        0.998185
       ],
       "euler": {
         "order": "XYZ",
