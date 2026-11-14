@@ -3,14 +3,14 @@
   "goal": "캐릭터 포즈를 프롬프트로 설명해 주는 앱",
   "orchestrator": {
     "workspace": "orchestrator",
-    "provider": "claude",
-    "model": "claude-opus-5-5"
+    "provider": "opencode",
+    "model": "opencode-go/muse-spark-1.3-contributor"
   },
   "roles": [
     {
       "name": "modeler",
-      "provider": "claude",
-      "model": "claude-sonnet-5-5",
+      "provider": "opencode",
+      "model": "opencode-go/muse-spark-1.3-contributor",
       "folders": [
         "model"
       ],
@@ -18,8 +18,8 @@
     },
     {
       "name": "poser",
-      "provider": "claude",
-      "model": "claude-sonnet-5-5",
+      "provider": "opencode",
+      "model": "opencode-go/muse-spark-1.3-contributor",
       "folders": [
         "poses"
       ],
@@ -27,8 +27,8 @@
     },
     {
       "name": "prompter",
-      "provider": "claude",
-      "model": "claude-sonnet-5-5",
+      "provider": "opencode",
+      "model": "opencode-go/muse-spark-1.3-contributor",
       "folders": [
         "prompt"
       ],
@@ -37,7 +37,7 @@
     {
       "name": "app",
       "provider": "opencode",
-      "model": "opencode-go/deepseek-v4.1-flash",
+      "model": "opencode-go/muse-spark-1.3-contributor",
       "folders": [
         "app"
       ],
@@ -46,7 +46,7 @@
     {
       "name": "qa",
       "provider": "opencode",
-      "model": "opencode-go/deepseek-v4.1-flash",
+      "model": "opencode-go/muse-spark-1.3-contributor",
       "folders": [
         "tests",
         "scripts"
