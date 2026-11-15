@@ -9,6 +9,9 @@ const repoRoot = path.resolve(__dirname, '..');
 // src/main.js, so the built app needs no live middleware.
 export default defineConfig({
   root: __dirname,
+  // GitHub Pages serves the repo at /pose-library/; PAGES_BASE=/ restores
+  // root-relative asset URLs for local/legacy serving.
+  base: process.env.PAGES_BASE ?? '/pose-library/',
   assetsInclude: ['**/*.glb'],
   server: {
     fs: {

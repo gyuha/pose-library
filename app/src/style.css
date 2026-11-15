@@ -143,7 +143,12 @@ body {
   min-width: 0;
 }
 
-.tag-filter {
+.tag-combo {
+  position: relative;
+  width: 100%;
+}
+
+.tag-filter-input {
   width: 100%;
   height: 35px;
   padding: 0 10px;
@@ -153,12 +158,64 @@ body {
   background-color: var(--bg-surface);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
-  cursor: pointer;
+  cursor: text;
 }
 
-.tag-filter:focus {
+.tag-filter-input:focus {
   outline: 2px solid var(--accent);
   outline-offset: 1px;
+}
+
+.tag-filter-listbox {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 50;
+  max-height: 260px;
+  overflow-y: auto;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+}
+
+.tag-filter-listbox[hidden] {
+  display: none !important;
+}
+
+.tag-filter-option {
+  padding: 7px 10px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tag-filter-option:hover {
+  background: var(--bg-subtle);
+}
+
+.tag-filter-option.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.tag-filter-option.selected {
+  font-weight: 700;
+}
+
+.tag-filter-option.selected::after {
+  content: "✓";
+  float: right;
+  color: var(--accent);
 }
 
 .thumbnail-grid {

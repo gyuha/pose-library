@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3D 포즈 라이브러리</title>
-    <script type="module" crossorigin src="/assets/index-CfKoIXeX.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-D1Y--O39.css">
+    <script type="module" crossorigin src="/pose-library/assets/index-BzH2mRzZ.js"></script>
+    <link rel="stylesheet" crossorigin href="/pose-library/assets/index-CDe0PW0Z.css">
   </head>
   <body>
     <div class="app-layout">
@@ -37,9 +37,28 @@
             </div>
             <label class="filter-wrap" for="tag-filter">
               <span class="sr-only">태그 필터</span>
-              <select id="tag-filter" class="tag-filter" aria-label="태그 필터">
-                <option value="">전체 태그</option>
-              </select>
+              <div class="tag-combo" id="tag-combo">
+                <input
+                  id="tag-filter"
+                  class="tag-filter-input"
+                  type="text"
+                  role="combobox"
+                  aria-label="태그 필터"
+                  aria-expanded="false"
+                  aria-controls="tag-filter-listbox"
+                  aria-autocomplete="list"
+                  autocomplete="off"
+                  spellcheck="false"
+                  placeholder="전체 태그"
+                />
+                <ul
+                  id="tag-filter-listbox"
+                  class="tag-filter-listbox"
+                  role="listbox"
+                  aria-label="태그 목록"
+                  hidden
+                ></ul>
+              </div>
             </label>
           </div>
         </header>

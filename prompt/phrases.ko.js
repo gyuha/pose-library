@@ -16,6 +16,7 @@ export const ko = {
   forward:'상체를 앞으로 기울임', back:'상체를 뒤로 젖힘',
   left:'골반에 비해 몸통을 왼쪽으로 돌림', right:'골반에 비해 몸통을 오른쪽으로 돌림',
   tiltLeft:'몸통을 왼쪽으로 기울임', tiltRight:'몸통을 오른쪽으로 기울임', neutral:'몸통을 자연스럽게 세움',
+  lying:'누워 몸을 둠',
  },
  arm: {
   high: s => `${s}팔을 높이 듦`, side: s => `${s}팔을 옆으로 듦`,
@@ -26,6 +27,8 @@ export const ko = {
  leg: {
   forward: s => `${s}허벅지를 앞으로 기울이고 무릎을 굽힘`,
   extended: s => `${s}다리를 앞으로 뻗고 무릎을 거의 폄`,
+  backBent: s => `${s}다리를 뒤로 차고 무릎을 굽힘`,
+  backExtended: s => `${s}다리를 뒤로 뻗고 무릎을 거의 폄`,
   bent: s => `${s}무릎을 굽힘`, straight: s => `${s}다리는 무릎을 거의 폄`,
   outward: s => `${s}다리를 옆으로 벌림`, neutral: s => `${s}다리를 자연스럽게 둠`,
  },

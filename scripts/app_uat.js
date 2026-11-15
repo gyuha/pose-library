@@ -50,13 +50,19 @@ async function waitGender(g) {
   await page.waitForFunction((g) => window.__poseApp.getState().gender === g, g, { timeout: 10_000 });
 }
 // 다운로드 이벤트를 먼저 걸고 #download-png 를 눌러 outDir 에 저장한다.
+// 새 동작(app E5F6): 보이는 메인 캔버스 그대로 캡처라 크기가 고정값이 아니므로,
+// 다운로드 시점의 #main-canvas drawing buffer 크기(canvas.width×canvas.height)도 함께 기록한다.
 async function download(file) {
   const dl = page.waitForEvent("download", { timeout: T });
   await page.click("#download-png");
   const d = await dl;
   const path = `${CONFIG.outDir}/${file}`;
   await d.saveAs(path);
-  return { path, suggestedFilename: d.suggestedFilename() };
+  const canvasSize = await evalApp(() => {
+    const c = document.getElementById("main-canvas");
+    return c ? [c.width, c.height] : null;
+  });
+  return { path, suggestedFilename: d.suggestedFilename(), canvasSize };
 }
 
 try {
@@ -158,17 +164,23 @@ try {
     return rows;
   });
 
-  // 3+7. PNG 다운로드: female·front 기준 이미지용 + 다른 상태(male·side) 한 장
+  // 3·7. PNG 다운로드: female·front 기준 이미지 + 다른 상태(male·side) 한 장 +
+  // 첫 포즈 연속 재다운로드(상태를 건드리지 않은 2연속 캡처, 픽셀 완전 일치 확인용).
+  // 새 동작(app E5F6): 보이는 메인 캔버스 그대로 캡처(900×1200 오프스크린 아님).
   if (Array.isArray(CONFIG.baselinePoses)) await section("downloads", async () => {
     const files = {};
     await evalApp(() => window.__poseApp.setGender("female"));
     await waitGender("female");
-    for (const id of CONFIG.baselinePoses) {
+    for (const [i, id] of CONFIG.baselinePoses.entries()) {
       await evalApp((id) => window.__poseApp.selectPose(id), id);
       await waitPose(id);
       await page.click('[data-angle="front"]');
       await waitAngle("front");
       files[`baseline/${id}`] = { ...(await download(`${id}_female_front.png`)), state: await state() };
+      if (i === 0) {
+        // 상태 변경 없이 바로 한 번 더: 결정적 재렌더면 픽셀이 완전히 같아야 한다.
+        files[`repeat/${id}`] = { ...(await download(`${id}_female_front_repeat.png`)), state: await state() };
+      }
     }
     await evalApp(() => window.__poseApp.setGender("male"));
     await waitGender("male");
@@ -178,8 +190,9 @@ try {
     return files;
   });
 
-  // 7+8. 프레이밍용 PNG: 모든 포즈 × 앵글 5개 × female. 한 브라우저 세션에서 몰아 받는다(테스트가 bbox 여백을 잰다).
+  // 8. 프레이밍용 PNG: 모든 포즈 × 앵글 5개 × female. 한 브라우저 세션에서 몰아 받는다(테스트가 bbox 여백을 잰다).
   //      상태 변경은 디버그 훅으로 하고(클릭 수 절약), 카메라가 프리셋에 도달한 것만 확인한 뒤 다운로드한다.
+  //      한 세션·한 뷰포트에서 받으므로 모든 PNG 크기가 같아야 한다(테스트가 단언).
   await section("framing", async () => {
     const cfg = CONFIG.framing || { poses: [], angles: [] };
     const files = {};
@@ -198,8 +211,11 @@ try {
     return files;
   });
 
-  // 9. 허용오차 보정: 같은 상태를 반복 렌더한 차이(노이즈)와 서로 다른 포즈의 차이(신호)를 재기 위한 PNG.
-  //    노이즈 4장 = 최초 / 성별 왕복(female→male→female) 뒤 / 뷰포트 크기 변경 뒤 / 크기 복원 뒤 반복.
+  // 허용오차 보정(test_21): 같은 상태를 반복 렌더한 차이(노이즈)와 서로 다른 포즈의 차이(신호)를 재기 위한 PNG.
+  //    노이즈 3장 = 최초 / 상태 변경 없이 반복 / 성별 왕복(female→male→female) 뒤 — 리사이즈 전에 몰아 받는다.
+  //    뷰포트 변경 1장(viewport_resized)은 크기가 바뀌는 것 자체가 새 동작의 증거다.
+  //    새 동작(app E5F6): 캡처가 뷰포트 캔버스를 따르므로 viewport_resized 장은 크기가 달라지는 것이 정상이다.
+  //    노이즈 지표는 리사이즈 전 같은 뷰포트의 3장으로만 잰다.
   if (CONFIG.tolerance) await section("tolerance", async () => {
     const cfg = CONFIG.tolerance;
     const gender = cfg.gender || "female";
@@ -218,37 +234,59 @@ try {
 
     const noise = [];
     const shot = async (label, file) => noise.push({ label, ...(await capture(file)) });
+    const canvasSize = () => evalApp(() => {
+      const c = document.getElementById("main-canvas");
+      return c ? [c.width, c.height] : null;
+    });
+    // 캔버스 크기가 바뀔 때까지 대기(뷰포트 변경의 증거), 타임아웃이면 그대로 실패한다.
+    const waitCanvasChange = (base) => page.waitForFunction((b) => {
+      const c = document.getElementById("main-canvas");
+      return c && (c.width !== b[0] || c.height !== b[1]);
+    }, base, { timeout: 15_000 });
+    // 캔버스 크기가 연속 2회(500 ms 간격) 같을 때까지 대기. 복원 후 초기값과
+    // 같을 필요는 없다(로드 직후 버퍼가 최종 레이아웃과 다를 수 있어도 안정되면 된다).
+    const waitCanvasStable = async () => {
+      const t0 = Date.now();
+      let prev = await canvasSize();
+      for (;;) {
+        await page.waitForTimeout(500);
+        const cur = await canvasSize();
+        if (cur && prev && cur[0] === prev[0] && cur[1] === prev[1]) return cur;
+        prev = cur;
+        if (Date.now() - t0 > 15000) throw new Error("canvas size not stable: " + JSON.stringify(cur));
+      }
+    };
 
     await setState(cfg.poseId);
     await settle(cfg.poseId);
     await shot("initial", "tol_noise_a.png");
 
+    // 상태 변경 없이 바로 반복 렌더: 같은 뷰포트·같은 버퍼라 픽셀이 완전히 같아야 한다.
+    await shot("repeat", "tol_noise_b.png");
+
     // 성별 왕복 뒤 같은 상태 (모델 교체·썸네일 재렌더가 PNG 에 영향을 주면 안 된다)
     await evalApp((g) => window.__poseApp.setGender(g === "female" ? "male" : "female"), gender);
     await setState(cfg.poseId);
     await settle(cfg.poseId);
-    await shot("gender_roundtrip", "tol_noise_b.png");
+    await shot("gender_roundtrip", "tol_noise_c.png");
 
-    // 뷰포트 크기 변경 뒤 같은 상태 (오프스크린 900×1200 은 창 크기와 무관해야 한다)
+    // 뷰포트 크기 변경 뒤 같은 상태 (캡처가 뷰포트를 따르므로 PNG 크기가 바뀌는 것이 정상이다)
     const viewport = await evalApp(() => ({ w: window.innerWidth, h: window.innerHeight }));
+    const baseCanvas = await canvasSize();
     await page.cdp("Emulation.setDeviceMetricsOverride", {
       width: Math.max(640, Math.round(viewport.w * 0.7)),
       height: Math.max(480, Math.round(viewport.h * 0.7)),
       deviceScaleFactor: 1,
       mobile: false,
     });
-    await page.waitForTimeout(300);
+    await waitCanvasChange(baseCanvas);
+    await waitCanvasStable();
     const resized = await evalApp(() => ({ w: window.innerWidth, h: window.innerHeight }));
     await setState(cfg.poseId);
     await settle(cfg.poseId);
-    await shot("viewport_resized", "tol_noise_c.png");
+    await shot("viewport_resized", "tol_noise_d.png");
     await page.cdp("Emulation.clearDeviceMetricsOverride");
-    await page.waitForTimeout(300);
-
-    // 크기 복원 뒤 순수 반복 렌더
-    await setState(cfg.poseId);
-    await settle(cfg.poseId);
-    await shot("repeat", "tol_noise_d.png");
+    await waitCanvasStable();
 
     // 신호: 모든 포즈를 같은 성별·앵글로 한 장씩
     const poses = {};

@@ -54,16 +54,16 @@ npm ci → npm run build → vite preview(4173) → ego-browser 스크립트(app
 |---|---|---|---|
 | 1 | 썸네일 클릭 | `[data-pose-id]` 전부를 DOM 클릭 | 클릭 후 `getState().poseId == id`. DOM id 집합 == `poses/pose_*.json` id 집합 == `poseIds()` |
 | 2 | 관절 위치 | 포즈 × 성별 16조합 `jointPositions()` | rigcore 값과 각 뼈 ≤ 1 mm, 뼈 집합 53개 일치 |
-| 3 | PNG 다운로드 | `#download-png` 클릭 → 다운로드 이벤트 → 파일 저장 | PNG 시그니처, **900×1200**, 파일명 `.png`, 빈 화면이 아님(배경색과 다른 픽셀 ≥ 1 %) |
+| 3 | PNG 다운로드 | `#download-png` 클릭 → 다운로드 이벤트 → 파일 저장 | PNG 시그니처, 파일명 `{poseId}_{gender}_{angle}.png`, 크기 = 클릭 시점의 뷰포트 메인 캔버스 픽셀 크기(`#main-canvas` drawing buffer, 고정값 아님), 0이 아닌 크기, 빈 화면이 아님(배경색과 다른 픽셀 ≥ 1 %) |
 | 4 | 프롬프트 복사 | UI 클릭으로 상태 4가지를 맞추고 `#copy-prompt` | 클립보드 인자 == `#prompt-text` == `promptText()` == `buildPosePrompt({pose,catalogEntry,gender,angle})` |
 | 5 | 앵글 5개 | `[data-angle]` 클릭 | `getState().angle == key`, `cameraAngles()`가 프리셋 ±1°, `promptText()`가 해당 앵글의 프롬프트 |
 | 6 | 레퍼런스 네트워크 0건 | 문서가 요청한 모든 리소스(Resource Timing) | `/poses/reference/`를 포함하는 URL 0건. 추가로 `app/dist/` 안에 경로에 `reference`가 들어간 파일 0개 |
-| 7 | PNG 회귀 | pose_01·pose_04·pose_07 × female × front 다운로드 PNG를 `tests/baselines/<id>_female_front.png`와 비교 | 평균 절대 차이 ≤ 1.5/255, 채널 차이 > 40인 픽셀 비율 ≤ 0.75 %. 기준 파일이 없으면 만들고 "baseline created, needs review"로 **실패** |
-| 8 | 프레이밍 | 모든 포즈 × 앵글 5개 × female 다운로드 PNG의 배경과 다른 픽셀 bbox | 네 변 모두 ≥ 1 % 여백, bbox의 긴 변 ≥ 40 % (너무 멀리 줌아웃한 카메라 방지) |
+| 7 | PNG 결정성(기준 파일 회귀 대신) | 같은 상태를 건드리지 않고 `#download-png` 2연속 클릭 | 2장의 픽셀이 완전히 같음(최대 채널 차이 0). 기준 파일 비교 없음 |
+| 8 | 프레이밍 | 모든 포즈 × 앵글 5개 × female 다운로드 PNG의 배경과 다른 픽셀 bbox | 각 PNG 크기는 다운로드 시점의 뷰포트 캔버스 크기와 같고 한 세션 내 크기는 모두 동일. 네 변 모두 ≥ 1 % 여백, bbox의 긴 변 ≥ 40 % (너무 멀리 줌아웃한 카메라 방지) |
 
 ## 4. 캡처 방식 (테스트가 하는 일)
 
-- **PNG 다운로드**: ego-browser의 실제 다운로드 이벤트(`page.waitForEvent("download")` + `saveAs`)를 씁니다. 앱은 blob URL + `<a download>` 클릭 같은 표준 방식으로 내려받으면 됩니다(`#download-png`가 사용자 클릭으로 직접 트리거). 900×1200은 화면 렌더가 아니라 **오프스크린 렌더**여야 창 크기·DPR에 상관없이 같은 결과가 나옵니다.
+- **PNG 다운로드**: ego-browser의 실제 다운로드 이벤트(`page.waitForEvent("download")` + `saveAs`)를 씁니다. 앱은 클릭 시점에 보이는 메인 캔버스 그대로를 내려받습니다: `renderMain()` 직후 메인 캔버스(`#main-canvas`)의 `toDataURL('image/png')` → blob URL + `<a download>` 클릭 같은 표준 방식으로 내려받으면 됩니다(`#download-png`가 사용자 클릭으로 직접 트리거). 크기는 고정값(구 900×1200 오프스크린 폐지)이 아니라 **그 시점 뷰포트 메인 캔버스의 픽셀 크기**(CSS 크기 × pixelRatio, 상한 2, `canvas.width × canvas.height` = drawing buffer)이며 창 크기·DPR에 따라 달라집니다. 파일명은 `{poseId}_{gender}_{angle}.png` 입니다. 테스트는 UAT 스크립트가 다운로드와 함께 기록한 `#main-canvas` drawing buffer 크기(`canvasSize`)와 다운로드 PNG 크기를 대조합니다.
 - **클립보드**: 실제 클립보드는 권한·포커스에 불안정해서, 페이지 로드 후 `navigator.clipboard.writeText`를 가로채 인자만 기록합니다(원본은 호출하지 않으며 즉시 resolve). 따라서 앱은 **버튼 클릭 시점에** `navigator.clipboard.writeText(...)`를 호출해야 합니다(모듈 로드 때 참조를 캐시해 두면 가로채지 못합니다). 반환 Promise를 기다려 "복사 완료" 표시를 해도 됩니다.
 - **네트워크**: 문서 안의 `performance.getEntriesByType('resource')`를 마지막에 읽습니다(fetch·이미지·스크립트·XHR 포함, 버퍼 크기 5000).
 - ego-browser 스크립트는 셸 환경변수를 상속하지 않으므로 URL·출력 디렉터리 같은 입력은 `tests/test_20_app.py`가 스크립트 앞에 `const CONFIG = {...};`로 붙여 stdin으로 넘깁니다.

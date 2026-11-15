@@ -36,9 +36,28 @@
             </div>
             <label class="filter-wrap" for="tag-filter">
               <span class="sr-only">태그 필터</span>
-              <select id="tag-filter" class="tag-filter" aria-label="태그 필터">
-                <option value="">전체 태그</option>
-              </select>
+              <div class="tag-combo" id="tag-combo">
+                <input
+                  id="tag-filter"
+                  class="tag-filter-input"
+                  type="text"
+                  role="combobox"
+                  aria-label="태그 필터"
+                  aria-expanded="false"
+                  aria-controls="tag-filter-listbox"
+                  aria-autocomplete="list"
+                  autocomplete="off"
+                  spellcheck="false"
+                  placeholder="전체 태그"
+                />
+                <ul
+                  id="tag-filter-listbox"
+                  class="tag-filter-listbox"
+                  role="listbox"
+                  aria-label="태그 목록"
+                  hidden
+                ></ul>
+              </div>
             </label>
           </div>
         </header>

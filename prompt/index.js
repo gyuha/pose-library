@@ -37,29 +37,38 @@ export function buildPosePrompt({pose, catalogEntry, gender, angle}) {
  const bone = name => xyz(pose.bones[name]?.quaternion);
  const sum = names => names.reduce((a,name) => bone(name).map((v,i) => a[i]+v), [0,0,0]);
  const pelvis = bone('pelvis');
+ const [px,py,pz,pw] = (() => { const q = pose.bones.pelvis?.quaternion ?? [0,0,0,1]; const n = Math.hypot(...q) || 1; return q.map(v => v / n); })();
+ // Euler XYZ wraps X/Z to ±180 once yaw passes ±90° (e.g. facing away):
+ // pelvis pitch/roll/lying come from yaw-invariant facing/up vectors instead.
+ const fwdY = 2*(py*pz-pw*px);
+ const upX = 2*(px*py-pw*pz), upY = 1-2*(px*px+pz*pz), upZ = 2*(py*pz+pw*px);
+ const pYaw = Math.atan2(2*(px*pz+pw*py), 1-2*(px*px+py*py));
+ const pelvisPitch = -Math.asin(Math.max(-1, Math.min(1, fwdY)))*180/Math.PI;
+ const pelvisRoll = Math.atan2(-(Math.cos(pYaw)*upX-Math.sin(pYaw)*upZ), upY)*180/Math.PI;
  const spine = sum(['spine_01','spine_02','spine_03','spine_04']);
  const neck = sum(['neck_01','head']);
- const body = join([
-  direction(pelvis[0]+spine[0], 12, ko.body.forward, ko.body.back),
+ const lying = upY < Math.cos(81*Math.PI/180); // tilt past 80°: torso near-horizontal, whatever the yaw
+ const body = lying ? ko.body.lying : join([
+  direction(pelvisPitch+spine[0], 12, ko.body.forward, ko.body.back),
   direction(spine[1], 8, ko.body.left, ko.body.right),
   direction(spine[2], 6, ko.body.tiltRight, ko.body.tiltLeft),
  ]) || ko.body.neutral;
  const arms = ['l','r'].map(side => {
   const s = ko.sides[side], upper = bone('upperarm_'+side), lower = bone('lowerarm_'+side);
   const abduction = upper[2] * (side === 'l' ? 1 : -1);
-  const position = abduction > 50 ? 'high' : abduction > 25 ? 'side' : upper[0] > 15 ? 'forward' : upper[0] < -15 ? 'back' : 'neutral';
+  const position = abduction > 50 || (abduction > 25 && upper[0] > 100) ? 'high' : abduction > 25 ? 'side' : upper[0] > 15 ? 'forward' : upper[0] < -15 ? 'back' : 'neutral';
   const elbow = lower[0] > 25 ? ko.arm.bent : lower[0] < -20 ? ko.arm.straight : '';
   return ko.arm.combine(ko.arm[position](s), elbow);
  });
  const legs = ['l','r'].flatMap(side => {
   const s = ko.sides[side], thigh = bone('thigh_'+side), calf = bone('calf_'+side);
   const bent = calf[0] > 20, straight = calf[0] < 0;
-  const position = thigh[0] < -20 && bent ? 'forward' : thigh[0] < -20 && straight ? 'extended' : bent ? 'bent' : straight ? 'straight' : 'neutral';
+  const position = thigh[0] < -20 && bent ? 'forward' : thigh[0] < -20 ? 'extended' : thigh[0] > 15 && bent ? 'backBent' : thigh[0] > 15 ? 'backExtended' : bent ? 'bent' : straight ? 'straight' : 'neutral';
   return [ko.leg[position](s), thigh[2]*(side === 'l' ? -1 : 1) > 12 ? ko.leg.outward(s) : ''];
  });
  const deeplyBent = ['l','r'].every(s => bone('thigh_'+s)[0] < -45 && bone('calf_'+s)[0] > 70);
- const seated = pelvis[0] < -20 && ['l','r'].every(s => bone('thigh_'+s)[0] < -40);
- const weight = seated ? ko.weight.seated : deeplyBent ? ko.weight.uncertain : direction(pelvis[2], 1.5, ko.weight.left, ko.weight.right) || ko.weight.uncertain;
+ const seated = pelvisPitch < -20 && ['l','r'].every(s => bone('thigh_'+s)[0] < -40);
+ const weight = lying ? ko.weight.uncertain : seated ? ko.weight.seated : deeplyBent ? ko.weight.uncertain : direction(pelvisRoll, 1.5, ko.weight.left, ko.weight.right) || ko.weight.uncertain;
  const gaze = join([
   direction(neck[0], 10, ko.gaze.down, ko.gaze.up),
   direction(neck[1], 8, ko.gaze.left, ko.gaze.right),

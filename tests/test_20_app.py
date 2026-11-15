@@ -10,6 +10,7 @@ ego-browser 스크립트(scripts/app_uat.js)를 한 번 실행해 JSON 결과를
 
 캡처 방식
   - PNG: ego-browser 실제 다운로드 이벤트(waitForEvent("download")+saveAs) → tests/artifacts/app_uat/ 에 저장해 PIL 로 검사.
+    크기는 UAT 스크립트가 함께 기록한 다운로드 시점의 뷰포트 캔버스 크기(canvasSize)와 대조한다(고정값 아님).
   - 클립보드: 페이지에서 navigator.clipboard.writeText 를 가로채 인자를 기록(권한·포커스에 따라 실제 클립보드는 불안정). 원본은 호출하지 않는다.
   - 네트워크: 문서의 Resource Timing 항목(fetch·img·script·xhr)에 '/poses/reference/' 가 없어야 한다 + app/dist 에 경로에 'reference' 가 든 파일 없음.
   - 입력 전달: ego-browser 스크립트는 셸 환경변수를 상속하지 않아서 stdin 앞에 `const CONFIG = {...};` 를 붙여 넘긴다.
@@ -18,13 +19,16 @@ ego-browser 스크립트(scripts/app_uat.js)를 한 번 실행해 JSON 결과를
 허용오차
   - 관절 위치: 각 뼈 1 mm (rigcore 와 같은 FK 규칙이므로 float32 반올림 수준만 허용).
   - 카메라 각도: ±1° (스크립트 쪽에서 대기하며 확인).
-  - PNG 회귀: 평균 절대 차이 ≤ 1.5/255 그리고 채널 차이 > 40 인 픽셀 비율 ≤ 0.75 %.
-    근거: 같은 렌더러에서는 거의 0 이다. 안티앨리어싱·GPU 드라이버 차이는 실루엣 가장자리(전체의 약 0.4 %)에만 영향을 주지만,
-    팔다리 하나가 다른 위치로 가면 수 % 가 바뀌므로 포즈 오류는 잡힌다. 실제 기준 이미지가 생기면(S5) 값을 데이터로 재검토한다.
+  - PNG 비교 지표(근거 수치는 `tests/test_21_png_tolerance.py` 가 실측으로 검증): 평균 절대 차이 ≤ 1.5/255,
+    채널 차이 > 40 인 픽셀 비율 ≤ 0.75 %. 같은 렌더러에서는 거의 0 이고, 팔다리 하나가 다른 위치로 가면 수 % 가 바뀐다.
+  - PNG 결정성(회귀 대신, app E5F6): 같은 상태를 건드리지 않고 연속 다운로드한 2장은 픽셀 단위로 완전히 같아야 한다.
+    근거: 다운로드는 화면 캔버스의 재렌더 캡처라 같은 상태에서는 같은 바이트가 나와야 하며,
+    한 픽셀이라도 다르면 렌더 비결정성·캡처 타이밍 버그다.
   - 프레이밍: 모든 포즈 × 앵글 5개 × female PNG 에서 배경과 다른 픽셀의 bbox 가 네 변 모두 ≥ 1 % 여백을 두고,
     긴 변이 화면의 ≥ 40 % 여야 한다(카메라가 너무 멀어 통과하는 것 방지). 다운로드는 UAT 스크립트의 "framing"
-    섹션이 한 브라우저 세션에서 몰아 받는다.
-기준 이미지가 없으면 현재 다운로드를 tests/baselines/ 에 쓰고 "baseline created, needs review" 로 실패한다.
+    섹션이 한 브라우저 세션에서 몰아 받는다. 한 세션의 PNG 크기는 모두 같아야 한다(같은 뷰포트 캔버스).
+PNG 크기는 고정값이 아니다: 앱은 보이는 메인 캔버스 그대로를 캡처하므로(app E5F6, 구 900×1200 오프스크린 폐지),
+다운로드 크기는 그 시점의 뷰포트 캔버스 픽셀 크기(= UAT가 함께 기록한 canvasSize)와 같아야 한다.
 """
 import json
 import os
@@ -43,18 +47,15 @@ from test_13_prompt import _node, _pose
 
 APP = ROOT / "app"
 SCRIPT = ROOT / "scripts" / "app_uat.js"
-BASELINES = ROOT / "tests" / "baselines"
 OUT_DIR = ARTIFACTS / "app_uat"
 PORT = 4173
 URL = f"http://localhost:{PORT}/"
 MARK = "__UAT_RESULT__"
 
 JOINT_TOL_M = 1e-3
-PNG_SIZE = (900, 1200)
+# 다운로드 PNG 크기에 고정값은 없다(app E5F6: 보이는 메인 캔버스 그대로 캡처, 구 900×1200 오프스크린 폐지).
+# 크기는 UAT 스크립트가 다운로드 시점에 함께 기록한 메인 캔버스 픽셀 크기(canvasSize)와 같아야 한다.
 BASELINE_POSES = ["pose_01_contrapposto_hand_on_head", "pose_04_sitting_knees_up", "pose_07_running"]
-PNG_MEAN_DIFF_MAX = 1.5
-PNG_BIG_DIFF_FRACTION_MAX = 0.0075
-PNG_BIG_DIFF_LEVEL = 40
 # 프레이밍: 인물(배경과 다른 픽셀)의 bbox 가 네 변 모두에서 1 % 이상 떨어져야 하고,
 # 카메라가 너무 멀어 통과하지 못하도록 bbox 의 긴 변이 화면의 40 % 이상이어야 한다.
 FRAMING_MARGIN_MIN = 0.01
@@ -212,13 +213,19 @@ def _png(path):
     return img
 
 
-def test_download_png_is_900x1200(uat):
+def test_download_png_matches_viewport_canvas(uat):
+    """다운로드는 보이는 메인 캔버스 그대로다: 유효 PNG·파일명 규칙·0이 아닌 크기·캔버스 크기 일치·빈 화면 아님."""
     d = uat.section("downloads")
-    assert set(d) == {f"baseline/{p}" for p in BASELINE_POSES} | {"male_side"}
+    assert set(d) == {f"baseline/{p}" for p in BASELINE_POSES} | {"male_side", f"repeat/{BASELINE_POSES[0]}"}
     for key, v in d.items():
-        assert v["suggestedFilename"].lower().endswith(".png"), f"{key}: 파일명 {v['suggestedFilename']!r}"
+        st = v["state"]
+        assert v["suggestedFilename"] == f"{st['poseId']}_{st['gender']}_{st['angle']}.png", \
+            f"{key}: 파일명 {v['suggestedFilename']!r} (규칙 {{poseId}}_{{gender}}_{{angle}}.png)"
+        assert v.get("canvasSize"), f"{key}: canvasSize 기록 없음(UAT 스크립트가 #main-canvas 크기를 함께 기록해야 함)"
         img = _png(v["path"])
-        assert img.size == PNG_SIZE, f"{key}: {img.size} != {PNG_SIZE}"
+        assert img.size[0] > 0 and img.size[1] > 0, f"{key}: 크기 0"
+        assert tuple(img.size) == tuple(v["canvasSize"]), \
+            f"{key}: 다운로드 {img.size} != 다운로드 시점 뷰포트 캔버스 {tuple(v['canvasSize'])} (900x1200 고정이 아님)"
         a = np.asarray(img.convert("RGB")).astype(int)
         bg = a[0, 0]
         changed = np.mean(np.abs(a - bg).max(axis=2) > 12)
@@ -245,7 +252,8 @@ def test_png_framing(uat, pose_id, angle):
     assert row, f"UAT 결과에 프레이밍 항목 {key} 없음"
     assert row["state"] == {"poseId": pose_id, "gender": "female", "angle": angle}, row["state"]
     img = _png(row["path"])
-    assert img.size == PNG_SIZE, f"{key}: {img.size} != {PNG_SIZE}"
+    assert tuple(img.size) == tuple(row["canvasSize"]), \
+        f"{key}: 다운로드 {img.size} != 다운로드 시점 뷰포트 캔버스 {tuple(row['canvasSize'])} (900x1200 고정이 아님)"
     left, right, top, bottom = _figure_box(img)
     w, h = img.size
     margins = {"left": left / w, "right": (w - 1 - right) / w,
@@ -261,6 +269,13 @@ def test_png_framing(uat, pose_id, angle):
         f"{key}: 인물이 너무 작음 — bbox {width_frac:.1%} x {height_frac:.1%} / {w}x{h} "
         f"(긴 변 ≥ {FRAMING_FIGURE_MIN:.0%} 필요)"
     )
+
+
+def test_framing_pngs_share_one_viewport_size(uat):
+    """framing 섹션은 한 세션·한 뷰포트에서 몰아 받으므로 모든 PNG 크기가 같아야 한다."""
+    rows = uat.section("framing")
+    sizes = {tuple(Image.open(r["path"]).size) for r in rows.values()}
+    assert len(sizes) == 1, f"한 세션 내 PNG 크기 불일치: {sorted(sizes)} (뷰포트가 바뀌었거나 캡처가 비결정적)"
 
 
 def test_copy_prompt_equals_build_prompt(uat):
@@ -302,19 +317,14 @@ def test_no_reference_image_requests(uat):
         assert not leaked, f"app/dist 에 레퍼런스 파일: {leaked}"
 
 
-@pytest.mark.parametrize("pose_id", BASELINE_POSES)
-def test_canvas_png_matches_baseline(uat, pose_id):
+def test_repeat_download_is_pixel_identical(uat):
+    """같은 상태를 건드리지 않고 연속으로 받은 2장은 픽셀 단위로 같아야 한다(재렌더 결정성, 기준 파일 비교 아님)."""
     d = uat.section("downloads")
-    got = d[f"baseline/{pose_id}"]
-    assert got["state"] == {"poseId": pose_id, "gender": "female", "angle": "front"}, got["state"]
-    base = BASELINES / f"{pose_id}_female_front.png"
-    if not base.exists():
-        BASELINES.mkdir(exist_ok=True)
-        shutil.copyfile(got["path"], base)
-        pytest.fail(f"baseline created, needs review: {base}")
-    a, b = Image.open(base).convert("RGB"), Image.open(got["path"]).convert("RGB")
-    assert a.size == b.size == PNG_SIZE, f"크기 {b.size} (기준 {a.size})"
-    diff = np.abs(np.asarray(a).astype(int) - np.asarray(b).astype(int))
-    mean, big = float(diff.mean()), float(np.mean(diff.max(axis=2) > PNG_BIG_DIFF_LEVEL))
-    assert mean <= PNG_MEAN_DIFF_MAX and big <= PNG_BIG_DIFF_FRACTION_MAX, \
-        f"기준과 다름: 평균 차이 {mean:.2f} (≤{PNG_MEAN_DIFF_MAX}), 큰 차이 픽셀 {big:.2%} (≤{PNG_BIG_DIFF_FRACTION_MAX:.2%}); 현재 {got['path']}"
+    pose_id = BASELINE_POSES[0]
+    a, b = d[f"baseline/{pose_id}"], d[f"repeat/{pose_id}"]
+    assert a["state"] == b["state"] == {"poseId": pose_id, "gender": "female", "angle": "front"}, (a["state"], b["state"])
+    pa = np.asarray(Image.open(a["path"]).convert("RGB")).astype(int)
+    pb = np.asarray(Image.open(b["path"]).convert("RGB")).astype(int)
+    assert pa.shape == pb.shape, f"크기 {pa.shape} vs {pb.shape}"
+    diff = np.abs(pa - pb)
+    assert diff.max() == 0, f"연속 캡처가 다름: 최대 채널 차이 {diff.max()}, 평균 {diff.mean():.4f}"

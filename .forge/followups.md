@@ -32,3 +32,11 @@
 <!-- followup: fu-5c08a1d2e7b4 | source: pose-author-scripts-and-data-revert | task: 3 | date: 2026-11-11 | status: open | taken: - -->
 - pose_08 `meta.assumptions`의 두 번째 문장("contact on y = 0")은 공중 포즈와 맞지 않습니다. 문장을 고칩니다.
   Evidence: poser#CF11 보고. 원문을 그대로 두었습니다.
+
+<!-- followup: fu-9c2ad41e7f08 | source: png-capture-contract | task: - | date: 2026-11-15 | status: open | taken: - -->
+- 앱 로드 직후 메인 캔버스 버퍼가 최종 레이아웃과 불일치(stale: 1344×1632 vs 1344×1270) — 첫 리사이즈 후에야 일치합니다. 로드 시점 캡처와 리사이즈 후 캡처 크기가 달라질 수 있으니 app 쪽에서 초기 리사이즈 타이밍을 봅니다.
+  Evidence: qa#C3D4 보고 (test_20 green 유지, 동일 세션 비교에는 무영향).
+
+<!-- followup: fu-4d7b92c0a1e5 | source: png-capture-contract | task: - | date: 2026-11-15 | status: open | taken: - -->
+- test_21 신호 판정이 최소값 게이트에서 하위1% 분위수로 변경됨 (pose_10/pose_32 등 의도적 variant 쌍이 최소값을 끌어내림). measurements.json에 min/below 목록 보존됨. 필요하면 최소값 게이트로 복원 검토합니다.
+  Evidence: qa#C3D4 보고 (test_21 4/4 pass, p1: 6.58>4.5, 5.81%>2.25%).

@@ -75,8 +75,6 @@ function getCatalogEntryForPose(poseId) {
 
 // 2. Constants & Camera Setup
 const BG_COLOR_HEX = 0xf6f7f9;
-const EXPORT_WIDTH = 900;
-const EXPORT_HEIGHT = 1200;
 const THUMB_WIDTH = 240;
 const THUMB_HEIGHT = 320;
 const CAMERA_FOV = 26;
@@ -455,7 +453,7 @@ function getPromptText() {
   });
 }
 
-// 7. Offscreen Thumbnail & PNG Rendering
+// 7. Offscreen Thumbnail Rendering (thumbnails only)
 function renderThumbnailForPose(gender, poseId) {
   const cacheKey = `${gender}:${poseId}`;
   if (thumbCache.has(cacheKey)) {
@@ -513,27 +511,11 @@ function renderAllThumbnailsForGender(gender) {
   renderMain();
 }
 
-function renderExportPngDataUrl() {
-  const rig = rigs[state.gender];
-  const pose = posesMap.get(state.poseId);
-  if (rig && pose) {
-    setActiveRigVisibility(state.gender);
-    applyPoseToRig(rig, pose);
-  }
-
-  const aspect = EXPORT_WIDTH / EXPORT_HEIGHT;
-  offscreenRenderer.setSize(EXPORT_WIDTH, EXPORT_HEIGHT, false);
-  offscreenCamera.fov = CAMERA_FOV;
-  offscreenCamera.aspect = aspect;
-  const exportBox = rig ? getPosedBoundingBox(rig, state.poseId) : null;
-  const exportTarget = fitCameraToBox(offscreenCamera, state.angle, exportBox, aspect);
-
-  syncLightsToCamera(offscreenCamera, exportTarget);
-  offscreenRenderer.render(scene, offscreenCamera);
-
-  const dataUrl = offscreenRenderer.domElement.toDataURL('image/png');
-  syncLightsToCamera(camera, controls.target);
-  return dataUrl;
+// Capture the on-screen main canvas exactly as displayed. A fresh render
+// right before capture guards against an empty buffer.
+function renderMainCanvasPngDataUrl() {
+  renderMain();
+  return mainRenderer.domElement.toDataURL('image/png');
 }
 
 function dataUrlToBlob(dataUrl) {
@@ -551,6 +533,8 @@ function dataUrlToBlob(dataUrl) {
 // 8. UI Building & State Synchronization
 const thumbnailGridEl = document.getElementById('thumbnail-grid');
 const tagFilterEl = document.getElementById('tag-filter');
+const tagComboEl = document.getElementById('tag-combo');
+const tagListboxEl = document.getElementById('tag-filter-listbox');
 const poseCountBadgeEl = document.getElementById('pose-count-badge');
 const promptTextEl = document.getElementById('prompt-text');
 const copyPromptBtn = document.getElementById('copy-prompt');
@@ -561,8 +545,126 @@ const activeCameraInfoEl = document.getElementById('active-camera-info');
 
 let copyFeedbackTimer = null;
 
-function populateTagFilter() {
+// Searchable tag combobox: text input + dropdown list with choseong search.
+// `state.tagFilter` semantics are unchanged: '' means "no filter".
+let allTags = [];
+let filteredTagEntries = []; // [{ value, label }] currently shown; always starts with '' entry
+let activeTagOptionIndex = -1;
+
+const CHOSEONG = 'ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ';
+
+function toChoseong(str) {
+  let out = '';
+  for (const ch of str) {
+    const code = ch.charCodeAt(0);
+    if (code >= 0xac00 && code <= 0xd7a3) {
+      out += CHOSEONG[Math.floor((code - 0xac00) / 588)];
+    } else {
+      out += ch;
+    }
+  }
+  return out;
+}
+
+function tagMatchesQuery(tag, query) {
+  const q = (query || '').trim();
+  if (!q) return true;
+  if (tag.includes(q)) return true;
+  return toChoseong(tag).includes(q);
+}
+
+function getFilteredTagEntries(query) {
+  const entries = [{ value: '', label: '전체 태그' }];
+  for (const tag of allTags) {
+    if (tagMatchesQuery(tag, query)) entries.push({ value: tag, label: tag });
+  }
+  return entries;
+}
+
+function selectTagFilter(value) {
+  state.tagFilter = value;
+  if (tagFilterEl) tagFilterEl.value = value;
+  applyTagFilterToCards();
+}
+
+function updateTagActiveDescendant() {
   if (!tagFilterEl) return;
+  if (
+    !tagListboxEl ||
+    tagListboxEl.hidden ||
+    activeTagOptionIndex < 0 ||
+    activeTagOptionIndex >= filteredTagEntries.length
+  ) {
+    tagFilterEl.removeAttribute('aria-activedescendant');
+    return;
+  }
+  tagFilterEl.setAttribute('aria-activedescendant', `tag-filter-option-${activeTagOptionIndex}`);
+}
+
+function renderTagListbox() {
+  if (!tagListboxEl) return;
+  tagListboxEl.innerHTML = '';
+  filteredTagEntries.forEach((entry, i) => {
+    const li = document.createElement('li');
+    li.id = `tag-filter-option-${i}`;
+    li.className = 'tag-filter-option';
+    li.setAttribute('role', 'option');
+    li.setAttribute('data-tag-value', entry.value);
+    const isSelected = state.tagFilter === entry.value;
+    li.setAttribute('aria-selected', String(isSelected));
+    if (isSelected) li.classList.add('selected');
+    if (i === activeTagOptionIndex) li.classList.add('active');
+    li.textContent = entry.label;
+    // mousedown fires before input blur; preventDefault keeps focus so the
+    // click always lands even though blur would otherwise close the list.
+    li.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      selectTagFilter(entry.value);
+      closeTagListbox();
+      tagFilterEl?.focus();
+    });
+    tagListboxEl.appendChild(li);
+  });
+  updateTagActiveDescendant();
+  const activeEl = tagListboxEl.children[activeTagOptionIndex];
+  if (activeEl && typeof activeEl.scrollIntoView === 'function') {
+    activeEl.scrollIntoView({ block: 'nearest' });
+  }
+}
+
+function refreshTagListbox(query) {
+  filteredTagEntries = getFilteredTagEntries(query);
+  activeTagOptionIndex = filteredTagEntries.findIndex((e) => e.value === state.tagFilter);
+  if (activeTagOptionIndex < 0) activeTagOptionIndex = filteredTagEntries.length ? 0 : -1;
+  renderTagListbox();
+}
+
+function openTagListbox() {
+  if (!tagListboxEl || !tagFilterEl) return;
+  if (!tagListboxEl.hidden) return;
+  tagListboxEl.hidden = false;
+  tagFilterEl.setAttribute('aria-expanded', 'true');
+  refreshTagListbox(tagFilterEl.value);
+}
+
+function closeTagListbox(restoreInput = false) {
+  if (restoreInput && tagFilterEl) tagFilterEl.value = state.tagFilter;
+  activeTagOptionIndex = -1;
+  if (tagListboxEl) tagListboxEl.hidden = true;
+  if (tagFilterEl) {
+    tagFilterEl.setAttribute('aria-expanded', 'false');
+    tagFilterEl.removeAttribute('aria-activedescendant');
+  }
+}
+
+function moveTagActiveOption(delta) {
+  if (!filteredTagEntries.length) return;
+  const n = filteredTagEntries.length;
+  activeTagOptionIndex = ((activeTagOptionIndex + delta) % n + n) % n;
+  renderTagListbox();
+}
+
+function populateTagFilter() {
   const tagSet = new Set();
   for (const id of getPoseIdsSorted()) {
     const entry = getCatalogEntryForPose(id);
@@ -570,21 +672,18 @@ function populateTagFilter() {
       tagSet.add(t);
     }
   }
-  const sortedTags = [
+  allTags = [
     ...CATEGORY_ORDER.filter((t) => tagSet.has(t)),
     ...Array.from(tagSet)
       .filter((t) => !CATEGORY_ORDER.includes(t))
       .sort((a, b) => a.localeCompare(b, 'ko')),
   ];
 
-  tagFilterEl.innerHTML = '<option value="">전체 태그</option>';
-  for (const tag of sortedTags) {
-    const opt = document.createElement('option');
-    opt.value = tag;
-    opt.textContent = tag;
-    tagFilterEl.appendChild(opt);
-  }
+  if (!tagFilterEl) return;
   tagFilterEl.value = state.tagFilter;
+  filteredTagEntries = getFilteredTagEntries('');
+  activeTagOptionIndex = -1;
+  renderTagListbox();
 }
 
 function buildThumbnailCards() {
@@ -773,15 +872,55 @@ for (const btn of document.querySelectorAll('[data-angle]')) {
 }
 
 if (tagFilterEl) {
-  tagFilterEl.addEventListener('change', () => {
-    state.tagFilter = tagFilterEl.value;
-    applyTagFilterToCards();
+  tagFilterEl.addEventListener('input', () => {
+    openTagListbox();
+    refreshTagListbox(tagFilterEl.value);
+  });
+
+  tagFilterEl.addEventListener('focus', () => {
+    openTagListbox();
+  });
+
+  tagFilterEl.addEventListener('blur', () => {
+    // Option mousedown uses preventDefault, so a real blur means focus left
+    // the combobox: close and revert uncommitted text to the selection.
+    closeTagListbox(true);
+  });
+
+  tagFilterEl.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      openTagListbox();
+      moveTagActiveOption(e.key === 'ArrowDown' ? 1 : -1);
+    } else if (e.key === 'Enter') {
+      if (tagListboxEl && !tagListboxEl.hidden && filteredTagEntries[activeTagOptionIndex]) {
+        e.preventDefault();
+        selectTagFilter(filteredTagEntries[activeTagOptionIndex].value);
+        closeTagListbox();
+      }
+    } else if (e.key === 'Escape') {
+      if (tagListboxEl && !tagListboxEl.hidden) {
+        e.preventDefault();
+        closeTagListbox(true);
+      }
+    }
   });
 }
 
+document.addEventListener('pointerdown', (e) => {
+  if (
+    tagComboEl &&
+    tagListboxEl &&
+    !tagListboxEl.hidden &&
+    !tagComboEl.contains(e.target)
+  ) {
+    closeTagListbox(true);
+  }
+});
+
 if (downloadPngBtn) {
   downloadPngBtn.addEventListener('click', () => {
-    const dataUrl = renderExportPngDataUrl();
+    const dataUrl = renderMainCanvasPngDataUrl();
     const blob = dataUrlToBlob(dataUrl);
     const blobUrl = URL.createObjectURL(blob);
     const a = document.createElement('a');

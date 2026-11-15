@@ -6,6 +6,7 @@ vars:
   DEV_PORT: 5173
   VENV: /tmp/pose-qa-venv
   PY: '{{.VENV}}/bin/python'
+  MIN_POSES: 73
 
 env:
   PYTHONDONTWRITEBYTECODE: '1'
@@ -58,11 +59,59 @@ tasks:
     desc: 포즈·카탈로그·프롬프트 테스트 (pytest test_10~13 + prompt node --test)
     deps: [venv]
     cmds:
-      - '{{.PY}} -m pytest tests/test_10_pose_files.py tests/test_11_pose_apply.py tests/test_12_pose_intersections.py tests/test_13_prompt.py -q -p no:cacheprovider'
+      - "{{.PY}} -m pytest tests/test_10_pose_files.py tests/test_11_pose_apply.py tests/test_12_pose_intersections.py tests/test_13_prompt.py -q -p no:cacheprovider"
       - cd prompt && node --test
 
   test:app:
     desc: 웹앱 E2E 테스트 (ego-browser, 4173 포트를 비워 둔 상태에서 실행)
     deps: [venv]
     cmds:
-      - '{{.PY}} -m pytest tests/test_20_app.py -q -p no:cacheprovider'
+      - "{{.PY}} -m pytest tests/test_20_app.py -q -p no:cacheprovider"
+
+  test:e2e:
+    desc: 빌드 → preview 서버 기동 → test_20 실행 → 서버 정리의 원샷 E2E
+    deps: [build, venv]
+    cmds:
+      - |
+        (npx vite preview --port {{.PORT}} --strictPort & echo $! > /tmp/pose-preview.pid)
+        for i in $(seq 1 30); do curl -sf http://127.0.0.1:{{.PORT}}/ >/dev/null && break; sleep 1; done
+        {{.PY}} -m pytest tests/test_20_app.py -q -p no:cacheprovider; rc=$?
+        kill $(cat /tmp/pose-preview.pid); rm -f /tmp/pose-preview.pid
+        exit $rc
+    dir: app
+
+  test:all:
+    desc: 전체 테스트 (test_00~13 + test_21 + prompt, test_20 제외)
+    deps: [venv]
+    cmds:
+      - "{{.PY}} -m pytest tests/ -q -p no:cacheprovider --ignore=tests/test_20_app.py"
+      - cd prompt && node --test
+
+  check:
+    desc: '중단조건 C1 검증: 포즈 파일·카탈로그 {{.MIN_POSES}}개 이상 + id 일치'
+    cmds:
+      - |
+        files=$(ls poses/pose_*.json | wc -l | tr -d ' ')
+        cats=$(python3 -c "import json; print(len(json.load(open('poses/catalog.ko.json'))['poses']))")
+        echo "pose files: $files / catalog: $cats (min {{.MIN_POSES}})"
+        test "$files" -ge {{.MIN_POSES}} -a "$cats" -ge {{.MIN_POSES}}
+        {{.PY}} -m pytest tests/test_10_pose_files.py -q -p no:cacheprovider
+    deps: [venv]
+
+  verify:
+    desc: 전체 게이트 (C1 check + C2 test + C3 build·dist 일치)
+    cmds:
+      - task: check
+      - task: test
+      - task: build
+      - |
+        grep -o "pose_[0-9]*_[a-z_0-9]*" app/dist/assets/*.js | sed 's/.*://' | sort -u > /tmp/dist_ids.txt
+        python3 -c "import json; open('/tmp/cat_ids.txt','w').write('\n'.join(sorted(p['id'] for p in json.load(open('poses/catalog.ko.json'))['poses']))+'\n')"
+        diff /tmp/dist_ids.txt /tmp/cat_ids.txt && echo "IDS_MATCH:$(wc -l < /tmp/dist_ids.txt | tr -d ' ')"
+
+  clean:
+    desc: 빌드 산출물·캐시 정리 (소스·포즈·카탈로그는 건드리지 않음)
+    cmds:
+      - rm -rf app/dist
+      - find . -name __pycache__ -type d -prune -exec rm -rf {} +
+      - rm -f /tmp/dist_ids.txt /tmp/cat_ids.txt /tmp/pose-preview.pid
