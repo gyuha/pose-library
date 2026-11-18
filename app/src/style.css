@@ -453,16 +453,26 @@ body {
   border-radius: var(--radius-lg);
   padding: 12px 16px 14px;
   box-shadow: var(--shadow-sm);
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 8px;
 }
 
 .prompt-header {
+  grid-column: 1 / -1;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+}
+
+.prompt-language { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.prompt-language-header { display:flex; align-items:center; justify-content:space-between; font-size:.8rem; color:var(--text-secondary); }
+.prompt-language .prompt-text { max-height: 105px; overflow:auto; }
+
+@media (max-width: 900px) {
+  .prompt-section { grid-template-columns: minmax(0, 1fr); }
+  .prompt-header { grid-column: 1; }
 }
 
 .prompt-title-group {

@@ -441,10 +441,15 @@ function computeJointPositions(gender = state.gender) {
 }
 
 // 6. Prompt Computation
-function getPromptText() {
+function getPromptText(language = 'ko') {
   const pose = posesMap.get(state.poseId);
   if (!pose) return '';
   const catalogEntry = getCatalogEntryForPose(state.poseId);
+  if (language === 'en') {
+    const angle = { front: 'front view', side: 'right-side view', three_quarter: 'right three-quarter view', high: 'high-angle view', low: 'low-angle view' }[state.angle];
+    const description = catalogEntry.descriptionEn || catalogEntry.description;
+    return `Subject: ${state.gender === 'female' ? 'female' : 'male'} full-body character\nView: ${angle}\nPose: ${description}`;
+  }
   return buildPosePrompt({
     pose,
     catalogEntry,
@@ -537,7 +542,9 @@ const tagComboEl = document.getElementById('tag-combo');
 const tagListboxEl = document.getElementById('tag-filter-listbox');
 const poseCountBadgeEl = document.getElementById('pose-count-badge');
 const promptTextEl = document.getElementById('prompt-text');
-const copyPromptBtn = document.getElementById('copy-prompt');
+const promptTextEnEl = document.getElementById('prompt-text-en');
+const copyPromptKoBtn = document.getElementById('copy-prompt-ko');
+const copyPromptEnBtn = document.getElementById('copy-prompt-en');
 const copyFeedbackEl = document.getElementById('copy-feedback');
 const downloadPngBtn = document.getElementById('download-png');
 const activePoseTitleEl = document.getElementById('active-pose-title');
@@ -795,6 +802,7 @@ function updateUI() {
   if (promptTextEl) {
     promptTextEl.textContent = getPromptText();
   }
+  if (promptTextEnEl) promptTextEnEl.textContent = getPromptText('en');
 }
 
 // 9. Public / Hook Actions
@@ -933,22 +941,36 @@ if (downloadPngBtn) {
   });
 }
 
-if (copyPromptBtn) {
-  copyPromptBtn.addEventListener('click', async () => {
-    const text = getPromptText();
+for (const [button, language] of [[copyPromptKoBtn, 'ko'], [copyPromptEnBtn, 'en']]) {
+  if (button) button.addEventListener('click', async () => {
+    const text = getPromptText(language);
+    let copied = false;
     try {
       if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
         await navigator.clipboard.writeText(text);
+        copied = true;
+      } else {
+        const field = document.createElement('textarea');
+        field.value = text;
+        field.setAttribute('readonly', '');
+        field.style.position = 'fixed';
+        field.style.opacity = '0';
+        document.body.appendChild(field);
+        field.select();
+        copied = document.execCommand('copy');
+        field.remove();
       }
-    } catch {
-      // Ignore permission errors in headless/unfocused context
-    }
-    if (copyFeedbackEl) {
+    } catch { copied = false; }
+    if (copyFeedbackEl && copied) {
+      copyFeedbackEl.textContent = language === 'ko' ? '한글 복사됨' : 'English copied';
       copyFeedbackEl.hidden = false;
       if (copyFeedbackTimer) clearTimeout(copyFeedbackTimer);
       copyFeedbackTimer = setTimeout(() => {
         copyFeedbackEl.hidden = true;
       }, 2000);
+    } else if (copyFeedbackEl) {
+      copyFeedbackEl.textContent = '복사에 실패했습니다. 텍스트를 직접 선택해 복사해 주세요.';
+      copyFeedbackEl.hidden = false;
     }
   });
 }

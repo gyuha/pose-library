@@ -11,7 +11,8 @@
         "손 머리 위",
         "손 허리"
       ],
-      "description": "곧게 편 오른다리에 체중을 싣고 오른쪽 골반을 올린 콘트라포스토 자세로, 왼다리는 무릎을 굽혀 옆으로 내밀고 발뒤꿈치를 든다. 오른손은 오른쪽 엉덩이에 얹어 팔꿈치를 옆으로 빼고, 왼손은 들어 정수리에 얹으며, 고개는 오른쪽으로 기울이고 턱을 든다."
+      "description": "곧게 편 오른다리에 체중을 싣고 오른쪽 골반을 올린 콘트라포스토 자세로, 왼다리는 무릎을 굽혀 옆으로 내밀고 발뒤꿈치를 든다. 오른손은 오른쪽 엉덩이에 얹어 팔꿈치를 옆으로 빼고, 왼손은 들어 정수리에 얹으며, 고개는 오른쪽으로 기울이고 턱을 든다.",
+      "descriptionEn": "Put your weight on your straight right leg and raise your right pelvis in the contrapposto position. Bend your left leg at the knee, stick it out to the side, and lift your heel. Place your right hand on your right hip, pull your elbow out to the side, lift your left hand and place it on the top of your head, tilt your head to the right and lift your chin."
     },
     {
       "id": "pose_02_standing_look_back",
@@ -21,7 +22,8 @@
         "뒤돌아보기",
         "상체 비틀기"
       ],
-      "description": "왼다리에 체중을 싣고 서서 골반, 상체, 목, 머리를 모두 오른쪽으로 돌려 오른 어깨 너머로 뒤를 돌아본다. 오른발은 조금 뒤에 두고 발끝을 바깥으로 돌리며, 두 팔은 힘을 빼고 내리되 오른팔은 몸보다 약간 뒤에 둔다."
+      "description": "왼다리에 체중을 싣고 서서 골반, 상체, 목, 머리를 모두 오른쪽으로 돌려 오른 어깨 너머로 뒤를 돌아본다. 오른발은 조금 뒤에 두고 발끝을 바깥으로 돌리며, 두 팔은 힘을 빼고 내리되 오른팔은 몸보다 약간 뒤에 둔다.",
+      "descriptionEn": "Stand with your weight on your left leg, turn your pelvis, upper body, neck, and head to the right and look back over your right shoulder. Place your right foot a little behind, turn your toes outward, relax both arms and lower them, but place your right arm slightly behind your body."
     },
     {
       "id": "pose_03_standing_wave",
@@ -31,7 +33,8 @@
         "인사",
         "한 팔 들기"
       ],
-      "description": "오른다리에 체중을 조금 더 싣고 바로 서서, 오른팔을 옆으로 어깨높이까지 들고 팔꿈치를 굽혀 아래팔을 세운 채 편 손바닥을 머리 옆에서 앞으로 보인다. 왼팔은 힘을 빼고 내리고, 고개는 왼쪽으로 살짝 돌려 기울인다."
+      "description": "오른다리에 체중을 조금 더 싣고 바로 서서, 오른팔을 옆으로 어깨높이까지 들고 팔꿈치를 굽혀 아래팔을 세운 채 편 손바닥을 머리 옆에서 앞으로 보인다. 왼팔은 힘을 빼고 내리고, 고개는 왼쪽으로 살짝 돌려 기울인다.",
+      "descriptionEn": "Stand up straight with a little more weight on your right leg, raise your right arm to the side to shoulder height, bend your elbow, raise your lower arm, and look forward with your open palm next to your head. Relax and lower your left arm, and turn your head slightly to the left."
     },
     {
       "id": "pose_04_sitting_knees_up",
@@ -41,7 +44,8 @@
         "바닥",
         "무릎 세우기"
       ],
-      "description": "바닥에 엉덩이를 대고 앉아 두 무릎을 벌려 세우고 두 발바닥을 앞쪽 바닥에 붙인다. 상체를 앞으로 기울여 두 아래팔을 무릎 위에 걸치고 두 손을 정강이 사이에 모으며, 고개를 들어 앞을 본다."
+      "description": "바닥에 엉덩이를 대고 앉아 두 무릎을 벌려 세우고 두 발바닥을 앞쪽 바닥에 붙인다. 상체를 앞으로 기울여 두 아래팔을 무릎 위에 걸치고 두 손을 정강이 사이에 모으며, 고개를 들어 앞을 본다.",
+      "descriptionEn": "Sit with your buttocks on the floor, spread your knees apart, and place the soles of both feet on the floor in front of you. Lean your upper body forward, place your lower arms on your knees, place your hands between your shins, and lift your head to look ahead."
     },
     {
       "id": "pose_05_sitting_leaning_back",
@@ -52,7 +56,8 @@
         "기대기",
         "다리 뻗기"
       ],
-      "description": "바닥에 앉아 상체를 뒤로 젖히고, 곧게 편 두 팔로 엉덩이 뒤쪽 바닥을 짚어 손가락이 바깥 뒤쪽을 향하게 한다. 왼다리는 앞으로 뻗어 뒤꿈치를 바닥에 대고, 오른무릎은 세워 오른발바닥을 바닥에 붙이며, 고개는 왼쪽으로 살짝 돌린다."
+      "description": "바닥에 앉아 상체를 뒤로 젖히고, 곧게 편 두 팔로 엉덩이 뒤쪽 바닥을 짚어 손가락이 바깥 뒤쪽을 향하게 한다. 왼다리는 앞으로 뻗어 뒤꿈치를 바닥에 대고, 오른무릎은 세워 오른발바닥을 바닥에 붙이며, 고개는 왼쪽으로 살짝 돌린다.",
+      "descriptionEn": "Sit on the floor, lean your upper body back, and place both straight arms on the floor behind your hips, with your fingers pointing outward and backward. Extend your left leg forward and place your heel on the floor, raise your right knee and place the sole of your right foot on the floor, and turn your head slightly to the left."
     },
     {
       "id": "pose_06_walking",
@@ -61,7 +66,8 @@
         "동작",
         "걷기"
       ],
-      "description": "왼다리를 앞으로 내디뎌 무릎을 거의 펴고 뒤꿈치로 디디며 발끝을 들고, 오른다리는 뒤에서 뒤꿈치를 들어 발볼로 바닥을 민다. 팔은 다리와 엇갈려 오른팔은 팔꿈치를 조금 굽혀 앞으로, 왼팔은 뒤로 흔든다."
+      "description": "왼다리를 앞으로 내디뎌 무릎을 거의 펴고 뒤꿈치로 디디며 발끝을 들고, 오른다리는 뒤에서 뒤꿈치를 들어 발볼로 바닥을 민다. 팔은 다리와 엇갈려 오른팔은 팔꿈치를 조금 굽혀 앞으로, 왼팔은 뒤로 흔든다.",
+      "descriptionEn": "Step your left leg forward, almost straighten your knee, step on your heel and lift your toes, and lift your right leg behind you with your heel and push the floor with the ball of your foot. Cross your arms with your legs and swing your right arm forward with your elbow slightly bent and your left arm backward."
     },
     {
       "id": "pose_07_running",
@@ -70,7 +76,8 @@
         "동작",
         "달리기"
       ],
-      "description": "오른발은 뒤에서 발볼로 바닥을 차고, 왼무릎은 앞으로 높이 끌어올려 아래다리를 뒤로 접으며, 상체는 앞으로 기울인다. 두 팔꿈치는 90도 정도 굽혀 오른팔은 앞으로, 왼팔은 뒤로 흔들고, 두 손은 가볍게 주먹을 쥔다."
+      "description": "오른발은 뒤에서 발볼로 바닥을 차고, 왼무릎은 앞으로 높이 끌어올려 아래다리를 뒤로 접으며, 상체는 앞으로 기울인다. 두 팔꿈치는 90도 정도 굽혀 오른팔은 앞으로, 왼팔은 뒤로 흔들고, 두 손은 가볍게 주먹을 쥔다.",
+      "descriptionEn": "Kick the floor with your right foot from behind with the ball of your foot, raise your left knee high forward, fold your lower leg back, and lean your upper body forward. Bend both elbows about 90 degrees, swing your right arm forward and your left arm backward, and lightly make fists with both hands."
     },
     {
       "id": "pose_08_tuck_jump_arms_up",
@@ -81,7 +88,8 @@
         "공중",
         "만세"
       ],
-      "description": "두 발이 바닥에서 약 31~33cm 뜬 공중 자세로, 두 무릎을 앞으로 당겨 굽히고 발끝을 편다. 두 팔은 어깨 위로 크게 V자로 들어 손을 펴고, 턱을 살짝 든다."
+      "description": "두 발이 바닥에서 약 31~33cm 뜬 공중 자세로, 두 무릎을 앞으로 당겨 굽히고 발끝을 편다. 두 팔은 어깨 위로 크게 V자로 들어 손을 펴고, 턱을 살짝 든다.",
+      "descriptionEn": "Stand in an air position with both feet about 31 to 33 cm above the floor. Pull both knees forward, bend them, and straighten your toes. Raise both arms above your shoulders in a large V shape, spread your hands, and slightly lift your chin."
     },
     {
       "id": "pose_09_hands_on_hips",
@@ -90,7 +98,8 @@
         "서기",
         "손 허리"
       ],
-      "description": "발을 골반보다 넓게 벌리고 무릎을 편 채 정면을 보고 곧게 선다. 두 손은 골반 바로 위 허리 옆을 손끝이 앞아래로 향하게 짚고, 두 팔꿈치는 굽혀 옆으로 벌리며 약간 뒤로 뺀다."
+      "description": "발을 골반보다 넓게 벌리고 무릎을 편 채 정면을 보고 곧게 선다. 두 손은 골반 바로 위 허리 옆을 손끝이 앞아래로 향하게 짚고, 두 팔꿈치는 굽혀 옆으로 벌리며 약간 뒤로 뺀다.",
+      "descriptionEn": "Stand straight with your feet wider than your hips, straighten your knees, and look straight ahead. Place both hands on the side of the waist, just above the pelvis, with the fingertips pointing forward and down, and bend both elbows and spread them to the sides and pull them back slightly."
     },
     {
       "id": "pose_10_overhead_stretch",
@@ -100,7 +109,8 @@
         "기지개",
         "두 팔 들기"
       ],
-      "description": "발을 골반보다 조금 넓게 벌리고 곧게 서서, 어깨를 올리며 두 팔을 머리 위로 거의 수직으로 쭉 뻗는다. 팔은 위로 갈수록 살짝 벌어지고 팔꿈치는 거의 펴며, 두 손바닥은 서로를 향하되 약간 앞쪽으로 돌아가 있다."
+      "description": "발을 골반보다 조금 넓게 벌리고 곧게 서서, 어깨를 올리며 두 팔을 머리 위로 거의 수직으로 쭉 뻗는다. 팔은 위로 갈수록 살짝 벌어지고 팔꿈치는 거의 펴며, 두 손바닥은 서로를 향하되 약간 앞쪽으로 돌아가 있다.",
+      "descriptionEn": "Stand upright with your feet slightly wider than your hips, raise your shoulders and extend your arms almost vertically above your head. The arms are slightly spread upward, the elbows are almost straight, and both palms are facing each other but slightly turned forward."
     },
     {
       "id": "pose_11_squat_hands_on_knees",
@@ -110,7 +120,8 @@
         "쪼그려 앉기",
         "손 무릎 위"
       ],
-      "description": "두 발바닥을 바닥에 붙인 채 엉덩이를 무릎보다 낮게 내려 깊게 쪼그려 앉고, 두 무릎은 앞을 향해 조금 벌리며 상체를 약간 앞으로 기울인다. 두 손은 손바닥을 아래로 해 무릎 위에 얹어 손가락을 무릎 앞으로 늘어뜨리고, 고개를 들어 앞을 본다."
+      "description": "두 발바닥을 바닥에 붙인 채 엉덩이를 무릎보다 낮게 내려 깊게 쪼그려 앉고, 두 무릎은 앞을 향해 조금 벌리며 상체를 약간 앞으로 기울인다. 두 손은 손바닥을 아래로 해 무릎 위에 얹어 손가락을 무릎 앞으로 늘어뜨리고, 고개를 들어 앞을 본다.",
+      "descriptionEn": "Squat deeply with the soles of both feet on the floor and lower your hips lower than your knees. Spread your knees slightly forward and tilt your upper body slightly forward. Place both hands on your knees with your palms down, let your fingers hang in front of your knees, and lift your head and look ahead."
     },
     {
       "id": "pose_12_kneel_one_knee",
@@ -121,7 +132,8 @@
         "한쪽 무릎 세우기",
         "손 무릎 위"
       ],
-      "description": "왼무릎을 바닥에 대고 왼정강이를 뒤로 눕혀 발등을 바닥 쪽으로 펴고, 오른무릎은 세워 오른발바닥을 앞쪽 바닥에 붙인다. 상체를 앞으로 기울이고 살짝 오른쪽으로 돌린 채 오른손을 오른무릎 위에 얹고, 왼팔은 배 앞으로 가로질러 왼손을 그 옆 무릎 안쪽에 얹으며 두 팔꿈치는 옆으로 벌린다."
+      "description": "왼무릎을 바닥에 대고 왼정강이를 뒤로 눕혀 발등을 바닥 쪽으로 펴고, 오른무릎은 세워 오른발바닥을 앞쪽 바닥에 붙인다. 상체를 앞으로 기울이고 살짝 오른쪽으로 돌린 채 오른손을 오른무릎 위에 얹고, 왼팔은 배 앞으로 가로질러 왼손을 그 옆 무릎 안쪽에 얹으며 두 팔꿈치는 옆으로 벌린다.",
+      "descriptionEn": "Place your left knee on the floor, lie your left shin back, straighten the top of your foot toward the floor, raise your right knee and place the sole of your right foot on the floor in front of you. Tilt your upper body forward and slightly turn to the right, place your right hand on your right knee, cross your left arm in front of your stomach, place your left hand on the inside of the knee next to it, and spread both elbows to the side."
     },
     {
       "id": "pose_13_bend_forward_hands_on_knees",
@@ -130,7 +142,8 @@
         "서기",
         "숙이기"
       ],
-      "description": "두 발을 골반보다 조금 넓게 벌리고 무릎을 굽힌 채 엉덩이를 뒤로 빼며 상체를 앞으로 크게 숙이고, 팔꿈치를 거의 편 두 손을 무릎 바로 위 허벅지 앞쪽에 얹는다. 고개는 들어 앞쪽 약간 아래를 본다."
+      "description": "두 발을 골반보다 조금 넓게 벌리고 무릎을 굽힌 채 엉덩이를 뒤로 빼며 상체를 앞으로 크게 숙이고, 팔꿈치를 거의 편 두 손을 무릎 바로 위 허벅지 앞쪽에 얹는다. 고개는 들어 앞쪽 약간 아래를 본다.",
+      "descriptionEn": "Spread your feet a little wider than your hips, bend your knees, push your hips back, and lean your upper body forward greatly. Place both hands, with your elbows almost straight, on the front of your thighs, just above your knees. Raise your head and look forward and slightly down."
     },
     {
       "id": "pose_14_seated_arched_left_knee_up",
@@ -141,7 +154,8 @@
         "무릎 세우기",
         "한 팔로 짚기"
       ],
-      "description": "바닥에 앉아 상체를 뒤로 젖혀 가슴을 펴고, 왼쪽 무릎을 높이 세워 왼손을 그 위에 얹으며 오른다리는 앞으로 뻗어 뒤꿈치를 바닥에 댄다. 오른팔은 엉덩이 뒤쪽 바닥을 짚고 고개는 살짝 들어 올린다."
+      "description": "바닥에 앉아 상체를 뒤로 젖혀 가슴을 펴고, 왼쪽 무릎을 높이 세워 왼손을 그 위에 얹으며 오른다리는 앞으로 뻗어 뒤꿈치를 바닥에 댄다. 오른팔은 엉덩이 뒤쪽 바닥을 짚고 고개는 살짝 들어 올린다.",
+      "descriptionEn": "Sit on the floor, lean your upper body back and expand your chest, raise your left knee high, place your left hand on it, and extend your right leg forward and place your heel on the floor. Place your right arm on the floor behind your hips and slightly lift your head."
     },
     {
       "id": "pose_15_seated_side_support_legs_forward",
@@ -152,7 +166,8 @@
         "다리 뻗기",
         "옆으로 짚기"
       ],
-      "description": "두 다리를 왼쪽으로 조금 모아 앞으로 뻗어 뒤꿈치를 바닥에 대고 앉아, 오른팔로 몸 오른쪽 바닥을 짚어 상체를 그쪽으로 살짝 기울인다. 왼손은 왼쪽 허벅지 위에 얹고 고개는 오른쪽으로 기울인다."
+      "description": "두 다리를 왼쪽으로 조금 모아 앞으로 뻗어 뒤꿈치를 바닥에 대고 앉아, 오른팔로 몸 오른쪽 바닥을 짚어 상체를 그쪽으로 살짝 기울인다. 왼손은 왼쪽 허벅지 위에 얹고 고개는 오른쪽으로 기울인다.",
+      "descriptionEn": "Bring your legs slightly to the left, stretch them forward, sit with your heels on the floor, and place your right arm on the floor on the right side of your body, slightly tilting your upper body toward that side. Place your left hand on your left thigh and tilt your head to the right."
     },
     {
       "id": "pose_16_seated_chest_out_hands_behind",
@@ -163,7 +178,8 @@
         "무릎 세우기",
         "두 손 짚기"
       ],
-      "description": "두 무릎을 모아 세우고 두 발바닥을 바닥에 붙인 채 앉아 가슴을 펴고, 엉덩이 바로 뒤쪽 바닥을 두 손으로 짚어 손가락이 바깥을 향하게 한다. 고개는 정면을 향한다."
+      "description": "두 무릎을 모아 세우고 두 발바닥을 바닥에 붙인 채 앉아 가슴을 펴고, 엉덩이 바로 뒤쪽 바닥을 두 손으로 짚어 손가락이 바깥을 향하게 한다. 고개는 정면을 향한다.",
+      "descriptionEn": "Sit with both knees together and the soles of both feet on the floor, expand your chest, and place both hands on the floor just behind your hips, with your fingers pointing outward. The head faces forward."
     },
     {
       "id": "pose_17_seated_knees_tilted_left",
@@ -174,7 +190,8 @@
         "무릎 세우기",
         "두 손 짚기"
       ],
-      "description": "세운 두 무릎을 왼쪽으로 함께 기울이고 두 발바닥을 바닥에 붙인 채, 엉덩이 옆 바닥을 두 손으로 짚는다. 고개는 오른쪽으로 돌린다."
+      "description": "세운 두 무릎을 왼쪽으로 함께 기울이고 두 발바닥을 바닥에 붙인 채, 엉덩이 옆 바닥을 두 손으로 짚는다. 고개는 오른쪽으로 돌린다.",
+      "descriptionEn": "Tilt both erected knees together to the left, place the soles of both feet on the floor, and place both hands on the floor next to the hips. Turn your head to the right."
     },
     {
       "id": "pose_18_seated_left_knee_up_hand_in_hair",
@@ -185,7 +202,8 @@
         "무릎 세우기",
         "손 머리 위"
       ],
-      "description": "왼쪽 무릎을 세우고 오른다리는 무릎을 바깥으로 접어 안쪽으로 모은 채 앉아, 왼손을 들어 머리 옆에 대고 팔꿈치를 옆으로 뺀다. 오른아래팔은 세운 무릎 위에 걸쳐 손을 늘어뜨리고 고개는 왼쪽으로 살짝 기울인다."
+      "description": "왼쪽 무릎을 세우고 오른다리는 무릎을 바깥으로 접어 안쪽으로 모은 채 앉아, 왼손을 들어 머리 옆에 대고 팔꿈치를 옆으로 뺀다. 오른아래팔은 세운 무릎 위에 걸쳐 손을 늘어뜨리고 고개는 왼쪽으로 살짝 기울인다.",
+      "descriptionEn": "Sit with your left knee up and your right leg folded outward and inward, raise your left hand, place it next to your head, and pull your elbow out to the side. Place your right lower arm over your upright knee and tilt your head slightly to the left."
     },
     {
       "id": "pose_19_seated_legs_diagonal_hand_on_waist",
@@ -196,7 +214,8 @@
         "다리 뻗기",
         "손 허리"
       ],
-      "description": "두 다리를 왼쪽 사선으로 뻗어 뒤꿈치를 바닥에 대고 앉아, 오른팔로 엉덩이 뒤쪽 바닥을 짚고 왼손은 허리에 얹어 팔꿈치를 옆으로 뺀다. 고개는 오른쪽으로 기울인다."
+      "description": "두 다리를 왼쪽 사선으로 뻗어 뒤꿈치를 바닥에 대고 앉아, 오른팔로 엉덩이 뒤쪽 바닥을 짚고 왼손은 허리에 얹어 팔꿈치를 옆으로 뺀다. 고개는 오른쪽으로 기울인다.",
+      "descriptionEn": "Sit with both legs stretched diagonally to the left and heels on the floor. Place your right arm on the floor behind your hips, place your left hand on your waist, and pull your elbows out to the side. Tilt your head to the right."
     },
     {
       "id": "pose_20_seated_legs_forward_elbows_back",
@@ -207,7 +226,8 @@
         "다리 뻗기",
         "기대기"
       ],
-      "description": "두 다리를 모아 앞으로 뻗어 뒤꿈치를 바닥에 댄 채 앉아 상체를 살짝 뒤로 젖히고, 팔꿈치를 살짝 굽힌 두 팔을 뒤바깥쪽으로 벌려 바닥을 짚는다. 고개는 정면을 향한다."
+      "description": "두 다리를 모아 앞으로 뻗어 뒤꿈치를 바닥에 댄 채 앉아 상체를 살짝 뒤로 젖히고, 팔꿈치를 살짝 굽힌 두 팔을 뒤바깥쪽으로 벌려 바닥을 짚는다. 고개는 정면을 향한다.",
+      "descriptionEn": "Sit with your legs together and stretched forward with your heels on the floor, lean your upper body back slightly, and spread your arms outward behind you with your elbows slightly bent and touch the floor. The head faces forward."
     },
     {
       "id": "pose_21_seated_knees_up_hands_behind_head",
@@ -218,7 +238,8 @@
         "무릎 세우기",
         "손 머리 뒤"
       ],
-      "description": "두 무릎을 모아 세우고 두 발바닥을 바닥에 붙인 채 거의 똑바로 앉아, 두 손을 머리 뒤에 모으고 팔꿈치를 어깨높이로 크게 벌린다."
+      "description": "두 무릎을 모아 세우고 두 발바닥을 바닥에 붙인 채 거의 똑바로 앉아, 두 손을 머리 뒤에 모으고 팔꿈치를 어깨높이로 크게 벌린다.",
+      "descriptionEn": "Sit almost straight with your knees together and the soles of your feet on the floor, with your hands behind your head and your elbows wide apart at shoulder height."
     },
     {
       "id": "pose_22_seated_leaning_right_knees_up",
@@ -229,7 +250,8 @@
         "무릎 세우기",
         "기대기"
       ],
-      "description": "골반과 상체를 오른쪽으로 기울인 채 두 무릎을 모아 세우고 두 발바닥을 바닥에 붙이며, 오른팔로 몸 오른쪽 바닥을 짚는다. 왼손은 허리에 얹어 팔꿈치를 옆으로 빼고 고개는 기울기와 함께 오른쪽으로 기울인다."
+      "description": "골반과 상체를 오른쪽으로 기울인 채 두 무릎을 모아 세우고 두 발바닥을 바닥에 붙이며, 오른팔로 몸 오른쪽 바닥을 짚는다. 왼손은 허리에 얹어 팔꿈치를 옆으로 빼고 고개는 기울기와 함께 오른쪽으로 기울인다.",
+      "descriptionEn": "Tilt your pelvis and upper body to the right, bring your knees together, place the soles of both feet on the floor, and place your right arm on the floor on the right side of your body. Place your left hand on your waist, pull your elbow out to the side, and tilt your head to the right."
     },
     {
       "id": "pose_23_seated_hand_on_ankle",
@@ -240,7 +262,8 @@
         "무릎 세우기",
         "손 정강이 위"
       ],
-      "description": "오른무릎을 높이 세우고 왼다리는 앞으로 뻗어 뒤꿈치를 바닥에 댄 채 앉아, 오른손은 발목까지 닿지 않아 오른쪽 정강이 하부에 얹는다. 왼손은 왼쪽 골반 앞주름에 얹고 상체를 세운 다리 쪽으로 살짝 돌리며 고개는 오른쪽으로 기울인다."
+      "description": "오른무릎을 높이 세우고 왼다리는 앞으로 뻗어 뒤꿈치를 바닥에 댄 채 앉아, 오른손은 발목까지 닿지 않아 오른쪽 정강이 하부에 얹는다. 왼손은 왼쪽 골반 앞주름에 얹고 상체를 세운 다리 쪽으로 살짝 돌리며 고개는 오른쪽으로 기울인다.",
+      "descriptionEn": "Sit with your right knee raised high, your left leg extended forward and your heel on the floor, and your right hand placed on the lower right shin, not reaching the ankle. Place your left hand on the front crease of your left pelvis, slightly turn your upper body toward your erect leg, and tilt your head to the right."
     },
     {
       "id": "pose_24_seated_arched_hands_behind_head",
@@ -251,7 +274,8 @@
         "무릎 세우기",
         "손 머리 뒤"
       ],
-      "description": "두 무릎을 모아 세우고 두 발바닥을 바닥에 붙인 채 앉아 윗등을 뒤로 젖혀 가슴을 펴고, 두 손을 머리 뒤에 모으며 팔꿈치를 위로 크게 든다. 턱은 수평을 유지한다."
+      "description": "두 무릎을 모아 세우고 두 발바닥을 바닥에 붙인 채 앉아 윗등을 뒤로 젖혀 가슴을 펴고, 두 손을 머리 뒤에 모으며 팔꿈치를 위로 크게 든다. 턱은 수평을 유지한다.",
+      "descriptionEn": "Sit with your knees together and the soles of your feet on the floor, lean your upper back back, expand your chest, put your hands behind your head, and raise your elbows high. Keep your chin level."
     },
     {
       "id": "pose_25_seated_right_knee_up_cheek_rest",
@@ -262,7 +286,8 @@
         "무릎 세우기",
         "손 뺨 옆"
       ],
-      "description": "오른무릎을 적당히 세우고 왼다리는 옆으로 뻗어 뒤꿈치를 바닥에 댄 채 앉아, 오른팔꿈치를 옆으로 뺀 채 오른손을 뺨 옆에 세우고 고개를 그쪽으로 기울인다. 팔꿈치로 무릎을 괴는 대신 손을 뺨 곁에 든 형태이며, 왼손은 왼쪽 허벅지 위에 얹는다."
+      "description": "오른무릎을 적당히 세우고 왼다리는 옆으로 뻗어 뒤꿈치를 바닥에 댄 채 앉아, 오른팔꿈치를 옆으로 뺀 채 오른손을 뺨 옆에 세우고 고개를 그쪽으로 기울인다. 팔꿈치로 무릎을 괴는 대신 손을 뺨 곁에 든 형태이며, 왼손은 왼쪽 허벅지 위에 얹는다.",
+      "descriptionEn": "Sit with your right knee properly raised, your left leg extended to the side, and your heel on the floor. With your right elbow out to the side, place your right hand next to your cheek and tilt your head toward it. Instead of resting your elbows on your knees, you place your hands next to your cheeks, and your left hand is placed on your left thigh."
     },
     {
       "id": "pose_26_seated_reclined_legs_lifted",
@@ -273,7 +298,8 @@
         "기대기",
         "다리 들기"
       ],
-      "description": "엉덩이 뒤쪽 바닥을 짚은 두 팔에 기대어 상체를 뒤로 젖힌 채, 모은 두 다리를 왼쪽 사선 위로 함께 들어 발끝을 편다. 고개는 다리 반대쪽인 오른쪽으로 돌린다."
+      "description": "엉덩이 뒤쪽 바닥을 짚은 두 팔에 기대어 상체를 뒤로 젖힌 채, 모은 두 다리를 왼쪽 사선 위로 함께 들어 발끝을 편다. 고개는 다리 반대쪽인 오른쪽으로 돌린다.",
+      "descriptionEn": "Lean your upper body back, leaning on both arms on the floor behind your hips, and lift both legs together over the left diagonal line, straightening your toes. Turn your head to the right, opposite your leg."
     },
     {
       "id": "pose_27_seated_left_knee_up_holding_ankle",
@@ -284,7 +310,8 @@
         "무릎 세우기",
         "손 무릎 위"
       ],
-      "description": "왼쪽 무릎을 높이 세우고 오른다리는 앞으로 뻗어 뒤꿈치를 바닥에 댄 채 앉아, 왼손은 발목까지 닿지 않아 왼쪽 정강이 바깥 하부에 얹고 오른손은 세운 무릎 위에 얹는다. 상체는 세운 다리 쪽으로 살짝 돌린다."
+      "description": "왼쪽 무릎을 높이 세우고 오른다리는 앞으로 뻗어 뒤꿈치를 바닥에 댄 채 앉아, 왼손은 발목까지 닿지 않아 왼쪽 정강이 바깥 하부에 얹고 오른손은 세운 무릎 위에 얹는다. 상체는 세운 다리 쪽으로 살짝 돌린다.",
+      "descriptionEn": "Sit with your left knee raised high and your right leg extended forward with your heel on the floor. Place your left hand on the outer lower part of your left shin, not reaching your ankle, and place your right hand on your raised knee. Turn your upper body slightly toward the erected leg."
     },
     {
       "id": "pose_28_standing_contrapposto_hand_on_waist",
@@ -294,7 +321,8 @@
         "콘트라포스토",
         "손 허리"
       ],
-      "description": "곧게 편 오른다리에 체중을 싣고 왼다리는 옆으로 내밀어 발바닥을 붙인 채 서서, 오른손을 허리에 얹어 팔꿈치를 옆으로 빼고 왼팔은 힘을 빼고 내린다. 고개는 정면을 향한다."
+      "description": "곧게 편 오른다리에 체중을 싣고 왼다리는 옆으로 내밀어 발바닥을 붙인 채 서서, 오른손을 허리에 얹어 팔꿈치를 옆으로 빼고 왼팔은 힘을 빼고 내린다. 고개는 정면을 향한다.",
+      "descriptionEn": "Stand with your weight on your straight right leg, your left leg out to the side and the soles of your feet together, place your right hand on your waist, place your elbow to the side, and relax your left arm and lower it. The head faces forward."
     },
     {
       "id": "pose_29_standing_hands_raking_hair",
@@ -304,7 +332,8 @@
         "손 머리 위",
         "두 팔 들기"
       ],
-      "description": "발을 조금 벌리고 서서 두 팔을 들어 손가락이 정수리 바로 위에 닿을 듯 말 듯 머리를 쓸어올리고 팔꿈치를 크게 벌린다. 상체는 똑바로 세우고 고개는 정면을 향한다."
+      "description": "발을 조금 벌리고 서서 두 팔을 들어 손가락이 정수리 바로 위에 닿을 듯 말 듯 머리를 쓸어올리고 팔꿈치를 크게 벌린다. 상체는 똑바로 세우고 고개는 정면을 향한다.",
+      "descriptionEn": "Stand with your feet slightly apart, raise both arms, sweep your hair so that your fingers almost touch the top of your head, and spread your elbows wide. Stand with your upper body upright and your head facing forward."
     },
     {
       "id": "pose_30_standing_look_back_over_shoulder",
@@ -314,7 +343,8 @@
         "뒤돌아보기",
         "상체 비틀기"
       ],
-      "description": "골반과 상체, 목, 머리를 모두 왼쪽으로 돌려 왼 어깨 너머로 뒤를 돌아보며 서고, 두 팔은 힘을 빼고 내리며 두 발바닥은 바닥에 붙인다."
+      "description": "골반과 상체, 목, 머리를 모두 왼쪽으로 돌려 왼 어깨 너머로 뒤를 돌아보며 서고, 두 팔은 힘을 빼고 내리며 두 발바닥은 바닥에 붙인다.",
+      "descriptionEn": "Turn your pelvis, upper body, neck, and head all to the left and stand looking back over your left shoulder. Relax both arms and lower them, placing the soles of both feet on the floor."
     },
     {
       "id": "pose_31_standing_both_hands_on_waist",
@@ -323,7 +353,8 @@
         "서기",
         "손 허리"
       ],
-      "description": "두 발을 모으고 무릎을 편 채 정면을 보고 곧게 서서, 두 손을 허리 옆에 얹고 두 팔꿈치를 굽혀 옆으로 벌린다."
+      "description": "두 발을 모으고 무릎을 편 채 정면을 보고 곧게 서서, 두 손을 허리 옆에 얹고 두 팔꿈치를 굽혀 옆으로 벌린다.",
+      "descriptionEn": "Stand straight, facing forward with your feet together and your knees straight, place your hands next to your waist, bend your elbows, and spread them out to the sides."
     },
     {
       "id": "pose_32_standing_arms_stretched_up",
@@ -333,7 +364,8 @@
         "두 팔 들기",
         "기지개"
       ],
-      "description": "두 발을 모으고 곧게 서서 두 팔을 머리 위로 거의 수직으로 쭉 뻗어 손바닥이 서로를 향하게 하고, 고개는 정면을 향한다."
+      "description": "두 발을 모으고 곧게 서서 두 팔을 머리 위로 거의 수직으로 쭉 뻗어 손바닥이 서로를 향하게 하고, 고개는 정면을 향한다.",
+      "descriptionEn": "Stand upright with your feet together and extend your arms almost vertically above your head, palms facing each other, and your head facing forward."
     },
     {
       "id": "pose_33_standing_hand_behind_head",
@@ -343,7 +375,8 @@
         "콘트라포스토",
         "손 머리 뒤"
       ],
-      "description": "곧게 편 오른다리에 체중을 싣고 왼다리는 옆으로 내밀어 서서, 오른손은 허리에 얹고 왼손은 머리 뒤에 대며 팔꿈치를 위로 벌린다. 고개는 오른쪽으로 살짝 기울인다."
+      "description": "곧게 편 오른다리에 체중을 싣고 왼다리는 옆으로 내밀어 서서, 오른손은 허리에 얹고 왼손은 머리 뒤에 대며 팔꿈치를 위로 벌린다. 고개는 오른쪽으로 살짝 기울인다.",
+      "descriptionEn": "Stand with your weight on your straight right leg and your left leg out to the side, place your right hand on your waist, place your left hand behind your head, and spread your elbows upward. Tilt your head slightly to the right."
     },
     {
       "id": "pose_34_standing_hand_at_neck",
@@ -353,7 +386,8 @@
         "손 목 옆",
         "손 허벅지 위"
       ],
-      "description": "오른다리에 체중을 싣고 왼다리를 살짝 내밀어 서서, 왼손 손가락을 목 왼쪽 옆에 대고 팔꿈치를 옆으로 빼며 오른손은 오른쪽 허벅지 위에 얹는다. 고개는 왼쪽으로 기울인다."
+      "description": "오른다리에 체중을 싣고 왼다리를 살짝 내밀어 서서, 왼손 손가락을 목 왼쪽 옆에 대고 팔꿈치를 옆으로 빼며 오른손은 오른쪽 허벅지 위에 얹는다. 고개는 왼쪽으로 기울인다.",
+      "descriptionEn": "Stand with your weight on your right leg and your left leg slightly extended, place the fingers of your left hand on the left side of your neck, pull your elbow out to the side, and place your right hand on your right thigh. Tilt your head to the left."
     },
     {
       "id": "pose_35_standing_arms_behind_back",
@@ -363,7 +397,8 @@
         "가슴 펴기",
         "두 팔 뒤로"
       ],
-      "description": "두 발을 모으고 곧게 서서 두 팔을 등 뒤로 뻗어 손을 엉덩이 뒤에 두고, 가슴을 펴고 턱을 살짝 든다."
+      "description": "두 발을 모으고 곧게 서서 두 팔을 등 뒤로 뻗어 손을 엉덩이 뒤에 두고, 가슴을 펴고 턱을 살짝 든다.",
+      "descriptionEn": "Stand up straight with your feet together, stretch your arms behind your back, place your hands behind your hips, straighten your chest, and slightly lift your chin."
     },
     {
       "id": "pose_36_standing_one_leg_kicked_back",
@@ -373,7 +408,8 @@
         "한 다리 들기",
         "손 머리 뒤"
       ],
-      "description": "오른쪽 곧은 다리로만 서서 왼다리는 뒤로 차 무릎을 굽혀 발을 뒤로 들고, 왼손은 머리 뒤에 대고 팔꿈치를 옆으로 빼며 오른팔은 내린다. 고개는 오른쪽으로 기울인다."
+      "description": "오른쪽 곧은 다리로만 서서 왼다리는 뒤로 차 무릎을 굽혀 발을 뒤로 들고, 왼손은 머리 뒤에 대고 팔꿈치를 옆으로 빼며 오른팔은 내린다. 고개는 오른쪽으로 기울인다.",
+      "descriptionEn": "Stand with only your right straight leg, kick your left leg back, bend your knee, lift your foot back, place your left hand behind your head, pull your elbow out to the side, and lower your right arm. Tilt your head to the right."
     },
     {
       "id": "pose_37_standing_wide_hands_on_waist",
@@ -383,7 +419,8 @@
         "손 허리",
         "다리 벌리기"
       ],
-      "description": "두 발을 넓게 벌리고 서서 두 손을 허리 옆에 얹고 두 팔꿈치를 크게 벌린다. 상체는 똑바로 세우고 고개는 정면을 향한다."
+      "description": "두 발을 넓게 벌리고 서서 두 손을 허리 옆에 얹고 두 팔꿈치를 크게 벌린다. 상체는 똑바로 세우고 고개는 정면을 향한다.",
+      "descriptionEn": "Stand with your feet wide apart, place your hands next to your waist, and spread your elbows wide. Stand with your upper body upright and your head facing forward."
     },
     {
       "id": "pose_38_standing_one_arm_up_hip_out",
@@ -393,7 +430,8 @@
         "한 팔 들기",
         "골반 내밀기"
       ],
-      "description": "오른다리에 체중을 싣고 오른쪽 골반을 내밀며 왼다리는 옆으로 내밀어 서서, 왼팔은 머리 위로 쭉 뻗어 손바닥을 앞으로 보이고 오른손은 허리에 얹는다. 고개는 오른쪽으로 기울인다."
+      "description": "오른다리에 체중을 싣고 오른쪽 골반을 내밀며 왼다리는 옆으로 내밀어 서서, 왼팔은 머리 위로 쭉 뻗어 손바닥을 앞으로 보이고 오른손은 허리에 얹는다. 고개는 오른쪽으로 기울인다.",
+      "descriptionEn": "Stand with your weight on your right leg, stick out your right pelvis, and stick your left leg out to the side. Extend your left arm straight above your head, palm forward, and place your right hand on your waist. Tilt your head to the right."
     },
     {
       "id": "pose_39_standing_hands_behind_nape",
@@ -403,7 +441,8 @@
         "손 머리 뒤",
         "두 팔 들기"
       ],
-      "description": "두 발을 모으고 곧게 서서 두 손을 목덜미 뒤에 모으고 팔꿈치를 어깨높이로 크게 벌린다. 고개는 정면을 향한다."
+      "description": "두 발을 모으고 곧게 서서 두 손을 목덜미 뒤에 모으고 팔꿈치를 어깨높이로 크게 벌린다. 고개는 정면을 향한다.",
+      "descriptionEn": "Stand up straight with your feet together and place your hands behind your neck and spread your elbows wide apart at shoulder height. The head faces forward."
     },
     {
       "id": "pose_40_standing_hand_sweeping_over_head",
@@ -413,7 +452,8 @@
         "콘트라포스토",
         "손 머리 위"
       ],
-      "description": "곧게 편 오른다리에 체중을 싣고 왼다리는 살짝 내밀어 서서, 오른손은 허리에 얹고 왼손은 머리 위로 크게 돌려 정수리 위를 스치듯 넘긴다. 고개는 정면을 향한다."
+      "description": "곧게 편 오른다리에 체중을 싣고 왼다리는 살짝 내밀어 서서, 오른손은 허리에 얹고 왼손은 머리 위로 크게 돌려 정수리 위를 스치듯 넘긴다. 고개는 정면을 향한다.",
+      "descriptionEn": "Stand with your weight on your straight right leg and your left leg slightly outstretched. Place your right hand on your waist and turn your left hand over your head so that it passes over the top of your head. The head faces forward."
     },
     {
       "id": "pose_41_standing_tiptoe_arms_v",
@@ -423,7 +463,8 @@
         "까치발",
         "두 팔 들기"
       ],
-      "description": "뒤꿈치를 들고 발볼로만 서서 다리를 곧게 펴고, 두 팔을 위로 넓게 벌려 V자로 들어 손바닥을 앞바깥으로 보이며 손가락을 편다. 고개는 정면을 향한다."
+      "description": "뒤꿈치를 들고 발볼로만 서서 다리를 곧게 펴고, 두 팔을 위로 넓게 벌려 V자로 들어 손바닥을 앞바깥으로 보이며 손가락을 편다. 고개는 정면을 향한다.",
+      "descriptionEn": "Stand on the balls of your feet with your heels raised, straighten your legs, spread your arms upward and raise them in a V shape, show your palms out in front of you, and straighten your fingers. The head faces forward."
     },
     {
       "id": "pose_42_kneeling_hands_on_thighs",
@@ -433,7 +474,8 @@
         "무릎 꿇기",
         "손 허벅지 위"
       ],
-      "description": "두 무릎을 꿇고 정강이를 뒤로 눕혀 상체를 똑바로 세우고 앉아, 두 손을 허벅지 위에 얹어 손가락을 아래로 늘어뜨린다. 고개는 정면을 향한다."
+      "description": "두 무릎을 꿇고 정강이를 뒤로 눕혀 상체를 똑바로 세우고 앉아, 두 손을 허벅지 위에 얹어 손가락을 아래로 늘어뜨린다. 고개는 정면을 향한다.",
+      "descriptionEn": "Kneel on both knees, place your shins back and sit with your upper body upright, place your hands on your thighs and let your fingers hang down. The head faces forward."
     },
     {
       "id": "pose_43_kneeling_hands_behind_head",
@@ -443,7 +485,8 @@
         "무릎 꿇기",
         "손 머리 뒤"
       ],
-      "description": "두 무릎을 꿇고 상체를 똑바로 세운 채 두 손을 머리 뒤에 모으고 팔꿈치를 어깨높이로 크게 벌린다."
+      "description": "두 무릎을 꿇고 상체를 똑바로 세운 채 두 손을 머리 뒤에 모으고 팔꿈치를 어깨높이로 크게 벌린다.",
+      "descriptionEn": "Kneel on both knees, keep your upper body upright, place your hands behind your head, and spread your elbows wide apart at shoulder height."
     },
     {
       "id": "pose_44_one_knee_up_hands_on_knee",
@@ -454,7 +497,8 @@
         "한쪽 무릎 세우기",
         "손 무릎 위"
       ],
-      "description": "왼무릎을 꿇고 오른무릎은 세워 오른발바닥을 바닥에 붙인 채 상체를 살짝 앞으로 기울이고, 오른손은 세운 무릎 위에 얹고 왼손은 팔 길이 한계로 손가락을 늘어뜨려 무릎에 닿게 한다."
+      "description": "왼무릎을 꿇고 오른무릎은 세워 오른발바닥을 바닥에 붙인 채 상체를 살짝 앞으로 기울이고, 오른손은 세운 무릎 위에 얹고 왼손은 팔 길이 한계로 손가락을 늘어뜨려 무릎에 닿게 한다.",
+      "descriptionEn": "Kneel on your left knee, raise your right knee, place the sole of your right foot on the floor, and tilt your upper body slightly forward. Place your right hand on the raised knee, and with your left hand, touch your knee with your fingers hanging down to the limit of your arm's length."
     },
     {
       "id": "pose_45_kneeling_arched_back",
@@ -464,7 +508,8 @@
         "무릎 꿇기",
         "젖히기"
       ],
-      "description": "두 무릎을 꿇고 앉아 윗등을 뒤로 젖혀 가슴을 펴고 턱을 들어 올리며, 두 손은 허벅지 위에 얹는다."
+      "description": "두 무릎을 꿇고 앉아 윗등을 뒤로 젖혀 가슴을 펴고 턱을 들어 올리며, 두 손은 허벅지 위에 얹는다.",
+      "descriptionEn": "Kneel down on both knees, lean your upper back, expand your chest, lift your chin, and place both hands on your thighs."
     },
     {
       "id": "pose_46_kneeling_arms_stretched_up",
@@ -474,7 +519,8 @@
         "무릎 꿇기",
         "두 팔 들기"
       ],
-      "description": "두 무릎을 꿇고 상체를 똑바로 세운 채 두 팔을 머리 위로 거의 수직으로 쭉 뻗어 손바닥이 서로를 향하게 한다."
+      "description": "두 무릎을 꿇고 상체를 똑바로 세운 채 두 팔을 머리 위로 거의 수직으로 쭉 뻗어 손바닥이 서로를 향하게 한다.",
+      "descriptionEn": "Kneel on both knees, keep your upper body upright, and extend your arms almost vertically above your head, with your palms facing each other."
     },
     {
       "id": "pose_47_kneeling_hand_in_hair",
@@ -485,7 +531,8 @@
         "손 머리 위",
         "손 허리"
       ],
-      "description": "두 무릎을 꿇고 상체를 똑바로 세운 채 오른손은 허리에 얹어 팔꿈치를 옆으로 빼고, 왼손은 머리 옆에 대고 팔꿈치를 위바깥으로 뺀다."
+      "description": "두 무릎을 꿇고 상체를 똑바로 세운 채 오른손은 허리에 얹어 팔꿈치를 옆으로 빼고, 왼손은 머리 옆에 대고 팔꿈치를 위바깥으로 뺀다.",
+      "descriptionEn": "Kneel on both knees, straighten your upper body, place your right hand on your waist and extend your elbow to the side, place your left hand next to your head and extend your elbow upward and outward."
     },
     {
       "id": "pose_48_one_knee_up_looking_up",
@@ -496,7 +543,8 @@
         "한쪽 무릎 세우기",
         "손 턱 밑"
       ],
-      "description": "오른무릎을 꿇고 왼무릎은 세워 왼발바닥을 바닥에 붙인 채 턱을 들어 위를 올려다보고, 왼손을 턱 밑에 대며 팔꿈치는 옆으로 벌린다. 팔꿈치를 무릎에 괴지는 못해 손만 턱에 닿는 형태이며, 오른손은 오른쪽 허벅지 위에 얹는다."
+      "description": "오른무릎을 꿇고 왼무릎은 세워 왼발바닥을 바닥에 붙인 채 턱을 들어 위를 올려다보고, 왼손을 턱 밑에 대며 팔꿈치는 옆으로 벌린다. 팔꿈치를 무릎에 괴지는 못해 손만 턱에 닿는 형태이며, 오른손은 오른쪽 허벅지 위에 얹는다.",
+      "descriptionEn": "Kneel on your right knee, raise your left knee, place the sole of your left foot on the floor, lift your chin and look up, place your left hand under your chin, and spread your elbows to the side. He cannot rest his elbow on his knee, so only his hand can touch his chin, and his right hand is placed on his right thigh."
     },
     {
       "id": "pose_49_kneeling_leaning_sideways",
@@ -506,7 +554,8 @@
         "무릎 꿇기",
         "옆으로 기울이기"
       ],
-      "description": "두 무릎을 꿇은 채 상체를 오른쪽으로 크게 기울이고, 오른팔은 무릎 옆 바닥을 향해 곧게 뻗어 내리며 왼팔은 위바깥 사선으로 쭉 뻗어 손을 편다. 팔이 바닥에 닿지 않고 허공에 머무는 형태이며, 고개는 기울기와 함께 오른쪽으로 기울인다."
+      "description": "두 무릎을 꿇은 채 상체를 오른쪽으로 크게 기울이고, 오른팔은 무릎 옆 바닥을 향해 곧게 뻗어 내리며 왼팔은 위바깥 사선으로 쭉 뻗어 손을 편다. 팔이 바닥에 닿지 않고 허공에 머무는 형태이며, 고개는 기울기와 함께 오른쪽으로 기울인다.",
+      "descriptionEn": "Kneel on both knees and tilt your upper body sharply to the right. Extend your right arm straight down toward the floor next to your knees and extend your left arm diagonally outward with your hands straight. It is a form in which the arms stay in the air without touching the floor, and the head is tilted to the right."
     },
     {
       "id": "pose_50_kneeling_hands_on_waist",
@@ -516,7 +565,8 @@
         "무릎 꿇기",
         "손 허리"
       ],
-      "description": "두 무릎을 꿇고 앉아 가슴을 살짝 펴고 턱을 들어 올리며, 두 손을 허리 옆에 얹고 팔꿈치를 옆으로 벌린다."
+      "description": "두 무릎을 꿇고 앉아 가슴을 살짝 펴고 턱을 들어 올리며, 두 손을 허리 옆에 얹고 팔꿈치를 옆으로 벌린다.",
+      "descriptionEn": "Kneel down on both knees, slightly expand your chest, lift your chin, place your hands next to your waist, and spread your elbows to the sides."
     },
     {
       "id": "pose_51_kneeling_hips_swayed_arm_up",
@@ -527,7 +577,8 @@
         "골반 비틀기",
         "한 팔 들기"
       ],
-      "description": "두 무릎을 꿇은 채 골반을 왼쪽으로 틀고 상체를 반대로 굽혀 오른손은 오른쪽 허벅지 위에 얹고, 왼팔은 올려 머리 옆에 손을 둔다. 고개는 오른쪽으로 기울인다."
+      "description": "두 무릎을 꿇은 채 골반을 왼쪽으로 틀고 상체를 반대로 굽혀 오른손은 오른쪽 허벅지 위에 얹고, 왼팔은 올려 머리 옆에 손을 둔다. 고개는 오른쪽으로 기울인다.",
+      "descriptionEn": "Kneel on both knees, turn your pelvis to the left, bend your upper body in the opposite direction, place your right hand on your right thigh, raise your left arm, and place your hand next to your head. Tilt your head to the right."
     },
     {
       "id": "pose_52_sitting_ladylike_hands_on_thighs",
@@ -538,7 +589,8 @@
         "여성좌",
         "손 허벅지 위"
       ],
-      "description": "다리를 접어 발등을 바닥에 대고 앉아 무릎을 앞으로 모으며, 두 손을 허벅지 위에 얹어 손가락을 앞으로 늘어뜨린다. 옆에서 보면 엉덩이가 바닥에서 살짝 뜬 형태이며, 고개는 정면을 향한다."
+      "description": "다리를 접어 발등을 바닥에 대고 앉아 무릎을 앞으로 모으며, 두 손을 허벅지 위에 얹어 손가락을 앞으로 늘어뜨린다. 옆에서 보면 엉덩이가 바닥에서 살짝 뜬 형태이며, 고개는 정면을 향한다.",
+      "descriptionEn": "Sit with your legs folded and the tops of your feet on the floor, bring your knees forward, place your hands on your thighs, and let your fingers hang forward. When viewed from the side, the buttocks are slightly lifted off the floor, and the head is pointed straight ahead."
     },
     {
       "id": "pose_53_sitting_ladylike_reaching_forward",
@@ -549,7 +601,8 @@
         "여성좌",
         "앞으로 짚기"
       ],
-      "description": "여성좌로 앉아 상체를 앞으로 기울이고 두 팔을 앞아래로 뻗어 손바닥을 무릎 앞 바닥을 향해 내민다. 손바닥은 바닥에 닿지 않고 허공에 머무는 형태이다."
+      "description": "여성좌로 앉아 상체를 앞으로 기울이고 두 팔을 앞아래로 뻗어 손바닥을 무릎 앞 바닥을 향해 내민다. 손바닥은 바닥에 닿지 않고 허공에 머무는 형태이다.",
+      "descriptionEn": "Sit in a woman's seat, tilt your upper body forward, extend both arms forward and down, and place your palms toward the floor in front of your knees. The palm stays in the air without touching the floor."
     },
     {
       "id": "pose_54_sitting_ladylike_hands_behind_head",
@@ -560,7 +613,8 @@
         "여성좌",
         "손 머리 뒤"
       ],
-      "description": "여성좌로 앉아 상체를 똑바로 세운 채 두 손을 머리 뒤에 모으고 팔꿈치를 어깨높이로 크게 벌린다."
+      "description": "여성좌로 앉아 상체를 똑바로 세운 채 두 손을 머리 뒤에 모으고 팔꿈치를 어깨높이로 크게 벌린다.",
+      "descriptionEn": "Sit in a woman's seat, keep your upper body upright, place your hands behind your head, and spread your elbows wide apart at shoulder height."
     },
     {
       "id": "pose_55_sitting_ladylike_reaching_behind",
@@ -571,7 +625,8 @@
         "여성좌",
         "뒤로 짚기"
       ],
-      "description": "여성좌로 앉아 상체를 뒤로 젖혀 가슴을 펴고, 두 팔을 뒤바깥쪽으로 뻗어 손바닥을 엉덩이 뒤 바닥을 향해 내민다. 손바닥은 바닥에 닿지 않고 허공에 머무는 형태이다."
+      "description": "여성좌로 앉아 상체를 뒤로 젖혀 가슴을 펴고, 두 팔을 뒤바깥쪽으로 뻗어 손바닥을 엉덩이 뒤 바닥을 향해 내민다. 손바닥은 바닥에 닿지 않고 허공에 머무는 형태이다.",
+      "descriptionEn": "Sit in a woman's seat, lean your upper body back, expand your chest, extend both arms outward behind you, and place your palms toward the floor behind your buttocks. The palm stays in the air without touching the floor."
     },
     {
       "id": "pose_56_side_sitting_legs_to_right",
@@ -582,7 +637,8 @@
         "횡좌",
         "손 허벅지 위"
       ],
-      "description": "두 다리를 함께 오른쪽으로 접어 무릎을 겹치고 발을 모아 앉아, 상체는 왼쪽 엉덩이 위로 똑바로 세우고 오른손은 오른쪽 허벅지 위에 얹으며 왼팔은 엉덩이 옆 바닥을 향해 내린다. 고개는 왼쪽으로 기울이며, 왼손은 바닥에 닿지 않고 허공에 머문다."
+      "description": "두 다리를 함께 오른쪽으로 접어 무릎을 겹치고 발을 모아 앉아, 상체는 왼쪽 엉덩이 위로 똑바로 세우고 오른손은 오른쪽 허벅지 위에 얹으며 왼팔은 엉덩이 옆 바닥을 향해 내린다. 고개는 왼쪽으로 기울이며, 왼손은 바닥에 닿지 않고 허공에 머문다.",
+      "descriptionEn": "Fold both legs together to the right, overlap the knees, and sit with the feet together, keeping the upper body straight over the left hip, placing the right hand on the right thigh, and lowering the left arm toward the floor next to the hip. Tilt your head to the left, and keep your left hand in the air without touching the floor."
     },
     {
       "id": "pose_57_side_sitting_hand_at_cheek",
@@ -593,7 +649,8 @@
         "횡좌",
         "손 뺨 옆"
       ],
-      "description": "두 다리를 함께 왼쪽으로 접고 오른쪽 엉덩이 위로 상체를 세운 채, 왼손을 왼쪽 뺨 옆에 세우고 고개를 그쪽으로 기울이며 오른팔은 엉덩이 옆 바닥을 향해 내린다. 오른손은 바닥에 닿지 않고 허공에 머문다."
+      "description": "두 다리를 함께 왼쪽으로 접고 오른쪽 엉덩이 위로 상체를 세운 채, 왼손을 왼쪽 뺨 옆에 세우고 고개를 그쪽으로 기울이며 오른팔은 엉덩이 옆 바닥을 향해 내린다. 오른손은 바닥에 닿지 않고 허공에 머문다.",
+      "descriptionEn": "Fold both legs together to the left, raise your upper body over your right hip, place your left hand next to your left cheek, tilt your head toward it, and lower your right arm toward the floor next to your hip. The right hand stays in the air without touching the floor."
     },
     {
       "id": "pose_58_side_sitting_one_arm_up",
@@ -604,7 +661,8 @@
         "횡좌",
         "한 팔 들기"
       ],
-      "description": "두 다리를 함께 왼쪽으로 접은 채 상체를 오른쪽으로 기울이고, 오른팔은 몸 옆으로 내려 바닥을 향해 뻗으며 왼팔은 위바깥 사선으로 쭉 뻗어 손을 편다. 고개는 오른쪽으로 기울이며, 오른손은 바닥에 닿지 않고 허공에 머문다."
+      "description": "두 다리를 함께 왼쪽으로 접은 채 상체를 오른쪽으로 기울이고, 오른팔은 몸 옆으로 내려 바닥을 향해 뻗으며 왼팔은 위바깥 사선으로 쭉 뻗어 손을 편다. 고개는 오른쪽으로 기울이며, 오른손은 바닥에 닿지 않고 허공에 머문다.",
+      "descriptionEn": "Fold both legs together to the left and tilt your upper body to the right, lower your right arm to the side of your body and extend it toward the floor, and extend your left arm diagonally outward and straighten your hands. Tilt your head to the right, and keep your right hand in the air without touching the floor."
     },
     {
       "id": "pose_59_sitting_ladylike_hand_at_neck",
@@ -615,7 +673,8 @@
         "여성좌",
         "손 목 옆"
       ],
-      "description": "여성좌로 앉아 상체를 똑바로 세운 채 오른손은 오른쪽 허벅지 위에 얹고, 왼손 손가락을 목 왼쪽 옆에 대고 팔꿈치를 옆으로 뺀다. 고개는 왼쪽으로 살짝 기울인다."
+      "description": "여성좌로 앉아 상체를 똑바로 세운 채 오른손은 오른쪽 허벅지 위에 얹고, 왼손 손가락을 목 왼쪽 옆에 대고 팔꿈치를 옆으로 뺀다. 고개는 왼쪽으로 살짝 기울인다.",
+      "descriptionEn": "Sit in a woman's seat, keep your upper body upright, place your right hand on your right thigh, place your left fingers on the left side of your neck, and pull your elbow to the side. Tilt your head slightly to the left."
     },
     {
       "id": "pose_60_lying_supine_arms_beside_head",
@@ -626,7 +685,8 @@
         "바로 눕기",
         "손 머리 옆"
       ],
-      "description": "바닥에 등을 대고 똑바로 누워 두 다리를 모아 뻗고 발을 편안히 두며, 두 팔꿈치를 굽혀 두 손을 머리 옆 위에 모으고 손바닥을 위로 보인다."
+      "description": "바닥에 등을 대고 똑바로 누워 두 다리를 모아 뻗고 발을 편안히 두며, 두 팔꿈치를 굽혀 두 손을 머리 옆 위에 모으고 손바닥을 위로 보인다.",
+      "descriptionEn": "Lie flat on your back on the floor, spread out your legs together, place your feet comfortably, bend your elbows, place your hands next to your head, and look with your palms up."
     },
     {
       "id": "pose_61_lying_side_propped_on_elbow",
@@ -637,7 +697,8 @@
         "옆으로 눕기",
         "턱 괴기"
       ],
-      "description": "왼쪽 옆구리를 바닥에 대고 누워 두 다리를 모아 뻗은 채, 왼쪽 팔을 굽혀 왼손을 뺨에 대고 고개를 받들며 오른손은 엉덩이 쪽에 둔다. 시선은 정면을 향한다."
+      "description": "왼쪽 옆구리를 바닥에 대고 누워 두 다리를 모아 뻗은 채, 왼쪽 팔을 굽혀 왼손을 뺨에 대고 고개를 받들며 오른손은 엉덩이 쪽에 둔다. 시선은 정면을 향한다.",
+      "descriptionEn": "Lie down on your left side with your legs stretched out, bend your left arm, place your left hand on your cheek, raise your head, and place your right hand on your buttocks. The gaze is directed straight ahead."
     },
     {
       "id": "pose_62_lying_prone_forearms_calves_up",
@@ -648,7 +709,8 @@
         "엎드리기",
         "다리 들기"
       ],
-      "description": "엎드려 턱을 들어 정면을 바라보며, 두 팔을 앞으로 뻗어 아래팔을 바닥 쪽에 두고 손을 모으고, 두 무릎을 굽혀 정강이를 위로 든다."
+      "description": "엎드려 턱을 들어 정면을 바라보며, 두 팔을 앞으로 뻗어 아래팔을 바닥 쪽에 두고 손을 모으고, 두 무릎을 굽혀 정강이를 위로 든다.",
+      "descriptionEn": "Lie down on your stomach, lift your chin, look straight ahead, extend both arms forward, put your lower arms on the floor, put your hands together, bend both knees and lift your shins up."
     },
     {
       "id": "pose_63_lying_supine_knee_up_arm_out",
@@ -659,7 +721,8 @@
         "바로 눕기",
         "한쪽 무릎 세우기"
       ],
-      "description": "바닥에 등을 대고 누워 왼다리는 곧게 뻗고 오른무릎은 세워 발바닥을 붙인 채, 오른팔은 옆으로 벌려 뻗고 왼팔은 몸을 따라 두어 손을 허벅지 쪽에 둔다. 고개는 왼쪽으로 살짝 돌린다."
+      "description": "바닥에 등을 대고 누워 왼다리는 곧게 뻗고 오른무릎은 세워 발바닥을 붙인 채, 오른팔은 옆으로 벌려 뻗고 왼팔은 몸을 따라 두어 손을 허벅지 쪽에 둔다. 고개는 왼쪽으로 살짝 돌린다.",
+      "descriptionEn": "Lie on your back on the floor, straighten your left leg, raise your right knee, place the soles of your feet together, spread your right arm out to the side, place your left arm along your body, and place your hand on your thigh. Turn your head slightly to the left."
     },
     {
       "id": "pose_64_lying_side_head_on_arm",
@@ -670,7 +733,8 @@
         "옆으로 눕기",
         "팔베개"
       ],
-      "description": "옆으로 누워 다리를 모아 뻗은 채 아래쪽 팔을 머리 쪽으로 쭉 뻗어 베고, 위쪽 손을 엉덩이 쪽에 두며 상체를 완만하게 S자로 굽힌다. 시선은 정면을 향한다."
+      "description": "옆으로 누워 다리를 모아 뻗은 채 아래쪽 팔을 머리 쪽으로 쭉 뻗어 베고, 위쪽 손을 엉덩이 쪽에 두며 상체를 완만하게 S자로 굽힌다. 시선은 정면을 향한다.",
+      "descriptionEn": "Lie on your side, spread your legs together, extend your lower arm towards your head, place your upper hand on your hip, and gently bend your upper body into an S shape. The gaze is directed straight ahead."
     },
     {
       "id": "pose_65_lying_supine_legs_up_arms_spread",
@@ -681,7 +745,8 @@
         "바로 눕기",
         "다리 들기"
       ],
-      "description": "바닥에 등을 대고 누워 두 다리를 천장을 향해 곧게 세우고 발을 편안히 두며, 두 팔을 옆으로 벌려 바닥에 두고 손바닥을 위로 보인다."
+      "description": "바닥에 등을 대고 누워 두 다리를 천장을 향해 곧게 세우고 발을 편안히 두며, 두 팔을 옆으로 벌려 바닥에 두고 손바닥을 위로 보인다.",
+      "descriptionEn": "Lie on your back on the floor, straighten your legs toward the ceiling, place your feet comfortably, spread your arms out to the sides and place them on the floor, palms facing up."
     },
     {
       "id": "pose_66_lying_side_arm_up_hand_on_thigh",
@@ -692,7 +757,8 @@
         "옆으로 눕기",
         "손 허벅지 위"
       ],
-      "description": "옆으로 누워 다리를 모아 뻗은 채 아래쪽 팔을 머리 쪽으로 쭉 뻗어 베고, 위쪽 팔은 내려 손을 허벅지 위에 얹는다. 시선은 정면을 향한다."
+      "description": "옆으로 누워 다리를 모아 뻗은 채 아래쪽 팔을 머리 쪽으로 쭉 뻗어 베고, 위쪽 팔은 내려 손을 허벅지 위에 얹는다. 시선은 정면을 향한다.",
+      "descriptionEn": "Lie on your side with your legs together and stretch your lower arm toward your head. Lower your upper arm and place your hand on your thigh. The gaze is directed straight ahead."
     },
     {
       "id": "pose_67_lying_prone_chin_on_arms",
@@ -703,7 +769,8 @@
         "엎드리기",
         "팔베개"
       ],
-      "description": "엎드려 두 다리를 뒤로 곧게 뻗은 채, 두 팔을 굽혀 턱 밑 쪽으로 모으고 팔꿈치를 옆으로 벌린다. 시선은 팔 위로 정면을 향한다."
+      "description": "엎드려 두 다리를 뒤로 곧게 뻗은 채, 두 팔을 굽혀 턱 밑 쪽으로 모으고 팔꿈치를 옆으로 벌린다. 시선은 팔 위로 정면을 향한다.",
+      "descriptionEn": "Lie face down with your legs straight behind you, bend your arms, bring them under your chin, and spread your elbows to the sides. Look straight ahead, over your arms."
     },
     {
       "id": "pose_68_lying_supine_knees_up_arched",
@@ -714,7 +781,8 @@
         "바로 눕기",
         "무릎 세우기"
       ],
-      "description": "바닥에 등을 대고 누워 두 무릎을 세워 발바닥을 붙이고 가슴을 들어 올리며, 두 팔을 옆으로 벌려 손바닥을 위로 보인다."
+      "description": "바닥에 등을 대고 누워 두 무릎을 세워 발바닥을 붙이고 가슴을 들어 올리며, 두 팔을 옆으로 벌려 손바닥을 위로 보인다.",
+      "descriptionEn": "Lie on your back on the floor, raise both knees, place the soles of your feet together, lift your chest, and spread your arms out to the sides with your palms facing up."
     },
     {
       "id": "pose_69_squatting_hands_on_knees",
@@ -724,7 +792,8 @@
         "쪼그려 앉기",
         "손 무릎 위"
       ],
-      "description": "두 발바닥을 바닥에 붙이고 엉덩이를 낮춰 깊게 쪼그려 앉아, 두 손을 무릎 위에 얹어 손가락을 앞으로 늘어뜨린다. 상체는 살짝 앞으로 기울이고 고개는 정면을 향한다."
+      "description": "두 발바닥을 바닥에 붙이고 엉덩이를 낮춰 깊게 쪼그려 앉아, 두 손을 무릎 위에 얹어 손가락을 앞으로 늘어뜨린다. 상체는 살짝 앞으로 기울이고 고개는 정면을 향한다.",
+      "descriptionEn": "Place the soles of both feet on the floor, lower your hips, and squat deeply. Place both hands on your knees and let your fingers hang forward. Tilt your upper body slightly forward and turn your head forward."
     },
     {
       "id": "pose_70_squatting_hand_down_looking_up",
@@ -734,7 +803,8 @@
         "쪼그려 앉기",
         "바닥 짚기"
       ],
-      "description": "깊게 쪼그려 앉아 상체를 살짝 틀고 고개를 왼쪽 위로 돌린 채, 왼손은 왼쪽 무릎 위에 얹고 오른팔은 아래로 뻗어 손바닥을 발 옆 바닥을 향해 내린다. 오른손은 바닥에 닿지 않고 허공에 머문다."
+      "description": "깊게 쪼그려 앉아 상체를 살짝 틀고 고개를 왼쪽 위로 돌린 채, 왼손은 왼쪽 무릎 위에 얹고 오른팔은 아래로 뻗어 손바닥을 발 옆 바닥을 향해 내린다. 오른손은 바닥에 닿지 않고 허공에 머문다.",
+      "descriptionEn": "Squat deeply, slightly twist your upper body and turn your head upward to the left, place your left hand on your left knee, extend your right arm down, and lower your palm toward the floor next to your foot. The right hand stays in the air without touching the floor."
     },
     {
       "id": "pose_71_squatting_elbow_prop_cheek",
@@ -744,7 +814,8 @@
         "쪼그려 앉기",
         "턱 괴기"
       ],
-      "description": "무릎을 벌리고 깊게 쪼그려 앉아 상체를 앞으로 기울인 채, 오른쪽 팔꿈치를 오른쪽 무릎에 괴고 턱을 오른손에 얹으며 왼손은 왼쪽 무릎 위에 얹는다. 고개는 손쪽으로 살짝 숙인다."
+      "description": "무릎을 벌리고 깊게 쪼그려 앉아 상체를 앞으로 기울인 채, 오른쪽 팔꿈치를 오른쪽 무릎에 괴고 턱을 오른손에 얹으며 왼손은 왼쪽 무릎 위에 얹는다. 고개는 손쪽으로 살짝 숙인다.",
+      "descriptionEn": "Squat deeply with your knees apart and tilt your upper body forward, placing your right elbow on your right knee, your chin on your right hand, and your left hand on your left knee. Bow your head slightly toward your hands."
     },
     {
       "id": "pose_72_squatting_hand_in_hair",
@@ -754,7 +825,8 @@
         "쪼그려 앉기",
         "손 머리 위"
       ],
-      "description": "깊게 쪼그려 앉아 상체를 똑바로 세운 채, 오른손을 머리 옆에 대고 팔꿈치를 위바깥으로 빼며 왼손은 왼쪽 무릎 위에 얹는다. 고개는 왼쪽으로 기울인다."
+      "description": "깊게 쪼그려 앉아 상체를 똑바로 세운 채, 오른손을 머리 옆에 대고 팔꿈치를 위바깥으로 빼며 왼손은 왼쪽 무릎 위에 얹는다. 고개는 왼쪽으로 기울인다.",
+      "descriptionEn": "Squat deeply and keep your upper body upright, place your right hand next to your head, extend your elbow up and out, and place your left hand on your left knee. Tilt your head to the left."
     },
     {
       "id": "pose_73_squatting_tiptoe_hands_to_floor",
@@ -764,7 +836,8 @@
         "쪼그려 앉기",
         "까치발"
       ],
-      "description": "발볼로만 서서 뒤꿈치를 들고 깊게 쪼그려 앉아 상체를 앞으로 기울인 채, 두 팔을 곧게 내려 손바닥을 발 옆 바닥을 향해 내린다. 손바닥은 바닥에 닿지 않고 허공에 머문다."
+      "description": "발볼로만 서서 뒤꿈치를 들고 깊게 쪼그려 앉아 상체를 앞으로 기울인 채, 두 팔을 곧게 내려 손바닥을 발 옆 바닥을 향해 내린다. 손바닥은 바닥에 닿지 않고 허공에 머문다.",
+      "descriptionEn": "Stand on the balls of your feet, raise your heels, squat deeply, tilt your upper body forward, and lower your arms straight down with your palms toward the floor next to your feet. The palms do not touch the floor but remain in the air."
     },
     {
       "id": "pose_74_squatting_twisted_hand_down",
@@ -774,7 +847,8 @@
         "쪼그려 앉기",
         "상체 비틀기"
       ],
-      "description": "깊게 쪼그려 앉아 상체와 고개를 오른쪽으로 돌린 채, 왼손은 왼쪽 무릎 위에 얹고 오른팔은 아래로 뻗어 손바닥을 바닥을 향해 내린다. 오른손은 바닥에 닿지 않고 허공에 머문다."
+      "description": "깊게 쪼그려 앉아 상체와 고개를 오른쪽으로 돌린 채, 왼손은 왼쪽 무릎 위에 얹고 오른팔은 아래로 뻗어 손바닥을 바닥을 향해 내린다. 오른손은 바닥에 닿지 않고 허공에 머문다.",
+      "descriptionEn": "Squat deeply, turn your upper body and head to the right, place your left hand on your left knee, extend your right arm down, and lower your palm toward the floor. The right hand stays in the air without touching the floor."
     },
     {
       "id": "pose_75_bent_forward_hands_on_knees",
@@ -784,7 +858,8 @@
         "숙이기",
         "손 무릎 위"
       ],
-      "description": "서서 엉덩이를 뒤로 빼고 무릎을 살짝 굽혀 상체를 앞으로 숙인 채, 두 손을 무릎 바로 위에 얹어 손가락을 아래로 늘어뜨리고 고개를 숙여 아래를 본다."
+      "description": "서서 엉덩이를 뒤로 빼고 무릎을 살짝 굽혀 상체를 앞으로 숙인 채, 두 손을 무릎 바로 위에 얹어 손가락을 아래로 늘어뜨리고 고개를 숙여 아래를 본다.",
+      "descriptionEn": "Stand with your hips back, knees slightly bent, and your upper body bent forward. Place both hands just above your knees, fingers hanging down, and lower your head to look down."
     },
     {
       "id": "pose_76_bent_deep_hands_on_shins",
@@ -794,7 +869,8 @@
         "숙이기",
         "손 정강이 옆"
       ],
-      "description": "서서 다리를 곧게 펴고 상체를 깊이 앞으로 접어 고개를 완전히 숙인 채, 두 팔을 곧게 내려 손을 정강이 쪽으로 내린다. 손은 정강이에 닿지 않고 허공에 머문다."
+      "description": "서서 다리를 곧게 펴고 상체를 깊이 앞으로 접어 고개를 완전히 숙인 채, 두 팔을 곧게 내려 손을 정강이 쪽으로 내린다. 손은 정강이에 닿지 않고 허공에 머문다.",
+      "descriptionEn": "Stand with your legs straight, fold your upper body deeply forward, lower your head completely, and lower your arms straight down with your hands toward your shins. The hands do not touch the shins but remain in the air."
     },
     {
       "id": "pose_77_bent_slight_looking_up",
@@ -804,7 +880,8 @@
         "숙이기",
         "손 허리"
       ],
-      "description": "서서 다리를 곧게 펴고 상체를 살짝 앞으로 기울인 채, 왼손은 허리에 얹어 팔꿈치를 옆으로 빼고 오른팔은 허벅지 쪽으로 편안히 내리며 턱을 들어 위를 올려다본다."
+      "description": "서서 다리를 곧게 펴고 상체를 살짝 앞으로 기울인 채, 왼손은 허리에 얹어 팔꿈치를 옆으로 빼고 오른팔은 허벅지 쪽으로 편안히 내리며 턱을 들어 위를 올려다본다.",
+      "descriptionEn": "Stand with your legs straight and your upper body slightly tilted forward, place your left hand on your waist, pull your elbow out to the side, lower your right arm comfortably toward your thigh, lift your chin and look up."
     },
     {
       "id": "pose_78_bent_hips_back_hands_on_thighs",
@@ -814,7 +891,8 @@
         "숙이기",
         "손 허벅지 위"
       ],
-      "description": "서서 엉덩이를 뒤로 빼고 무릎을 살짝 굽힌 채, 두 손을 무릎 위 허벅지에 얹고 상체를 앞으로 기울인다. 고개는 정면을 향한다."
+      "description": "서서 엉덩이를 뒤로 빼고 무릎을 살짝 굽힌 채, 두 손을 무릎 위 허벅지에 얹고 상체를 앞으로 기울인다. 고개는 정면을 향한다.",
+      "descriptionEn": "Stand with your hips back and knees slightly bent, place your hands on your thighs above your knees, and tilt your upper body forward. The head faces forward."
     },
     {
       "id": "pose_79_bent_arms_dangling",
@@ -824,7 +902,8 @@
         "숙이기",
         "팔 늘어뜨리기"
       ],
-      "description": "서서 다리를 거의 곧게 펴고 상체를 앞으로 숙인 채, 두 팔을 무릎 옆으로 힘없이 곧게 늘어뜨리고 고개를 완전히 숙인다."
+      "description": "서서 다리를 거의 곧게 펴고 상체를 앞으로 숙인 채, 두 팔을 무릎 옆으로 힘없이 곧게 늘어뜨리고 고개를 완전히 숙인다.",
+      "descriptionEn": "Stand with your legs almost straight, your upper body bent forward, your arms hanging straight out next to your knees, and your head completely lowered."
     },
     {
       "id": "pose_80_bent_one_leg_up_balanced",
@@ -834,7 +913,8 @@
         "숙이기",
         "한 다리 들기"
       ],
-      "description": "왼쪽 곧은 다리로만 서서 상체를 앞으로 숙인 채 오른다리를 뒤위로 곧게 뻗어 올리고, 두 팔을 앞아래로 뻗어 손을 활짝 편다. 고개는 앞아래를 향한다."
+      "description": "왼쪽 곧은 다리로만 서서 상체를 앞으로 숙인 채 오른다리를 뒤위로 곧게 뻗어 올리고, 두 팔을 앞아래로 뻗어 손을 활짝 편다. 고개는 앞아래를 향한다.",
+      "descriptionEn": "Stand with only your left straight leg, bend your upper body forward, extend your right leg straight up behind you, and extend both arms forward and down, with your hands wide open. The head faces forward and downward."
     },
     {
       "id": "pose_81_standing_arched_hands_on_back",
@@ -844,7 +924,8 @@
         "젖히기",
         "손 허리 뒤"
       ],
-      "description": "곧게 서서 가슴을 뒤로 젖히고 턱을 들어 올린 채, 두 손을 허리 뒤에 대고 팔꿈치를 뒤바깥으로 뺀다."
+      "description": "곧게 서서 가슴을 뒤로 젖히고 턱을 들어 올린 채, 두 손을 허리 뒤에 대고 팔꿈치를 뒤바깥으로 뺀다.",
+      "descriptionEn": "Stand up straight, lean your chest back, lift your chin, place your hands behind your waist, and extend your elbows out behind you."
     },
     {
       "id": "pose_82_kneeling_arched_reaching_back",
@@ -854,7 +935,8 @@
         "무릎 꿇기",
         "젖히기"
       ],
-      "description": "무릎 꿇고 상체를 똑바로 세워 가슴을 뒤로 젖히고 턱을 들어 올린 채, 두 팔을 엉덩이 뒤 아랫쪽으로 뻗어 손을 허공에 내린다. 손은 바닥에 닿지 않는다."
+      "description": "무릎 꿇고 상체를 똑바로 세워 가슴을 뒤로 젖히고 턱을 들어 올린 채, 두 팔을 엉덩이 뒤 아랫쪽으로 뻗어 손을 허공에 내린다. 손은 바닥에 닿지 않는다.",
+      "descriptionEn": "Kneel down, straighten your upper body, tilt your chest back, lift your chin, extend both arms behind your hips, and lower your hands into the air. Hands do not touch the floor."
     },
     {
       "id": "pose_83_standing_arched_arms_up_v",
@@ -864,7 +946,8 @@
         "젖히기",
         "두 팔 들기"
       ],
-      "description": "곧게 서서 가슴을 뒤로 젖히고 턱을 들어 올린 채, 두 팔을 위로 넓게 벌려 V자로 들고 열린 손바닥을 위로 보인다."
+      "description": "곧게 서서 가슴을 뒤로 젖히고 턱을 들어 올린 채, 두 팔을 위로 넓게 벌려 V자로 들고 열린 손바닥을 위로 보인다.",
+      "descriptionEn": "Stand upright, with your chest back and chin lifted, your arms spread wide upward and in a V shape, with your open palms facing upward."
     },
     {
       "id": "pose_84_standing_twisted_arms_t",
@@ -874,7 +957,8 @@
         "틀기",
         "상체 비틀기"
       ],
-      "description": "골반과 상체, 고개를 모두 왼쪽으로 돌려 서서, 두 팔을 어깨높이로 옆으로 쭉 뻗어 열린 손바닥을 보인다."
+      "description": "골반과 상체, 고개를 모두 왼쪽으로 돌려 서서, 두 팔을 어깨높이로 옆으로 쭉 뻗어 열린 손바닥을 보인다.",
+      "descriptionEn": "Stand with your pelvis, upper body, and head all turned to the left, and stretch both arms out to the sides at shoulder height, showing open palms."
     },
     {
       "id": "pose_85_kneeling_twisted_hand_back",
@@ -884,7 +968,8 @@
         "무릎 꿇기",
         "틀기"
       ],
-      "description": "두 무릎을 꿇은 채 상체와 고개를 오른쪽 아래로 돌리고, 오른손은 허리에 얹어 팔꿈치를 크게 빼며 왼팔은 바닥을 향해 편안히 내린다. 왼손은 바닥에 닿지 않고 허공에 머문다."
+      "description": "두 무릎을 꿇은 채 상체와 고개를 오른쪽 아래로 돌리고, 오른손은 허리에 얹어 팔꿈치를 크게 빼며 왼팔은 바닥을 향해 편안히 내린다. 왼손은 바닥에 닿지 않고 허공에 머문다.",
+      "descriptionEn": "Kneel on both knees and turn your upper body and head to the lower right, place your right hand on your waist, extend your elbow wide, and lower your left arm comfortably toward the floor. The left hand stays in the air without touching the floor."
     },
     {
       "id": "pose_86_sitting_twisted_hand_back",
@@ -894,7 +979,8 @@
         "바닥",
         "틀기"
       ],
-      "description": "바닥에 앉아 두 다리를 함께 앞으로 뻗어 살짝 굽힌 채 상체와 고개를 오른쪽으로 돌리고, 왼손은 왼쪽 허벅지 바깥에 얹어 손가락을 무릎 쪽으로 늘어뜨리며 오른손은 엉덩이 뒤쪽으로 뻗는다."
+      "description": "바닥에 앉아 두 다리를 함께 앞으로 뻗어 살짝 굽힌 채 상체와 고개를 오른쪽으로 돌리고, 왼손은 왼쪽 허벅지 바깥에 얹어 손가락을 무릎 쪽으로 늘어뜨리며 오른손은 엉덩이 뒤쪽으로 뻗는다.",
+      "descriptionEn": "Sit on the floor, extend both legs forward together and slightly bend, turn your upper body and head to the right, place your left hand on the outside of your left thigh, fingers hanging down toward your knee, and extend your right hand behind your buttocks."
     },
     {
       "id": "pose_87_cute_double_heart_chest",
@@ -904,7 +990,8 @@
         "손 하트",
         "양손 하트"
       ],
-      "description": "가슴 앞에서 양손을 모아 엄지끼리 위에서 맞대고 검지를 아래로 둥글게 모아 하트 모양을 만들고, 팔꿈치를 옆아래로 뺀다. 손끝은 정확히 맞닿지 않고 근접한다."
+      "description": "가슴 앞에서 양손을 모아 엄지끼리 위에서 맞대고 검지를 아래로 둥글게 모아 하트 모양을 만들고, 팔꿈치를 옆아래로 뺀다. 손끝은 정확히 맞닿지 않고 근접한다.",
+      "descriptionEn": "Put your hands together in front of your chest, place your thumbs together at the top, round your index fingers downwards to form a heart shape, and pull your elbows out to the side. The fingertips do not exactly touch but are close together."
     },
     {
       "id": "pose_88_cute_big_heart_overhead",
@@ -914,7 +1001,8 @@
         "손 하트",
         "두 팔 들기"
       ],
-      "description": "두 팔을 머리 위로 들어 양손 손가락을 맞대어 큰 하트 모양을 만들고, 팔꿈치를 옆으로 벌린다. 손끝은 정확히 맞닿지 않고 근접한다."
+      "description": "두 팔을 머리 위로 들어 양손 손가락을 맞대어 큰 하트 모양을 만들고, 팔꿈치를 옆으로 벌린다. 손끝은 정확히 맞닿지 않고 근접한다.",
+      "descriptionEn": "Raise both arms above your head, place the fingers of both hands together to form a large heart shape, and spread your elbows to the sides. The fingertips do not exactly touch but are close together."
     },
     {
       "id": "pose_89_cute_finger_heart_cheek",
@@ -924,7 +1012,8 @@
         "손가락 하트",
         "손 허리"
       ],
-      "description": "오른쪽 뺨 옆에서 오른손 엄지와 검지를 교차해 손가락 하트를 만들고, 왼손은 허리에 얹는다. 교차 모양은 근사적으로 만든다."
+      "description": "오른쪽 뺨 옆에서 오른손 엄지와 검지를 교차해 손가락 하트를 만들고, 왼손은 허리에 얹는다. 교차 모양은 근사적으로 만든다.",
+      "descriptionEn": "Cross your right thumb and index finger next to your right cheek to make a finger heart, and place your left hand on your waist. The intersection shape is approximated."
     },
     {
       "id": "pose_90_cute_double_peace_chin",
@@ -934,7 +1023,8 @@
         "손 브이",
         "양손 브이"
       ],
-      "description": "턱 밑에 양손으로 브이를 만들어 검지와 중지를 위바깥으로 펴고 나머지는 접으며, 팔꿈치를 아래안으로 모은다. 브이 손가락은 서로 평행하다."
+      "description": "턱 밑에 양손으로 브이를 만들어 검지와 중지를 위바깥으로 펴고 나머지는 접으며, 팔꿈치를 아래안으로 모은다. 브이 손가락은 서로 평행하다.",
+      "descriptionEn": "Make a V with both hands under your chin, spread your index and middle fingers upward and outward, fold the rest, and bring your elbows inward. V Fingers are parallel to each other."
     },
     {
       "id": "pose_91_cute_gyaru_peace",
@@ -944,7 +1034,8 @@
         "손 브이",
         "손 허리"
       ],
-      "description": "오른손으로 뒤집은 브이를 머리 옆에서 아래바깥으로 내밀고 팔꿈치를 위바깥으로 빼며, 왼손은 허리에 얹는다. 브이 손가락은 서로 평행하다."
+      "description": "오른손으로 뒤집은 브이를 머리 옆에서 아래바깥으로 내밀고 팔꿈치를 위바깥으로 빼며, 왼손은 허리에 얹는다. 브이 손가락은 서로 평행하다.",
+      "descriptionEn": "Hold the inverted V with your right hand down and out from the side of your head, extend your elbows up and out, and place your left hand on your waist. V Fingers are parallel to each other."
     },
     {
       "id": "pose_92_cute_fists_on_cheeks",
@@ -954,7 +1045,8 @@
         "손 주먹",
         "볼 누르기"
       ],
-      "description": "양손을 가볍게 쥐어 양쪽 뺨에 대고 팔꿈치를 아래안으로 모은다. 주먹은 뺨에 닿지 않고 바짝 다가간다."
+      "description": "양손을 가볍게 쥐어 양쪽 뺨에 대고 팔꿈치를 아래안으로 모은다. 주먹은 뺨에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Lightly squeeze both hands and place them on both cheeks, bringing your elbows together. The fist approaches the cheek without touching it."
     },
     {
       "id": "pose_93_cute_bunny_ears",
@@ -964,7 +1056,8 @@
         "손바닥 펴기",
         "머리 위 손"
       ],
-      "description": "두 손을 머리 위로 올려 손바닥을 앞으로 보이고 손가락을 곧게 펴 토끼 귀 모양을 만들며, 팔꿈치를 옆으로 벌린다."
+      "description": "두 손을 머리 위로 올려 손바닥을 앞으로 보이고 손가락을 곧게 펴 토끼 귀 모양을 만들며, 팔꿈치를 옆으로 벌린다.",
+      "descriptionEn": "Raise both hands above your head, palms forward, straighten your fingers to make a rabbit ear shape, and spread your elbows to the sides."
     },
     {
       "id": "pose_94_cute_beckoning_cat_paws",
@@ -974,7 +1067,8 @@
         "고양이손",
         "손 모으기"
       ],
-      "description": "양손 손가락을 반쯤 굽혀 고양이 앞발 모양으로 만들고, 오른손은 머리 옆으로 들고 왼손은 가슴 옆에 두며 손바닥을 앞으로 보인다."
+      "description": "양손 손가락을 반쯤 굽혀 고양이 앞발 모양으로 만들고, 오른손은 머리 옆으로 들고 왼손은 가슴 옆에 두며 손바닥을 앞으로 보인다.",
+      "descriptionEn": "Bend the fingers of both hands halfway to make them look like cat paws, raise your right hand next to your head, place your left hand next to your chest, and show your palms forward."
     },
     {
       "id": "pose_95_cute_gao_claws",
@@ -984,7 +1078,8 @@
         "손톱 세우기",
         "으르렁"
       ],
-      "description": "머리 양옆으로 두 손을 들어 손바닥을 앞으로 보이고 손가락을 갈고리처럼 구부리며, 팔꿈치를 아래바깥으로 둔다. 손가락은 서로 평행하다."
+      "description": "머리 양옆으로 두 손을 들어 손바닥을 앞으로 보이고 손가락을 갈고리처럼 구부리며, 팔꿈치를 아래바깥으로 둔다. 손가락은 서로 평행하다.",
+      "descriptionEn": "Raise both hands to either side of your head, palms forward, fingers bent like hooks, and elbows down and out. Fingers are parallel to each other."
     },
     {
       "id": "pose_96_cute_shh_finger",
@@ -994,7 +1089,8 @@
         "쉿",
         "손가락 입술"
       ],
-      "description": "오른손 검지를 세워 입술 앞에 대고 나머지는 접으며 팔꿈치를 아래안으로 두고 왼팔은 내리며, 고개를 오른쪽으로 살짝 기울인다. 손가락 끝은 입술에 닿지 않고 바짝 다가간다."
+      "description": "오른손 검지를 세워 입술 앞에 대고 나머지는 접으며 팔꿈치를 아래안으로 두고 왼팔은 내리며, 고개를 오른쪽으로 살짝 기울인다. 손가락 끝은 입술에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Raise the index finger of your right hand, place it in front of your lips, fold the rest, place your elbow down, lower your left arm, and tilt your head slightly to the right. The tips of your fingers come close to your lips without touching them."
     },
     {
       "id": "pose_97_cute_peace_over_eye",
@@ -1004,7 +1100,8 @@
         "손 브이",
         "고개 기울이기"
       ],
-      "description": "고개를 왼쪽으로 기울인 채 오른손으로 브이를 만들어 오른쪽 눈 위에 가로로 대고 팔꿈치를 위바깥으로 빼며, 왼손은 허리에 얹는다. 브이 손가락은 서로 평행하다."
+      "description": "고개를 왼쪽으로 기울인 채 오른손으로 브이를 만들어 오른쪽 눈 위에 가로로 대고 팔꿈치를 위바깥으로 빼며, 왼손은 허리에 얹는다. 브이 손가락은 서로 평행하다.",
+      "descriptionEn": "Tilt your head to the left, make a V with your right hand, place it horizontally over your right eye, pull your elbow up and out, and place your left hand on your waist. V Fingers are parallel to each other."
     },
     {
       "id": "pose_98_cute_blown_kiss",
@@ -1014,7 +1111,8 @@
         "키스 날리기",
         "손 가슴"
       ],
-      "description": "입가에 댄 오른손 손가락을 모아 입맞춤을 날리듯 두고, 왼손은 가슴에 얹는다. 손가락은 입술에 닿지 않고 바짝 다가간다."
+      "description": "입가에 댄 오른손 손가락을 모아 입맞춤을 날리듯 두고, 왼손은 가슴에 얹는다. 손가락은 입술에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Place the fingers of your right hand at the corner of your mouth as if blowing a kiss, and place your left hand on your chest. The fingers move closer without touching the lips."
     },
     {
       "id": "pose_99_cute_chin_on_palms",
@@ -1024,7 +1122,8 @@
         "턱 괴기",
         "양손 턱"
       ],
-      "description": "고개를 살짝 숙여 턱을 양손바닥에 얹듯 하고 손가락을 뺨을 따라 위로 세우며, 팔꿈치를 앞아래로 모은다. 손바닥은 턱에 닿지 않고 바짝 다가간다."
+      "description": "고개를 살짝 숙여 턱을 양손바닥에 얹듯 하고 손가락을 뺨을 따라 위로 세우며, 팔꿈치를 앞아래로 모은다. 손바닥은 턱에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Bow your head slightly, place your chin on both palms, place your fingers up along your cheeks, and bring your elbows together in front and down. The palm approaches the chin without touching it."
     },
     {
       "id": "pose_100_cute_cheek_poke",
@@ -1034,7 +1133,8 @@
         "볼 찌르기",
         "손가락 볼"
       ],
-      "description": "오른손 검지를 펴서 오른쪽 볼을 찌르듯 대고 나머지는 접으며, 오른팔꿈치는 왼팔뚝에 기대고 왼손은 편 채 둔다. 손가락 끝은 볼에 닿지 않고 바짝 다가간다."
+      "description": "오른손 검지를 펴서 오른쪽 볼을 찌르듯 대고 나머지는 접으며, 오른팔꿈치는 왼팔뚝에 기대고 왼손은 편 채 둔다. 손가락 끝은 볼에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Extend your right index finger and touch your right cheek as if poking it, then fold the rest, leaning your right elbow on your left forearm and keeping your left hand straight. The tips of your fingers come close to the cheek without touching it."
     },
     {
       "id": "pose_101_cute_sleeve_hands_mouth",
@@ -1044,7 +1144,8 @@
         "손 주먹",
         "입 가리기"
       ],
-      "description": "긴 소매에 숨긴 듯 양손 주먹을 입 앞에 모아 겹치고 팔꿈치를 아래안으로 모으며, 고개를 살짝 숙인다. 주먹은 입에 닿지 않고 바짝 다가간다."
+      "description": "긴 소매에 숨긴 듯 양손 주먹을 입 앞에 모아 겹치고 팔꿈치를 아래안으로 모으며, 고개를 살짝 숙인다. 주먹은 입에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Put the fists of both hands together in front of the mouth, as if hiding them in long sleeves, place the elbows together, and slightly lower the head. The fist approaches the mouth without touching it."
     },
     {
       "id": "pose_102_cute_pleading_palms",
@@ -1054,7 +1155,8 @@
         "손 모으기",
         "간청"
       ],
-      "description": "입과 턱 앞에 양손바닥을 맞대어 세우고 손가락을 위로 모아 팔꿈치를 아래안으로 모으며, 고개를 오른쪽으로 기울여 숙인다. 양손바닥은 완전히 맞닿지 않는다."
+      "description": "입과 턱 앞에 양손바닥을 맞대어 세우고 손가락을 위로 모아 팔꿈치를 아래안으로 모으며, 고개를 오른쪽으로 기울여 숙인다. 양손바닥은 완전히 맞닿지 않는다.",
+      "descriptionEn": "Place both palms together in front of your mouth and chin, place your fingers upward, bring your elbows in, and tilt your head to the right. Both palms do not completely touch."
     },
     {
       "id": "pose_103_cute_self_hug",
@@ -1064,7 +1166,8 @@
         "스스로 안기",
         "팔짱"
       ],
-      "description": "양팔을 교차해 반대쪽 위팔을 감싸안듯 하고 손가락을 구부려 얹으며, 어깨를 살짝 움츠리고 고개를 숙인다. 손은 팔에 닿지 않고 바짝 다가간다."
+      "description": "양팔을 교차해 반대쪽 위팔을 감싸안듯 하고 손가락을 구부려 얹으며, 어깨를 살짝 움츠리고 고개를 숙인다. 손은 팔에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Cross both arms as if hugging the opposite upper arm, bend your fingers and rest on them, slightly shrug your shoulders and lower your head. The hand moves closer without touching the arm."
     },
     {
       "id": "pose_104_cute_finger_frames",
@@ -1074,7 +1177,8 @@
         "손 프레임",
         "얼굴 프레임"
       ],
-      "description": "얼굴 양옆 높이에서 양손으로 엄지와 검지를 직각으로 펴 L자 프레임을 만들고 나머지는 접으며, 팔꿈치를 옆아래로 둔다."
+      "description": "얼굴 양옆 높이에서 양손으로 엄지와 검지를 직각으로 펴 L자 프레임을 만들고 나머지는 접으며, 팔꿈치를 옆아래로 둔다.",
+      "descriptionEn": "At the height of both sides of the face, spread the thumb and index finger of both hands at a right angle to create an L-shaped frame, fold the rest, and place the elbows down to the sides."
     },
     {
       "id": "pose_105_cute_hair_tuck",
@@ -1084,7 +1188,8 @@
         "머리 넘기기",
         "손 쇄골"
       ],
-      "description": "오른손을 오른쪽 귀 뒤로 올려 머리카락을 넘기는 듯하고 팔꿈치를 위바깥으로 빼며, 왼손은 왼쪽 쇄골 위에 편안히 둔다. 고개는 왼쪽으로 살짝 기울인다."
+      "description": "오른손을 오른쪽 귀 뒤로 올려 머리카락을 넘기는 듯하고 팔꿈치를 위바깥으로 빼며, 왼손은 왼쪽 쇄골 위에 편안히 둔다. 고개는 왼쪽으로 살짝 기울인다.",
+      "descriptionEn": "Place your right hand behind your right ear as if you were brushing your hair, pull your elbow up and out, and place your left hand comfortably on your left collarbone. Tilt your head slightly to the left."
     },
     {
       "id": "pose_106_cute_hands_wrapping_cheeks",
@@ -1094,7 +1199,8 @@
         "볼 감싸기",
         "양손 볼"
       ],
-      "description": "양손바닥으로 양쪽 볼을 감싸듯 하고 손가락을 얼굴 옆으로 위로 세우며 엄지를 턱 밑에 두고, 팔꿈치를 아래안으로 모은다. 손바닥은 볼에 닿지 않고 바짝 다가간다."
+      "description": "양손바닥으로 양쪽 볼을 감싸듯 하고 손가락을 얼굴 옆으로 위로 세우며 엄지를 턱 밑에 두고, 팔꿈치를 아래안으로 모은다. 손바닥은 볼에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Cover both cheeks with both palms, place your fingers up next to your face, place your thumbs under your chin, and bring your elbows together. The palm is brought close to the ball without touching it."
     },
     {
       "id": "pose_107_cute_salute",
@@ -1104,7 +1210,8 @@
         "거수경례",
         "손 허리"
       ],
-      "description": "오른손을 이마 앞에서 편 채 거수경례하고 팔꿈치를 옆으로 빼며, 왼손은 허리에 얹는다. 손날은 이마에 닿지 않고 앞에 머문다."
+      "description": "오른손을 이마 앞에서 편 채 거수경례하고 팔꿈치를 옆으로 빼며, 왼손은 허리에 얹는다. 손날은 이마에 닿지 않고 앞에 머문다.",
+      "descriptionEn": "Salute with your right hand stretched out in front of your forehead, your elbow out to the side, and your left hand on your waist. The blade of the hand stays in front of you without touching your forehead."
     },
     {
       "id": "pose_108_cute_point_at_camera",
@@ -1114,7 +1221,8 @@
         "손가락 지목",
         "앞으로 뻗기"
       ],
-      "description": "상체를 살짝 앞으로 기울이고 오른팔을 쭉 뻗어 검지로 정면을 지목하며 나머지는 접고, 왼팔은 편안히 내린다."
+      "description": "상체를 살짝 앞으로 기울이고 오른팔을 쭉 뻗어 검지로 정면을 지목하며 나머지는 접고, 왼팔은 편안히 내린다.",
+      "descriptionEn": "Tilt your upper body slightly forward, extend your right arm, point to the front with your index finger, fold the rest, and lower your left arm comfortably."
     },
     {
       "id": "pose_109_cute_morning_stretch_yawn",
@@ -1124,7 +1232,8 @@
         "기지개",
         "하품 가리기"
       ],
-      "description": "왼팔을 머리 위로 쭉 뻗어 손을 편안히 하고 상체를 살짝 뒤로 젖히며, 오른손은 입가에 대고 고개를 뒤오른쪽으로 젖힌다. 오른손은 입에 닿지 않고 바짝 다가간다."
+      "description": "왼팔을 머리 위로 쭉 뻗어 손을 편안히 하고 상체를 살짝 뒤로 젖히며, 오른손은 입가에 대고 고개를 뒤오른쪽으로 젖힌다. 오른손은 입에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Extend your left arm over your head, relax your hand, and slightly tilt your upper body back. Place your right hand at the corner of your mouth and tilt your head back to the right. The right hand approaches the mouth without touching it."
     },
     {
       "id": "pose_110_cute_half_heart_on_chest",
@@ -1134,7 +1243,8 @@
         "손 하트",
         "손 가슴"
       ],
-      "description": "오른손으로 머리 옆에서 반쪽 하트를 그리고 왼손은 가슴에 편 채 얹는다. 가슴 손은 몸에 닿지 않고 바짝 다가간다."
+      "description": "오른손으로 머리 옆에서 반쪽 하트를 그리고 왼손은 가슴에 편 채 얹는다. 가슴 손은 몸에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Draw a half heart next to your head with your right hand and place your left hand flat on your chest. The chest hand approaches the body without touching it."
     },
     {
       "id": "pose_111_cute_peek_through_fingers",
@@ -1144,7 +1254,8 @@
         "손가락 엿보기",
         "얼굴 가리기"
       ],
-      "description": "양손을 얼굴 앞에 모아 손가락을 곧게 위로 세운 채 양손 사이 틈으로 엿보며, 팔꿈치를 아래안으로 모은다. 손은 얼굴에 닿지 않고 앞에 머문다."
+      "description": "양손을 얼굴 앞에 모아 손가락을 곧게 위로 세운 채 양손 사이 틈으로 엿보며, 팔꿈치를 아래안으로 모은다. 손은 얼굴에 닿지 않고 앞에 머문다.",
+      "descriptionEn": "Bring both hands together in front of your face, hold your fingers straight up, peek through the gap between your hands, and bring your elbows together. Hands stay in front of your face without touching it."
     },
     {
       "id": "pose_112_cute_lean_forward",
@@ -1154,7 +1265,8 @@
         "숙이기",
         "다가오기"
       ],
-      "description": "곧은 다리로 서서 상체를 정면을 향해 앞으로 숙이고, 두 팔을 앞아래로 함께 늘어뜨리며 고개를 앞아래로 향한다."
+      "description": "곧은 다리로 서서 상체를 정면을 향해 앞으로 숙이고, 두 팔을 앞아래로 함께 늘어뜨리며 고개를 앞아래로 향한다.",
+      "descriptionEn": "Stand with straight legs, bend your upper body forward toward the front, hang your arms together in front and down, and turn your head forward and down."
     },
     {
       "id": "pose_113_cute_hina_arms_pressed",
@@ -1164,7 +1276,8 @@
         "차렷",
         "팔 붙이기"
       ],
-      "description": "곧게 서서 두 팔을 몸통 옆에 붙이고 가슴을 살짝 모아 손을 편안히 둔다. 고개는 정면을 향한다."
+      "description": "곧게 서서 두 팔을 몸통 옆에 붙이고 가슴을 살짝 모아 손을 편안히 둔다. 고개는 정면을 향한다.",
+      "descriptionEn": "Stand up straight, place your arms next to your torso, bring your chest slightly together and place your hands comfortably. The head faces forward."
     },
     {
       "id": "pose_114_cute_elbows_in_presenting",
@@ -1174,7 +1287,8 @@
         "상체 비틀기",
         "손 내밀기"
       ],
-      "description": "허리를 살짝 틀고 팔꿈치를 옆구리에 붙인 채 아래팔을 앞으로 뻗어 손바닥을 위로 보이고 손가락을 편다. 고개는 정면을 향한다."
+      "description": "허리를 살짝 틀고 팔꿈치를 옆구리에 붙인 채 아래팔을 앞으로 뻗어 손바닥을 위로 보이고 손가락을 편다. 고개는 정면을 향한다.",
+      "descriptionEn": "Twist your waist slightly, keep your elbows at your sides, extend your forearms forward, look your palms up, and straighten your fingers. The head faces forward."
     },
     {
       "id": "pose_115_cute_shrug_clasped_hands",
@@ -1184,7 +1298,8 @@
         "어깨 움츠리기",
         "손 모으기"
       ],
-      "description": "어깨를 들어 올리며 양팔을 옆구리에 붙이고, 두 손을 앞아래에서 모아 겹치며 손가락을 구부린다. 고개는 정면을 향한다."
+      "description": "어깨를 들어 올리며 양팔을 옆구리에 붙이고, 두 손을 앞아래에서 모아 겹치며 손가락을 구부린다. 고개는 정면을 향한다.",
+      "descriptionEn": "Raise your shoulders, place your arms at your sides, bring your hands together in front and below, overlap them, and bend your fingers. The head faces forward."
     },
     {
       "id": "pose_116_cute_arms_crossed_under_bust",
@@ -1194,7 +1309,8 @@
         "팔짱",
         "가슴 모으기"
       ],
-      "description": "양쪽 아래팔을 가슴 밑 앞에서 교차해 반대쪽을 감싸듯 하고 손가락을 구부려 얹는다. 팔은 몸에 닿지 않고 바짝 다가간다."
+      "description": "양쪽 아래팔을 가슴 밑 앞에서 교차해 반대쪽을 감싸듯 하고 손가락을 구부려 얹는다. 팔은 몸에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Cross both lower arms in front of your chest, as if wrapping the opposite side, and bend your fingers. The arms move closer without touching the body."
     },
     {
       "id": "pose_117_cute_lift_from_below",
@@ -1204,7 +1320,8 @@
         "받쳐 올리기",
         "가슴 모으기"
       ],
-      "description": "양손을 양바깥아래에서 안쪽으로 모아 손바닥이 위를 향하게 받치는 듯하고 팔꿈치를 아래바깥으로 둔다. 손바닥은 몸에 닿지 않고 바짝 다가간다."
+      "description": "양손을 양바깥아래에서 안쪽으로 모아 손바닥이 위를 향하게 받치는 듯하고 팔꿈치를 아래바깥으로 둔다. 손바닥은 몸에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Bring both hands together from the outside to the inside, as if supporting the palms facing upwards, and place the elbows down and out. The palms are brought close to the body without touching them."
     },
     {
       "id": "pose_118_cute_table_lean",
@@ -1214,7 +1331,8 @@
         "숙이기",
         "테이블 기대기"
       ],
-      "description": "곧은 다리로 서서 상체를 앞으로 기울이고, 두 아래팔을 앞으로 뻗어 겹치듯 두며 손을 편안히 편다. 테이블 소품은 없어 팔은 허공에 머문다."
+      "description": "곧은 다리로 서서 상체를 앞으로 기울이고, 두 아래팔을 앞으로 뻗어 겹치듯 두며 손을 편안히 편다. 테이블 소품은 없어 팔은 허공에 머문다.",
+      "descriptionEn": "Stand with straight legs, tilt your upper body forward, extend both lower arms forward and overlap them, and spread your hands comfortably. There are no table props, so your arms stay in the air."
     },
     {
       "id": "pose_119_cute_vertical_forearm_pinch",
@@ -1224,7 +1342,8 @@
         "팔 세우기",
         "가슴 모으기"
       ],
-      "description": "양쪽 아래팔을 가슴 앞에서 수직으로 세워 팔꿈치를 아래에 모으고, 손가락을 우아하게 구부려 안쪽으로 향하게 한다. 손가락은 볼에 닿지 않고 바짝 다가간다."
+      "description": "양쪽 아래팔을 가슴 앞에서 수직으로 세워 팔꿈치를 아래에 모으고, 손가락을 우아하게 구부려 안쪽으로 향하게 한다. 손가락은 볼에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Stand with both lower arms vertically in front of your chest, place your elbows together, and bend your fingers gracefully to point inward. The fingers move closer to the cheek without touching it."
     },
     {
       "id": "pose_120_cute_scoop_under_bust",
@@ -1234,7 +1353,8 @@
         "받쳐 올리기",
         "손 머리 뒤"
       ],
-      "description": "왼손을 아래바깥에서 안쪽으로 모아 받치는 듯하고, 오른손은 머리 뒤에 대고 팔꿈치를 위바깥으로 뺀다. 고개는 왼쪽으로 살짝 기울이며, 왼손바닥은 몸에 닿지 않고 바짝 다가간다."
+      "description": "왼손을 아래바깥에서 안쪽으로 모아 받치는 듯하고, 오른손은 머리 뒤에 대고 팔꿈치를 위바깥으로 뺀다. 고개는 왼쪽으로 살짝 기울이며, 왼손바닥은 몸에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "The left hand appears to be supported from the outside to the bottom, and the right hand is placed behind the head and the elbow is pulled up and out. Tilt your head slightly to the left, and bring your left palm close to your body without touching it."
     },
     {
       "id": "pose_121_cute_look_down_collarbones",
@@ -1244,7 +1364,8 @@
         "내려다보기",
         "손 쇄골"
       ],
-      "description": "상체를 살짝 앞으로 기울이고 고개를 숙여 내려다보며, 양손을 쇄골 위에 얹어 손가락을 모아 안쪽으로 둔다."
+      "description": "상체를 살짝 앞으로 기울이고 고개를 숙여 내려다보며, 양손을 쇄골 위에 얹어 손가락을 모아 안쪽으로 둔다.",
+      "descriptionEn": "Tilt your upper body slightly forward, lower your head and look down, place both hands on your collarbone, and place your fingers together inward."
     },
     {
       "id": "pose_122_cute_hands_on_waist_chest_out",
@@ -1254,7 +1375,8 @@
         "손 허리",
         "가슴 내밀기"
       ],
-      "description": "양손으로 허리 옆을 잡고 손가락을 허리에 두며 엄지를 앞으로 하고, 팔꿈치를 옆으로 벌리고 가슴을 내민다. 손은 허리 옆에서 살짝 뜬 채로 둔다."
+      "description": "양손으로 허리 옆을 잡고 손가락을 허리에 두며 엄지를 앞으로 하고, 팔꿈치를 옆으로 벌리고 가슴을 내민다. 손은 허리 옆에서 살짝 뜬 채로 둔다.",
+      "descriptionEn": "Hold the sides of your waist with both hands, place your fingers on your waist, thumb forward, spread your elbows to the sides, and stick out your chest. Place your hands slightly floating next to your waist."
     },
     {
       "id": "pose_123_cute_gather_from_sides",
@@ -1264,7 +1386,8 @@
         "모아주기",
         "가슴 모으기"
       ],
-      "description": "양손을 양바깥에서 안쪽으로 모아 손바닥이 안쪽을 향하게 하고 손가락을 편 채 두며, 팔꿈치를 옆으로 벌린다. 손바닥은 몸에 닿지 않고 바짝 다가간다."
+      "description": "양손을 양바깥에서 안쪽으로 모아 손바닥이 안쪽을 향하게 하고 손가락을 편 채 두며, 팔꿈치를 옆으로 벌린다. 손바닥은 몸에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Bring both hands together from the outside to the inside, palms facing inward, fingers straight, and elbows spread out to the sides. The palms are brought close to the body without touching them."
     },
     {
       "id": "pose_124_cute_hands_clasped_behind",
@@ -1274,7 +1397,8 @@
         "손 등 뒤",
         "가슴 내밀기"
       ],
-      "description": "두 팔을 등 뒤로 돌려 엉덩이 뒤에서 양손을 모아 겹치고, 가슴을 내밀고 턱을 살짝 든다. 손가락이 서로 얽히지는 않고 바짝 다가간다."
+      "description": "두 팔을 등 뒤로 돌려 엉덩이 뒤에서 양손을 모아 겹치고, 가슴을 내밀고 턱을 살짝 든다. 손가락이 서로 얽히지는 않고 바짝 다가간다.",
+      "descriptionEn": "Turn both arms behind your back, place your hands behind your hips, stick out your chest, and slightly lift your chin. The fingers do not intertwine but move closer together."
     },
     {
       "id": "pose_125_cute_kneel_lean_gather",
@@ -1284,7 +1408,8 @@
         "무릎 꿇기",
         "숙여 모으기"
       ],
-      "description": "두 무릎을 꿇고 정면을 향해 상체를 앞으로 숙인 채, 두 팔을 앞아래로 뻗어 손을 안쪽으로 모아준다. 손은 바닥에 닿지 않고 허공에 머문다."
+      "description": "두 무릎을 꿇고 정면을 향해 상체를 앞으로 숙인 채, 두 팔을 앞아래로 뻗어 손을 안쪽으로 모아준다. 손은 바닥에 닿지 않고 허공에 머문다.",
+      "descriptionEn": "Kneel on both knees, bend your upper body forward, and extend both arms forward and down, bringing your hands inward. The hands stay in the air without touching the floor."
     },
     {
       "id": "pose_126_cute_knee_up_fist_cheek_rest",
@@ -1295,7 +1420,8 @@
         "한쪽 무릎 세우기",
         "주먹 턱"
       ],
-      "description": "오른무릎을 꿇고 왼무릎은 세운 채 상체를 똑바로 세우고, 오른주먹을 뺨 옆에 대고 고개를 그쪽으로 숙이며 왼손은 왼쪽 허벅지 위에 얹는다. 주먹은 뺨에 닿지 않고 바짝 다가간다."
+      "description": "오른무릎을 꿇고 왼무릎은 세운 채 상체를 똑바로 세우고, 오른주먹을 뺨 옆에 대고 고개를 그쪽으로 숙이며 왼손은 왼쪽 허벅지 위에 얹는다. 주먹은 뺨에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Kneel on your right knee, raise your left knee, and straighten your upper body. Place your right fist next to your cheek, lower your head towards it, and place your left hand on your left thigh. The fist approaches the cheek without touching it."
     },
     {
       "id": "pose_127_sexy_arms_hugging_chest",
@@ -1305,7 +1431,8 @@
         "스스로 안기",
         "팔짱"
       ],
-      "description": "가슴 위에서 양팔을 높이 교차해 반대쪽 위팔을 감싸듯 쥐고 팔꿈치를 앞아래로 모으며, 고개를 살짝 숙인다. 쥐는 손가락은 팔에 닿지 않고 바짝 다가간다."
+      "description": "가슴 위에서 양팔을 높이 교차해 반대쪽 위팔을 감싸듯 쥐고 팔꿈치를 앞아래로 모으며, 고개를 살짝 숙인다. 쥐는 손가락은 팔에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Cross both arms high above your chest, grasp the opposite upper arm as if wrapping it, bring your elbows together forward and down, and slightly lower your head. The grasping fingers do not touch the arm, but come close to it."
     },
     {
       "id": "pose_128_sexy_gather_one_side_hand_at_head",
@@ -1315,7 +1442,8 @@
         "모아주기",
         "손 머리 옆"
       ],
-      "description": "오른손은 오른쪽 옆아래에서 안쪽으로 모아 받치는 듯하고, 왼팔은 올려 머리 옆에서 머리카락을 만지며 팔꿈치를 위바깥으로 뺀다. 고개는 왼쪽으로 살짝 기울이며, 모으는 손바닥은 몸에 닿지 않고 바짝 다가간다."
+      "description": "오른손은 오른쪽 옆아래에서 안쪽으로 모아 받치는 듯하고, 왼팔은 올려 머리 옆에서 머리카락을 만지며 팔꿈치를 위바깥으로 뺀다. 고개는 왼쪽으로 살짝 기울이며, 모으는 손바닥은 몸에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "The right hand is brought together inward at the bottom of the right side, as if supporting it, and the left arm is raised, touching the hair next to the head, and pulling the elbow upward and outward. Tilt your head slightly to the left, and bring your palms together close to your body without touching them."
     },
     {
       "id": "pose_129_sexy_shoulder_dropped_lean_in",
@@ -1325,7 +1453,8 @@
         "숙이기",
         "다가오기"
       ],
-      "description": "곧은 다리로 서서 정면을 향해 상체를 앞으로 숙이되 오른쪽 어깨를 낮추고, 두 팔을 앞아래로 함께 늘어뜨리며 고개를 앞아래로 향한다."
+      "description": "곧은 다리로 서서 정면을 향해 상체를 앞으로 숙이되 오른쪽 어깨를 낮추고, 두 팔을 앞아래로 함께 늘어뜨리며 고개를 앞아래로 향한다.",
+      "descriptionEn": "Stand with straight legs and face the front, bend your upper body forward, lower your right shoulder, hang both arms together in front and down, and turn your head forward and down."
     },
     {
       "id": "pose_130_sexy_prone_propped_on_elbows",
@@ -1336,7 +1465,8 @@
         "엎드리기",
         "팔꿈치 기대기"
       ],
-      "description": "엎드려 양쪽 팔꿈치를 어깨 밑에 대고 아래팔을 앞으로 모아 쉬며, 턱을 들어 정면을 향하고 무릎을 굽혀 종아리를 위로 든다. 가슴은 양쪽 위팔 사이에 모인다."
+      "description": "엎드려 양쪽 팔꿈치를 어깨 밑에 대고 아래팔을 앞으로 모아 쉬며, 턱을 들어 정면을 향하고 무릎을 굽혀 종아리를 위로 든다. 가슴은 양쪽 위팔 사이에 모인다.",
+      "descriptionEn": "Lie face down, place both elbows under your shoulders, rest your forearms together in front of you, lift your chin, face the front, bend your knees, and lift your calves up. The chest is brought together between the upper arms."
     },
     {
       "id": "pose_131_sexy_arched_arms_squeezing",
@@ -1346,7 +1476,8 @@
         "젖히기",
         "팔 붙이기"
       ],
-      "description": "등을 젖혀 가슴을 내밀고 선 채 양팔을 몸통 옆에 붙이고 손을 편안히 둔다. 고개는 정면을 향한다."
+      "description": "등을 젖혀 가슴을 내밀고 선 채 양팔을 몸통 옆에 붙이고 손을 편안히 둔다. 고개는 정면을 향한다.",
+      "descriptionEn": "Stand with your back bent and your chest out, place your arms next to your torso and place your hands comfortably. The head faces forward."
     },
     {
       "id": "pose_132_sexy_arm_around_waist_hand_at_neck",
@@ -1356,7 +1487,8 @@
         "손 목",
         "허리 감싸기"
       ],
-      "description": "오른손을 목 오른쪽 옆에 대고 팔꿈치를 아래바깥으로 두며, 왼팔은 허리를 감싸듯 하고 손은 왼쪽 허리 옆에 둔다. 고개는 왼쪽으로 살짝 기울이며, 목에 댄 손은 닿지 않고 바짝 다가간다."
+      "description": "오른손을 목 오른쪽 옆에 대고 팔꿈치를 아래바깥으로 두며, 왼팔은 허리를 감싸듯 하고 손은 왼쪽 허리 옆에 둔다. 고개는 왼쪽으로 살짝 기울이며, 목에 댄 손은 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Place your right hand on the right side of your neck and place your elbow down and out. Place your left arm as if wrapping around your waist and place your hand next to your left waist. Tilt your head slightly to the left, and move your hand closer to your neck without touching it."
     },
     {
       "id": "pose_133_sexy_hands_on_upper_chest",
@@ -1366,7 +1498,8 @@
         "손 얹기",
         "가슴 모으기"
       ],
-      "description": "양손을 위쪽에 얹어 손가락을 모아 안쪽으로 두고 팔꿈치를 아래바깥으로 둔다. 고개는 정면을 향하며, 손바닥은 몸에 닿지 않고 바짝 다가간다."
+      "description": "양손을 위쪽에 얹어 손가락을 모아 안쪽으로 두고 팔꿈치를 아래바깥으로 둔다. 고개는 정면을 향하며, 손바닥은 몸에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Place both hands on top, fingers together and inward, and elbows down and outward. Face your head forward, and place your palms close to your body without touching them."
     },
     {
       "id": "pose_134_sexy_chin_on_hands_bent_over",
@@ -1376,7 +1509,8 @@
         "숙이기",
         "턱 괴기"
       ],
-      "description": "곧은 다리에 가깝게 서서 상체를 깊이 숙이고 양손을 앞아래에 겹쳐 모아 손등을 위로 하며, 턱을 아래로 향한다. 턱은 겹친 손 바로 위에 머문다."
+      "description": "곧은 다리에 가깝게 서서 상체를 깊이 숙이고 양손을 앞아래에 겹쳐 모아 손등을 위로 하며, 턱을 아래로 향한다. 턱은 겹친 손 바로 위에 머문다.",
+      "descriptionEn": "Stand close to straight legs, bend your upper body deeply, place both hands in front and below, place the backs of your hands up, and point your chin down. The chin stays just above the folded hands."
     },
     {
       "id": "pose_135_sexy_all_fours_look_down",
@@ -1386,7 +1520,8 @@
         "무릎 꿇기",
         "네 발 엎드리기"
       ],
-      "description": "두 무릎을 꿇고 정면을 향해 상체를 앞으로 숙인 채 양팔을 쭉 뻗어 손을 앞바닥에 둔다. 고개는 앞아래를 향한다."
+      "description": "두 무릎을 꿇고 정면을 향해 상체를 앞으로 숙인 채 양팔을 쭉 뻗어 손을 앞바닥에 둔다. 고개는 앞아래를 향한다.",
+      "descriptionEn": "Kneel on both knees, face the front, bend your upper body forward, extend both arms, and place your hands on the floor in front of you. The head faces forward and downward."
     },
     {
       "id": "pose_136_sexy_crossed_arms_lifting",
@@ -1396,7 +1531,8 @@
         "팔짱",
         "받쳐 올리기"
       ],
-      "description": "양쪽 아래팔을 앞아래에서 교차해 반대쪽을 감싸듯 하고 손가락을 구부려 얹는다. 팔은 몸에 닿지 않고 바짝 다가간다."
+      "description": "양쪽 아래팔을 앞아래에서 교차해 반대쪽을 감싸듯 하고 손가락을 구부려 얹는다. 팔은 몸에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Cross both lower arms in front and below, wrapping your arms around the other side and bending your fingers. The arms move closer without touching the body."
     },
     {
       "id": "pose_137_sexy_hands_wrapping_outside",
@@ -1406,7 +1542,8 @@
         "모아주기",
         "가슴 모으기"
       ],
-      "description": "양손으로 양바깥에서 안쪽으로 모아 손바닥이 안쪽을 향하게 하고 손가락을 편 채 두며, 팔꿈치를 옆으로 벌린다. 손바닥은 몸에 닿지 않고 바짝 다가간다."
+      "description": "양손으로 양바깥에서 안쪽으로 모아 손바닥이 안쪽을 향하게 하고 손가락을 편 채 두며, 팔꿈치를 옆으로 벌린다. 손바닥은 몸에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Bring both hands together from the outside to the inside, palms facing inward, fingers straight, and elbows spread out to the sides. The palms are brought close to the body without touching them."
     },
     {
       "id": "pose_138_sexy_hands_cupping_below",
@@ -1416,7 +1553,8 @@
         "받쳐 올리기",
         "가슴 모으기"
       ],
-      "description": "양손을 양바깥아래에서 안쪽으로 모아 손바닥이 위를 향하게 받치는 듯하고 팔꿈치를 아래바깥으로 둔다. 손바닥은 몸에 닿지 않고 바짝 다가간다."
+      "description": "양손을 양바깥아래에서 안쪽으로 모아 손바닥이 위를 향하게 받치는 듯하고 팔꿈치를 아래바깥으로 둔다. 손바닥은 몸에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Bring both hands together from the outside to the inside, as if supporting the palms facing upwards, and place the elbows down and out. The palms are brought close to the body without touching them."
     },
     {
       "id": "pose_139_sexy_hand_bra_cross_cover",
@@ -1426,7 +1564,8 @@
         "팔짱",
         "가리기"
       ],
-      "description": "양팔을 앞에서 교차해 각 손으로 반대쪽을 가리듯 덮고 손가락을 펴며, 팔꿈치를 옆으로 벌린다. 덮는 손은 몸에 닿지 않고 바짝 다가간다."
+      "description": "양팔을 앞에서 교차해 각 손으로 반대쪽을 가리듯 덮고 손가락을 펴며, 팔꿈치를 옆으로 벌린다. 덮는 손은 몸에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Cross your arms in front of you, cover the opposite side with each hand, spread your fingers, and spread your elbows to the sides. The covering hand moves closer without touching the body."
     },
     {
       "id": "pose_140_sexy_cover_one_side_hand_on_waist",
@@ -1436,7 +1575,8 @@
         "가리기",
         "손 허리"
       ],
-      "description": "오른손으로 오른쪽 위에서 대각선으로 가리듯 덮고 손가락을 모아 왼쪽으로 두며, 왼손은 허리에 얹는다. 덮는 손은 몸에 닿지 않고 바짝 다가간다."
+      "description": "오른손으로 오른쪽 위에서 대각선으로 가리듯 덮고 손가락을 모아 왼쪽으로 두며, 왼손은 허리에 얹는다. 덮는 손은 몸에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Cover with your right hand diagonally from the top right, place your fingers together and place them on the left, and place your left hand on your waist. The covering hand moves closer without touching the body."
     },
     {
       "id": "pose_141_sexy_cover_hand_behind_head",
@@ -1446,7 +1586,8 @@
         "가리기",
         "손 머리 뒤"
       ],
-      "description": "오른손은 오른쪽 옆아래에서 가리듯 덮고, 왼팔은 올려 손을 머리 뒤에 대며 팔꿈치를 위바깥으로 뺀다. 덮는 손은 몸 옆에 바짝 다가간다."
+      "description": "오른손은 오른쪽 옆아래에서 가리듯 덮고, 왼팔은 올려 손을 머리 뒤에 대며 팔꿈치를 위바깥으로 뺀다. 덮는 손은 몸 옆에 바짝 다가간다.",
+      "descriptionEn": "Cover your right hand under the right side as if covering it, raise your left arm, place your hand behind your head, and pull your elbow up and out. The covering hand is held close to the side of the body."
     },
     {
       "id": "pose_142_sexy_strap_pull_shoulders",
@@ -1456,7 +1597,8 @@
         "어깨 집기",
         "손 어깨"
       ],
-      "description": "양손으로 어깨선에서 끈을 벗기듯 집고 손가락을 구부리며 엄지를 받치고, 팔꿈치를 아래바깥으로 둔다. 고개는 정면을 향한다."
+      "description": "양손으로 어깨선에서 끈을 벗기듯 집고 손가락을 구부리며 엄지를 받치고, 팔꿈치를 아래바깥으로 둔다. 고개는 정면을 향한다.",
+      "descriptionEn": "Pick up a strap from the shoulder line with both hands, bend your fingers, support your thumb, and place your elbows down and out. The head faces forward."
     },
     {
       "id": "pose_143_sexy_hair_up_arched",
@@ -1466,7 +1608,8 @@
         "머리 넘기기",
         "젖히기"
       ],
-      "description": "등을 살짝 젖히고 가슴을 내밀며 양손으로 머리 위로 머리카락을 쓸어올리듯 하고 팔꿈치를 위바깥으로 벌린다. 고개는 정면을 향한다."
+      "description": "등을 살짝 젖히고 가슴을 내밀며 양손으로 머리 위로 머리카락을 쓸어올리듯 하고 팔꿈치를 위바깥으로 벌린다. 고개는 정면을 향한다.",
+      "descriptionEn": "Tilt your back slightly, stick out your chest, use both hands to sweep your hair over your head, and spread your elbows outward. The head faces forward."
     },
     {
       "id": "pose_144_sexy_hands_behind_head",
@@ -1476,7 +1619,8 @@
         "손 머리 뒤",
         "젖히기"
       ],
-      "description": "양손을 머리 뒤에 대고 팔꿈치를 위바깥으로 활짝 벌리며, 등을 살짝 젖혀 가슴을 내민다. 고개는 정면을 향한다."
+      "description": "양손을 머리 뒤에 대고 팔꿈치를 위바깥으로 활짝 벌리며, 등을 살짝 젖혀 가슴을 내민다. 고개는 정면을 향한다.",
+      "descriptionEn": "Put both hands behind your head, spread your elbows wide outward, slightly tilt your back and stick out your chest. The head faces forward."
     },
     {
       "id": "pose_145_sexy_fingers_tracing_under",
@@ -1486,7 +1630,8 @@
         "손가락 대기",
         "가슴 모으기"
       ],
-      "description": "양손을 아래바깥에서 안쪽으로 모아 손가락을 위안쪽으로 두고 밑선을 따라가듯 하며, 팔꿈치를 아래바깥으로 둔다. 손가락은 몸에 닿지 않고 바짝 다가간다."
+      "description": "양손을 아래바깥에서 안쪽으로 모아 손가락을 위안쪽으로 두고 밑선을 따라가듯 하며, 팔꿈치를 아래바깥으로 둔다. 손가락은 몸에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Bring both hands together from the outside to the inside, place your fingers upwards, as if following the bottom line, and place your elbows down and out. The fingers move closer without touching the body."
     },
     {
       "id": "pose_146_sexy_finger_at_lips_cover",
@@ -1496,7 +1641,8 @@
         "쉿",
         "가리기"
       ],
-      "description": "고개를 왼쪽으로 기울인 채 오른손 검지를 세워 입술 앞에 대고 나머지는 접으며, 왼손은 왼쪽 옆아래에서 가리듯 덮는다. 손가락 끝은 입술에 닿지 않고 바짝 다가간다."
+      "description": "고개를 왼쪽으로 기울인 채 오른손 검지를 세워 입술 앞에 대고 나머지는 접으며, 왼손은 왼쪽 옆아래에서 가리듯 덮는다. 손가락 끝은 입술에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Tilt your head to the left, place the index finger of your right hand in front of your lips, fold the rest, and cover the left hand below the left side as if covering it. The tips of your fingers come close to your lips without touching them."
     },
     {
       "id": "pose_147_sexy_hands_covering_front",
@@ -1506,7 +1652,8 @@
         "가리기",
         "손 모으기"
       ],
-      "description": "양손을 앞에서 모아 손가락을 곧게 펴 안쪽으로 향하게 하고 팔꿈치를 아래안으로 모은다. 손은 얼굴과 몸에 닿지 않고 앞에 머문다."
+      "description": "양손을 앞에서 모아 손가락을 곧게 펴 안쪽으로 향하게 하고 팔꿈치를 아래안으로 모은다. 손은 얼굴과 몸에 닿지 않고 앞에 머문다.",
+      "descriptionEn": "Bring both hands together in front of you, straighten your fingers and point them inward, and bring your elbows together. Hands stay in front of you without touching your face or body."
     },
     {
       "id": "pose_148_sexy_cross_cover_belly_trace",
@@ -1516,7 +1663,8 @@
         "팔짱",
         "허리 따라가기"
       ],
-      "description": "오른팔을 교차해 왼쪽 옆아래에서 가리듯 덮고 손가락을 모아 왼쪽으로 두며, 왼손은 왼쪽 허리 옆을 따라간다. 덮는 손은 몸에 닿지 않고 바짝 다가간다."
+      "description": "오른팔을 교차해 왼쪽 옆아래에서 가리듯 덮고 손가락을 모아 왼쪽으로 두며, 왼손은 왼쪽 허리 옆을 따라간다. 덮는 손은 몸에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Cross your right arm and cover it under the left side, place your fingers together to the left, and place your left hand along the side of your left waist. The covering hand moves closer without touching the body."
     },
     {
       "id": "pose_149_sexy_arms_behind_bracing",
@@ -1526,7 +1674,8 @@
         "손 등 뒤",
         "가슴 내밀기"
       ],
-      "description": "두 팔을 등 뒤로 돌려 엉덩이 근처에서 손을 받치듯 모으고, 가슴을 내밀고 턱을 살짝 든다. 손은 몸에 닿지 않고 바짝 다가간다."
+      "description": "두 팔을 등 뒤로 돌려 엉덩이 근처에서 손을 받치듯 모으고, 가슴을 내밀고 턱을 살짝 든다. 손은 몸에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Rotate your arms behind your back and bring your hands together near your hips, stick out your chest and slightly lift your chin. The hands move closer without touching the body."
     },
     {
       "id": "pose_150_sexy_prone_one_hand_lifting",
@@ -1537,7 +1686,8 @@
         "엎드리기",
         "한 손 들기"
       ],
-      "description": "엎드려 턱을 들어 정면을 향한 채 왼팔뚝은 앞으로 바닥에 쉬게 하고, 오른손은 오른쪽 옆아래에서 들어올리듯 한다. 무릎을 굽혀 종아리를 위로 든다."
+      "description": "엎드려 턱을 들어 정면을 향한 채 왼팔뚝은 앞으로 바닥에 쉬게 하고, 오른손은 오른쪽 옆아래에서 들어올리듯 한다. 무릎을 굽혀 종아리를 위로 든다.",
+      "descriptionEn": "Lie face down, lift your chin, face the front, rest your left forearm on the floor in front of you, and lift your right hand from below the right side. Bend your knees and lift your calves up."
     },
     {
       "id": "pose_151_sexy_all_fours_arched_looking_up",
@@ -1547,7 +1697,8 @@
         "무릎 꿇기",
         "젖혀 올려다보기"
       ],
-      "description": "두 무릎을 꿇고 등을 아치형으로 젖혀 가슴을 앞아래로 내밀며, 양팔을 쭉 뻗어 손을 앞바닥에 두고 고개를 들어 정면을 향한다."
+      "description": "두 무릎을 꿇고 등을 아치형으로 젖혀 가슴을 앞아래로 내밀며, 양팔을 쭉 뻗어 손을 앞바닥에 두고 고개를 들어 정면을 향한다.",
+      "descriptionEn": "Kneel on both knees, arch your back, push your chest forward and down, extend both arms, place your hands on the floor in front of you, and raise your head to face the front."
     },
     {
       "id": "pose_152_sexy_kneel_lean_hand_at_chest",
@@ -1557,7 +1708,8 @@
         "무릎 꿇기",
         "손 가슴"
       ],
-      "description": "두 무릎을 꿇고 상체를 앞으로 숙인 채 왼팔은 아래로 뻗어 손을 낮게 받치고, 오른손은 가슴 중앙에 얹어 손가락을 모은다. 고개는 앞아래를 향하며, 가슴 손은 닿지 않고 바짝 다가간다."
+      "description": "두 무릎을 꿇고 상체를 앞으로 숙인 채 왼팔은 아래로 뻗어 손을 낮게 받치고, 오른손은 가슴 중앙에 얹어 손가락을 모은다. 고개는 앞아래를 향하며, 가슴 손은 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Kneel on both knees, bend your upper body forward, extend your left arm downward, support your hand low, and place your right hand on the center of your chest with your fingers together. The head is turned forward and down, and the hands are brought close to the chest without touching it."
     },
     {
       "id": "pose_153_sexy_kneel_stretch_forward",
@@ -1567,7 +1719,8 @@
         "무릎 꿇기",
         "앞으로 뻗기"
       ],
-      "description": "두 무릎을 꿇고 상체를 낮게 앞으로 뻗어 기지개하듯 하며, 양팔을 앞으로 뻗어 손을 바닥에 둔다. 고개는 앞아래를 향한다."
+      "description": "두 무릎을 꿇고 상체를 낮게 앞으로 뻗어 기지개하듯 하며, 양팔을 앞으로 뻗어 손을 바닥에 둔다. 고개는 앞아래를 향한다.",
+      "descriptionEn": "Kneel on both knees and extend your upper body forward low, as if stretching. Extend both arms forward and place your hands on the floor. The head faces forward and downward."
     },
     {
       "id": "pose_154_sexy_kneel_arched_hands_on_heels",
@@ -1577,7 +1730,8 @@
         "무릎 꿇기",
         "젖히기"
       ],
-      "description": "두 무릎을 꿇고 상체를 똑바로 세워 등을 젖히고 가슴을 위바깥으로 내밀며, 양팔을 뒤아래로 뻗어 손을 뒷꿈치 옆에 둔다. 손은 발에 닿지 않고 옆에 머문다."
+      "description": "두 무릎을 꿇고 상체를 똑바로 세워 등을 젖히고 가슴을 위바깥으로 내밀며, 양팔을 뒤아래로 뻗어 손을 뒷꿈치 옆에 둔다. 손은 발에 닿지 않고 옆에 머문다.",
+      "descriptionEn": "Kneel on both knees, straighten your upper body, tilt your back, stick your chest up and out, extend both arms back and down, and place your hands next to your heels. Hands stay at the sides without touching the feet."
     },
     {
       "id": "pose_155_sexy_kneel_hands_behind_head",
@@ -1587,7 +1741,8 @@
         "무릎 꿇기",
         "손 머리 뒤"
       ],
-      "description": "두 무릎을 꿇고 상체를 똑바로 세운 채 양손을 머리 뒤에 대고 팔꿈치를 위바깥으로 활짝 벌리며, 가슴을 내민다. 고개는 정면을 향한다."
+      "description": "두 무릎을 꿇고 상체를 똑바로 세운 채 양손을 머리 뒤에 대고 팔꿈치를 위바깥으로 활짝 벌리며, 가슴을 내민다. 고개는 정면을 향한다.",
+      "descriptionEn": "Kneel on both knees, keep your upper body upright, place both hands behind your head, spread your elbows wide outward, and stick out your chest. The head faces forward."
     },
     {
       "id": "pose_156_sexy_fingers_at_mouth_cover",
@@ -1597,7 +1752,8 @@
         "손가락 입술",
         "가리기"
       ],
-      "description": "고개를 왼쪽으로 기울인 채 오른손 검지와 중지를 입가에 대고 나머지는 접으며, 왼손은 왼쪽 옆아래에서 가리듯 덮는다. 손가락 끝은 입술에 닿지 않고 바짝 다가간다."
+      "description": "고개를 왼쪽으로 기울인 채 오른손 검지와 중지를 입가에 대고 나머지는 접으며, 왼손은 왼쪽 옆아래에서 가리듯 덮는다. 손가락 끝은 입술에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Tilt your head to the left, place your right index and middle finger at the corner of your mouth, fold the rest, and cover your left hand below the left side as if covering it. The tips of your fingers come close to your lips without touching them."
     },
     {
       "id": "pose_157_sexy_neck_grab_cover",
@@ -1607,7 +1763,8 @@
         "손 목",
         "가리기"
       ],
-      "description": "등을 살짝 젖히고 고개를 뒤로 젖힌 채 오른손으로 목 앞을 감싸듯 쥐고, 왼손은 왼쪽 옆아래에서 가리듯 덮는다. 목을 쥐는 손가락은 누른다는 서술 없이 가볍게 감싼다."
+      "description": "등을 살짝 젖히고 고개를 뒤로 젖힌 채 오른손으로 목 앞을 감싸듯 쥐고, 왼손은 왼쪽 옆아래에서 가리듯 덮는다. 목을 쥐는 손가락은 누른다는 서술 없이 가볍게 감싼다.",
+      "descriptionEn": "Tilt your back slightly, tilt your head back, hold your right hand as if covering the front of your neck, and cover your left hand under the left side as if covering it. The fingers that hold the neck are wrapped lightly without any description of pressing."
     },
     {
       "id": "pose_158_sexy_gather_thrust_out",
@@ -1617,7 +1774,8 @@
         "받쳐 올리기",
         "가슴 내밀기"
       ],
-      "description": "가슴을 내밀고 선 채 양손을 양바깥아래에서 안쪽으로 모아 손바닥이 위를 향하게 받치는 듯하고 팔꿈치를 아래바깥으로 둔다. 손바닥은 몸에 닿지 않고 바짝 다가간다."
+      "description": "가슴을 내밀고 선 채 양손을 양바깥아래에서 안쪽으로 모아 손바닥이 위를 향하게 받치는 듯하고 팔꿈치를 아래바깥으로 둔다. 손바닥은 몸에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Stand with your chest out and place your hands together from the outside to the inside, as if supporting your palms with your palms facing upwards, with your elbows down and out. The palms are brought close to the body without touching them."
     },
     {
       "id": "pose_159_sexy_side_lean_crossed_hold",
@@ -1627,7 +1785,8 @@
         "기대기",
         "팔짱"
       ],
-      "description": "왼쪽으로 기대듯 상체를 기울이고 고개를 왼쪽으로 되돌린 채, 양쪽 아래팔을 앞에서 교차해 반대쪽을 감싸듯 한다. 완전히 눕는 대신 선 채로 기울이며, 감싸는 손은 몸에 닿지 않고 바짝 다가간다."
+      "description": "왼쪽으로 기대듯 상체를 기울이고 고개를 왼쪽으로 되돌린 채, 양쪽 아래팔을 앞에서 교차해 반대쪽을 감싸듯 한다. 완전히 눕는 대신 선 채로 기울이며, 감싸는 손은 몸에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Tilt your upper body as if leaning to the left, turn your head back to the left, and cross both lower arms in front of you as if wrapping the other side. Instead of lying down completely, lean while standing, and place the wrapping hand close to the body without touching it."
     },
     {
       "id": "pose_160_sexy_supine_hands_on_front",
@@ -1638,7 +1797,8 @@
         "바로 눕기",
         "손 앞"
       ],
-      "description": "바로 누워 다리를 곧게 모은 채 양손을 앞에 두고 손가락을 벌려 안쪽으로 둔다. 고개는 바닥에 쉬며 위를 향하고, 손은 몸에 닿지 않고 바짝 다가간다."
+      "description": "바로 누워 다리를 곧게 모은 채 양손을 앞에 두고 손가락을 벌려 안쪽으로 둔다. 고개는 바닥에 쉬며 위를 향하고, 손은 몸에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Lie down on your back, place your hands straight in front of you, and place your fingers inward. The head rests on the floor and faces upward, and the hands are brought close to the body without touching it."
     },
     {
       "id": "pose_161_sexy_supine_arms_up_arched",
@@ -1649,7 +1809,8 @@
         "바로 눕기",
         "두 팔 들기"
       ],
-      "description": "바로 누워 다리를 곧게 모으고 등을 살짝 젖힌 채 양팔을 머리 위로 쭉 뻗어 손을 편안히 편다. 고개는 바닥에 쉬며, 손바닥은 위바깥을 향한다."
+      "description": "바로 누워 다리를 곧게 모으고 등을 살짝 젖힌 채 양팔을 머리 위로 쭉 뻗어 손을 편안히 편다. 고개는 바닥에 쉬며, 손바닥은 위바깥을 향한다.",
+      "descriptionEn": "Lie down on your back, straighten your legs, slightly tilt your back, stretch your arms above your head, and stretch your hands comfortably. Rest your head on the floor, with your palms facing upward and outward."
     },
     {
       "id": "pose_162_sexy_deep_bend_arms_between_thighs",
@@ -1659,7 +1820,8 @@
         "숙이기",
         "다가오기"
       ],
-      "description": "곧은 다리로 서서 상체를 깊이 숙이고 양팔을 앞아래로 함께 늘어뜨리며, 고개를 아래로 향한다."
+      "description": "곧은 다리로 서서 상체를 깊이 숙이고 양팔을 앞아래로 함께 늘어뜨리며, 고개를 아래로 향한다.",
+      "descriptionEn": "Stand with straight legs, bow your upper body deeply, let your arms hang together in front and down, and turn your head down."
     },
     {
       "id": "pose_163_sexy_arms_behind_at_waist",
@@ -1669,7 +1831,8 @@
         "손 등 뒤",
         "가슴 내밀기"
       ],
-      "description": "두 팔을 등 뒤로 돌려 허리 뒤에서 손을 모으듯 하고 팔꿈치를 옆으로 벌리며, 가슴을 내밀고 턱을 살짝 든다. 손은 허리에 닿지 않고 바짝 다가간다."
+      "description": "두 팔을 등 뒤로 돌려 허리 뒤에서 손을 모으듯 하고 팔꿈치를 옆으로 벌리며, 가슴을 내밀고 턱을 살짝 든다. 손은 허리에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Rotate both arms behind your back as if you were putting your hands together behind your back, spread your elbows to the sides, stick out your chest, and slightly lift your chin. The hands move closer without touching the waist."
     },
     {
       "id": "pose_164_sexy_diagonal_cover_lift_below",
@@ -1679,7 +1842,8 @@
         "가리기",
         "받쳐 올리기"
       ],
-      "description": "오른손으로 앞 중앙을 대각선으로 가리듯 덮고 손가락을 모으며, 왼손은 왼쪽 옆아래에서 받치는 듯한다. 양손 모두 몸에 닿지 않고 바짝 다가간다."
+      "description": "오른손으로 앞 중앙을 대각선으로 가리듯 덮고 손가락을 모으며, 왼손은 왼쪽 옆아래에서 받치는 듯한다. 양손 모두 몸에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "The right hand covers the front center diagonally and the fingers are brought together, and the left hand appears to be supported below the left side. Both hands move closer without touching the body."
     },
     {
       "id": "pose_165_sexy_fingers_into_valley_waist",
@@ -1689,7 +1853,8 @@
         "손가락 대기",
         "손 허리"
       ],
-      "description": "고개를 왼쪽으로 기울인 채 오른손 손가락을 앞 중앙을 따라 아래로 미끄러지듯 두고 손을 안쪽으로 기울이며, 왼손은 허리에 얹는다. 손가락은 몸에 닿지 않고 바짝 다가간다."
+      "description": "고개를 왼쪽으로 기울인 채 오른손 손가락을 앞 중앙을 따라 아래로 미끄러지듯 두고 손을 안쪽으로 기울이며, 왼손은 허리에 얹는다. 손가락은 몸에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Tilt your head to the left, slide the fingers of your right hand down along the front center, tilt your hand inward, and place your left hand on your waist. The fingers move closer without touching the body."
     },
     {
       "id": "pose_166_sexy_hands_on_front_chin_down",
@@ -1699,7 +1864,8 @@
         "턱 당기기",
         "손 모으기"
       ],
-      "description": "턱을 아래로 당긴 채 양손을 양바깥아래에서 모아 앞에 두고 손가락을 모아 위안쪽으로 두며, 팔꿈치를 아래바깥으로 둔다. 손은 몸에 닿지 않고 바짝 다가간다."
+      "description": "턱을 아래로 당긴 채 양손을 양바깥아래에서 모아 앞에 두고 손가락을 모아 위안쪽으로 두며, 팔꿈치를 아래바깥으로 둔다. 손은 몸에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Pull your chin down and place both hands together in front of you, place your fingers together and place them toward your stomach, and place your elbows down and out. The hands move closer without touching the body."
     },
     {
       "id": "pose_167_sexy_standing_s_curve_hips_out",
@@ -1709,7 +1875,8 @@
         "S자",
         "힙 빼기"
       ],
-      "description": "골반을 캐릭터의 오른쪽으로 밀어 S자 곡선을 만들고 상체를 반대로 굽혀 고개를 왼쪽으로 살짝 기울인 채, 양팔은 옆에 편안히 내린다. 양발바닥을 바닥에 붙인다."
+      "description": "골반을 캐릭터의 오른쪽으로 밀어 S자 곡선을 만들고 상체를 반대로 굽혀 고개를 왼쪽으로 살짝 기울인 채, 양팔은 옆에 편안히 내린다. 양발바닥을 바닥에 붙인다.",
+      "descriptionEn": "Push your pelvis to the right of the character to create an S-shaped curve, bend your upper body in the opposite direction, tilt your head slightly to the left, and lower your arms comfortably by your sides. Place the soles of both feet on the floor."
     },
     {
       "id": "pose_168_sexy_standing_arched_hands_in_hair",
@@ -1719,7 +1886,8 @@
         "젖히기",
         "머리 넘기기"
       ],
-      "description": "등을 젖히고 턱을 든 채 양손으로 머리카락을 쓸어올리듯 하고 팔꿈치를 옆으로 벌린다. 손가락은 머리에 닿지 않고 바짝 다가간다."
+      "description": "등을 젖히고 턱을 든 채 양손으로 머리카락을 쓸어올리듯 하고 팔꿈치를 옆으로 벌린다. 손가락은 머리에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Tilt your back, lift your chin, use both hands to sweep your hair, and spread your elbows to the sides. The fingers move closer to the head without touching it."
     },
     {
       "id": "pose_169_sexy_standing_hips_out_look_back",
@@ -1729,7 +1897,8 @@
         "힙 빼기",
         "뒤돌아보기"
       ],
-      "description": "골반을 빼고 상체와 고개를 오른쪽으로 돌려 뒤를 돌아보며, 오른손은 허리 옆에 두고 왼팔은 편안히 내린다. 양발바닥을 바닥에 붙인다."
+      "description": "골반을 빼고 상체와 고개를 오른쪽으로 돌려 뒤를 돌아보며, 오른손은 허리 옆에 두고 왼팔은 편안히 내린다. 양발바닥을 바닥에 붙인다.",
+      "descriptionEn": "Pull out your pelvis and turn your upper body and head to the right to look back. Place your right hand next to your waist and lower your left arm comfortably. Place the soles of both feet on the floor."
     },
     {
       "id": "pose_170_sexy_standing_bent_hands_on_knees",
@@ -1739,7 +1908,8 @@
         "숙이기",
         "손 무릎 위"
       ],
-      "description": "상체를 앞으로 숙이고 무릎을 살짝 굽힌 채 두 손을 무릎 위에 올리듯 하고 고개를 들어 정면을 향한다. 손은 무릎에 닿지 않고 바짝 다가간다."
+      "description": "상체를 앞으로 숙이고 무릎을 살짝 굽힌 채 두 손을 무릎 위에 올리듯 하고 고개를 들어 정면을 향한다. 손은 무릎에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Lean your upper body forward, slightly bend your knees, place your hands on your knees, and raise your head to face the front. The hands move closer to the knees without touching them."
     },
     {
       "id": "pose_171_sexy_standing_hug_knee_arched",
@@ -1749,7 +1919,8 @@
         "한 다리 들기",
         "젖히기"
       ],
-      "description": "오른발로만 서서 왼무릎을 가슴 쪽으로 끌어올려 양손으로 감싸듯 하고 등을 젖혀 턱을 든다. 감싸는 손은 다리에 닿지 않고 바짝 다가간다."
+      "description": "오른발로만 서서 왼무릎을 가슴 쪽으로 끌어올려 양손으로 감싸듯 하고 등을 젖혀 턱을 든다. 감싸는 손은 다리에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Stand on your right foot only, bring your left knee toward your chest, wrap it with both hands, tilt your back, and lift your chin. The hand that covers it moves closer without touching the leg."
     },
     {
       "id": "pose_172_sexy_standing_hand_on_wall_hips_out",
@@ -1759,7 +1930,8 @@
         "벽 짚기",
         "힙 빼기"
       ],
-      "description": "왼손바닥을 옆 벽 쪽으로 내밀어 짚는 듯하고 골반을 오른쪽으로 밀며 오른팔은 편안히 내린다. 왼손은 벽에 닿는 대신 허공에 머문다."
+      "description": "왼손바닥을 옆 벽 쪽으로 내밀어 짚는 듯하고 골반을 오른쪽으로 밀며 오른팔은 편안히 내린다. 왼손은 벽에 닿는 대신 허공에 머문다.",
+      "descriptionEn": "Extend your left palm toward the wall next to you as if touching it, push your pelvis to the right, and lower your right arm comfortably. The left hand stays in the air instead of touching the wall."
     },
     {
       "id": "pose_173_sexy_standing_back_look_back_butt",
@@ -1769,7 +1941,8 @@
         "뒤돌아보기",
         "등 보이기"
       ],
-      "description": "뒤를 보이고 서서 엉덩이를 뒤로 두고 고개를 왼쪽 어깨 너머로 돌려 뒤를 돌아보며, 두 손은 허리 옆에 둔다. 양발바닥을 바닥에 붙인다."
+      "description": "뒤를 보이고 서서 엉덩이를 뒤로 두고 고개를 왼쪽 어깨 너머로 돌려 뒤를 돌아보며, 두 손은 허리 옆에 둔다. 양발바닥을 바닥에 붙인다.",
+      "descriptionEn": "Stand with your back facing, place your hips back, turn your head over your left shoulder to look back, and place both hands next to your waist. Place the soles of both feet on the floor."
     },
     {
       "id": "pose_174_sexy_standing_i_shape_leg_hold",
@@ -1779,7 +1952,8 @@
         "한 다리 들기",
         "I자"
       ],
-      "description": "왼발로만 서서 오른다리를 들어 올릴 수 있는 높이까지 앞으로 들고 오른손을 발목 쪽으로 뻗으며 왼팔은 옆으로 벌려 균형을 잡는다. 손은 발목에 닿지 않고 바짝 다가간다."
+      "description": "왼발로만 서서 오른다리를 들어 올릴 수 있는 높이까지 앞으로 들고 오른손을 발목 쪽으로 뻗으며 왼팔은 옆으로 벌려 균형을 잡는다. 손은 발목에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Stand on your left foot only, raise your right leg forward as high as you can, extend your right hand toward your ankle, and spread your left arm out to the side for balance. The hand moves closer to the ankle without touching it."
     },
     {
       "id": "pose_175_sexy_standing_shower_hair_rake",
@@ -1789,7 +1963,8 @@
         "머리 넘기기",
         "젖히기"
       ],
-      "description": "턱을 뒤로 젖힌 채 양손으로 머리카락을 뒤로 쓸어넘기듯 하고 팔꿈치를 위로 벌린다. 손가락은 머리에 닿지 않고 바짝 다가간다."
+      "description": "턱을 뒤로 젖힌 채 양손으로 머리카락을 뒤로 쓸어넘기듯 하고 팔꿈치를 위로 벌린다. 손가락은 머리에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Tilt your chin back, use both hands to sweep your hair back, and spread your elbows upward. The fingers move closer to the head without touching it."
     },
     {
       "id": "pose_176_sexy_standing_gather_bust",
@@ -1799,7 +1974,8 @@
         "모아주기",
         "가슴 모으기"
       ],
-      "description": "턱을 살짝 당긴 채 양팔을 양바깥아래에서 안쪽으로 모아 손가락을 모으고 팔꿈치를 아래바깥으로 둔다. 손은 몸에 닿지 않고 바짝 다가간다."
+      "description": "턱을 살짝 당긴 채 양팔을 양바깥아래에서 안쪽으로 모아 손가락을 모으고 팔꿈치를 아래바깥으로 둔다. 손은 몸에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "With your chin slightly pulled in, bring your arms together from the outside to the inside, place your fingers together, and place your elbows down and out. The hands move closer without touching the body."
     },
     {
       "id": "pose_177_sexy_standing_stretch_twist",
@@ -1809,7 +1985,8 @@
         "기지개",
         "허리 틀기"
       ],
-      "description": "두 팔을 머리 위로 쭉 뻗어 기지개 켜듯 하고 허리를 왼쪽으로 살짝 틀며 고개도 그쪽으로 돌린다. 양발바닥을 바닥에 붙인다."
+      "description": "두 팔을 머리 위로 쭉 뻗어 기지개 켜듯 하고 허리를 왼쪽으로 살짝 틀며 고개도 그쪽으로 돌린다. 양발바닥을 바닥에 붙인다.",
+      "descriptionEn": "Extend both arms above your head as if stretching, slightly twist your waist to the left, and turn your head that way. Place the soles of both feet on the floor."
     },
     {
       "id": "pose_178_sexy_standing_v_shape",
@@ -1819,7 +1996,8 @@
         "V자",
         "두 팔 들기"
       ],
-      "description": "두 팔을 위로 벌려 V자로 들고 두 발도 V자로 벌려 서서 가슴을 펴고 턱을 살짝 든다."
+      "description": "두 팔을 위로 벌려 V자로 들고 두 발도 V자로 벌려 서서 가슴을 펴고 턱을 살짝 든다.",
+      "descriptionEn": "Open your arms upward in a V shape, stand with your feet apart in a V shape, straighten your chest, and slightly lift your chin."
     },
     {
       "id": "pose_179_sexy_standing_hands_behind_chest_out",
@@ -1829,7 +2007,8 @@
         "손 등 뒤",
         "가슴 내밀기"
       ],
-      "description": "두 팔을 등 뒤로 돌려 엉덩이 뒤에서 양손을 모으듯 하고 가슴을 내밀고 턱을 살짝 든다. 손은 몸에 닿지 않고 바짝 다가간다."
+      "description": "두 팔을 등 뒤로 돌려 엉덩이 뒤에서 양손을 모으듯 하고 가슴을 내밀고 턱을 살짝 든다. 손은 몸에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Rotate both arms behind your back as if you were putting your hands together behind your hips, stick out your chest, and slightly lift your chin. The hands move closer without touching the body."
     },
     {
       "id": "pose_180_sexy_standing_forward_bend_hands_floor",
@@ -1839,7 +2018,8 @@
         "숙이기",
         "바닥 짚기"
       ],
-      "description": "엉덩이를 뒤로 빼고 상체를 깊이 숙인 채 두 팔을 늘어뜨려 손가락을 발 앞 바닥을 향해 내린다. 손가락은 바닥에 닿지 않고 허공에 머문다."
+      "description": "엉덩이를 뒤로 빼고 상체를 깊이 숙인 채 두 팔을 늘어뜨려 손가락을 발 앞 바닥을 향해 내린다. 손가락은 바닥에 닿지 않고 허공에 머문다.",
+      "descriptionEn": "With your hips back and your upper body deeply bent, hang your arms and lower your fingers toward the floor in front of your feet. The fingers stay in the air without touching the floor."
     },
     {
       "id": "pose_181_sexy_standing_hands_waist_knee_in_arched",
@@ -1849,7 +2029,8 @@
         "손 허리",
         "젖히기"
       ],
-      "description": "양손을 허리에 얹고 오른무릎을 살짝 굽혀 안쪽으로 모으며 등을 젖혀 고개를 기울인다. 양발바닥을 바닥에 붙인다."
+      "description": "양손을 허리에 얹고 오른무릎을 살짝 굽혀 안쪽으로 모으며 등을 젖혀 고개를 기울인다. 양발바닥을 바닥에 붙인다.",
+      "descriptionEn": "Place both hands on your waist, slightly bend your right knee, bring it inward, tilt your back and tilt your head. Place the soles of both feet on the floor."
     },
     {
       "id": "pose_182_sexy_seated_side_hand_prop_curve",
@@ -1860,7 +2041,8 @@
         "횡좌",
         "손 바닥"
       ],
-      "description": "두 다리를 함께 오른쪽으로 접어 앉아 왼손바닥을 옆 바닥 쪽으로 내밀어 기대는 듯하고 상체를 곡선으로 굽혀 고개를 기울인다. 왼손은 바닥에 닿지 않고 허공에 머문다."
+      "description": "두 다리를 함께 오른쪽으로 접어 앉아 왼손바닥을 옆 바닥 쪽으로 내밀어 기대는 듯하고 상체를 곡선으로 굽혀 고개를 기울인다. 왼손은 바닥에 닿지 않고 허공에 머문다.",
+      "descriptionEn": "Sit with both legs folded to the right and put your left palm out toward the floor next to you as if leaning. Bend your upper body in a curve and tilt your head. The left hand stays in the air without touching the floor."
     },
     {
       "id": "pose_183_sexy_seated_seiza_chest_out_arched",
@@ -1871,7 +2053,8 @@
         "정좌",
         "젖히기"
       ],
-      "description": "정좌로 앉아 가슴을 앞으로 내밀고 등을 젖혀 턱을 살짝 들고, 두 손은 허벅지 위에 얹는다."
+      "description": "정좌로 앉아 가슴을 앞으로 내밀고 등을 젖혀 턱을 살짝 들고, 두 손은 허벅지 위에 얹는다.",
+      "descriptionEn": "Sit upright, push your chest forward, tilt your back, slightly lift your chin, and place both hands on your thighs."
     },
     {
       "id": "pose_184_sexy_seated_m_shape_hands_behind",
@@ -1882,7 +2065,8 @@
         "M자",
         "뒤로 짚기"
       ],
-      "description": "무릎을 세워 적당히 벌린 M자로 앉아 상체를 살짝 뒤로 기대고 두 손바닥을 엉덩이 뒤쪽에 두는 듯한다. 손바닥은 바닥에 닿지 않고 허공에 머문다."
+      "description": "무릎을 세워 적당히 벌린 M자로 앉아 상체를 살짝 뒤로 기대고 두 손바닥을 엉덩이 뒤쪽에 두는 듯한다. 손바닥은 바닥에 닿지 않고 허공에 머문다.",
+      "descriptionEn": "Sit in an M-shape with your knees slightly apart, leaning your upper body back slightly and placing your palms behind your hips. The palms do not touch the floor but remain in the air."
     },
     {
       "id": "pose_185_sexy_seated_m_shape_hands_on_knees",
@@ -1893,7 +2077,8 @@
         "M자",
         "손 무릎 위"
       ],
-      "description": "무릎을 세워 적당히 벌린 M자로 앉아 상체를 살짝 앞으로 기울이고 두 손을 무릎 위에 올리듯 한다. 손은 무릎에 닿지 않고 바짝 다가간다."
+      "description": "무릎을 세워 적당히 벌린 M자로 앉아 상체를 살짝 앞으로 기울이고 두 손을 무릎 위에 올리듯 한다. 손은 무릎에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Sit in an M-shape with your knees slightly apart, tilt your upper body slightly forward and place your hands on your knees. The hands move closer to the knees without touching them."
     },
     {
       "id": "pose_186_sexy_seated_wide_v_hands_behind",
@@ -1904,7 +2089,8 @@
         "V자",
         "뒤로 짚기"
       ],
-      "description": "다리를 앞으로 뻗어 V자로 벌리고 앉아 두 손바닥을 엉덩이 뒤쪽에 두는 듯하며 가슴을 펴고 턱을 살짝 든다. 손바닥은 바닥에 닿지 않고 허공에 머문다."
+      "description": "다리를 앞으로 뻗어 V자로 벌리고 앉아 두 손바닥을 엉덩이 뒤쪽에 두는 듯하며 가슴을 펴고 턱을 살짝 든다. 손바닥은 바닥에 닿지 않고 허공에 머문다.",
+      "descriptionEn": "Sit with your legs spread forward in a V-shape, place your palms behind your hips, straighten your chest, and slightly lift your chin. The palms do not touch the floor but remain in the air."
     },
     {
       "id": "pose_187_sexy_seated_leg_raised_hold_ankle",
@@ -1915,7 +2101,8 @@
         "다리 들기",
         "발목 잡기"
       ],
-      "description": "앉은 채 왼다리를 들어 올릴 수 있는 높이까지 뻗어 양손을 발목 쪽으로 뻗고 오른다리는 접어 두며 상체는 발목 쪽을 향한다. 손은 발목에 닿지 않고 바짝 다가간다."
+      "description": "앉은 채 왼다리를 들어 올릴 수 있는 높이까지 뻗어 양손을 발목 쪽으로 뻗고 오른다리는 접어 두며 상체는 발목 쪽을 향한다. 손은 발목에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Sit down and raise your left leg as high as you can, extend both hands toward the ankle, fold your right leg, and turn your upper body toward the ankle. The hand moves closer to the ankle without touching it."
     },
     {
       "id": "pose_188_sexy_seated_m_shape_elbows_back",
@@ -1926,7 +2113,8 @@
         "M자",
         "팔꿈치 기대기"
       ],
-      "description": "무릎을 세워 적당히 벌린 M자로 앉아 상체를 뒤로 기대어 두 팔꿈치를 뒤쪽에 두는 듯하고 가슴을 펴 턱을 든다. 팔꿈치는 바닥에 닿지 않고 허공에 머문다."
+      "description": "무릎을 세워 적당히 벌린 M자로 앉아 상체를 뒤로 기대어 두 팔꿈치를 뒤쪽에 두는 듯하고 가슴을 펴 턱을 든다. 팔꿈치는 바닥에 닿지 않고 허공에 머문다.",
+      "descriptionEn": "Sit in an M-shape with your knees slightly apart, lean your upper body back, place your elbows behind you, and lift your chin by stretching your chest. The elbows do not touch the floor and remain in the air."
     },
     {
       "id": "pose_189_sexy_seated_legs_out_elbow_prop",
@@ -1937,7 +2125,8 @@
         "다리 뻗기",
         "팔꿈치 기대기"
       ],
-      "description": "다리를 앞으로 모아 뻗고 앉아 상체를 왼쪽으로 기울여 왼팔꿈치를 옆에 두는 듯하고 오른손은 무릎 쪽에 두며 고개를 기울인다. 왼팔꿈치는 바닥에 닿지 않고 허공에 머문다."
+      "description": "다리를 앞으로 모아 뻗고 앉아 상체를 왼쪽으로 기울여 왼팔꿈치를 옆에 두는 듯하고 오른손은 무릎 쪽에 두며 고개를 기울인다. 왼팔꿈치는 바닥에 닿지 않고 허공에 머문다.",
+      "descriptionEn": "Sit with your legs stretched out in front of you, tilt your upper body to the left as if placing your left elbow by your side, place your right hand on your knee, and tilt your head. The left elbow does not touch the floor but stays in the air."
     },
     {
       "id": "pose_190_sexy_seated_hug_legs_open",
@@ -1948,7 +2137,8 @@
         "무릎 세우기",
         "끌어안기"
       ],
-      "description": "무릎을 세워 벌린 채 앉아 양팔로 정강이를 감싸듯 안고 상체를 앞으로 숙여 턱을 무릎 쪽으로 향한다. 손은 다리에 닿지 않고 바짝 다가간다."
+      "description": "무릎을 세워 벌린 채 앉아 양팔로 정강이를 감싸듯 안고 상체를 앞으로 숙여 턱을 무릎 쪽으로 향한다. 손은 다리에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Sit with your knees spread out, hug your shins with both arms, and bend your upper body forward with your chin toward your knees. The hand moves closer without touching the leg."
     },
     {
       "id": "pose_191_sexy_seated_hug_knee_arched",
@@ -1959,7 +2149,8 @@
         "무릎 세우기",
         "젖히기"
       ],
-      "description": "왼무릎을 세워 양팔로 감싸듯 안고 등을 젖혀 턱을 들며 오른다리는 옆으로 접어 둔다. 감싸는 손은 다리에 닿지 않고 바짝 다가간다."
+      "description": "왼무릎을 세워 양팔로 감싸듯 안고 등을 젖혀 턱을 들며 오른다리는 옆으로 접어 둔다. 감싸는 손은 다리에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Raise your left knee and embrace it with both arms, tilt your back, lift your chin, and fold your right leg to the side. The hand that covers it moves closer without touching the leg."
     },
     {
       "id": "pose_192_sexy_seated_side_hair_rake",
@@ -1970,7 +2161,8 @@
         "횡좌",
         "머리 넘기기"
       ],
-      "description": "두 다리를 함께 오른쪽으로 접어 앉아 왼손바닥을 뒤쪽에 두는 듯하고 오른손으로 머리카락을 쓸어올리듯 하며 상체를 굽힌다. 오른손가락은 머리에 닿지 않고 바짝 다가간다."
+      "description": "두 다리를 함께 오른쪽으로 접어 앉아 왼손바닥을 뒤쪽에 두는 듯하고 오른손으로 머리카락을 쓸어올리듯 하며 상체를 굽힌다. 오른손가락은 머리에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Sit with both legs folded to the right, placing your left palm behind you, and bend your upper body as if you were sweeping your hair with your right hand. The right finger approaches the head without touching it."
     },
     {
       "id": "pose_193_sexy_seated_petan_hands_front_gather",
@@ -1981,7 +2173,8 @@
         "다리 접기",
         "모아주기"
       ],
-      "description": "정강이를 양옆으로 접어 앉아 상체를 살짝 앞으로 기울이고 양팔을 양옆에서 안쪽으로 모아 손가락을 모은다. 손은 몸에 닿지 않고 바짝 다가간다."
+      "description": "정강이를 양옆으로 접어 앉아 상체를 살짝 앞으로 기울이고 양팔을 양옆에서 안쪽으로 모아 손가락을 모은다. 손은 몸에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Sit with your shins folded to the sides, tilt your upper body slightly forward, bring your arms inward from the sides, and place your fingers together. The hands move closer without touching the body."
     },
     {
       "id": "pose_194_sexy_seated_knee_up_hand_behind",
@@ -1992,7 +2185,8 @@
         "한쪽 무릎 세우기",
         "뒤로 짚기"
       ],
-      "description": "왼무릎을 세우고 오른다리는 접어 앉아 오른손바닥을 엉덩이 뒤쪽에 두는 듯하고 왼손은 세운 무릎 위에 올리듯 한다. 양손 모두 닿지 않고 머문다."
+      "description": "왼무릎을 세우고 오른다리는 접어 앉아 오른손바닥을 엉덩이 뒤쪽에 두는 듯하고 왼손은 세운 무릎 위에 올리듯 한다. 양손 모두 닿지 않고 머문다.",
+      "descriptionEn": "Sit with your left knee raised and your right leg folded, placing your right palm behind your buttocks and your left hand on your raised knee. Both hands stay without touching."
     },
     {
       "id": "pose_195_sexy_seated_half_m_leg_open",
@@ -2003,7 +2197,8 @@
         "반M자",
         "손 무릎 위"
       ],
-      "description": "오른 다리는 접고 왼다리만 옆으로 벌려 앉아 왼손을 벌린 무릎 위에 올리듯 하고 상체를 살짝 왼쪽으로 기울인다. 손은 무릎에 닿지 않고 바짝 다가간다."
+      "description": "오른 다리는 접고 왼다리만 옆으로 벌려 앉아 왼손을 벌린 무릎 위에 올리듯 하고 상체를 살짝 왼쪽으로 기울인다. 손은 무릎에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Fold your right leg, sit with your left leg spread to the side, place your left hand on your open knee, and tilt your upper body slightly to the left. The hands move closer to the knees without touching them."
     },
     {
       "id": "pose_196_sexy_seated_sports_knees_open",
@@ -2014,7 +2209,8 @@
         "체육좌",
         "손 무릎 위"
       ],
-      "description": "무릎을 세워 발바닥을 붙이고 무릎을 살짝 벌린 체육좌로 앉아 두 손을 무릎 위에 올리듯 하고 상체를 편안히 둔다. 손은 무릎에 닿지 않고 바짝 다가간다."
+      "description": "무릎을 세워 발바닥을 붙이고 무릎을 살짝 벌린 체육좌로 앉아 두 손을 무릎 위에 올리듯 하고 상체를 편안히 둔다. 손은 무릎에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Sit on a gym chair with your knees raised, the soles of your feet together, and your knees slightly apart. Place your hands on your knees and place your upper body comfortably. The hands move closer to the knees without touching them."
     },
     {
       "id": "pose_197_sexy_kneel_arched_hands_behind_head",
@@ -2025,7 +2221,8 @@
         "손 머리 뒤",
         "젖히기"
       ],
-      "description": "무릎 꿇고 등을 젖혀 턱을 든 채 양손을 머리 뒤에 모으듯 하고 팔꿈치를 위바깥으로 벌린다. 손은 머리에 닿지 않고 바짝 다가간다."
+      "description": "무릎 꿇고 등을 젖혀 턱을 든 채 양손을 머리 뒤에 모으듯 하고 팔꿈치를 위바깥으로 벌린다. 손은 머리에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Kneel down, tilt your back, lift your chin, place your hands behind your head, and spread your elbows outward. The hands move closer without touching the head."
     },
     {
       "id": "pose_198_sexy_all_fours_arched_look_forward",
@@ -2036,7 +2233,8 @@
         "네 발 엎드리기",
         "젖히기"
       ],
-      "description": "두 무릎을 꿇고 양팔을 뻗어 두 손을 앞쪽에 두며 등을 완만하게 젖혀 고개를 들어 정면을 향한다."
+      "description": "두 무릎을 꿇고 양팔을 뻗어 두 손을 앞쪽에 두며 등을 완만하게 젖혀 고개를 들어 정면을 향한다.",
+      "descriptionEn": "Kneel on both knees, stretch out both arms, place both hands in front of you, gently tilt your back and raise your head to face the front."
     },
     {
       "id": "pose_199_sexy_kneel_wide_knees_lowered",
@@ -2046,7 +2244,8 @@
         "무릎 꿇기",
         "무릎 벌리기"
       ],
-      "description": "무릎을 양옆으로 넓게 벌리고 엉덩이를 낮춰 앉아 상체를 똑바로 세우고 두 손을 허벅지 위에 얹는다."
+      "description": "무릎을 양옆으로 넓게 벌리고 엉덩이를 낮춰 앉아 상체를 똑바로 세우고 두 손을 허벅지 위에 얹는다.",
+      "descriptionEn": "Spread your knees wide to the sides, sit with your hips lowered, keep your upper body upright, and place both hands on your thighs."
     },
     {
       "id": "pose_200_sexy_seiza_hair_rake",
@@ -2057,7 +2256,8 @@
         "정좌",
         "머리 넘기기"
       ],
-      "description": "정좌로 앉아 등을 살짝 젖힌 채 오른손으로 머리카락을 쓸어올리듯 하고 왼손은 허벅지 위에 얹는다. 오른손가락은 머리에 닿지 않고 바짝 다가간다."
+      "description": "정좌로 앉아 등을 살짝 젖힌 채 오른손으로 머리카락을 쓸어올리듯 하고 왼손은 허벅지 위에 얹는다. 오른손가락은 머리에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Sit up straight, with your back slightly tilted, and place your right hand as if sweeping your hair and your left hand on your thigh. The right finger approaches the head without touching it."
     },
     {
       "id": "pose_201_sexy_one_knee_hand_on_thigh",
@@ -2068,7 +2268,8 @@
         "한쪽 무릎 세우기",
         "손 허벅지 위"
       ],
-      "description": "오른무릎을 꿇고 왼발을 앞에 붙여 왼무릎을 세우며 상체를 똑바로 세우고 두 손을 왼허벅지 위에 올리듯 한다. 손은 허벅지에 닿지 않고 바짝 다가간다."
+      "description": "오른무릎을 꿇고 왼발을 앞에 붙여 왼무릎을 세우며 상체를 똑바로 세우고 두 손을 왼허벅지 위에 올리듯 한다. 손은 허벅지에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Kneel on your right knee, place your left foot in front of you, raise your left knee, straighten your upper body, and place both hands on your left thigh. The hand moves closer without touching the thigh."
     },
     {
       "id": "pose_202_sexy_kneel_riding_hands_front",
@@ -2079,7 +2280,8 @@
         "걸터앉기",
         "앞으로 뻗기"
       ],
-      "description": "무릎을 양옆으로 벌리고 엉덩이를 낮춰 걸터앉는 듯한 자세로 상체를 앞으로 기울이고 두 팔을 앞아래로 뻗어 손가락을 앞바닥을 향해 내린다. 다리 벌림은 무리하지 않은 범위이며, 손가락은 바닥에 닿지 않고 허공에 머문다."
+      "description": "무릎을 양옆으로 벌리고 엉덩이를 낮춰 걸터앉는 듯한 자세로 상체를 앞으로 기울이고 두 팔을 앞아래로 뻗어 손가락을 앞바닥을 향해 내린다. 다리 벌림은 무리하지 않은 범위이며, 손가락은 바닥에 닿지 않고 허공에 머문다.",
+      "descriptionEn": "Spread your knees to the sides, lower your hips, tilt your upper body forward in a sitting position, extend both arms forward and down, and lower your fingers toward the floor in front of you. Spread your legs within a reasonable range, and keep your fingers in the air without touching the floor."
     },
     {
       "id": "pose_203_sexy_kneel_riding_hair_rake",
@@ -2090,7 +2292,8 @@
         "걸터앉기",
         "머리 넘기기"
       ],
-      "description": "무릎을 양옆으로 벌리고 엉덩이를 낮춰 앉아 등을 젖히며 오른손으로 머리카락을 쓸어올리듯 하고 왼손은 허벅지 위에 얹는다. 다리 벌림은 무리하지 않은 범위이며, 오른손가락은 머리에 닿지 않고 바짝 다가간다."
+      "description": "무릎을 양옆으로 벌리고 엉덩이를 낮춰 앉아 등을 젖히며 오른손으로 머리카락을 쓸어올리듯 하고 왼손은 허벅지 위에 얹는다. 다리 벌림은 무리하지 않은 범위이며, 오른손가락은 머리에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Spread your knees to the sides, sit with your hips lowered, tilt your back, and place your right hand as if sweeping your hair, with your left hand on your thigh. The legs are spread within a reasonable range, and the right fingers are brought close to the head without touching it."
     },
     {
       "id": "pose_204_sexy_kneel_arched_hands_on_heels",
@@ -2101,7 +2304,8 @@
         "젖히기",
         "손 발꿈치"
       ],
-      "description": "무릎 꿇고 등을 젖혀 엉덩이를 앞으로 내밀며 양팔을 뒤아래로 뻗어 손을 뒷꿈치 쪽에 두는 듯한다. 손은 발에 닿지 않고 바짝 다가간다."
+      "description": "무릎 꿇고 등을 젖혀 엉덩이를 앞으로 내밀며 양팔을 뒤아래로 뻗어 손을 뒷꿈치 쪽에 두는 듯한다. 손은 발에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Kneel down, tilt your back, stick your hips forward, extend your arms behind you, and place your hands on your heels. The hands move closer to the feet without touching them."
     },
     {
       "id": "pose_205_sexy_kneel_twist_arm_up",
@@ -2112,7 +2316,8 @@
         "허리 틀기",
         "한 팔 들기"
       ],
-      "description": "무릎 꿇은 채 허리를 왼쪽으로 틀고 왼팔을 위로 쭉 뻗어 올리며 오른팔은 편안히 내리고 고개는 든 손 쪽으로 돌린다."
+      "description": "무릎 꿇은 채 허리를 왼쪽으로 틀고 왼팔을 위로 쭉 뻗어 올리며 오른팔은 편안히 내리고 고개는 든 손 쪽으로 돌린다.",
+      "descriptionEn": "Kneel down, turn your waist to the left, extend your left arm straight up, lower your right arm comfortably, and turn your head toward the raised hand."
     },
     {
       "id": "pose_206_sexy_all_fours_cat_pose",
@@ -2123,7 +2328,8 @@
         "네 발 엎드리기",
         "등 말기"
       ],
-      "description": "두 무릎과 두 손을 바닥 쪽에 두고 등을 위로 둥글게 말고 고개를 아래로 숙인다."
+      "description": "두 무릎과 두 손을 바닥 쪽에 두고 등을 위로 둥글게 말고 고개를 아래로 숙인다.",
+      "descriptionEn": "Place both knees and hands on the floor, round your back upward, and lower your head down."
     },
     {
       "id": "pose_207_sexy_all_fours_leg_raised_back",
@@ -2134,7 +2340,8 @@
         "네 발 엎드리기",
         "다리 들기"
       ],
-      "description": "네 발로 엎드린 채 왼다리를 뒤위로 들어 올릴 수 있는 높이까지 뻗어 발끝을 세우고 고개는 앞을 향한다. 든 다리는 수직까지 올리지 않는다."
+      "description": "네 발로 엎드린 채 왼다리를 뒤위로 들어 올릴 수 있는 높이까지 뻗어 발끝을 세우고 고개는 앞을 향한다. 든 다리는 수직까지 올리지 않는다.",
+      "descriptionEn": "Lie down on all fours, raise your left leg behind you, extend it as high as you can, point your toes, and turn your head forward. Do not raise the raised leg to vertical."
     },
     {
       "id": "pose_208_sexy_seiza_open_hands_front_floor",
@@ -2145,7 +2352,8 @@
         "정좌",
         "앞으로 뻗기"
       ],
-      "description": "정좌에서 무릎을 양옆으로 벌리고 상체를 앞으로 숙여 두 팔을 앞아래로 뻗어 손가락을 앞바닥을 향해 내린다. 손가락은 바닥에 닿지 않고 허공에 머문다."
+      "description": "정좌에서 무릎을 양옆으로 벌리고 상체를 앞으로 숙여 두 팔을 앞아래로 뻗어 손가락을 앞바닥을 향해 내린다. 손가락은 바닥에 닿지 않고 허공에 머문다.",
+      "descriptionEn": "From a sitting position, spread your knees to the sides, bend your upper body forward, extend both arms forward and down, and lower your fingers toward the floor in front of you. The fingers stay in the air without touching the floor."
     },
     {
       "id": "pose_209_sexy_kneel_hips_forward",
@@ -2156,7 +2364,8 @@
         "젖히기",
         "엉덩이 내밀기"
       ],
-      "description": "무릎 꿇고 엉덩이를 앞으로 내밀며 등을 살짝 젖혀 턱을 들고, 두 팔은 뒤쪽으로 편안히 내린다."
+      "description": "무릎 꿇고 엉덩이를 앞으로 내밀며 등을 살짝 젖혀 턱을 들고, 두 팔은 뒤쪽으로 편안히 내린다.",
+      "descriptionEn": "Kneel down, push your hips forward, slightly tilt your back, lift your chin, and lower your arms comfortably behind you."
     },
     {
       "id": "pose_210_sexy_kneel_side_hand_curve",
@@ -2167,7 +2376,8 @@
         "옆으로 기대기",
         "S자"
       ],
-      "description": "무릎 꿇은 채 오른손바닥을 옆 바닥 쪽으로 내밀어 기대는 듯하고 왼팔은 위로 크게 돌려 상체를 S자로 굽히며 고개를 기울인다. 오른손은 바닥에 닿지 않고 허공에 머문다."
+      "description": "무릎 꿇은 채 오른손바닥을 옆 바닥 쪽으로 내밀어 기대는 듯하고 왼팔은 위로 크게 돌려 상체를 S자로 굽히며 고개를 기울인다. 오른손은 바닥에 닿지 않고 허공에 머문다.",
+      "descriptionEn": "Kneel down and put your right palm out toward the floor next to you, as if you are leaning on it. Turn your left arm wide upward, bend your upper body into an S shape, and tilt your head. The right hand stays in the air without touching the floor."
     },
     {
       "id": "pose_211_sexy_kneel_hand_to_heel_arched",
@@ -2178,7 +2388,8 @@
         "젖히기",
         "손 발꿈치"
       ],
-      "description": "무릎 꿇고 등을 젖혀 턱을 든 채 오른팔을 뒤로 뻗어 손을 뒷꿈치 쪽에 두는 듯하고 왼팔은 앞으로 벌려 균형을 잡는다. 오른손은 발에 닿지 않고 바짝 다가간다."
+      "description": "무릎 꿇고 등을 젖혀 턱을 든 채 오른팔을 뒤로 뻗어 손을 뒷꿈치 쪽에 두는 듯하고 왼팔은 앞으로 벌려 균형을 잡는다. 오른손은 발에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Kneel down, tilt your back, raise your chin, extend your right arm back, place your hand on your heel, and spread your left arm forward for balance. The right hand approaches the foot without touching it."
     },
     {
       "id": "pose_212_sexy_side_lying_waist_curve_knee_bent",
@@ -2189,7 +2400,8 @@
         "옆으로 눕기",
         "무릎 세우기"
       ],
-      "description": "오른쪽 옆구리를 바닥에 대고 누워 허리를 곡선으로 굽히며 위쪽 무릎을 앞으로 당겨 굽히고 아래 다리는 뻗는다. 위쪽 팔은 앞으로 두고 고개를 살짝 든다."
+      "description": "오른쪽 옆구리를 바닥에 대고 누워 허리를 곡선으로 굽히며 위쪽 무릎을 앞으로 당겨 굽히고 아래 다리는 뻗는다. 위쪽 팔은 앞으로 두고 고개를 살짝 든다.",
+      "descriptionEn": "Lie on your right side on the floor, bend your lower back, pull your upper knee forward and bend it, and extend your lower leg. Place your upper arm forward and slightly raise your head."
     },
     {
       "id": "pose_213_sexy_prone_cheek_prop_feet_up",
@@ -2200,7 +2412,8 @@
         "엎드리기",
         "턱 괴기"
       ],
-      "description": "엎드려 왼손바닥에 턱을 얹듯 하고 왼팔꿈치를 바닥 쪽에 두며 오른팔은 앞으로 편안히 두고, 두 무릎을 굽혀 뒤꿈치를 위로 든다. 손바닥은 턱에 닿지 않고 바짝 다가간다."
+      "description": "엎드려 왼손바닥에 턱을 얹듯 하고 왼팔꿈치를 바닥 쪽에 두며 오른팔은 앞으로 편안히 두고, 두 무릎을 굽혀 뒤꿈치를 위로 든다. 손바닥은 턱에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Lie face down, rest your chin on your left palm, place your left elbow on the floor, place your right arm comfortably in front of you, and bend both knees and lift your heels up. The palm approaches the chin without touching it."
     },
     {
       "id": "pose_214_sexy_prone_torso_up_big_arch",
@@ -2211,7 +2424,8 @@
         "엎드리기",
         "젖히기"
       ],
-      "description": "엎드린 채 상체를 일으켜 등을 깊이 젖히고 턱을 들어 정면을 향하며, 두 팔은 뒤로 뻗어 몸 옆에 두고 다리는 쭉 뻗어 발끝을 세운다."
+      "description": "엎드린 채 상체를 일으켜 등을 깊이 젖히고 턱을 들어 정면을 향하며, 두 팔은 뒤로 뻗어 몸 옆에 두고 다리는 쭉 뻗어 발끝을 세운다.",
+      "descriptionEn": "Lie down on your stomach, raise your upper body, tilt your back deeply, lift your chin and face the front, extend both arms behind you and place them next to your body, straighten your legs, and point your toes."
     },
     {
       "id": "pose_215_sexy_supine_back_float_leg_high",
@@ -2222,7 +2436,8 @@
         "바로 눕기",
         "다리 들기"
       ],
-      "description": "바로 누워 등과 엉덩이를 살짝 띄워 아치형으로 만들고 왼다리를 들어 올릴 수 있는 높이까지 뻗으며 오른다리는 바닥에 뻗어 둔다. 양팔은 옆에 편안히 둔다."
+      "description": "바로 누워 등과 엉덩이를 살짝 띄워 아치형으로 만들고 왼다리를 들어 올릴 수 있는 높이까지 뻗으며 오른다리는 바닥에 뻗어 둔다. 양팔은 옆에 편안히 둔다.",
+      "descriptionEn": "Lie down on your back, slightly lift your back and buttocks into an arch shape, extend your left leg to a height that allows you to lift it, and place your right leg on the floor. Place both arms comfortably at your sides."
     },
     {
       "id": "pose_216_sexy_supine_knees_together_tilted",
@@ -2233,7 +2448,8 @@
         "바로 눕기",
         "무릎 모으기"
       ],
-      "description": "바로 누워 두 무릎을 모아 세운 채 왼쪽으로 기울이고 발을 바닥 쪽에 두며, 양팔은 옆에 둔다. 두 무릎은 맞닿지 않고 바짝 다가간다."
+      "description": "바로 누워 두 무릎을 모아 세운 채 왼쪽으로 기울이고 발을 바닥 쪽에 두며, 양팔은 옆에 둔다. 두 무릎은 맞닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Lie down on your back with your knees together, tilt to the left, place your feet on the floor, and place your arms by your sides. The two knees do not touch but are brought close together."
     },
     {
       "id": "pose_217_sexy_prone_on_elbows_legs_open",
@@ -2244,7 +2460,8 @@
         "엎드리기",
         "팔꿈치 기대기"
       ],
-      "description": "엎드려 양쪽 팔꿈치를 어깨 밑에 대고 아래팔을 앞으로 모아 쉬며, 턱을 들어 정면을 향하고 다리를 살짝 벌려 쭉 뻗는다."
+      "description": "엎드려 양쪽 팔꿈치를 어깨 밑에 대고 아래팔을 앞으로 모아 쉬며, 턱을 들어 정면을 향하고 다리를 살짝 벌려 쭉 뻗는다.",
+      "descriptionEn": "Lie face down, put both elbows under your shoulders, rest your forearms in front of you, lift your chin, face the front, and spread your legs slightly and stretch them out."
     },
     {
       "id": "pose_218_sexy_side_lying_arms_overhead_s",
@@ -2255,7 +2472,8 @@
         "옆으로 눕기",
         "팔 뻗기"
       ],
-      "description": "오른쪽 옆구리를 대고 누워 왼팔을 머리 위로 길게 뻗고 상체를 S자로 굽히며, 다리는 모아 뻗고 고개를 기울인다."
+      "description": "오른쪽 옆구리를 대고 누워 왼팔을 머리 위로 길게 뻗고 상체를 S자로 굽히며, 다리는 모아 뻗고 고개를 기울인다.",
+      "descriptionEn": "Lie on your right side, extend your left arm long above your head, bend your upper body into an S shape, extend your legs together and tilt your head."
     },
     {
       "id": "pose_219_sexy_side_lying_bed_invitation",
@@ -2266,7 +2484,8 @@
         "옆으로 눕기",
         "턱 괴기"
       ],
-      "description": "옆으로 누워 정면을 향해 살짝 돌아 왼손바닥에 머리를 기대듯 하고 팔꿈치를 바닥 쪽에 두며, 위쪽 무릎을 앞으로 당겨 굽히고 아래 다리는 뻗는다. 손바닥은 머리에 닿지 않고 바짝 다가간다."
+      "description": "옆으로 누워 정면을 향해 살짝 돌아 왼손바닥에 머리를 기대듯 하고 팔꿈치를 바닥 쪽에 두며, 위쪽 무릎을 앞으로 당겨 굽히고 아래 다리는 뻗는다. 손바닥은 머리에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Lie on your side, turn slightly toward the front, rest your head on your left palm, place your elbow on the floor, pull your upper knee forward, bend it, and extend your lower leg. The palms are brought close to the head without touching it."
     },
     {
       "id": "pose_220_sexy_prone_butt_high",
@@ -2277,7 +2496,8 @@
         "엎드리기",
         "엉덩이 들기"
       ],
-      "description": "엎드린 채 무릎을 꿇어 엉덩이를 높이 들고 상체를 낮춰 가슴을 바닥 쪽으로 내리며, 두 팔을 앞으로 쭉 뻗어 손가락을 앞바닥을 향해 내린다. 손가락은 바닥에 닿지 않고 허공에 머문다."
+      "description": "엎드린 채 무릎을 꿇어 엉덩이를 높이 들고 상체를 낮춰 가슴을 바닥 쪽으로 내리며, 두 팔을 앞으로 쭉 뻗어 손가락을 앞바닥을 향해 내린다. 손가락은 바닥에 닿지 않고 허공에 머문다.",
+      "descriptionEn": "Lie face down on your knees, raise your hips high, lower your upper body, lower your chest toward the floor, extend both arms forward, and lower your fingers toward the floor in front of you. The fingers stay in the air without touching the floor."
     },
     {
       "id": "pose_221_sexy_supine_v_legs_up",
@@ -2288,7 +2508,8 @@
         "바로 눕기",
         "V자"
       ],
-      "description": "바로 누워 두 다리를 들어 V자로 벌리되 관절이 닿는 범위까지만 들고, 발끝을 세우며 양팔은 옆에 둔다. 완전히 수직으로 세우지 않는다."
+      "description": "바로 누워 두 다리를 들어 V자로 벌리되 관절이 닿는 범위까지만 들고, 발끝을 세우며 양팔은 옆에 둔다. 완전히 수직으로 세우지 않는다.",
+      "descriptionEn": "Lie down on your back, raise your legs and spread them in a V shape, but only as far as your joints can reach. Place your toes straight and your arms at your sides. Do not stand completely vertically."
     },
     {
       "id": "pose_222_sexy_supine_arched_arms_overhead",
@@ -2300,7 +2521,8 @@
         "젖히기",
         "두 팔 들기"
       ],
-      "description": "바로 누워 등을 살짝 젖히고 턱을 들며 양팔을 머리 위로 길게 뻗고, 다리는 모아 뻗는다."
+      "description": "바로 누워 등을 살짝 젖히고 턱을 들며 양팔을 머리 위로 길게 뻗고, 다리는 모아 뻗는다.",
+      "descriptionEn": "Lie down on your back, slightly tilt your back, lift your chin, extend both arms long above your head, and extend your legs together."
     },
     {
       "id": "pose_223_sexy_prone_look_back_knee_side",
@@ -2311,7 +2533,8 @@
         "엎드리기",
         "뒤돌아보기"
       ],
-      "description": "엎드린 채 상체와 고개를 오른쪽으로 돌려 뒤를 돌아보고, 왼무릎을 옆으로 당겨 세우듯 굽히며 오른다리는 뒤로 뻗고 양팔은 앞으로 둔다."
+      "description": "엎드린 채 상체와 고개를 오른쪽으로 돌려 뒤를 돌아보고, 왼무릎을 옆으로 당겨 세우듯 굽히며 오른다리는 뒤로 뻗고 양팔은 앞으로 둔다.",
+      "descriptionEn": "Lie face down, turn your upper body and head to the right to look back, bend your left knee as if pulling it to the side, extend your right leg behind you, and place both arms forward."
     },
     {
       "id": "pose_224_sexy_side_lying_leg_high_hold_ankle",
@@ -2322,7 +2545,8 @@
         "옆으로 눕기",
         "발목 잡기"
       ],
-      "description": "옆으로 누워 위쪽 다리를 들어 올릴 수 있는 높이까지 올리고 왼손을 발목 쪽으로 뻗으며, 아래 다리는 뻗고 오른팔은 앞으로 둔다. 손은 발목에 닿지 않고 바짝 다가간다."
+      "description": "옆으로 누워 위쪽 다리를 들어 올릴 수 있는 높이까지 올리고 왼손을 발목 쪽으로 뻗으며, 아래 다리는 뻗고 오른팔은 앞으로 둔다. 손은 발목에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Lie on your side, raise your upper leg as high as you can, extend your left hand toward your ankle, extend your lower leg, and place your right arm in front of you. The hand moves closer to the ankle without touching it."
     },
     {
       "id": "pose_225_sexy_supine_knees_up_arm_overhead",
@@ -2334,7 +2558,8 @@
         "무릎 세우기",
         "한 팔 들기"
       ],
-      "description": "바로 누워 두 무릎을 세워 발을 바닥 쪽에 두고 왼팔은 머리 위로 뻗으며 오른팔은 옆에 둔다."
+      "description": "바로 누워 두 무릎을 세워 발을 바닥 쪽에 두고 왼팔은 머리 위로 뻗으며 오른팔은 옆에 둔다.",
+      "descriptionEn": "Lie down on your back, raise both knees, place your feet on the floor, extend your left arm above your head, and place your right arm by your side."
     },
     {
       "id": "pose_226_sexy_prone_frog_legs",
@@ -2345,7 +2570,8 @@
         "엎드리기",
         "개구리 다리"
       ],
-      "description": "엎드려 무릎을 굽혀 양옆으로 벌리되 관절이 닿는 범위까지만 벌리고 뒤꿈치를 위로 들며, 왼손바닥에 턱을 얹듯 한다. 손바닥은 턱에 닿지 않고 바짝 다가간다."
+      "description": "엎드려 무릎을 굽혀 양옆으로 벌리되 관절이 닿는 범위까지만 벌리고 뒤꿈치를 위로 들며, 왼손바닥에 턱을 얹듯 한다. 손바닥은 턱에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Lie face down, bend your knees and spread them to the sides, but only as far as your joints can reach. Lift your heels up, as if resting your chin on the palm of your left hand. The palm approaches the chin without touching it."
     },
     {
       "id": "pose_227_sexy_side_lying_back_view_butt_line",
@@ -2356,7 +2582,8 @@
         "옆으로 눕기",
         "등 보이기"
       ],
-      "description": "오른쪽 옆구리를 대고 누워 엉덩이를 뒤로 두고 위쪽 무릎을 앞으로 당겨 굽히며, 상체를 굽혀 등 라인을 보이고 고개를 어깨 너머로 돌리고 왼손은 엉덩이 쪽에 둔다."
+      "description": "오른쪽 옆구리를 대고 누워 엉덩이를 뒤로 두고 위쪽 무릎을 앞으로 당겨 굽히며, 상체를 굽혀 등 라인을 보이고 고개를 어깨 너머로 돌리고 왼손은 엉덩이 쪽에 둔다.",
+      "descriptionEn": "Lie on your right side, place your buttocks behind you, pull your upper knee forward and bend it, bend your upper body to show your back line, turn your head over your shoulder, and place your left hand on your hip."
     },
     {
       "id": "pose_228_sexy_supine_knees_to_chest",
@@ -2367,7 +2594,8 @@
         "바로 눕기",
         "무릎 끌어안기"
       ],
-      "description": "바로 누워 두 무릎을 가슴 쪽으로 당겨 양팔로 정강이를 감싸듯 하고 턱을 살짝 당긴다. 손은 다리에 닿지 않고 바짝 다가간다."
+      "description": "바로 누워 두 무릎을 가슴 쪽으로 당겨 양팔로 정강이를 감싸듯 하고 턱을 살짝 당긴다. 손은 다리에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Lie down on your back, pull your knees toward your chest, wrap your arms around your shins, and pull your chin slightly. The hand moves closer without touching the leg."
     },
     {
       "id": "pose_229_sexy_prone_cheek_prop_one_leg_up",
@@ -2379,7 +2607,8 @@
         "턱 괴기",
         "다리 들기"
       ],
-      "description": "엎드려 왼손바닥에 턱을 얹듯 하고 왼무릎을 굽혀 뒤꿈치를 위로 들며 오른다리는 뒤로 쭉 뻗어 발끝을 세운다. 손바닥은 턱에 닿지 않고 바짝 다가간다."
+      "description": "엎드려 왼손바닥에 턱을 얹듯 하고 왼무릎을 굽혀 뒤꿈치를 위로 들며 오른다리는 뒤로 쭉 뻗어 발끝을 세운다. 손바닥은 턱에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Lie face down, place your chin on your left palm, bend your left knee, lift your heel up, and extend your right leg backwards with your toes pointed up. The palm approaches the chin without touching it."
     },
     {
       "id": "pose_230_sexy_supine_knee_dropped_open",
@@ -2390,7 +2619,8 @@
         "바로 눕기",
         "무릎 넘기기"
       ],
-      "description": "바로 누워 왼무릎을 세워 바깥쪽으로 넘겨 관절이 닿는 범위까지만 열고 오른다리는 뻗은 채 두며, 양팔은 옆에 둔다."
+      "description": "바로 누워 왼무릎을 세워 바깥쪽으로 넘겨 관절이 닿는 범위까지만 열고 오른다리는 뻗은 채 두며, 양팔은 옆에 둔다.",
+      "descriptionEn": "Lie down on your back, raise your left knee, turn it outward, open it only as far as the joint can reach, keep your right leg extended, and place both arms at your sides."
     },
     {
       "id": "pose_231_sexy_elbow_prop_knee_up",
@@ -2401,7 +2631,8 @@
         "엎드리기",
         "팔꿈치 기대기"
       ],
-      "description": "두 팔꿈치를 대고 상체를 일으킨 채 왼무릎을 앞으로 당겨 굽혀 세우고 오른다리는 뒤로 뻗으며, 고개를 들어 정면을 향한다."
+      "description": "두 팔꿈치를 대고 상체를 일으킨 채 왼무릎을 앞으로 당겨 굽혀 세우고 오른다리는 뒤로 뻗으며, 고개를 들어 정면을 향한다.",
+      "descriptionEn": "Raise your upper body with both elbows, pull your left knee forward and bend it, extend your right leg behind you, and raise your head to face the front."
     },
     {
       "id": "pose_232_sexy_bridge_hips_high_knees_open",
@@ -2412,7 +2643,8 @@
         "브리지",
         "무릎 벌리기"
       ],
-      "description": "어깨와 발을 바닥 쪽에 두고 엉덩이를 들어 올릴 수 있는 높이까지만 들어 무릎을 살짝 벌리고, 양팔은 옆에 둔다. 완전한 아치가 아니라 낮게 든 형태이다."
+      "description": "어깨와 발을 바닥 쪽에 두고 엉덩이를 들어 올릴 수 있는 높이까지만 들어 무릎을 살짝 벌리고, 양팔은 옆에 둔다. 완전한 아치가 아니라 낮게 든 형태이다.",
+      "descriptionEn": "Place your shoulders and feet on the floor, lift your hips as high as you can, spread your knees slightly, and place your arms by your sides. It is not a complete arch, but rather a low raised shape."
     },
     {
       "id": "pose_233_sexy_rolling_hug_thighs_side",
@@ -2423,7 +2655,8 @@
         "구르기",
         "무릎 끌어안기"
       ],
-      "description": "등을 말아 어깨 쪽으로 기대고 무릎을 얼굴 쪽으로 당길 수 있는 범위까지 당겨 양팔로 허벅지를 감싸듯 하며 턱을 당긴다. 머리 너머로 다리가 넘어가지 않는다."
+      "description": "등을 말아 어깨 쪽으로 기대고 무릎을 얼굴 쪽으로 당길 수 있는 범위까지 당겨 양팔로 허벅지를 감싸듯 하며 턱을 당긴다. 머리 너머로 다리가 넘어가지 않는다.",
+      "descriptionEn": "Roll your back, lean toward your shoulders, pull your knees toward your face as far as you can, wrap your arms around your thighs, and pull in your chin. The legs do not go beyond the head."
     },
     {
       "id": "pose_234_sexy_rolling_legs_over_side",
@@ -2434,7 +2667,8 @@
         "구르기",
         "다리 넘기기"
       ],
-      "description": "어깨 쪽으로 굴러 두 다리를 머리 쪽으로 뻗되 관절이 닿는 범위까지만 뻗어 발끝을 세우고, 양팔은 옆에 둔다. 발이 바닥에 닿지 않는다."
+      "description": "어깨 쪽으로 굴러 두 다리를 머리 쪽으로 뻗되 관절이 닿는 범위까지만 뻗어 발끝을 세우고, 양팔은 옆에 둔다. 발이 바닥에 닿지 않는다.",
+      "descriptionEn": "Roll toward your shoulders and extend both legs toward your head, but only as far as your joints can reach, with your toes upright and your arms at your sides. Feet do not touch the floor."
     },
     {
       "id": "pose_235_sexy_rolling_knees_beside_head",
@@ -2445,7 +2679,8 @@
         "구르기",
         "무릎 벌리기"
       ],
-      "description": "어깨 쪽으로 굴러 무릎을 굽혀 벌리며 머리 옆 바닥 쪽으로 가져가되 관절이 닿는 범위까지만 가져가고, 양팔은 편안히 둔다. 무릎이 바닥에 닿지 않는다."
+      "description": "어깨 쪽으로 굴러 무릎을 굽혀 벌리며 머리 옆 바닥 쪽으로 가져가되 관절이 닿는 범위까지만 가져가고, 양팔은 편안히 둔다. 무릎이 바닥에 닿지 않는다.",
+      "descriptionEn": "Roll toward your shoulders, bend your knees, open them, and bring them toward the floor next to your head, but only as far as your joints can reach, keeping both arms relaxed. Knees do not touch the floor."
     },
     {
       "id": "pose_236_sexy_squat_spread_yankee",
@@ -2455,7 +2690,8 @@
         "쪼그려 앉기",
         "다리 벌리기"
       ],
-      "description": "깊이 쪼그려 무릎을 양옆으로 벌리되 관절이 닿는 범위까지만 벌리고 상체를 앞으로 기울이며, 두 손을 무릎 쪽으로 내린다. 손은 무릎에 닿지 않고 바짝 다가간다."
+      "description": "깊이 쪼그려 무릎을 양옆으로 벌리되 관절이 닿는 범위까지만 벌리고 상체를 앞으로 기울이며, 두 손을 무릎 쪽으로 내린다. 손은 무릎에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Squat deeply and spread your knees to the sides, but only as far as your joints can reach. Lean your upper body forward and lower your hands toward your knees. The hands move closer to the knees without touching them."
     },
     {
       "id": "pose_237_sexy_tiptoe_squat_spread_hands_floor",
@@ -2466,7 +2702,8 @@
         "까치발",
         "바닥 짚기"
       ],
-      "description": "발볼로 서서 뒤꿈치를 들고 깊이 쪼그려 무릎을 벌리고 상체를 앞으로 접으며, 두 팔을 내려 손가락을 앞바닥을 향해 내린다. 손가락은 바닥에 닿지 않고 허공에 머문다."
+      "description": "발볼로 서서 뒤꿈치를 들고 깊이 쪼그려 무릎을 벌리고 상체를 앞으로 접으며, 두 팔을 내려 손가락을 앞바닥을 향해 내린다. 손가락은 바닥에 닿지 않고 허공에 머문다.",
+      "descriptionEn": "Stand on the balls of your feet, raise your heels, squat deeply, spread your knees, fold your upper body forward, and lower both arms and fingers towards the floor in front of you. The fingers stay in the air without touching the floor."
     },
     {
       "id": "pose_238_sexy_bridge_hands_feet",
@@ -2477,7 +2714,8 @@
         "브리지",
         "팔 뻗기"
       ],
-      "description": "엉덩이를 들어 올릴 수 있는 높이까지만 들고 발을 바닥에 붙이며, 두 팔은 머리 너머로 뻗되 어깨가 닿는 범위까지만 뻗는다. 손은 바닥에 닿지 않고 허공에 머문다."
+      "description": "엉덩이를 들어 올릴 수 있는 높이까지만 들고 발을 바닥에 붙이며, 두 팔은 머리 너머로 뻗되 어깨가 닿는 범위까지만 뻗는다. 손은 바닥에 닿지 않고 허공에 머문다.",
+      "descriptionEn": "Lift your hips only as high as you can, place your feet on the floor, and extend both arms beyond your head but only as far as your shoulders can reach. The hands stay in the air without touching the floor."
     },
     {
       "id": "pose_239_sexy_standing_split_bent_forward",
@@ -2487,7 +2725,8 @@
         "숙이기",
         "한 다리 들기"
       ],
-      "description": "왼발로만 서서 상체를 앞으로 숙이고 오른다리를 뒤위로 들어 올릴 수 있는 높이까지만 뻗으며, 두 팔은 아래로 늘어뜨려 손가락을 바닥을 향해 내린다. 든 다리는 수평까지 올라가지 않고 손가락은 바닥에 닿지 않는다."
+      "description": "왼발로만 서서 상체를 앞으로 숙이고 오른다리를 뒤위로 들어 올릴 수 있는 높이까지만 뻗으며, 두 팔은 아래로 늘어뜨려 손가락을 바닥을 향해 내린다. 든 다리는 수평까지 올라가지 않고 손가락은 바닥에 닿지 않는다.",
+      "descriptionEn": "Stand on only your left foot, bend your upper body forward, extend your right leg as high as you can lift it backwards, and hang both arms down and lower your fingers toward the floor. The raised leg does not rise to the level and the fingers do not touch the floor."
     },
     {
       "id": "pose_240_sexy_front_split_arched",
@@ -2498,7 +2737,8 @@
         "앞뒤 벌리기",
         "젖히기"
       ],
-      "description": "바닥에 앉아 왼다리는 앞으로 뻗고 오른무릎은 밑에 접어 완전한 앞뒤 벌리기가 아닌 형태로 앉아, 상체를 똑바로 세워 젖히고 양팔은 옆에 둔다."
+      "description": "바닥에 앉아 왼다리는 앞으로 뻗고 오른무릎은 밑에 접어 완전한 앞뒤 벌리기가 아닌 형태로 앉아, 상체를 똑바로 세워 젖히고 양팔은 옆에 둔다.",
+      "descriptionEn": "Sit on the floor with your left leg extended forward and your right knee folded underneath, rather than fully spread forward and backward. Sit with your upper body straight and stretched out, with your arms at your sides."
     },
     {
       "id": "pose_241_sexy_side_split_seated_up",
@@ -2508,7 +2748,8 @@
         "바닥",
         "양옆 벌리기"
       ],
-      "description": "바닥에 앉아 두 다리를 양옆으로 벌리되 완전한 일자 벌리기가 아닌 관절이 닿는 범위까지만 벌리고, 상체를 똑바로 세워 살짝 젖히며 두 손을 앞바닥 쪽으로 내린다. 손은 바닥에 닿지 않고 허공에 머문다."
+      "description": "바닥에 앉아 두 다리를 양옆으로 벌리되 완전한 일자 벌리기가 아닌 관절이 닿는 범위까지만 벌리고, 상체를 똑바로 세워 살짝 젖히며 두 손을 앞바닥 쪽으로 내린다. 손은 바닥에 닿지 않고 허공에 머문다.",
+      "descriptionEn": "Sit on the floor and spread your legs to the sides, but not completely straight, only as far as your joints can reach. Stand your upper body upright, slightly tilt it, and lower both hands toward the floor in front of you. The hands stay in the air without touching the floor."
     },
     {
       "id": "pose_242_sexy_shoulder_stand_v_legs",
@@ -2519,7 +2760,8 @@
         "어깨 기대기",
         "V자"
       ],
-      "description": "어깨 쪽을 바닥에 기대고 엉덩이를 들어 올릴 수 있는 높이까지만 들며 두 다리를 V자로 들어 수직까지 올리지 않고, 양팔은 머리 위로 뻗어 둔다."
+      "description": "어깨 쪽을 바닥에 기대고 엉덩이를 들어 올릴 수 있는 높이까지만 들며 두 다리를 V자로 들어 수직까지 올리지 않고, 양팔은 머리 위로 뻗어 둔다.",
+      "descriptionEn": "Lean your shoulders on the floor and lift your hips only as high as you can. Lift both legs in a V shape without raising them to vertical, and extend both arms above your head."
     },
     {
       "id": "pose_243_sexy_kneel_backbend_hands_floor",
@@ -2530,7 +2772,8 @@
         "젖히기",
         "바닥 짚기"
       ],
-      "description": "무릎 꿇고 등을 젖혀 턱을 든 채 두 팔을 뒤로 뻗어 손을 뒤쪽 바닥을 향해 내린다. 손은 바닥에 닿지 않고 허공에 머문다."
+      "description": "무릎 꿇고 등을 젖혀 턱을 든 채 두 팔을 뒤로 뻗어 손을 뒤쪽 바닥을 향해 내린다. 손은 바닥에 닿지 않고 허공에 머문다.",
+      "descriptionEn": "Kneel down, tilt your back, lift your chin, extend both arms back, and lower your hands toward the floor behind you. The hands stay in the air without touching the floor."
     },
     {
       "id": "pose_244_sexy_squat_spread_hands_behind_head",
@@ -2540,7 +2783,8 @@
         "쪼그려 앉기",
         "손 머리 뒤"
       ],
-      "description": "깊이 쪼그려 무릎을 벌리고 상체를 똑바로 세우며 양손을 머리 뒤에 모으듯 하고 팔꿈치를 위바깥으로 벌린다. 손은 머리에 닿지 않고 바짝 다가간다."
+      "description": "깊이 쪼그려 무릎을 벌리고 상체를 똑바로 세우며 양손을 머리 뒤에 모으듯 하고 팔꿈치를 위바깥으로 벌린다. 손은 머리에 닿지 않고 바짝 다가간다.",
+      "descriptionEn": "Squat deeply, spread your knees, straighten your upper body, place both hands behind your head, and spread your elbows upward and outward. The hands move closer without touching the head."
     },
     {
       "id": "pose_245_sexy_one_leg_bridge",
@@ -2551,7 +2795,8 @@
         "브리지",
         "다리 들기"
       ],
-      "description": "엉덩이를 들어 올릴 수 있는 높이까지만 들고 오른발을 바닥에 붙인 채 왼다리를 천장을 향해 들어 올릴 수 있는 높이까지만 뻗으며, 양팔은 옆에 둔다."
+      "description": "엉덩이를 들어 올릴 수 있는 높이까지만 들고 오른발을 바닥에 붙인 채 왼다리를 천장을 향해 들어 올릴 수 있는 높이까지만 뻗으며, 양팔은 옆에 둔다.",
+      "descriptionEn": "Raise your hips as high as you can, keep your right foot on the floor, and extend your left leg toward the ceiling as high as you can, with your arms at your sides."
     },
     {
       "id": "pose_246_sexy_table_pose_hips_up",
@@ -2562,7 +2807,8 @@
         "테이블 자세",
         "엉덩이 들기"
       ],
-      "description": "손과 발을 바닥 쪽에 두고 엉덩이를 들어 올릴 수 있는 높이까지만 들어 가슴이 천장을 향하게 하고 턱을 든다. 수평 탁자 형태가 아니라 낮게 든 형태이다."
+      "description": "손과 발을 바닥 쪽에 두고 엉덩이를 들어 올릴 수 있는 높이까지만 들어 가슴이 천장을 향하게 하고 턱을 든다. 수평 탁자 형태가 아니라 낮게 든 형태이다.",
+      "descriptionEn": "Place your hands and feet on the floor, lift your hips as high as you can, point your chest toward the ceiling, and lift your chin. It is not in the form of a horizontal table, but rather is held low."
     }
   ]
 }

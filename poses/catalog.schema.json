@@ -25,7 +25,7 @@
     "entry": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "name", "tags", "description"],
+      "required": ["id", "name", "tags", "description", "descriptionEn"],
       "properties": {
         "id": {
           "type": "string",
@@ -56,6 +56,11 @@
           "type": "string",
           "minLength": 1,
           "description": "Korean canonical description (정식 설명), one or two sentences, describing the joint data; left/right are the character's own."
+        },
+        "descriptionEn": {
+          "type": "string",
+          "minLength": 1,
+          "description": "English translation of the canonical Korean description."
         }
       }
     }
